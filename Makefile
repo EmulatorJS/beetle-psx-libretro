@@ -346,6 +346,8 @@ else ifeq ($(platform), emscripten)
    ifeq ($(EMULATORJS_THREADS), 1)
       PTHREAD_FLAGS = -pthread
       LDFLAGS += $(PTHREAD_FLAGS)
+      CXXFLAGS += $(PTHREAD_FLAGS)
+      CFLAGS += $(PTHREAD_FLAGS)
    else
       NEED_THREADING = 0
       THREADED_RECOMPILER = 0
