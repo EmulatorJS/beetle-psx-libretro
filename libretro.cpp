@@ -55,6 +55,16 @@ retro_input_state_t dbg_input_state_cb = 0;
 #endif
 #endif /* HAVE_LIGHTREC */
 
+#if __APPLE__
+#include <TargetConditionals.h>
+#if TARGET_OS_OSX
+#include <mach/shared_region.h>
+#include <sys/attr.h>
+#define __MACOS__ 1
+#define MACOS_VM_BASE (SHARED_REGION_BASE+SHARED_REGION_SIZE+ATTR_VOL_RESERVED_SIZE)
+#endif
+#endif
+
 //Fast Save States exclude string labels from variables in the savestate, and are at least 20% faster.
 extern "C" {
     extern bool FastSaveStates;
@@ -76,6 +86,7 @@ static retro_input_state_t input_state_cb;
 static unsigned frame_count = 0;
 static unsigned internal_frame_count = 0;
 static bool display_internal_framerate = false;
+static bool display_notifications = true;
 static bool allow_frame_duping = false;
 static bool failed_init = false;
 static unsigned image_offset = 0;
@@ -1669,10 +1680,14 @@ static void SetDiscWrapper(const bool CD_TrayOpen) {
 #endif
 
 static const uintptr_t supported_io_bases[] = {
+#if !__MACOS__
 	static_cast<uintptr_t>(0x00000000),
 	static_cast<uintptr_t>(0x10000000),
 	static_cast<uintptr_t>(0x20000000),
 	static_cast<uintptr_t>(0x30000000),
+#else
+   static_cast<uintptr_t>(MACOS_VM_BASE),
+#endif
 	static_cast<uintptr_t>(0x40000000),
 	static_cast<uintptr_t>(0x50000000),
 	static_cast<uintptr_t>(0x60000000),
@@ -3972,6 +3987,17 @@ static void check_variables(bool startup)
    else
       display_internal_framerate = false;
 
+   var.key = BEETLE_OPT(display_osd);
+   if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value)
+   {
+      if (strcmp(var.value, "enabled") == 0)
+         display_notifications = true;
+      else if (strcmp(var.value, "disabled") == 0)
+         display_notifications = false;
+   }
+   else
+      display_notifications = true;
+
    var.key = BEETLE_OPT(crop_overscan);
    if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value)
    {
@@ -4228,13 +4254,13 @@ static bool MDFNI_LoadGame(const char *name)
    RFILE *GameFile = NULL;
    size_t name_len = strlen(name);
 
-   if(name_len > 4 && (
-      !strcasecmp(name + name_len - 4, ".cue") ||
-      !strcasecmp(name + name_len - 4, ".ccd") ||
-      !strcasecmp(name + name_len - 4, ".toc") ||
-      !strcasecmp(name + name_len - 4, ".m3u") ||
-      !strcasecmp(name + name_len - 4, ".chd") ||
-      !strcasecmp(name + name_len - 4, ".pbp")
+   if(name_len > 3 && (
+      !strcasecmp(name + name_len - 3, "cue") ||
+      !strcasecmp(name + name_len - 3, "ccd") ||
+      !strcasecmp(name + name_len - 3, "toc") ||
+      !strcasecmp(name + name_len - 3, "m3u") ||
+      !strcasecmp(name + name_len - 3, "chd") ||
+      !strcasecmp(name + name_len - 3, "pbp")
       ))
     return MDFNI_LoadCD(name);
 
@@ -5278,27 +5304,30 @@ void MDFND_DispMessage(
       enum retro_message_target target, enum retro_message_type type,
       const char *str)
 {
-   if (libretro_msg_interface_version >= 1)
+   if (display_notifications)
    {
-      struct retro_message_ext msg = {
-         str,
-         3000,
-         priority,
-         level,
-         target,
-         type,
-         -1
-      };
-      environ_cb(RETRO_ENVIRONMENT_SET_MESSAGE_EXT, &msg);
-   }
-   else
-   {
-      struct retro_message msg =
+      if (libretro_msg_interface_version >= 1)
       {
-         str,
-         180
-      };
-      environ_cb(RETRO_ENVIRONMENT_SET_MESSAGE, &msg);
+         struct retro_message_ext msg = {
+            str,
+            3000,
+            priority,
+            level,
+            target,
+            type,
+            -1
+         };
+         environ_cb(RETRO_ENVIRONMENT_SET_MESSAGE_EXT, &msg);
+      }
+      else
+      {
+         struct retro_message msg =
+         {
+            str,
+            180
+         };
+         environ_cb(RETRO_ENVIRONMENT_SET_MESSAGE, &msg);
+      }
    }
 }
 
