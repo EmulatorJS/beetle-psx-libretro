@@ -149,7 +149,9 @@ RETRO_BEGIN_DECLS
 #define glBlendEquationSeparate     rglBlendEquationSeparate
 #define glCopyImageSubData          rglCopyImageSubData
 #define glMapBuffer                 rglMapBuffer
+#ifndef __EMSCRIPTEN__
 #define glUnmapBuffer               rglUnmapBuffer
+#endif
 #define glMapBufferRange            rglMapBufferRange
 #define glUniformBlockBinding       rglUniformBlockBinding
 #define glGetUniformBlockIndex      rglGetUniformBlockIndex
