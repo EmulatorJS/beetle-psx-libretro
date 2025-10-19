@@ -352,9 +352,9 @@ extern "C" {
 #define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_AR NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_LABEL_AR NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_INFO_0_AR NULL
+#define OPTION_VAL_AUTO_TOGGLE_AR NULL
 #define OPTION_VAL_FORCE_PROGRESSIVE_AR NULL
 #define OPTION_VAL_FORCE_INTERLACED_AR NULL
-#define OPTION_VAL_AUTO_TOGGLE_AR NULL
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_LABEL_AR NULL
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_AR NULL
 #define BEETLE_OPT_ASPECT_RATIO_LABEL_AR NULL
@@ -421,6 +421,10 @@ extern "C" {
 #define BEETLE_OPT_LAST_SCANLINE_PAL_LABEL_AR NULL
 #define BEETLE_OPT_LAST_SCANLINE_PAL_INFO_0_AR NULL
 #define OPTION_VAL_287_AR NULL
+#define BEETLE_OPT_DEINTERLACER_LABEL_AR NULL
+#define BEETLE_OPT_DEINTERLACER_INFO_0_AR NULL
+#define OPTION_VAL_WEAVE_AR NULL
+#define OPTION_VAL_BOB_AR NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_LABEL_AR NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_INFO_0_AR NULL
 #define OPTION_VAL_SYNC_AR NULL
@@ -1607,11 +1611,11 @@ struct retro_core_option_v2_definition option_defs_ar[] = {
       NULL,
       NULL,
       {
+         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_AR },
          { "force_progressive", OPTION_VAL_FORCE_PROGRESSIVE_AR },
          { "force_interlaced",  OPTION_VAL_FORCE_INTERLACED_AR },
-         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_AR },
       },
-      "force_progressive"
+      "auto_toggle"
    },
    {
       BEETLE_OPT(pal_video_timing_override),
@@ -2039,6 +2043,20 @@ struct retro_core_option_v2_definition option_defs_ar[] = {
       },
       "287"
    },
+   {
+      BEETLE_OPT(deinterlacer),
+      BEETLE_OPT_DEINTERLACER_LABEL_AR,
+      NULL,
+      BEETLE_OPT_DEINTERLACER_INFO_0_AR,
+      NULL,
+      "video",
+      {
+         { "weave",  OPTION_VAL_WEAVE_AR },
+         { "bob",  OPTION_VAL_BOB_AR },
+         { NULL, NULL },
+      },
+      "weave"
+   },
 #ifndef EMSCRIPTEN
    {
       BEETLE_OPT(cd_access_method),
@@ -2088,7 +2106,7 @@ struct retro_core_options_v2 options_ar = {
 #define CATEGORY_VIDEO_INFO_0_AST NULL
 #define CATEGORY_OSD_LABEL_AST NULL
 #define CATEGORY_OSD_INFO_0_AST NULL
-#define CATEGORY_INPUT_LABEL_AST "Entrada"
+#define CATEGORY_INPUT_LABEL_AST "Controles"
 #define CATEGORY_INPUT_INFO_0_AST NULL
 #define CATEGORY_MEMCARDS_LABEL_AST "Tarxeta de memoria"
 #define CATEGORY_MEMCARDS_INFO_0_AST NULL
@@ -2290,7 +2308,7 @@ struct retro_core_options_v2 options_ar = {
 #define BEETLE_OPT_LINE_RENDER_LABEL_AST NULL
 #define BEETLE_OPT_LINE_RENDER_INFO_0_AST NULL
 #define OPTION_VAL_DEFAULT_AST NULL
-#define OPTION_VAL_AGGRESSIVE_AST NULL
+#define OPTION_VAL_AGGRESSIVE_AST "Agresivu"
 #define BEETLE_OPT_WIDESCREEN_HACK_LABEL_AST NULL
 #define BEETLE_OPT_WIDESCREEN_HACK_INFO_0_AST NULL
 #define BEETLE_OPT_WIDESCREEN_HACK_ASPECT_RATIO_LABEL_AST NULL
@@ -2396,9 +2414,9 @@ struct retro_core_options_v2 options_ar = {
 #define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_AST NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_LABEL_AST NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_INFO_0_AST NULL
+#define OPTION_VAL_AUTO_TOGGLE_AST NULL
 #define OPTION_VAL_FORCE_PROGRESSIVE_AST NULL
 #define OPTION_VAL_FORCE_INTERLACED_AST NULL
-#define OPTION_VAL_AUTO_TOGGLE_AST NULL
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_LABEL_AST NULL
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_AST NULL
 #define BEETLE_OPT_ASPECT_RATIO_LABEL_AST "Proporción d'aspeutu del nucleu"
@@ -2465,6 +2483,10 @@ struct retro_core_options_v2 options_ar = {
 #define BEETLE_OPT_LAST_SCANLINE_PAL_LABEL_AST NULL
 #define BEETLE_OPT_LAST_SCANLINE_PAL_INFO_0_AST NULL
 #define OPTION_VAL_287_AST "287 (por defeutu)"
+#define BEETLE_OPT_DEINTERLACER_LABEL_AST NULL
+#define BEETLE_OPT_DEINTERLACER_INFO_0_AST NULL
+#define OPTION_VAL_WEAVE_AST NULL
+#define OPTION_VAL_BOB_AST NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_LABEL_AST "Métodu d'accesu a los CDs (ríquese reaniciar)"
 #define BEETLE_OPT_CD_ACCESS_METHOD_INFO_0_AST NULL
 #define OPTION_VAL_SYNC_AST "Síncronu"
@@ -3651,11 +3673,11 @@ struct retro_core_option_v2_definition option_defs_ast[] = {
       NULL,
       NULL,
       {
+         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_AST },
          { "force_progressive", OPTION_VAL_FORCE_PROGRESSIVE_AST },
          { "force_interlaced",  OPTION_VAL_FORCE_INTERLACED_AST },
-         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_AST },
       },
-      "force_progressive"
+      "auto_toggle"
    },
    {
       BEETLE_OPT(pal_video_timing_override),
@@ -4083,6 +4105,20 @@ struct retro_core_option_v2_definition option_defs_ast[] = {
       },
       "287"
    },
+   {
+      BEETLE_OPT(deinterlacer),
+      BEETLE_OPT_DEINTERLACER_LABEL_AST,
+      NULL,
+      BEETLE_OPT_DEINTERLACER_INFO_0_AST,
+      NULL,
+      "video",
+      {
+         { "weave",  OPTION_VAL_WEAVE_AST },
+         { "bob",  OPTION_VAL_BOB_AST },
+         { NULL, NULL },
+      },
+      "weave"
+   },
 #ifndef EMSCRIPTEN
    {
       BEETLE_OPT(cd_access_method),
@@ -4131,7 +4167,7 @@ struct retro_core_options_v2 options_ast = {
 #define CATEGORY_VIDEO_LABEL_BE "Відэа"
 #define CATEGORY_VIDEO_INFO_0_BE "Налады суадносін бакоў, кадравання, графічных фільтраў і пропуску кадраў."
 #define CATEGORY_OSD_LABEL_BE "Адлюстраванне на экране"
-#define CATEGORY_OSD_INFO_0_BE "Настройка паказу на экране апавяшчэнняў."
+#define CATEGORY_OSD_INFO_0_BE "Настройка паказу апавяшчэнняў на экране."
 #define CATEGORY_INPUT_LABEL_BE "Увод"
 #define CATEGORY_INPUT_INFO_0_BE "Настройкі светлавога пісталета, мышы і neGcon."
 #define CATEGORY_MEMCARDS_LABEL_BE "Карта памяці"
@@ -4328,7 +4364,7 @@ struct retro_core_options_v2 options_ast = {
 #define BEETLE_OPT_PGXP_NCLIP_LABEL_BE "Адбракоўка прымітываў PGXP"
 #define BEETLE_OPT_PGXP_NCLIP_INFO_0_BE "Выкарыстоўваць PGXP-рэалізацыю NCLIP. Паляпшае графіку за кошт памяншэння правалаў у геаметрыі з дапамогай PGXP-каардынат. У некаторых выпадках можа прыводзіць да завісання гульняў."
 #define BEETLE_OPT_PGXP_VERTEX_LABEL_BE "Вяршынны кэш PGXP"
-#define BEETLE_OPT_PGXP_VERTEX_INFO_0_BE "Кэшаваць каардынаты вяршыняў, палепшаных з PGXP для паўторнага выкарыстання пры адмалёўцы палігонаў. Паляпшае выраўноўванне аб'ектаў і памяншае бачнасць швоў пры рэндэрынгу тэкстур, але праз памылкі пры апытанні кэша можа выклікаць збоі графікі. Рэкамендуецца пакідаць выклычанай. Дадзеная опцыя прымяняецца толькі калі ўключаны 'Рэжым выканання PGXP'. Падтрымліваецца толькі апаратнымі рэндэрамі."
+#define BEETLE_OPT_PGXP_VERTEX_INFO_0_BE "Кэшаваць каардынаты вяршыняў, палепшаных з PGXP дзеля паўторнага выкарыстання пры адмалёўцы палігонаў. Паляпшае выраўноўванне аб'ектаў і памяншае бачнасць швоў пры рэндэрынгу тэкстур, але праз памылкі пры апытанні кэша можа выклікаць збоі графікі. Рэкамендуецца пакідаць выклычанай. Дадзеная опцыя прымяняецца толькі калі ўключаны 'Рэжым выканання PGXP'. Падтрымліваецца толькі апаратнымі рэндэрамі."
 #define BEETLE_OPT_PGXP_TEXTURE_LABEL_BE "Перспектыўна-карэктнае тэкстураванне PGXP"
 #define BEETLE_OPT_PGXP_TEXTURE_INFO_0_BE "Замяшчае роднае пераўтварэнне тэкстураў арыгінальнай PSX на перспектыўна-карэктнае. Забяспечвае правільнае выраўноўванне тэкстураў, ухіляючы пазіцыйна-залежныя скажэнні. Дадзеная опцыя прымяняецца толькі калі ўключаны 'Рэжым выканання PGXP'. Падтрымліваецца толькі апаратнымі рэндэрамі."
 #define BEETLE_OPT_LINE_RENDER_LABEL_BE "Хак лінія-у-чатырохкутнік"
@@ -4440,9 +4476,9 @@ struct retro_core_options_v2 options_ast = {
 #define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_BE "Максімальная колькасць сэмплаў, якія апрацоўваюцца да праверкі абнаўлення SPU. Больш высокія значэнні павялічваюць хуткасць, але ў некаторых гульнях адхіленне ад 1 прыводзіць да скажэння гуку."
 #define BEETLE_OPT_CORE_TIMING_FPS_LABEL_BE "Таймінг частаты кадраў ядра"
 #define BEETLE_OPT_CORE_TIMING_FPS_INFO_0_BE "Выбар таймінгу частаты кадраў, якое ядро ​​будзе паведамляць франтэнду. У рэжыме 'Аўтапераключэнне' ядра могуць перамыкацца паміж перадачай прагрэсіўных і празрадковых частот, але гэта можа прыводзіць да рэініцыялізацый відэа/аўдыё драйвераў."
+#define OPTION_VAL_AUTO_TOGGLE_BE "Дазволіць аўтапераключэнне"
 #define OPTION_VAL_FORCE_PROGRESSIVE_BE "Прагрэсіўная колькасць"
 #define OPTION_VAL_FORCE_INTERLACED_BE "Прымусовая празрадковая"
-#define OPTION_VAL_AUTO_TOGGLE_BE "Дазволіць аўтапераключэнне"
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_LABEL_BE "Перавызначэнне таймінгу PAL (Еўрапейскі)"
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_BE "Праз розніцу ў стандартах часта гульні PAL працавалі павольней NTSC-рэлізаў для Амерыкі ці Японіі. Дадзеная налада замяшчае таймінгі PAL, дазваляючы запускаць гульні дадзенага рэгіёна з частатой кадраў NTSC. Не працуе пры запуску NTSC-кантэнту."
 #define BEETLE_OPT_ASPECT_RATIO_LABEL_BE "Суадносіны бакоў ядра"
@@ -4509,6 +4545,10 @@ struct retro_core_options_v2 options_ast = {
 #define BEETLE_OPT_LAST_SCANLINE_PAL_LABEL_BE "Апошні радок разгорткі - PAL"
 #define BEETLE_OPT_LAST_SCANLINE_PAL_INFO_0_BE "Лінія разгорткі, якая адлюстроўваецца апошняй пры запуску PAL-кантэнту. Значэнні ніжэй 287 памяншаюць вышыню выходнай выявы, зразаючы частку пікселяў па ніжнім краі. Можа прымяняцца для кампенсацыі чорных палос."
 #define OPTION_VAL_287_BE "287 (прадвызначана)"
+#define BEETLE_OPT_DEINTERLACER_LABEL_BE NULL
+#define BEETLE_OPT_DEINTERLACER_INFO_0_BE NULL
+#define OPTION_VAL_WEAVE_BE NULL
+#define OPTION_VAL_BOB_BE NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_LABEL_BE "Метад доступу CD (патрабуецца перазапуск)"
 #define BEETLE_OPT_CD_ACCESS_METHOD_INFO_0_BE "Метад счытвання дадзеных з вобразаў дыскаў. 'Сінхронны' імітуе арыгінальную кансоль. 'Асінхронны' можа памяншаць падтармажванні для прылад з павольнай памяццю. У рэжыме 'Перадзагрузка' выява дыска цалкам загружаюцца ў аператыўную памяць пры запуску гульні, што дапамагае паскорыць унутрагульнявыя загрузкі за кошт затрымкі пры запуску. 'Прадзагрузка' можа выклікаць памылкі пры малым аб'ёме АЗП. Пры запуску гульняў з фіз. кампакт-дыскаў выкарыстоўваецца 'Сінхронны'."
 #define OPTION_VAL_SYNC_BE "Сінхронны"
@@ -5695,11 +5735,11 @@ struct retro_core_option_v2_definition option_defs_be[] = {
       NULL,
       NULL,
       {
+         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_BE },
          { "force_progressive", OPTION_VAL_FORCE_PROGRESSIVE_BE },
          { "force_interlaced",  OPTION_VAL_FORCE_INTERLACED_BE },
-         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_BE },
       },
-      "force_progressive"
+      "auto_toggle"
    },
    {
       BEETLE_OPT(pal_video_timing_override),
@@ -6127,6 +6167,20 @@ struct retro_core_option_v2_definition option_defs_be[] = {
       },
       "287"
    },
+   {
+      BEETLE_OPT(deinterlacer),
+      BEETLE_OPT_DEINTERLACER_LABEL_BE,
+      NULL,
+      BEETLE_OPT_DEINTERLACER_INFO_0_BE,
+      NULL,
+      "video",
+      {
+         { "weave",  OPTION_VAL_WEAVE_BE },
+         { "bob",  OPTION_VAL_BOB_BE },
+         { NULL, NULL },
+      },
+      "weave"
+   },
 #ifndef EMSCRIPTEN
    {
       BEETLE_OPT(cd_access_method),
@@ -6484,9 +6538,9 @@ struct retro_core_options_v2 options_be = {
 #define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_BG NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_LABEL_BG NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_INFO_0_BG NULL
+#define OPTION_VAL_AUTO_TOGGLE_BG NULL
 #define OPTION_VAL_FORCE_PROGRESSIVE_BG NULL
 #define OPTION_VAL_FORCE_INTERLACED_BG NULL
-#define OPTION_VAL_AUTO_TOGGLE_BG NULL
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_LABEL_BG NULL
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_BG NULL
 #define BEETLE_OPT_ASPECT_RATIO_LABEL_BG NULL
@@ -6553,6 +6607,10 @@ struct retro_core_options_v2 options_be = {
 #define BEETLE_OPT_LAST_SCANLINE_PAL_LABEL_BG NULL
 #define BEETLE_OPT_LAST_SCANLINE_PAL_INFO_0_BG NULL
 #define OPTION_VAL_287_BG NULL
+#define BEETLE_OPT_DEINTERLACER_LABEL_BG NULL
+#define BEETLE_OPT_DEINTERLACER_INFO_0_BG NULL
+#define OPTION_VAL_WEAVE_BG NULL
+#define OPTION_VAL_BOB_BG NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_LABEL_BG NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_INFO_0_BG NULL
 #define OPTION_VAL_SYNC_BG NULL
@@ -7739,11 +7797,11 @@ struct retro_core_option_v2_definition option_defs_bg[] = {
       NULL,
       NULL,
       {
+         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_BG },
          { "force_progressive", OPTION_VAL_FORCE_PROGRESSIVE_BG },
          { "force_interlaced",  OPTION_VAL_FORCE_INTERLACED_BG },
-         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_BG },
       },
-      "force_progressive"
+      "auto_toggle"
    },
    {
       BEETLE_OPT(pal_video_timing_override),
@@ -8171,6 +8229,20 @@ struct retro_core_option_v2_definition option_defs_bg[] = {
       },
       "287"
    },
+   {
+      BEETLE_OPT(deinterlacer),
+      BEETLE_OPT_DEINTERLACER_LABEL_BG,
+      NULL,
+      BEETLE_OPT_DEINTERLACER_INFO_0_BG,
+      NULL,
+      "video",
+      {
+         { "weave",  OPTION_VAL_WEAVE_BG },
+         { "bob",  OPTION_VAL_BOB_BG },
+         { NULL, NULL },
+      },
+      "weave"
+   },
 #ifndef EMSCRIPTEN
    {
       BEETLE_OPT(cd_access_method),
@@ -8229,23 +8301,23 @@ struct retro_core_options_v2 options_bg = {
 #define CATEGORY_HACKS_LABEL_CA "Correccions de l'emulació"
 #define CATEGORY_HACKS_INFO_0_CA "Canvia les opcions de velocitats del processador i de precisió de l'emulador que afecten el rendiment a baix nivell i la compatibilitat."
 #define BEETLE_OPT_INTERNAL_RESOLUTION_LABEL_CA "Resolució interna de la GPU"
-#define BEETLE_OPT_INTERNAL_RESOLUTION_INFO_0_CA NULL
+#define BEETLE_OPT_INTERNAL_RESOLUTION_INFO_0_CA "Selecciona el factor multiplicador de la resolució interna. Resolucions superiors a '1x (Natiu)' millora la definició dels models 3D a canvi d'incrementar els requisits de maquinari. Els models 2D no solen veure's afectats per aquest paràmetre."
 #define OPTION_VAL_1X_NATIVE_CA "1x (Natiu)"
 #define OPTION_VAL_2X_CA NULL
 #define OPTION_VAL_4X_CA NULL
 #define OPTION_VAL_8X_CA NULL
 #define OPTION_VAL_16X_CA NULL
 #define BEETLE_OPT_DEPTH_LABEL_CA "Profunditat interna dels colors"
-#define BEETLE_OPT_DEPTH_INFO_0_CA NULL
+#define BEETLE_OPT_DEPTH_INFO_0_CA "Selecciona la profunditat interna de colors. Una profunditat més gran pot reduir l'efecte de les bandes de color sense haver de fer servir l'efecte de tramatge. 16 bpp emula el maquinari original, però pot generar franges de color si l'opció de tramatge no està activada. Es recomana desactivar l'opció 'Tramatge' en seleccionar 32 bpp en aquesta opció."
 #define OPTION_VAL_16BPP_NATIVE_CA "16 bpp (Natiu)"
 #define OPTION_VAL_32BPP_CA NULL
 #define BEETLE_OPT_DITHER_MODE_LABEL_CA "Tramatge"
-#define BEETLE_OPT_DITHER_MODE_INFO_0_CA NULL
+#define BEETLE_OPT_DITHER_MODE_INFO_0_CA "Selecciona la configuració del tramatge. '1x (Natiu)' simula el tramatge natiu a baixa resolució que feia servir el maquinari original per suavitzar els defectes de bandes de color visibles en la profunditat de colors nativa. 'Resolució interna' canvia l'escala del tramatge de la resolució interna configurada per produir un resultat més net. Es recomana desactivar aquesta opció en utilitzar una profunditat de colors de 32 bpp. Nota: Activar aquesta opció a Vulkan desactivarà la reducció de colors a la profunditat nativa i activarà una profunditat interna superior."
 #define OPTION_VAL_INTERNAL_RESOLUTION_CA "Resolució Interna"
 #define BEETLE_OPT_SCALED_UV_OFFSET_LABEL_CA "Compensació UV de textures"
 #define BEETLE_OPT_SCALED_UV_OFFSET_INFO_0_CA "Mostra les textures dels polígons 3D amb una compensació per resolucions superiors a la resolució nativa. Redueix els pics en les textures, però pot produir altres errors gràfics."
 #define BEETLE_OPT_FILTER_LABEL_CA "Filtratge de textures"
-#define BEETLE_OPT_FILTER_INFO_0_CA NULL
+#define BEETLE_OPT_FILTER_INFO_0_CA "Selecciona el mètode de filtratge de textures. 'Més proper' emula el maquinari original. 'Bilineal' i 'De tres punts' son filtres de suavitzat que redueixen la pixelació. 'SABR', 'xBR' i 'JIMC2' son filtres d'escalat que poden millorar la definició de les textures a canvi d'augmentar els requisits de maquinari. Només funciona en renderitzats per maquinari."
 #define OPTION_VAL_NEAREST_CA "Més proper"
 #define OPTION_VAL_SABR_CA NULL
 #define OPTION_VAL_XBR_CA NULL
@@ -8253,15 +8325,15 @@ struct retro_core_options_v2 options_bg = {
 #define OPTION_VAL_3_POINT_CA "De 3 punts"
 #define OPTION_VAL_JINC2_CA NULL
 #define BEETLE_OPT_FILTER_EXCLUDE_SPRITE_LABEL_CA "Ometre sprites del filtratge"
-#define BEETLE_OPT_FILTER_EXCLUDE_SPRITE_INFO_0_CA NULL
+#define BEETLE_OPT_FILTER_EXCLUDE_SPRITE_INFO_0_CA "No s'apliquen els filtres de textura als sprites. Permet prevenir errors gràfics en jocs amb el fons creat per sprites. Es pot utilitzar al mateix temps que el Suavitzat adaptatiu o un altre filtre de post-processat per obtenir millors resultats."
 #define OPTION_VAL_OPAQUE_CA "Només els sprites opacs"
 #define OPTION_VAL_ALL_CA "Opac i semitransparent"
 #define BEETLE_OPT_FILTER_EXCLUDE_2D_POLYGON_LABEL_CA "Excloure polígons 2D del filtre"
-#define BEETLE_OPT_FILTER_EXCLUDE_2D_POLYGON_INFO_0_CA NULL
+#define BEETLE_OPT_FILTER_EXCLUDE_2D_POLYGON_INFO_0_CA "No s'apliquen els filtres de textura als polígons 2D. Els polígons 2D es detecten amb un mètode heurístic i pot haver-hi alguns errors gràfics. Es pot utilitzar conjuntament el Suavitzat Adaptatiu o un altre filtre de post-processat per obtenir millors resultats."
 #define BEETLE_OPT_ADAPTIVE_SMOOTHING_LABEL_CA "Suavitzat adaptatiu"
 #define BEETLE_OPT_ADAPTIVE_SMOOTHING_INFO_0_CA "Suavitza els gràfics i els elements de la interfície en 2D sense difuminar els objectes renderitzats en 3D. Només funciona amb el renderitzador Vulkan."
 #define BEETLE_OPT_SUPER_SAMPLING_LABEL_CA "Sobremostreig (reducció a resolució nativa)"
-#define BEETLE_OPT_SUPER_SAMPLING_INFO_0_CA NULL
+#define BEETLE_OPT_SUPER_SAMPLING_INFO_0_CA "Redueix el contingut renderitzat a una resolució interna superior a la resolució nativa. En combinar aquest efecte amb els multiplicadors per augmentar la resolució interna, els jocs es poden mostrar amb objectes 3D amb les vores suavitzades en la resolució nativa. Genera millors resultats en aquells jocs que combinen 2D i 3D (per exemple personatges 3D sobre sobre fons prerenderitzats) i acompanyats de shaders de simulació de pantalles CRT. Només funciona amb el renderitzador Vulkan. Nota: Es recomana desactivar el tramatge en fer servir aquesta opció."
 #define BEETLE_OPT_MSAA_LABEL_CA "Suavitzat de vores MSAA"
 #define BEETLE_OPT_MSAA_INFO_0_CA "Selecciona el nivell de MSAA pel contingut renderitzat. Millora l'aparença dels objectes 3D. Només funciona amb el renderitzador Vulkan."
 #define OPTION_VAL_1X_CA NULL
@@ -8274,19 +8346,19 @@ struct retro_core_options_v2 options_bg = {
 #define BEETLE_OPT_REPLACE_TEXTURES_LABEL_CA "Substitueix les textures"
 #define BEETLE_OPT_REPLACE_TEXTURES_INFO_0_CA "Reemplaça les textures fent servir les versions en alta qualitat (HD) que es troben a <cd>-texture-replacements/"
 #define BEETLE_OPT_WIREFRAME_LABEL_CA "Mode malla (depuració)"
-#define BEETLE_OPT_WIREFRAME_INFO_0_CA NULL
+#define BEETLE_OPT_WIREFRAME_INFO_0_CA "Renderitza només les formes dels objectes 3D sense textures ni ombrejats. Només funciona en el renderitzador OpenGL. Nota: Aquesta opció és només per motius de desenvolupament i hauria d'estar desactivada."
 #define BEETLE_OPT_FRAME_DUPING_LABEL_CA "Duplicat de fotogrames (augment velocitat)"
-#define BEETLE_OPT_FRAME_DUPING_INFO_0_CA NULL
+#define BEETLE_OPT_FRAME_DUPING_INFO_0_CA "Quan aquesta opció està activa (i si és compatible amb libretro), augmenta lleument el rendiment en indicar al front-end que repeteixi el mateix fotograma si el nucli no en mostra cap de nou."
 #define BEETLE_OPT_DISPLAY_INTERNAL_FPS_LABEL_CA "Mostrar FPS interns"
-#define BEETLE_OPT_DISPLAY_INTERNAL_FPS_INFO_0_CA NULL
+#define BEETLE_OPT_DISPLAY_INTERNAL_FPS_INFO_0_CA "Mostra la velocitat de fotogrames interna a la qual el sistema PlayStations emulat renderitza el contingut. Nota: És necessari activar les notificacions en pantalla."
 #define BEETLE_OPT_DISPLAY_OSD_LABEL_CA "Mostrar missatges en pantalla"
 #define BEETLE_OPT_DISPLAY_OSD_INFO_0_CA "Mostra els missatges en pantalla generats pel nucli."
 #define BEETLE_OPT_DISPLAY_VRAM_LABEL_CA "Mostra la VRAM completa (depuració)"
-#define BEETLE_OPT_DISPLAY_VRAM_INFO_0_CA NULL
+#define BEETLE_OPT_DISPLAY_VRAM_INFO_0_CA "Mostra la memòria VRAM emulada de la consola. Només disponible en els renderitzadors OpenGL i Vulkan. Nota: Només per motius de desenvolupament, normalment ha d'estar desactivat."
 #define BEETLE_OPT_ANALOG_CALIBRATION_LABEL_CA "Calibració automàtica dels controls analògics"
-#define BEETLE_OPT_ANALOG_CALIBRATION_INFO_0_CA NULL
+#define BEETLE_OPT_ANALOG_CALIBRATION_INFO_0_CA "Quan el dispositiu d'entrada estigui configurat com DualShock, Controlador Analògic o neGcon, aquesta opció permet calibrar les entrades analògiques. Es calibraran en temps real els valors màxims d'entrada que es registrin per escalar els valors màxims que s'enviïn a l'emulador. Això serveix per jocs com Mega Man Legends 2, que esperen uns valors superiors als que poden enviar els controladors actuals. Es recomana que els joystics analògics es girin en tota l'extensió possible en executar el joc per a que el sistema de calibració funcioni el millor possible."
 #define BEETLE_OPT_ANALOG_TOGGLE_LABEL_CA "Alternar el mode analògic del DualShock"
-#define BEETLE_OPT_ANALOG_TOGGLE_INFO_0_CA NULL
+#define BEETLE_OPT_ANALOG_TOGGLE_INFO_0_CA "Si el dispositiu d'entrada està seleccionat com a DualShock, aquesta opció permet al controlador DualShock emulat alternar entre el mode digital o analògic del controlador original. El mode també es pot canviar amb una combinació de botons."
 #define OPTION_VAL_ENABLED_ANALOG_CA "Analògic per defecte"
 #define BEETLE_OPT_ANALOG_TOGGLE_COMBO_LABEL_CA "Combinació de botons del mode analògic del DualShock"
 #define BEETLE_OPT_ANALOG_TOGGLE_COMBO_INFO_0_CA "Selecciona la combinació de botons que es farà servir per alternar entre el mode DIGITAL i ANALÒGIC pel controlador emulat DualShock."
@@ -8378,28 +8450,28 @@ struct retro_core_options_v2 options_bg = {
 #define OPTION_VAL_195_CA NULL
 #define OPTION_VAL_200_CA NULL
 #define BEETLE_OPT_NEGCON_RESPONSE_LABEL_CA "Resposta neGcon Twist"
-#define BEETLE_OPT_NEGCON_RESPONSE_INFO_0_CA NULL
+#define BEETLE_OPT_NEGCON_RESPONSE_INFO_0_CA "Selecciona el tipus de resposta de la palanca esquerra del RetroPad en simular l'acció de tòrcer un dispositiu d'entrada neGcon. El desplaçament de la palanca analògica pot ser assignada a la rotació del neGcon de forma lineal, quadràtica o cúbica. 'Quadràtica' dona més precisió que 'Lineal' en moviments més petits. 'Cúbica' augmenta la precisió en els moviments més petits, però exagera els moviments grans. Nota: Només es recomana fer servir 'Lineal' amb volants de carrera. Els controladors convencionals gestionene l'entrada analògica de forma molt diferent al mecanisme de rotació del neGcon, de manera que l'assignació 'Lineal' sobreamplifica els moviments petits, el que afecta a la precisió. En la majoria de jocs, 'Quadràtica' ofereix la millor aproximació al maquinari original."
 #define OPTION_VAL_LINEAR_CA "Lineal"
 #define OPTION_VAL_QUADRATIC_CA "Quadràtic"
 #define OPTION_VAL_CUBIC_CA "Cúbic"
 #define BEETLE_OPT_NEGCON_DEADZONE_LABEL_CA "Zona morta neGcon Twist"
-#define BEETLE_OPT_NEGCON_DEADZONE_INFO_0_CA NULL
+#define BEETLE_OPT_NEGCON_DEADZONE_INFO_0_CA "Selecciona la zona morta del joystick analògic esquerre del RetroPad en simular l'acció de tòrcer un dispositiu d'entrada neGcon emulat. Serveix per evitar que el controlador registri moviments no realitzats. Nota: Molts jocs compatibles amb neGcon inclouen opcions dins del jocs per ajustar un valor de la zona morta en tòrcer. Aquest valor ha de configurar-se com a 0 o neutral en tot moment per a què no hi hagi un pèrdua de precisió. Qualsevol ajustament que sigui necessari només ha d'aplicar-se mitjançant aquesta opció del nucli, sobretot si 'Resposta en tòrcer el neGcon' està configurada com 'Quadràtica' o 'Cúbica'."
 #define OPTION_VAL_0_O31_CA NULL
 #define BEETLE_OPT_USE_MEDNAFEN_MEMCARD0_METHOD_LABEL_CA "Mètode de la targeta de memòria 0 (Es requereix reinici)"
-#define BEETLE_OPT_USE_MEDNAFEN_MEMCARD0_METHOD_INFO_0_CA NULL
+#define BEETLE_OPT_USE_MEDNAFEN_MEMCARD0_METHOD_INFO_0_CA "Selecciona el format de desat que es farà servir a la targeta de memòria 0. 'Mednafen' pot millorar la compatibilitat amb la versió independent de Mednafen. En utilitzar els fitxers desats amb Beetle PSC, els fitxers de libretro (.srm) i Mednafen (.mcr) son iguals internament, així poden intercanviar entre ells mateixos, canviant els noms."
 #define OPTION_VAL_LIBRETRO_CA NULL
 #define OPTION_VAL_MEDNAFEN_CA NULL
 #define BEETLE_OPT_ENABLE_MEMCARD1_LABEL_CA "Habilitat targeta de memòria 1 (Es requereix reinici)"
-#define BEETLE_OPT_ENABLE_MEMCARD1_INFO_0_CA NULL
+#define BEETLE_OPT_ENABLE_MEMCARD1_INFO_0_CA "Simula una segona targeta de memòria a la ranura 1. Quan està desactivada, els jocs només poden accedir a la targeta de memòria de la ranura 0. Nota: Alguns jocs necessiten aquesta opció per funcionar correctament (per exemple Codename Tenka). Nota: La targeta de memòria 1 es desa en el format Mednafen (.mcr)."
 #define BEETLE_OPT_SHARED_MEMORY_CARDS_LABEL_CA "Targetes de mèmories compartides (Es requereix reinici)"
-#define BEETLE_OPT_SHARED_MEMORY_CARDS_INFO_0_CA NULL
+#define BEETLE_OPT_SHARED_MEMORY_CARDS_INFO_0_CA "En activar aquesta opció, tots els jocs faran servir els mateixos fitxers de la targeta de memòria per desar i carregar les partides. En desactivar l'opció, es crearan fitxers independents a la targeta de memòria per cada joc. Nota: Si l'opció 'Mètode de la targeta de memòria 0' està configurada com a 'Libretro', aquesta opció només afectarà la targeta de memòria de la ranura 1."
 #define BEETLE_OPT_MEMCARD_LEFT_INDEX_LABEL_CA "Índex de la targeta de memòria esquerra"
 #define BEETLE_OPT_MEMCARD_LEFT_INDEX_INFO_0_CA "Canvia la targeta de memòria que es troba a la ranura esquerra. Aquesta opció només funcionarà si l'opció 'Activar la targeta de memòria 0' està en l'opció Mednafen. La targeta de memòria predeterminada té l'índex 0."
 #define BEETLE_OPT_MEMCARD_RIGHT_INDEX_LABEL_CA "Índex de la targeta de memòria dreta"
 #define BEETLE_OPT_MEMCARD_RIGHT_INDEX_INFO_0_CA "Canvia la targeta de memòria que es troba a la ranura dreta. Aquesta opció només funcionarà si l'opció 'Activar la targeta de memòria 1' està activada. La targeta de memòria predeterminada té l'índex 1."
 #define OPTION_VAL_1_O36_CA "1 (Per defecte)"
 #define BEETLE_OPT_PGXP_MODE_LABEL_CA "Mode d'operació PGXP"
-#define BEETLE_OPT_PGXP_MODE_INFO_0_CA NULL
+#define BEETLE_OPT_PGXP_MODE_INFO_0_CA "Renderitza els objectes 3D amb una precisió subpíxel, utilitzant coordenades dels vèrtexs de coma fixa per minimitzar la distorsió i tremolors dels objectes 3D que hi havia en el maquinari original. 'Només en memòria' dona menys problemes de compatibilitat i es recomana per ús general. 'Memòria + CPU (inestable)' pot reduir més les distorsions visuals, però augmenten els requisits de maquinari."
 #define OPTION_VAL_MEMORY_ONLY_CA "Només en memòria"
 #define OPTION_VAL_MEMORY_CPU_CA "Memòria + CPU (inestable)"
 #define BEETLE_OPT_PGXP_2D_TOL_LABEL_CA "Tolerància de la geometria plana del PGXP"
@@ -8414,17 +8486,17 @@ struct retro_core_options_v2 options_bg = {
 #define OPTION_VAL_7PX_CA NULL
 #define OPTION_VAL_8PX_CA NULL
 #define BEETLE_OPT_PGXP_NCLIP_LABEL_CA "Selecció de primitives del PGXP"
-#define BEETLE_OPT_PGXP_NCLIP_INFO_0_CA NULL
+#define BEETLE_OPT_PGXP_NCLIP_INFO_0_CA "Fes servir la implementació NCLIP de PGXP. Millora l'aparença reduint els forats en les geometries que tenen coordenades PGXP. Pot provocar errors en alguns jocs i en certes circumstàncies."
 #define BEETLE_OPT_PGXP_VERTEX_LABEL_CA "Memòria cau dels vèrtexs del PGXP"
-#define BEETLE_OPT_PGXP_VERTEX_INFO_0_CA NULL
+#define BEETLE_OPT_PGXP_VERTEX_INFO_0_CA "Escorcolla les posicions dels vèrtexs millorades pel PGXP perquè siguin escorcollades per dibuixar polígons. Pot millorar l'alineació dels objectes i reduir les vores, però pot produir defectes visuals. Ara mateix, es recomana desactivar aquesta opció. Només s'aplicarà si s'activa el mode d'operació del PGXP. Només funciona amb els renderitzadors per maquinari."
 #define BEETLE_OPT_PGXP_TEXTURE_LABEL_CA "Texturitzat fidel a la perspectiva del PGXP"
-#define BEETLE_OPT_PGXP_TEXTURE_INFO_0_CA NULL
+#define BEETLE_OPT_PGXP_TEXTURE_INFO_0_CA "Canvia el mapeig de textures natiu de PSX per un mapeig de textures amb la perspectiva correcta. Elimina les distorsions per posició i la deformació de textures, produïnt textures ben alineades. Només s'aplica quan s'activa el mode d'operació del PGXP. Només funciona en els renderitzadors per maquinari."
 #define BEETLE_OPT_LINE_RENDER_LABEL_CA "Correcció Line-to-Quad"
-#define BEETLE_OPT_LINE_RENDER_INFO_0_CA NULL
+#define BEETLE_OPT_LINE_RENDER_INFO_0_CA "Selecciona el mètode d'execució de la correcció per convertir línies en rectangles. Alguns jocs (Doom, Hexen, Soul Blade,...) dibuixen línies horitzontal estirant triangles de 1 píxel d'alçada al llarg de la pantalla, que després son renderitzats com una columna de píxels en el maquinari original. Aquesta correcció detecta aquests triangles i els converteix en rectangles si és necessari, permeten que es mostrin correctament en els renderitzadors per maquinari i en resolucions internes superiors a la nativa. L'opció 'Agressiu' és necessària per alguns jocs (per exemple: Dark Forces, Duke Nukem) però pot produir defectes visuals en altres jocs. En cas de dubte, seleccionar 'Predeterminat'."
 #define OPTION_VAL_DEFAULT_CA "Per defecte"
 #define OPTION_VAL_AGGRESSIVE_CA "Agressiu"
 #define BEETLE_OPT_WIDESCREEN_HACK_LABEL_CA "Correcció de pantalla panoràmica"
-#define BEETLE_OPT_WIDESCREEN_HACK_INFO_0_CA NULL
+#define BEETLE_OPT_WIDESCREEN_HACK_INFO_0_CA "Renderitza el contingut 3D en format anamòrfic i fes que la sortida de la memòria intermèdia de fotogrames tingui un format panoràmic. Produeix millors resultats en jocs fets completament en 3D. Els elements 2D s'estiraran horitzontalment i deixaran d'estar alineats."
 #define BEETLE_OPT_WIDESCREEN_HACK_ASPECT_RATIO_LABEL_CA "Correcció per a pantalles panoràmiques"
 #define BEETLE_OPT_WIDESCREEN_HACK_ASPECT_RATIO_INFO_0_CA "Selecciona la relació d'aspecte que farà servir la correcció de pantalles panoràmiques."
 #define OPTION_VAL_16_9_CA NULL
@@ -8435,7 +8507,7 @@ struct retro_core_options_v2 options_bg = {
 #define OPTION_VAL_21_9_CA NULL
 #define OPTION_VAL_32_9_CA NULL
 #define BEETLE_OPT_CPU_FREQ_SCALE_LABEL_CA "Escalat de freqüència de la CPU (augmentar velocitat)"
-#define BEETLE_OPT_CPU_FREQ_SCALE_INFO_0_CA NULL
+#define BEETLE_OPT_CPU_FREQ_SCALE_INFO_0_CA "Augmenta (o disminueix) la velocitat la CPU emulada de PSX. Augmentar la velocitat pot eliminar les estrabades i millorar la taxa de fotogrames en alguns jocs a canvi d'incrementar els requisits de maquinari. Cal tenir en compte que alguns jocs tenen un limitador de fotogrames intern i no hi ha cap benefici d'augmentar la velocitat. Pot provocar que alguns jocs s'executin més ràpid."
 #define OPTION_VAL_100_NATIVE_CA "100% (Natiu)"
 #define OPTION_VAL_210_CA NULL
 #define OPTION_VAL_220_CA NULL
@@ -8496,21 +8568,21 @@ struct retro_core_options_v2 options_bg = {
 #define BEETLE_OPT_GPU_OVERCLOCK_INFO_0_CA "Augmenta la velocitat del rasteritzador 2D que es troba a la GPU emulada del PSX. No millora el renderitzat 3D i el seu efecte acostuma a ser limitat."
 #define OPTION_VAL_32X_CA NULL
 #define BEETLE_OPT_GTE_OVERCLOCK_LABEL_CA "Força el processador GTE"
-#define BEETLE_OPT_GTE_OVERCLOCK_INFO_0_CA NULL
+#define BEETLE_OPT_GTE_OVERCLOCK_INFO_0_CA "Redueix la velocitat de totes les operacions emulades del GTE (el processador de la CPU per gràfics 3D) a una latència constant d'un cicle. Aquells jocs que utilitzin molt el GTE poden veure un augment de la velocitat dels fotogrames i una millora en l'estabilitat."
 #define BEETLE_OPT_SKIP_BIOS_LABEL_CA "Omet la BIOS"
-#define BEETLE_OPT_SKIP_BIOS_INFO_0_CA NULL
+#define BEETLE_OPT_SKIP_BIOS_INFO_0_CA "Salta l'animació d'arrancada de la BIOS de PlayStation que sol aparèixer al carregar contingut. Nota: Activar aquesta opció pot provocar errors de compatibilitat (Jocs amb protecció anticòpia PAL, Saga Frontier,...)."
 #define BEETLE_OPT_OVERRIDE_BIOS_LABEL_CA "Substituir la BIOS (Es requereix reiniciar)"
 #define BEETLE_OPT_OVERRIDE_BIOS_INFO_0_CA "Sobreescriu la regió estàndard específica de la BIOS amb la versió de regió lliure, si està disponible."
 #define OPTION_VAL_PSXONPSP_CA NULL
 #define OPTION_VAL_PS1_ROM_CA NULL
 #define BEETLE_OPT_RENDERER_LABEL_CA "Renderitzador (Es requereix reinici)"
-#define BEETLE_OPT_RENDERER_INFO_0_CA NULL
+#define BEETLE_OPT_RENDERER_INFO_0_CA "El renderitzador per programari és més precís, però té uns requeriments alts si s'executa el joc a una resolució interna superior a la de la targeta gràfica. Els renderitzadors per maquinari son menys precisos, però tenen un rendiment superior si es fan servir resolucions internes superiors i permeten millores gràfiques. 'Maquinari (Automàtic)' selecciona automàticament Vulkan o OpenGl segons el controlador de vídeo de libretro. Si el controlador no és compatible amb Vulkan o OpenGl 3.3, es farà servir el renderitzador per programari."
 #define OPTION_VAL_HARDWARE_CA "Maquinari (Automàtic)"
 #define OPTION_VAL_HARDWARE_GL_CA "Maquinari (OpenGL)"
 #define OPTION_VAL_HARDWARE_VK_CA "Maquinari (Vulkan)"
 #define OPTION_VAL_SOFTWARE_CA "Programari"
 #define BEETLE_OPT_RENDERER_SOFTWARE_FB_LABEL_CA "Memòria intermèdia per programari"
-#define BEETLE_OPT_RENDERER_SOFTWARE_FB_INFO_0_CA NULL
+#define BEETLE_OPT_RENDERER_SOFTWARE_FB_INFO_0_CA "Permet emular amb precisió els efectes de la memòria intermèdia de fotogrames (desenfocament de moviment, les batalles de FF7) en utilitzar els renderitzadors per maquinari executant una còpia del renderitzador per programari a resolució nativa en segon pla. En desactivar aquesta opció, s'ometran aquestes operacions (OpenGL) o es renderitzadaran a la GPU (Vulkan). Desactivar aquesta opció pot millorar el rendiment a costa de generar errors gràfics greus. En cas de dubte, deixa activada aquesta opció."
 #define BEETLE_OPT_CPU_DYNAREC_LABEL_CA NULL
 #define BEETLE_OPT_CPU_DYNAREC_INFO_0_CA "Recompila de forma dinàmica les instruccions de la CPU a instruccions natives. Més ràpid que l'intèrpret, pels intervals de la CPU són menys precisos i pot provocar errors."
 #define OPTION_VAL_DISABLED_CA "Deshabilitat (intèrpret Beetle)"
@@ -8527,12 +8599,12 @@ struct retro_core_options_v2 options_bg = {
 #define BEETLE_OPT_DYNAREC_SPU_SAMPLES_LABEL_CA "Mostres de la SPU mitjançant dynarec"
 #define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_CA "Mostra el nombre màxim de mostres de la SPU que s'executaran abans de comprovar les actualitzacions de la SPU. Un valor alt serà més ràpid, però un valor que no sigui 1 pot provocar errors en el àudio d'alguns jocs."
 #define BEETLE_OPT_CORE_TIMING_FPS_LABEL_CA "Cronòmetre de fotogrames per segon segons el nucli"
-#define BEETLE_OPT_CORE_TIMING_FPS_INFO_0_CA NULL
+#define BEETLE_OPT_CORE_TIMING_FPS_INFO_0_CA "Selecciona el tipus de FPS que el nucli farà servir. 'Canvi Automàtic' permet que el nucli canviï entre progressiu i entrellaçat, però pot provocar reinicis en els controladors d'àudio i vídeo."
+#define OPTION_VAL_AUTO_TOGGLE_CA "Habilitar el canvi automàtic"
 #define OPTION_VAL_FORCE_PROGRESSIVE_CA "Taxa progressiva"
 #define OPTION_VAL_FORCE_INTERLACED_CA "Forçar trama entrellaçada"
-#define OPTION_VAL_AUTO_TOGGLE_CA "Habilitar el canvi automàtic"
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_LABEL_CA "Anul·lar la sincronització de vídeo PAL (Europa)"
-#define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_CA NULL
+#define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_CA "A causa de la diferència entre estàndards, els jocs PAL solen semblar més lents que les seves versions en NTSC, tant americanes com japoneses. Aquesta opció pot anul·lar la velocitat del vídeo PAL per intentar executar aquests jocs amb la velocitat de fotogrames NTSC. Aquesta opció no produeix cap efecte en els jocs NTSC."
 #define BEETLE_OPT_ASPECT_RATIO_LABEL_CA "Relació d'aspecte del nucli"
 #define BEETLE_OPT_ASPECT_RATIO_INFO_0_CA "Selecciona la relació d'aspecte proveïda pel nucli. Aquesta opció és ignorada si la correcció de pantalla panoràmica o mostrar VRAM complerta està activada."
 #define OPTION_VAL_CORRECTED_CA "Corregit"
@@ -8540,7 +8612,7 @@ struct retro_core_options_v2 options_bg = {
 #define OPTION_VAL_4_3_CA "Força 4:3"
 #define OPTION_VAL_NTSC_CA "Força NTSC"
 #define BEETLE_OPT_CROP_OVERSCAN_LABEL_CA "Retallar el sobreescaneig"
-#define BEETLE_OPT_CROP_OVERSCAN_INFO_0_CA NULL
+#define BEETLE_OPT_CROP_OVERSCAN_INFO_0_CA "'Cap' conserva les vores (columnes negres a ambdós costats en el cas d'imatges NTSC, vores en els quatre costat per imatges PAL) per simular les franges negres que produeix el maquinari real de PSX en una senyal de vídeo analògica. 'Estàtic' es limita a eliminar les vores horitzontal, en canvi 'Dinàmic' elimina totes les vores."
 #define OPTION_VAL_DISABLED_O59_CA "Cap"
 #define OPTION_VAL_STATIC_CA "Estàtic"
 #define OPTION_VAL_SMART_CA "Dinàmic (Per defecte)"
@@ -8559,7 +8631,7 @@ struct retro_core_options_v2 options_bg = {
 #define OPTION_VAL_19PX_CA NULL
 #define OPTION_VAL_20PX_CA NULL
 #define BEETLE_OPT_IMAGE_OFFSET_LABEL_CA "Desplaçament de la imatge retallada"
-#define BEETLE_OPT_IMAGE_OFFSET_INFO_0_CA NULL
+#define BEETLE_OPT_IMAGE_OFFSET_INFO_0_CA "Si l'opció 'Retalla horitzontalment' està activada, permet moure la imatge retallada horitzontalment cap a la dreta (valors positius) o cap a la dreta (valors negatius) fent servir un valor concret de píxels. Pot solucionar problemes en l'alineació. Només funciona en el renderitzador per programari."
 #define OPTION_VAL_12PX_O61_CA NULL
 #define OPTION_VAL_11PX_O61_CA NULL
 #define OPTION_VAL_10PX_O61_CA NULL
@@ -8585,25 +8657,29 @@ struct retro_core_options_v2 options_bg = {
 #define OPTION_VAL_11PX_O61_0_CA NULL
 #define OPTION_VAL_12PX_O61_0_CA NULL
 #define BEETLE_OPT_IMAGE_OFFSET_CYCLES_LABEL_CA "Desplaçament horitzontal de la imatge (cicles de la GPU)"
-#define BEETLE_OPT_IMAGE_OFFSET_CYCLES_INFO_0_CA NULL
+#define BEETLE_OPT_IMAGE_OFFSET_CYCLES_INFO_0_CA "Selecciona el nombre de cicles de GPU en els que cal desplaçar la imatge. Els valors positius mouen la imatge cap a la dreta i els valors negatius mouen cap a l'esquerra. Només funciona amb el renderitzat per maquinari."
 #define BEETLE_OPT_INITIAL_SCANLINE_LABEL_CA "Línia escanejada inicial - NTSC"
-#define BEETLE_OPT_INITIAL_SCANLINE_INFO_0_CA NULL
+#define BEETLE_OPT_INITIAL_SCANLINE_INFO_0_CA "Selecciona la primera línia d'escombrat que es mostrarà en executar contingut NTSC. Un valor superior a 0 reduirà l'alçada de les imatges generades, retallant píxels de la part superior. Pot servir per evitar l'efecte 'letterboxing'."
 #define OPTION_VAL_0_O63_CA "0 (Per defecte)"
 #define BEETLE_OPT_LAST_SCANLINE_LABEL_CA "Última linia escanejada - NTSC"
-#define BEETLE_OPT_LAST_SCANLINE_INFO_0_CA NULL
+#define BEETLE_OPT_LAST_SCANLINE_INFO_0_CA "Selecciona l'última línia d'escombrat que es mostrarà en executar contingut NTSC. Un valor inferior a 239 reduirà l'alçada de les imatges generades, retallant píxels de la part inferior. Pot servir per evitar l'efecte 'letterboxing'."
 #define OPTION_VAL_239_CA "239 (Per defecte)"
 #define BEETLE_OPT_INITIAL_SCANLINE_PAL_LABEL_CA "Primera línia escanejada - PAL"
-#define BEETLE_OPT_INITIAL_SCANLINE_PAL_INFO_0_CA NULL
+#define BEETLE_OPT_INITIAL_SCANLINE_PAL_INFO_0_CA "Selecciona la primera línia d'escombrat que es mostrarà en executar contingut PAL. Un valor superior a 0 reduirà l'alçada de les imatges generades, retallant píxels de la part superior. Pot servir per evitar l'efecte 'letterboxing'."
 #define BEETLE_OPT_LAST_SCANLINE_PAL_LABEL_CA "Última linia escanejada - PAL"
-#define BEETLE_OPT_LAST_SCANLINE_PAL_INFO_0_CA NULL
+#define BEETLE_OPT_LAST_SCANLINE_PAL_INFO_0_CA "Selecciona l'última línia d'escombrat que es mostrarà en executar contingut PAL. Un valor inferior a 287 reduirà l'alçada de les imatges generades, retallant píxels de la part inferior. Pot servir per evitar l'efecte 'letterboxing'."
 #define OPTION_VAL_287_CA "287 (Per defecte)"
+#define BEETLE_OPT_DEINTERLACER_LABEL_CA "Mètode de desentrellaçat"
+#define BEETLE_OPT_DEINTERLACER_INFO_0_CA "«Weave» mostra els dos camps en el mateix fotograma per a una imatge estàtica a alta resolució, «Bob» sacrifica la claredat de la resolució per a una major claredat del moviment."
+#define OPTION_VAL_WEAVE_CA NULL
+#define OPTION_VAL_BOB_CA NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_LABEL_CA "Mètode d'accés al CD (Es requereix reinici)"
-#define BEETLE_OPT_CD_ACCESS_METHOD_INFO_0_CA NULL
+#define BEETLE_OPT_CD_ACCESS_METHOD_INFO_0_CA "Selecciona el mètode que es farà servir per llegir dades de les imatges de disc. 'Sincrònic' emula el maquinari original, 'Asincrònic' pot reduir les estrebades en els dispositius que tinguin un dispositiu d'emmagatzematge lent i 'Precarregat' carrega la imatge de disc sencera en memòria en executar contingut, això pot millorar el temps de càrrega del joc a costa de retardar l'arrancada inicial del joc. 'Precarregat' pot produir problemes en sistemes amb poca memòria RAM."
 #define OPTION_VAL_SYNC_CA "Sincrònic"
 #define OPTION_VAL_ASYNC_CA "Asíncron"
 #define OPTION_VAL_PRECACHE_CA "Precarregar"
 #define BEETLE_OPT_CD_FASTLOAD_LABEL_CA "Velocitat de càrrega del CD"
-#define BEETLE_OPT_CD_FASTLOAD_INFO_0_CA NULL
+#define BEETLE_OPT_CD_FASTLOAD_INFO_0_CA "Selecciona el multiplicador de velocitat d'accés al disc. Un valor superior a '2x nativa' pot reduir el temps de càrrega dels jocs, però pot provocar errors de sincronització. Alguns jocs poden no funcionar correctament si aquest valor és molt alt."
 #define OPTION_VAL_2X_NATIVE_CA "2x (Natiu)"
 #define OPTION_VAL_6X_CA NULL
 #define OPTION_VAL_10X_CA NULL
@@ -9783,11 +9859,11 @@ struct retro_core_option_v2_definition option_defs_ca[] = {
       NULL,
       NULL,
       {
+         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_CA },
          { "force_progressive", OPTION_VAL_FORCE_PROGRESSIVE_CA },
          { "force_interlaced",  OPTION_VAL_FORCE_INTERLACED_CA },
-         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_CA },
       },
-      "force_progressive"
+      "auto_toggle"
    },
    {
       BEETLE_OPT(pal_video_timing_override),
@@ -10215,6 +10291,20 @@ struct retro_core_option_v2_definition option_defs_ca[] = {
       },
       "287"
    },
+   {
+      BEETLE_OPT(deinterlacer),
+      BEETLE_OPT_DEINTERLACER_LABEL_CA,
+      NULL,
+      BEETLE_OPT_DEINTERLACER_INFO_0_CA,
+      NULL,
+      "video",
+      {
+         { "weave",  OPTION_VAL_WEAVE_CA },
+         { "bob",  OPTION_VAL_BOB_CA },
+         { NULL, NULL },
+      },
+      "weave"
+   },
 #ifndef EMSCRIPTEN
    {
       BEETLE_OPT(cd_access_method),
@@ -10572,9 +10662,9 @@ struct retro_core_options_v2 options_ca = {
 #define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_CHS NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_LABEL_CHS NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_INFO_0_CHS "选择核心向前端报告的 FPS 时序。“自动切换”允许内核在报告逐行和隔行扫描速率之间切换，但可能导致前端视频/音频驱动程序重新启动。"
+#define OPTION_VAL_AUTO_TOGGLE_CHS "允许自动切换"
 #define OPTION_VAL_FORCE_PROGRESSIVE_CHS NULL
 #define OPTION_VAL_FORCE_INTERLACED_CHS NULL
-#define OPTION_VAL_AUTO_TOGGLE_CHS "允许自动切换"
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_LABEL_CHS NULL
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_CHS NULL
 #define BEETLE_OPT_ASPECT_RATIO_LABEL_CHS NULL
@@ -10641,6 +10731,10 @@ struct retro_core_options_v2 options_ca = {
 #define BEETLE_OPT_LAST_SCANLINE_PAL_LABEL_CHS NULL
 #define BEETLE_OPT_LAST_SCANLINE_PAL_INFO_0_CHS NULL
 #define OPTION_VAL_287_CHS "287 (默认)"
+#define BEETLE_OPT_DEINTERLACER_LABEL_CHS NULL
+#define BEETLE_OPT_DEINTERLACER_INFO_0_CHS NULL
+#define OPTION_VAL_WEAVE_CHS NULL
+#define OPTION_VAL_BOB_CHS NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_LABEL_CHS "CD 访问方法 (需要重启)"
 #define BEETLE_OPT_CD_ACCESS_METHOD_INFO_0_CHS "选择从镜像读取数据的方法。“同步”模拟原始硬件。“异步”可减少存储速度慢的设备上的卡顿现象。“预缓存”会在启动内容时将整个磁盘映像加载到内存中，这可能会改善游戏内的加载时间，但代价是启动时会出现初始延迟。“预缓存”可能会对内存不足的系统造成影响，因此在使用物理介质时会退回到 ”同步 \"模式。"
 #define OPTION_VAL_SYNC_CHS "同步"
@@ -11827,11 +11921,11 @@ struct retro_core_option_v2_definition option_defs_chs[] = {
       NULL,
       NULL,
       {
+         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_CHS },
          { "force_progressive", OPTION_VAL_FORCE_PROGRESSIVE_CHS },
          { "force_interlaced",  OPTION_VAL_FORCE_INTERLACED_CHS },
-         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_CHS },
       },
-      "force_progressive"
+      "auto_toggle"
    },
    {
       BEETLE_OPT(pal_video_timing_override),
@@ -12259,6 +12353,20 @@ struct retro_core_option_v2_definition option_defs_chs[] = {
       },
       "287"
    },
+   {
+      BEETLE_OPT(deinterlacer),
+      BEETLE_OPT_DEINTERLACER_LABEL_CHS,
+      NULL,
+      BEETLE_OPT_DEINTERLACER_INFO_0_CHS,
+      NULL,
+      "video",
+      {
+         { "weave",  OPTION_VAL_WEAVE_CHS },
+         { "bob",  OPTION_VAL_BOB_CHS },
+         { NULL, NULL },
+      },
+      "weave"
+   },
 #ifndef EMSCRIPTEN
    {
       BEETLE_OPT(cd_access_method),
@@ -12616,9 +12724,9 @@ struct retro_core_options_v2 options_chs = {
 #define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_CHT NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_LABEL_CHT NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_INFO_0_CHT NULL
+#define OPTION_VAL_AUTO_TOGGLE_CHT "允許自動切換"
 #define OPTION_VAL_FORCE_PROGRESSIVE_CHT NULL
 #define OPTION_VAL_FORCE_INTERLACED_CHT NULL
-#define OPTION_VAL_AUTO_TOGGLE_CHT "允許自動切換"
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_LABEL_CHT NULL
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_CHT NULL
 #define BEETLE_OPT_ASPECT_RATIO_LABEL_CHT NULL
@@ -12685,6 +12793,10 @@ struct retro_core_options_v2 options_chs = {
 #define BEETLE_OPT_LAST_SCANLINE_PAL_LABEL_CHT NULL
 #define BEETLE_OPT_LAST_SCANLINE_PAL_INFO_0_CHT NULL
 #define OPTION_VAL_287_CHT "287 (預設)"
+#define BEETLE_OPT_DEINTERLACER_LABEL_CHT NULL
+#define BEETLE_OPT_DEINTERLACER_INFO_0_CHT NULL
+#define OPTION_VAL_WEAVE_CHT NULL
+#define OPTION_VAL_BOB_CHT NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_LABEL_CHT NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_INFO_0_CHT NULL
 #define OPTION_VAL_SYNC_CHT NULL
@@ -13871,11 +13983,11 @@ struct retro_core_option_v2_definition option_defs_cht[] = {
       NULL,
       NULL,
       {
+         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_CHT },
          { "force_progressive", OPTION_VAL_FORCE_PROGRESSIVE_CHT },
          { "force_interlaced",  OPTION_VAL_FORCE_INTERLACED_CHT },
-         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_CHT },
       },
-      "force_progressive"
+      "auto_toggle"
    },
    {
       BEETLE_OPT(pal_video_timing_override),
@@ -14303,6 +14415,20 @@ struct retro_core_option_v2_definition option_defs_cht[] = {
       },
       "287"
    },
+   {
+      BEETLE_OPT(deinterlacer),
+      BEETLE_OPT_DEINTERLACER_LABEL_CHT,
+      NULL,
+      BEETLE_OPT_DEINTERLACER_INFO_0_CHT,
+      NULL,
+      "video",
+      {
+         { "weave",  OPTION_VAL_WEAVE_CHT },
+         { "bob",  OPTION_VAL_BOB_CHT },
+         { NULL, NULL },
+      },
+      "weave"
+   },
 #ifndef EMSCRIPTEN
    {
       BEETLE_OPT(cd_access_method),
@@ -14411,17 +14537,17 @@ struct retro_core_options_v2 options_cht = {
 #define BEETLE_OPT_FRAME_DUPING_INFO_0_CS "Pokud je tato funkce povolena a podporována frontendem libretro, přináší malé zvýšení výkonu tím, že frontend opakuje předchozí snímek, pokud jádro nemá nic nového k zobrazení."
 #define BEETLE_OPT_DISPLAY_INTERNAL_FPS_LABEL_CS "Interní Zobrazení FPS"
 #define BEETLE_OPT_DISPLAY_INTERNAL_FPS_INFO_0_CS "Zobrazení interní snímkové frekvence, při které emulovaný systém PlayStation vykresluje obsah. Poznámka: Vyžaduje, aby byla ve frontendu libretro povolena oznámení na obrazovce."
-#define BEETLE_OPT_DISPLAY_OSD_LABEL_CS NULL
-#define BEETLE_OPT_DISPLAY_OSD_INFO_0_CS NULL
+#define BEETLE_OPT_DISPLAY_OSD_LABEL_CS "Zobrazení OSD zpráv"
+#define BEETLE_OPT_DISPLAY_OSD_INFO_0_CS "Zobrazení OSD zpráv generovaných jádrem."
 #define BEETLE_OPT_DISPLAY_VRAM_LABEL_CS "Zobrazení Plné Paměti VRAM (Ladění)"
 #define BEETLE_OPT_DISPLAY_VRAM_INFO_0_CS "Vizualizace celé paměti VRAM emulované konzole. Podporováno pouze hardwarovými vykreslovači OpenGL a Vulkan. Poznámka: Tato funkce slouží k ladění a měla by být normálně vypnuta."
 #define BEETLE_OPT_ANALOG_CALIBRATION_LABEL_CS "Analogová Vlastní Kalibrace"
 #define BEETLE_OPT_ANALOG_CALIBRATION_INFO_0_CS "Pokud je vstupní zařízení nastaveno na DualShock, Analogový ovladač, Analogový joystick nebo neGcon, tato možnost umožňuje dynamickou kalibraci analogových vstupů. Maximální registrované hodnoty vstupů jsou sledovány v reálném čase a použity ke škálování analogových souřadnic předávaných emulátoru. Tato funkce by měla být použita u her, jako je Mega Man Legends 2, které očekávají větší hodnoty, než jaké poskytují moderní ovladače. Pro dosažení nejlepších výsledků by se analogové páčky měly otáčet v plném rozsahu, aby se kalibrační algoritmus vyladil při každém načtení obsahu."
-#define BEETLE_OPT_ANALOG_TOGGLE_LABEL_CS NULL
-#define BEETLE_OPT_ANALOG_TOGGLE_INFO_0_CS NULL
-#define OPTION_VAL_ENABLED_ANALOG_CS NULL
+#define BEETLE_OPT_ANALOG_TOGGLE_LABEL_CS "Přepínání analogového režimu DualShock"
+#define BEETLE_OPT_ANALOG_TOGGLE_INFO_0_CS "Pokud je typem vstupního zařízení DualShock, umožňuje tato možnost přepínat emulovaný DualShock mezi DIGITÁLNÍM a ANALOGOVÝM režimem jako původní hardware. Režim lze přepínat také pomocí vybrané kombinace tlačítek."
+#define OPTION_VAL_ENABLED_ANALOG_CS "Výchozí analogový"
 #define BEETLE_OPT_ANALOG_TOGGLE_COMBO_LABEL_CS "Kombinace analogového režimu DualShock"
-#define BEETLE_OPT_ANALOG_TOGGLE_COMBO_INFO_0_CS NULL
+#define BEETLE_OPT_ANALOG_TOGGLE_COMBO_INFO_0_CS "Zvolte kombinaci tlačítek, která se bude používat k přepínání mezi digitálním a analogovým režimem emulovaného zařízení DualShock."
 #define OPTION_VAL_L1_L2_R1_R2_START_SELECT_CS NULL
 #define OPTION_VAL_L1_R1_SELECT_CS NULL
 #define OPTION_VAL_L1_R1_START_CS NULL
@@ -14433,7 +14559,7 @@ struct retro_core_options_v2 options_cht = {
 #define OPTION_VAL_L2_R2_R3_CS NULL
 #define OPTION_VAL_L3_R3_CS NULL
 #define BEETLE_OPT_ANALOG_TOGGLE_HOLD_LABEL_CS "Zpoždění podržení analogového režimu DualShock"
-#define BEETLE_OPT_ANALOG_TOGGLE_HOLD_INFO_0_CS NULL
+#define BEETLE_OPT_ANALOG_TOGGLE_HOLD_INFO_0_CS "Nastavení doby podržení pro kombinovaná tlačítka analogového režimu."
 #define OPTION_VAL_0_CS "0 sekundové zpoždění"
 #define OPTION_VAL_1_CS "1 sekundové zpoždění"
 #define OPTION_VAL_2_CS "2 sekundové zpoždění"
@@ -14529,7 +14655,7 @@ struct retro_core_options_v2 options_cht = {
 #define BEETLE_OPT_MEMCARD_LEFT_INDEX_INFO_0_CS "Vyměňte paměťovou kartu, která je aktuálně vložena v levém slotu. Tato možnost bude fungovat pouze v případě, že je metoda Paměťová Karta 0 nastavena na Mednafen. Výchozí karta má index 0."
 #define BEETLE_OPT_MEMCARD_RIGHT_INDEX_LABEL_CS "Pravý Index Paměťové Karty"
 #define BEETLE_OPT_MEMCARD_RIGHT_INDEX_INFO_0_CS "Vyměňte paměťovou kartu, která je aktuálně vložena v pravém slotu. Tato možnost bude fungovat pouze v případě, že je povolena Paměťová Karta 1. Výchozí karta má index 1."
-#define OPTION_VAL_1_O36_CS NULL
+#define OPTION_VAL_1_O36_CS "1 (výchozí)"
 #define BEETLE_OPT_PGXP_MODE_LABEL_CS "Provozní Režim PGXP"
 #define BEETLE_OPT_PGXP_MODE_INFO_0_CS "Umožňuje vykreslovat 3D objekty se subpixelovou přesností, čímž se minimalizuje zkreslení a chvění 3D objektů na původním hardwaru v důsledku použití souřadnic vrcholů s pevným bodem. Režim 'Pouze Paměť' má minimální problémy s kompatibilitou a doporučuje se pro obecné použití. Režim 'Paměť + CPU (Chyby)' může ještě více snížit jitter, ale má vysoké nároky na výkon a může způsobit různé chyby geometrie."
 #define OPTION_VAL_MEMORY_ONLY_CS "Pouze Paměť"
@@ -14660,9 +14786,9 @@ struct retro_core_options_v2 options_cht = {
 #define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_CS "Maximální počet vzorků SPU, které mají být spuštěny před kontrolou aktualizace SPU, vyšší číslo bude rychlejší, ale v některých hrách s jiným číslem než 1 bude způsobovat závady zvuku."
 #define BEETLE_OPT_CORE_TIMING_FPS_LABEL_CS "Nahlášené-Jádro Časování FPS"
 #define BEETLE_OPT_CORE_TIMING_FPS_INFO_0_CS "Zvolte časování FPS, které bude jádro hlásit frontendu. Automatické přepínání umožní jádru přepínat mezi hlášením progresivní a prokládané rychlosti, ale může způsobit opětovné spuštění ovladače videa/audia ve frontendu."
+#define OPTION_VAL_AUTO_TOGGLE_CS "Povolit Automatické Přepínání"
 #define OPTION_VAL_FORCE_PROGRESSIVE_CS "Progresivní Hodnota"
 #define OPTION_VAL_FORCE_INTERLACED_CS "Vynutit Prokládanou Hodnotu"
-#define OPTION_VAL_AUTO_TOGGLE_CS "Povolit Automatické Přepínání"
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_LABEL_CS "Přepsání Časování Videa v Systému PAL (Evropský)"
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_CS "Kvůli odlišným normám se hry pro PAL často jeví jako zpomalené ve srovnání s americkými nebo japonskými verzemi pro NTSC. Tuto možnost lze použít k potlačení časování PAL, abyste se pokusili spustit tyto hry se snímkovou frekvencí NTSC. Tato volba nemá žádný účinek při spouštění obsahu NTSC."
 #define BEETLE_OPT_ASPECT_RATIO_LABEL_CS "Poměr Stran Jádra"
@@ -14703,7 +14829,7 @@ struct retro_core_options_v2 options_cht = {
 #define OPTION_VAL_4PX_O61_CS NULL
 #define OPTION_VAL_3PX_O61_CS NULL
 #define OPTION_VAL_2PX_O61_CS NULL
-#define OPTION_VAL_1PX_O61_CS NULL
+#define OPTION_VAL_1PX_O61_CS "1px"
 #define OPTION_VAL_1PX_O61_0_CS NULL
 #define OPTION_VAL_2PX_O61_0_CS NULL
 #define OPTION_VAL_3PX_O61_0_CS NULL
@@ -14720,7 +14846,7 @@ struct retro_core_options_v2 options_cht = {
 #define BEETLE_OPT_IMAGE_OFFSET_CYCLES_INFO_0_CS "Zvolte počet cyklů GPU, o které se má obraz posunout. Kladné hodnoty posunou obraz doprava, záporné hodnoty doleva. Podporováno pouze hardwarovými vykreslovači."
 #define BEETLE_OPT_INITIAL_SCANLINE_LABEL_CS "Počáteční Skenovací Řádek - NTSC"
 #define BEETLE_OPT_INITIAL_SCANLINE_INFO_0_CS "Při spuštění obsahu NTSC vyberte první zobrazený řádek skenování. Hodnoty větší než nula sníží výšku výstupních obrázků oříznutím pixelů od nejvyššího okraje. Lze použít k potlačení letterboxingu."
-#define OPTION_VAL_0_O63_CS NULL
+#define OPTION_VAL_0_O63_CS "0 (výchozí)"
 #define BEETLE_OPT_LAST_SCANLINE_LABEL_CS "Poslední Skenovací Řádek - NTSC"
 #define BEETLE_OPT_LAST_SCANLINE_INFO_0_CS "Při spuštění obsahu NTSC vyberte poslední zobrazený řádek skenování. Hodnoty menší než 239 sníží výšku výstupních obrázků oříznutím pixelů od nejspodnějšího okraje. Lze použít k potlačení letterboxingu."
 #define OPTION_VAL_239_CS "239 (Výchozí)"
@@ -14729,6 +14855,10 @@ struct retro_core_options_v2 options_cht = {
 #define BEETLE_OPT_LAST_SCANLINE_PAL_LABEL_CS "Poslední Skenovací Řádek - PAL"
 #define BEETLE_OPT_LAST_SCANLINE_PAL_INFO_0_CS "Při spuštění obsahu PAL vyberte poslední zobrazený řádek skenování. Hodnoty nižší než 287 sníží výšku výstupních obrazů oříznutím pixelů od nejspodnějšího okraje. Lze použít k potlačení letterboxingu."
 #define OPTION_VAL_287_CS "287 (Výchozí)"
+#define BEETLE_OPT_DEINTERLACER_LABEL_CS NULL
+#define BEETLE_OPT_DEINTERLACER_INFO_0_CS NULL
+#define OPTION_VAL_WEAVE_CS NULL
+#define OPTION_VAL_BOB_CS NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_LABEL_CS "Metoda Přístupu CD (Vyžadován Restart)"
 #define BEETLE_OPT_CD_ACCESS_METHOD_INFO_0_CS "Zvolte metodu používanou ke čtení dat z obrazů disku s obsahem. 'Synchronní' napodobuje původní hardware. 'Asynchronní' může snížit zadrhávání na zařízeních s pomalým úložištěm. 'Pre-Cache' načte celý obraz disku do paměti při spuštění obsahu, což může zlepšit časy načítání ve hře za cenu počátečního zpoždění při spuštění. Funkce 'Pre-Cache' může způsobovat problémy na systémech s malou pamětí RAM a v případě fyzických médií se vrátí k funkci 'Synchronní'."
 #define OPTION_VAL_SYNC_CS "Synchronní"
@@ -15915,11 +16045,11 @@ struct retro_core_option_v2_definition option_defs_cs[] = {
       NULL,
       NULL,
       {
+         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_CS },
          { "force_progressive", OPTION_VAL_FORCE_PROGRESSIVE_CS },
          { "force_interlaced",  OPTION_VAL_FORCE_INTERLACED_CS },
-         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_CS },
       },
-      "force_progressive"
+      "auto_toggle"
    },
    {
       BEETLE_OPT(pal_video_timing_override),
@@ -16347,6 +16477,20 @@ struct retro_core_option_v2_definition option_defs_cs[] = {
       },
       "287"
    },
+   {
+      BEETLE_OPT(deinterlacer),
+      BEETLE_OPT_DEINTERLACER_LABEL_CS,
+      NULL,
+      BEETLE_OPT_DEINTERLACER_INFO_0_CS,
+      NULL,
+      "video",
+      {
+         { "weave",  OPTION_VAL_WEAVE_CS },
+         { "bob",  OPTION_VAL_BOB_CS },
+         { NULL, NULL },
+      },
+      "weave"
+   },
 #ifndef EMSCRIPTEN
    {
       BEETLE_OPT(cd_access_method),
@@ -16704,9 +16848,9 @@ struct retro_core_options_v2 options_cs = {
 #define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_CY NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_LABEL_CY NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_INFO_0_CY NULL
+#define OPTION_VAL_AUTO_TOGGLE_CY NULL
 #define OPTION_VAL_FORCE_PROGRESSIVE_CY NULL
 #define OPTION_VAL_FORCE_INTERLACED_CY NULL
-#define OPTION_VAL_AUTO_TOGGLE_CY NULL
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_LABEL_CY NULL
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_CY NULL
 #define BEETLE_OPT_ASPECT_RATIO_LABEL_CY NULL
@@ -16773,6 +16917,10 @@ struct retro_core_options_v2 options_cs = {
 #define BEETLE_OPT_LAST_SCANLINE_PAL_LABEL_CY NULL
 #define BEETLE_OPT_LAST_SCANLINE_PAL_INFO_0_CY NULL
 #define OPTION_VAL_287_CY NULL
+#define BEETLE_OPT_DEINTERLACER_LABEL_CY NULL
+#define BEETLE_OPT_DEINTERLACER_INFO_0_CY NULL
+#define OPTION_VAL_WEAVE_CY NULL
+#define OPTION_VAL_BOB_CY NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_LABEL_CY NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_INFO_0_CY NULL
 #define OPTION_VAL_SYNC_CY NULL
@@ -17959,11 +18107,11 @@ struct retro_core_option_v2_definition option_defs_cy[] = {
       NULL,
       NULL,
       {
+         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_CY },
          { "force_progressive", OPTION_VAL_FORCE_PROGRESSIVE_CY },
          { "force_interlaced",  OPTION_VAL_FORCE_INTERLACED_CY },
-         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_CY },
       },
-      "force_progressive"
+      "auto_toggle"
    },
    {
       BEETLE_OPT(pal_video_timing_override),
@@ -18391,6 +18539,20 @@ struct retro_core_option_v2_definition option_defs_cy[] = {
       },
       "287"
    },
+   {
+      BEETLE_OPT(deinterlacer),
+      BEETLE_OPT_DEINTERLACER_LABEL_CY,
+      NULL,
+      BEETLE_OPT_DEINTERLACER_INFO_0_CY,
+      NULL,
+      "video",
+      {
+         { "weave",  OPTION_VAL_WEAVE_CY },
+         { "bob",  OPTION_VAL_BOB_CY },
+         { NULL, NULL },
+      },
+      "weave"
+   },
 #ifndef EMSCRIPTEN
    {
       BEETLE_OPT(cd_access_method),
@@ -18748,9 +18910,9 @@ struct retro_core_options_v2 options_cy = {
 #define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_DA NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_LABEL_DA NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_INFO_0_DA NULL
+#define OPTION_VAL_AUTO_TOGGLE_DA NULL
 #define OPTION_VAL_FORCE_PROGRESSIVE_DA NULL
 #define OPTION_VAL_FORCE_INTERLACED_DA NULL
-#define OPTION_VAL_AUTO_TOGGLE_DA NULL
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_LABEL_DA NULL
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_DA NULL
 #define BEETLE_OPT_ASPECT_RATIO_LABEL_DA NULL
@@ -18817,6 +18979,10 @@ struct retro_core_options_v2 options_cy = {
 #define BEETLE_OPT_LAST_SCANLINE_PAL_LABEL_DA NULL
 #define BEETLE_OPT_LAST_SCANLINE_PAL_INFO_0_DA NULL
 #define OPTION_VAL_287_DA NULL
+#define BEETLE_OPT_DEINTERLACER_LABEL_DA NULL
+#define BEETLE_OPT_DEINTERLACER_INFO_0_DA NULL
+#define OPTION_VAL_WEAVE_DA NULL
+#define OPTION_VAL_BOB_DA NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_LABEL_DA NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_INFO_0_DA NULL
 #define OPTION_VAL_SYNC_DA NULL
@@ -20003,11 +20169,11 @@ struct retro_core_option_v2_definition option_defs_da[] = {
       NULL,
       NULL,
       {
+         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_DA },
          { "force_progressive", OPTION_VAL_FORCE_PROGRESSIVE_DA },
          { "force_interlaced",  OPTION_VAL_FORCE_INTERLACED_DA },
-         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_DA },
       },
-      "force_progressive"
+      "auto_toggle"
    },
    {
       BEETLE_OPT(pal_video_timing_override),
@@ -20435,6 +20601,20 @@ struct retro_core_option_v2_definition option_defs_da[] = {
       },
       "287"
    },
+   {
+      BEETLE_OPT(deinterlacer),
+      BEETLE_OPT_DEINTERLACER_LABEL_DA,
+      NULL,
+      BEETLE_OPT_DEINTERLACER_INFO_0_DA,
+      NULL,
+      "video",
+      {
+         { "weave",  OPTION_VAL_WEAVE_DA },
+         { "bob",  OPTION_VAL_BOB_DA },
+         { NULL, NULL },
+      },
+      "weave"
+   },
 #ifndef EMSCRIPTEN
    {
       BEETLE_OPT(cd_access_method),
@@ -20792,9 +20972,9 @@ struct retro_core_options_v2 options_da = {
 #define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_DE "Maximal laufende SPU-Samples bevor ein SPU-Update geprüft wird; eine höhere Zahl ist schneller, wird aber bei einigen Spielen Soundfehler mit etwas anderem als „1“ verursachen."
 #define BEETLE_OPT_CORE_TIMING_FPS_LABEL_DE "Von Core gemeldetes FPS-Timing"
 #define BEETLE_OPT_CORE_TIMING_FPS_INFO_0_DE "Das FPS-Timing auswählen, das der Core an das Frontend melden soll. Automatisches Umschalten ermöglicht dem Core im Wechsel progressive und „interlaced“ Frequenzen zu melden, was aber dazu führen kann, dass der Video-/Audiotreiber des Frontends neu initialisiert wird."
+#define OPTION_VAL_AUTO_TOGGLE_DE "Automatisches Umschalten erlauben"
 #define OPTION_VAL_FORCE_PROGRESSIVE_DE "Progressive Frequenz"
 #define OPTION_VAL_FORCE_INTERLACED_DE "„Interlaced“ Frequenz erzwingen"
-#define OPTION_VAL_AUTO_TOGGLE_DE "Automatisches Umschalten erlauben"
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_LABEL_DE "PAL (europäisch) Videotiming übersteuern"
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_DE "Aufgrund unterschiedlicher Standards scheinen PAL-Spiele im Vergleich zu den amerikanischen oder japanischen NTSC-Releases verlangsamt. Diese Option kann genutzt werden, um PAL-Timings zu übersteuern und zu versuchen, diese Spiele mit der NTSC-Bildwiederholrate auszuführen. Diese Option hat keine Auswirkung beim Ausführen von NTSC-Inhalten."
 #define BEETLE_OPT_ASPECT_RATIO_LABEL_DE "Core-Seitenverhältnis"
@@ -20861,6 +21041,10 @@ struct retro_core_options_v2 options_da = {
 #define BEETLE_OPT_LAST_SCANLINE_PAL_LABEL_DE "Letzte Abtastzeile - PAL"
 #define BEETLE_OPT_LAST_SCANLINE_PAL_INFO_0_DE "Wählen Sie die letzte angezeigte Scanline beim Ausführen von PAL-Inhalten. Werte unter 287 verringern die Höhe der Ausgabebilder durch Zuschneiden von Pixeln von der unteren Kante. Kann verwendet werden, um schwarze Balken entgegenzuwirken."
 #define OPTION_VAL_287_DE "287 (Standard)"
+#define BEETLE_OPT_DEINTERLACER_LABEL_DE "Deinterlacing-Methode"
+#define BEETLE_OPT_DEINTERLACER_INFO_0_DE "„Weave“ zeigt beide Felder im selben Frame für ein Standbild mit voller Auflösung, „Bob“ opfert Auflösungsklarheit zugunsten der Bewegungsklarheit."
+#define OPTION_VAL_WEAVE_DE NULL
+#define OPTION_VAL_BOB_DE NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_LABEL_DE "CD-Zugriffsmethode (Neustart erforderlich)"
 #define BEETLE_OPT_CD_ACCESS_METHOD_INFO_0_DE "Methode auswählen, mit der Daten von CD-Abbildern gelesen werden. „Synchron“ ahmt die Originalhardware nach. „Asynchron“ kann das Stottern auf Geräten mit langsamem Speicher verringern. „Vorab laden“ lädt beim Starten von Inhalten das gesamte CD-Abbildes in den Speicher, was die Ladezeiten im Spiel auf Kosten einer anfänglichen Verzögerung beim Starten verbessern kann. „Vorab laden“ kann auf Systemen mit wenig Arbeitsspeicher zu Problemen führen, und wird bei physischen Medien auf „Synchron“ zurückgreifen."
 #define OPTION_VAL_SYNC_DE "Synchron"
@@ -22047,11 +22231,11 @@ struct retro_core_option_v2_definition option_defs_de[] = {
       NULL,
       NULL,
       {
+         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_DE },
          { "force_progressive", OPTION_VAL_FORCE_PROGRESSIVE_DE },
          { "force_interlaced",  OPTION_VAL_FORCE_INTERLACED_DE },
-         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_DE },
       },
-      "force_progressive"
+      "auto_toggle"
    },
    {
       BEETLE_OPT(pal_video_timing_override),
@@ -22479,6 +22663,20 @@ struct retro_core_option_v2_definition option_defs_de[] = {
       },
       "287"
    },
+   {
+      BEETLE_OPT(deinterlacer),
+      BEETLE_OPT_DEINTERLACER_LABEL_DE,
+      NULL,
+      BEETLE_OPT_DEINTERLACER_INFO_0_DE,
+      NULL,
+      "video",
+      {
+         { "weave",  OPTION_VAL_WEAVE_DE },
+         { "bob",  OPTION_VAL_BOB_DE },
+         { NULL, NULL },
+      },
+      "weave"
+   },
 #ifndef EMSCRIPTEN
    {
       BEETLE_OPT(cd_access_method),
@@ -22836,9 +23034,9 @@ struct retro_core_options_v2 options_de = {
 #define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_EL NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_LABEL_EL NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_INFO_0_EL NULL
+#define OPTION_VAL_AUTO_TOGGLE_EL NULL
 #define OPTION_VAL_FORCE_PROGRESSIVE_EL NULL
 #define OPTION_VAL_FORCE_INTERLACED_EL NULL
-#define OPTION_VAL_AUTO_TOGGLE_EL NULL
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_LABEL_EL NULL
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_EL NULL
 #define BEETLE_OPT_ASPECT_RATIO_LABEL_EL NULL
@@ -22905,6 +23103,10 @@ struct retro_core_options_v2 options_de = {
 #define BEETLE_OPT_LAST_SCANLINE_PAL_LABEL_EL NULL
 #define BEETLE_OPT_LAST_SCANLINE_PAL_INFO_0_EL NULL
 #define OPTION_VAL_287_EL "287 (Προεπιλογή)"
+#define BEETLE_OPT_DEINTERLACER_LABEL_EL NULL
+#define BEETLE_OPT_DEINTERLACER_INFO_0_EL NULL
+#define OPTION_VAL_WEAVE_EL NULL
+#define OPTION_VAL_BOB_EL NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_LABEL_EL NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_INFO_0_EL NULL
 #define OPTION_VAL_SYNC_EL NULL
@@ -24091,11 +24293,11 @@ struct retro_core_option_v2_definition option_defs_el[] = {
       NULL,
       NULL,
       {
+         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_EL },
          { "force_progressive", OPTION_VAL_FORCE_PROGRESSIVE_EL },
          { "force_interlaced",  OPTION_VAL_FORCE_INTERLACED_EL },
-         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_EL },
       },
-      "force_progressive"
+      "auto_toggle"
    },
    {
       BEETLE_OPT(pal_video_timing_override),
@@ -24523,6 +24725,20 @@ struct retro_core_option_v2_definition option_defs_el[] = {
       },
       "287"
    },
+   {
+      BEETLE_OPT(deinterlacer),
+      BEETLE_OPT_DEINTERLACER_LABEL_EL,
+      NULL,
+      BEETLE_OPT_DEINTERLACER_INFO_0_EL,
+      NULL,
+      "video",
+      {
+         { "weave",  OPTION_VAL_WEAVE_EL },
+         { "bob",  OPTION_VAL_BOB_EL },
+         { NULL, NULL },
+      },
+      "weave"
+   },
 #ifndef EMSCRIPTEN
    {
       BEETLE_OPT(cd_access_method),
@@ -24880,9 +25096,9 @@ struct retro_core_options_v2 options_el = {
 #define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_EN NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_LABEL_EN NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_INFO_0_EN "Choose the FPS timing that the core will report to the front-end. Automatic Toggling will allow the core to switch between reporting progressive and interlaced rates, but may cause front-end video/audio driver re-initialisations."
+#define OPTION_VAL_AUTO_TOGGLE_EN NULL
 #define OPTION_VAL_FORCE_PROGRESSIVE_EN NULL
 #define OPTION_VAL_FORCE_INTERLACED_EN NULL
-#define OPTION_VAL_AUTO_TOGGLE_EN NULL
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_LABEL_EN NULL
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_EN "Due to different standards, PAL games often appear slowed down compared to the American or Japanese NTSC releases. This option can be used to override PAL timings in order to attempt to run these games with the NTSC frame-rate. This option has no effect when running NTSC content."
 #define BEETLE_OPT_ASPECT_RATIO_LABEL_EN NULL
@@ -24949,6 +25165,10 @@ struct retro_core_options_v2 options_el = {
 #define BEETLE_OPT_LAST_SCANLINE_PAL_LABEL_EN NULL
 #define BEETLE_OPT_LAST_SCANLINE_PAL_INFO_0_EN "Choose the last displayed scan line when running PAL content. Values below 287 will reduce the height of output images by cropping pixels from the bottommost edge. May be used to counteract letter-boxing."
 #define OPTION_VAL_287_EN NULL
+#define BEETLE_OPT_DEINTERLACER_LABEL_EN NULL
+#define BEETLE_OPT_DEINTERLACER_INFO_0_EN "'Weave' shows both fields on the same frame for full high resolution still image, 'Bob' sacrifices resolution clarity for motion clarity."
+#define OPTION_VAL_WEAVE_EN NULL
+#define OPTION_VAL_BOB_EN NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_LABEL_EN NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_INFO_0_EN "Choose the method used to read data from content disk images. 'Synchronous' mimics original hardware. 'Asynchronous' can reduce stuttering on devices with slow storage. 'Pre-Cache' loads the entire disk image into memory when launching content, which may improve in-game loading times at the cost of an initial delay at start-up. 'Pre-Cache' may cause issues on systems with low RAM, and will fall back to 'Synchronous' for physical media."
 #define OPTION_VAL_SYNC_EN NULL
@@ -26135,11 +26355,11 @@ struct retro_core_option_v2_definition option_defs_en[] = {
       NULL,
       NULL,
       {
+         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_EN },
          { "force_progressive", OPTION_VAL_FORCE_PROGRESSIVE_EN },
          { "force_interlaced",  OPTION_VAL_FORCE_INTERLACED_EN },
-         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_EN },
       },
-      "force_progressive"
+      "auto_toggle"
    },
    {
       BEETLE_OPT(pal_video_timing_override),
@@ -26567,6 +26787,20 @@ struct retro_core_option_v2_definition option_defs_en[] = {
       },
       "287"
    },
+   {
+      BEETLE_OPT(deinterlacer),
+      BEETLE_OPT_DEINTERLACER_LABEL_EN,
+      NULL,
+      BEETLE_OPT_DEINTERLACER_INFO_0_EN,
+      NULL,
+      "video",
+      {
+         { "weave",  OPTION_VAL_WEAVE_EN },
+         { "bob",  OPTION_VAL_BOB_EN },
+         { NULL, NULL },
+      },
+      "weave"
+   },
 #ifndef EMSCRIPTEN
    {
       BEETLE_OPT(cd_access_method),
@@ -26924,9 +27158,9 @@ struct retro_core_options_v2 options_en = {
 #define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_EO NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_LABEL_EO NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_INFO_0_EO NULL
+#define OPTION_VAL_AUTO_TOGGLE_EO NULL
 #define OPTION_VAL_FORCE_PROGRESSIVE_EO NULL
 #define OPTION_VAL_FORCE_INTERLACED_EO NULL
-#define OPTION_VAL_AUTO_TOGGLE_EO NULL
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_LABEL_EO NULL
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_EO NULL
 #define BEETLE_OPT_ASPECT_RATIO_LABEL_EO NULL
@@ -26993,6 +27227,10 @@ struct retro_core_options_v2 options_en = {
 #define BEETLE_OPT_LAST_SCANLINE_PAL_LABEL_EO NULL
 #define BEETLE_OPT_LAST_SCANLINE_PAL_INFO_0_EO NULL
 #define OPTION_VAL_287_EO NULL
+#define BEETLE_OPT_DEINTERLACER_LABEL_EO NULL
+#define BEETLE_OPT_DEINTERLACER_INFO_0_EO NULL
+#define OPTION_VAL_WEAVE_EO NULL
+#define OPTION_VAL_BOB_EO NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_LABEL_EO NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_INFO_0_EO NULL
 #define OPTION_VAL_SYNC_EO NULL
@@ -28179,11 +28417,11 @@ struct retro_core_option_v2_definition option_defs_eo[] = {
       NULL,
       NULL,
       {
+         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_EO },
          { "force_progressive", OPTION_VAL_FORCE_PROGRESSIVE_EO },
          { "force_interlaced",  OPTION_VAL_FORCE_INTERLACED_EO },
-         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_EO },
       },
-      "force_progressive"
+      "auto_toggle"
    },
    {
       BEETLE_OPT(pal_video_timing_override),
@@ -28611,6 +28849,20 @@ struct retro_core_option_v2_definition option_defs_eo[] = {
       },
       "287"
    },
+   {
+      BEETLE_OPT(deinterlacer),
+      BEETLE_OPT_DEINTERLACER_LABEL_EO,
+      NULL,
+      BEETLE_OPT_DEINTERLACER_INFO_0_EO,
+      NULL,
+      "video",
+      {
+         { "weave",  OPTION_VAL_WEAVE_EO },
+         { "bob",  OPTION_VAL_BOB_EO },
+         { NULL, NULL },
+      },
+      "weave"
+   },
 #ifndef EMSCRIPTEN
    {
       BEETLE_OPT(cd_access_method),
@@ -28961,16 +29213,16 @@ struct retro_core_options_v2 options_eo = {
 #define BEETLE_OPT_DYNAREC_INVALIDATE_INFO_0_ES "Algunos juegos necesitan una invalidación completa y otros solo necesitan invalidar la DMA."
 #define OPTION_VAL_FULL_ES "Completa"
 #define OPTION_VAL_DMA_ES "Solo DMA (algo más rápida)"
-#define BEETLE_OPT_DYNAREC_EVENTCYCLES_LABEL_ES "Ciclos de eventos de DMA/GPU/MDEC/Timer del dynarec"
-#define BEETLE_OPT_DYNAREC_EVENTCYCLES_INFO_0_ES "Indica el número máximo de ciclos ejecutados por la CPU antes de comprobar la DMA, la GPU, el MDEC o el temporizador (timer). Un valor superior será más rápido. Tiene menos repercusión en el intérprete Beetle que en el dynarec."
+#define BEETLE_OPT_DYNAREC_EVENTCYCLES_LABEL_ES "Control de ciclos de eventos de DMA/GPU/MDEC/Timer del dynarec"
+#define BEETLE_OPT_DYNAREC_EVENTCYCLES_INFO_0_ES "Indica el número máximo de ciclos que debe ejecutar la CPU antes de comprobar el DMA, la GPU, el MDEC o el temporizador (timer). Un valor superior será más rápido. Tiene menos repercusión en el intérprete Beetle que en el dynarec."
 #define OPTION_VAL_128_ES "128 (valor predeterminado)"
-#define BEETLE_OPT_DYNAREC_SPU_SAMPLES_LABEL_ES "Muestras de la SPU mediante dynarec"
-#define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_ES "Indica el número máximo de muestras de la SPU que se ejecutarán antes de comprobar las actualizaciones de la SPU. Un valor superior será más rápido, pero un valor que no sea 1 provocará fallos de sonido en algunos juegos."
+#define BEETLE_OPT_DYNAREC_SPU_SAMPLES_LABEL_ES "Control de muestras de la SPU del dynarec"
+#define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_ES "Indica el número máximo de muestras que debe ejecutar la SPU antes de comprobar las actualizaciones de la SPU. Un valor superior será más rápido, pero un valor que no sea 1 provocará fallos de sonido en algunos juegos."
 #define BEETLE_OPT_CORE_TIMING_FPS_LABEL_ES "Barrido de señal según núcleo"
 #define BEETLE_OPT_CORE_TIMING_FPS_INFO_0_ES "Ajusta el barrido de señal que indicará el núcleo al front-end. «Cambiar automáticamente» permite que el núcleo cambie entre los barridos progresivo y entrelazado, pero pueden provocar reinicios en los controladores de vídeo y audio del front-end."
+#define OPTION_VAL_AUTO_TOGGLE_ES "Cambiar automáticamente"
 #define OPTION_VAL_FORCE_PROGRESSIVE_ES "Tasa progresiva"
 #define OPTION_VAL_FORCE_INTERLACED_ES "Forzar barrido entrelazado"
-#define OPTION_VAL_AUTO_TOGGLE_ES "Cambiar automáticamente"
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_LABEL_ES "Anular sincronía de vídeo PAL (europea)"
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_ES "Debido a la diferencia entre estándares, los juegos PAL suelen parecer más lentos que sus versiones NTSC, tanto estadounidenses como japonesas. Esta opción puede anular la velocidad de vídeo PAL para intentar ejecutar dichos juegos con la velocidad de fotogramas NTSC. Esta opción no produce efecto alguno en contenidos NTSC."
 #define BEETLE_OPT_ASPECT_RATIO_LABEL_ES "Relación de aspecto del núcleo"
@@ -29037,6 +29289,10 @@ struct retro_core_options_v2 options_eo = {
 #define BEETLE_OPT_LAST_SCANLINE_PAL_LABEL_ES "Línea de barrido final en formato PAL"
 #define BEETLE_OPT_LAST_SCANLINE_PAL_INFO_0_ES "Selecciona la última línea de barrido que se mostrará al ejecutar contenidos PAL. Un valor inferior a 287 reducirá la altura de las imágenes generadas recortando los píxeles de la parte inferior. Puede servir para evitar el efecto «letterboxing»."
 #define OPTION_VAL_287_ES "287 (por defecto)"
+#define BEETLE_OPT_DEINTERLACER_LABEL_ES "Método de desentrelazado"
+#define BEETLE_OPT_DEINTERLACER_INFO_0_ES "«Weave» muestra ambos campos en el mismo fotograma para producir imágenes fijas a la resolución máxima, «Bob» sacrifica claridad en la resolución para ganarla en los movimientos."
+#define OPTION_VAL_WEAVE_ES "«Weave»"
+#define OPTION_VAL_BOB_ES NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_LABEL_ES "Método de acceso al CD (es necesario reiniciar)"
 #define BEETLE_OPT_CD_ACCESS_METHOD_INFO_0_ES "Selecciona el método utilizado para leer datos de las imágenes de disco del contenido. «Sincrónico» simula el hardware original, «Asincrónico» puede reducir los tirones en aquellos dispositivos que tengan un almacenamiento lento y «Precacheado» carga la imagen de disco entera en memoria al ejecutar el contenido, lo que puede mejorar los tiempos de carga del juego a costa de retrasar el arranque inicial. «Precacheado» puede producir problemas en sistemas con poca RAM."
 #define OPTION_VAL_SYNC_ES "Sincrónico"
@@ -30223,11 +30479,11 @@ struct retro_core_option_v2_definition option_defs_es[] = {
       NULL,
       NULL,
       {
+         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_ES },
          { "force_progressive", OPTION_VAL_FORCE_PROGRESSIVE_ES },
          { "force_interlaced",  OPTION_VAL_FORCE_INTERLACED_ES },
-         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_ES },
       },
-      "force_progressive"
+      "auto_toggle"
    },
    {
       BEETLE_OPT(pal_video_timing_override),
@@ -30655,6 +30911,20 @@ struct retro_core_option_v2_definition option_defs_es[] = {
       },
       "287"
    },
+   {
+      BEETLE_OPT(deinterlacer),
+      BEETLE_OPT_DEINTERLACER_LABEL_ES,
+      NULL,
+      BEETLE_OPT_DEINTERLACER_INFO_0_ES,
+      NULL,
+      "video",
+      {
+         { "weave",  OPTION_VAL_WEAVE_ES },
+         { "bob",  OPTION_VAL_BOB_ES },
+         { NULL, NULL },
+      },
+      "weave"
+   },
 #ifndef EMSCRIPTEN
    {
       BEETLE_OPT(cd_access_method),
@@ -31012,9 +31282,9 @@ struct retro_core_options_v2 options_es = {
 #define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_FA NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_LABEL_FA NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_INFO_0_FA NULL
+#define OPTION_VAL_AUTO_TOGGLE_FA NULL
 #define OPTION_VAL_FORCE_PROGRESSIVE_FA NULL
 #define OPTION_VAL_FORCE_INTERLACED_FA NULL
-#define OPTION_VAL_AUTO_TOGGLE_FA NULL
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_LABEL_FA NULL
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_FA NULL
 #define BEETLE_OPT_ASPECT_RATIO_LABEL_FA NULL
@@ -31081,6 +31351,10 @@ struct retro_core_options_v2 options_es = {
 #define BEETLE_OPT_LAST_SCANLINE_PAL_LABEL_FA NULL
 #define BEETLE_OPT_LAST_SCANLINE_PAL_INFO_0_FA NULL
 #define OPTION_VAL_287_FA NULL
+#define BEETLE_OPT_DEINTERLACER_LABEL_FA NULL
+#define BEETLE_OPT_DEINTERLACER_INFO_0_FA NULL
+#define OPTION_VAL_WEAVE_FA NULL
+#define OPTION_VAL_BOB_FA NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_LABEL_FA NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_INFO_0_FA NULL
 #define OPTION_VAL_SYNC_FA NULL
@@ -32267,11 +32541,11 @@ struct retro_core_option_v2_definition option_defs_fa[] = {
       NULL,
       NULL,
       {
+         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_FA },
          { "force_progressive", OPTION_VAL_FORCE_PROGRESSIVE_FA },
          { "force_interlaced",  OPTION_VAL_FORCE_INTERLACED_FA },
-         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_FA },
       },
-      "force_progressive"
+      "auto_toggle"
    },
    {
       BEETLE_OPT(pal_video_timing_override),
@@ -32699,6 +32973,20 @@ struct retro_core_option_v2_definition option_defs_fa[] = {
       },
       "287"
    },
+   {
+      BEETLE_OPT(deinterlacer),
+      BEETLE_OPT_DEINTERLACER_LABEL_FA,
+      NULL,
+      BEETLE_OPT_DEINTERLACER_INFO_0_FA,
+      NULL,
+      "video",
+      {
+         { "weave",  OPTION_VAL_WEAVE_FA },
+         { "bob",  OPTION_VAL_BOB_FA },
+         { NULL, NULL },
+      },
+      "weave"
+   },
 #ifndef EMSCRIPTEN
    {
       BEETLE_OPT(cd_access_method),
@@ -32912,7 +33200,7 @@ struct retro_core_options_v2 options_fa = {
 #define OPTION_VAL_CUBIC_FI NULL
 #define BEETLE_OPT_NEGCON_DEADZONE_LABEL_FI NULL
 #define BEETLE_OPT_NEGCON_DEADZONE_INFO_0_FI NULL
-#define OPTION_VAL_0_O31_FI NULL
+#define OPTION_VAL_0_O31_FI "0 %"
 #define BEETLE_OPT_USE_MEDNAFEN_MEMCARD0_METHOD_LABEL_FI NULL
 #define BEETLE_OPT_USE_MEDNAFEN_MEMCARD0_METHOD_INFO_0_FI NULL
 #define OPTION_VAL_LIBRETRO_FI NULL
@@ -32925,7 +33213,7 @@ struct retro_core_options_v2 options_fa = {
 #define BEETLE_OPT_MEMCARD_LEFT_INDEX_INFO_0_FI NULL
 #define BEETLE_OPT_MEMCARD_RIGHT_INDEX_LABEL_FI NULL
 #define BEETLE_OPT_MEMCARD_RIGHT_INDEX_INFO_0_FI NULL
-#define OPTION_VAL_1_O36_FI NULL
+#define OPTION_VAL_1_O36_FI "1 (Oletus)"
 #define BEETLE_OPT_PGXP_MODE_LABEL_FI NULL
 #define BEETLE_OPT_PGXP_MODE_INFO_0_FI NULL
 #define OPTION_VAL_MEMORY_ONLY_FI NULL
@@ -33056,9 +33344,9 @@ struct retro_core_options_v2 options_fa = {
 #define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_FI NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_LABEL_FI NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_INFO_0_FI NULL
+#define OPTION_VAL_AUTO_TOGGLE_FI "Salli automaattinen vaihtaminen"
 #define OPTION_VAL_FORCE_PROGRESSIVE_FI NULL
 #define OPTION_VAL_FORCE_INTERLACED_FI NULL
-#define OPTION_VAL_AUTO_TOGGLE_FI "Salli automaattinen vaihtaminen"
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_LABEL_FI "Eurooppalaisen PAL-videoajoituksen ohitus"
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_FI "Erilaisista standardeista johtuen, PAL-pelit näkyvät usein amerikkalaisia tai japanilaisia NTSC julkaisuja hitaampina. Tällä valinnalla PAL-ajoitukset voidaan ohittaa, jotta tällaiset pelit voidaan pyrkiä suorittamaan NTSC-kuvanopeudella. Asetus ei vaikuta NTSC-sisältöön."
 #define BEETLE_OPT_ASPECT_RATIO_LABEL_FI "Ytimen kuvasuhde"
@@ -33116,7 +33404,7 @@ struct retro_core_options_v2 options_fa = {
 #define BEETLE_OPT_IMAGE_OFFSET_CYCLES_INFO_0_FI NULL
 #define BEETLE_OPT_INITIAL_SCANLINE_LABEL_FI NULL
 #define BEETLE_OPT_INITIAL_SCANLINE_INFO_0_FI NULL
-#define OPTION_VAL_0_O63_FI NULL
+#define OPTION_VAL_0_O63_FI "0 (Oletus)"
 #define BEETLE_OPT_LAST_SCANLINE_LABEL_FI NULL
 #define BEETLE_OPT_LAST_SCANLINE_INFO_0_FI NULL
 #define OPTION_VAL_239_FI "239 (Oletus)"
@@ -33125,6 +33413,10 @@ struct retro_core_options_v2 options_fa = {
 #define BEETLE_OPT_LAST_SCANLINE_PAL_LABEL_FI NULL
 #define BEETLE_OPT_LAST_SCANLINE_PAL_INFO_0_FI NULL
 #define OPTION_VAL_287_FI "287 (Oletus)"
+#define BEETLE_OPT_DEINTERLACER_LABEL_FI NULL
+#define BEETLE_OPT_DEINTERLACER_INFO_0_FI NULL
+#define OPTION_VAL_WEAVE_FI NULL
+#define OPTION_VAL_BOB_FI NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_LABEL_FI NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_INFO_0_FI NULL
 #define OPTION_VAL_SYNC_FI "Synkroninen"
@@ -34311,11 +34603,11 @@ struct retro_core_option_v2_definition option_defs_fi[] = {
       NULL,
       NULL,
       {
+         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_FI },
          { "force_progressive", OPTION_VAL_FORCE_PROGRESSIVE_FI },
          { "force_interlaced",  OPTION_VAL_FORCE_INTERLACED_FI },
-         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_FI },
       },
-      "force_progressive"
+      "auto_toggle"
    },
    {
       BEETLE_OPT(pal_video_timing_override),
@@ -34743,6 +35035,20 @@ struct retro_core_option_v2_definition option_defs_fi[] = {
       },
       "287"
    },
+   {
+      BEETLE_OPT(deinterlacer),
+      BEETLE_OPT_DEINTERLACER_LABEL_FI,
+      NULL,
+      BEETLE_OPT_DEINTERLACER_INFO_0_FI,
+      NULL,
+      "video",
+      {
+         { "weave",  OPTION_VAL_WEAVE_FI },
+         { "bob",  OPTION_VAL_BOB_FI },
+         { NULL, NULL },
+      },
+      "weave"
+   },
 #ifndef EMSCRIPTEN
    {
       BEETLE_OPT(cd_access_method),
@@ -34845,16 +35151,16 @@ struct retro_core_options_v2 options_fi = {
 #define BEETLE_OPT_DUMP_TEXTURES_INFO_0_FR "Importer les textures utilisées vers <cd>-texture-dump/"
 #define BEETLE_OPT_REPLACE_TEXTURES_LABEL_FR "Remplacer les textures"
 #define BEETLE_OPT_REPLACE_TEXTURES_INFO_0_FR "Remplacer les textures par des versions HD depuis <cd>-texture-replacements/"
-#define BEETLE_OPT_WIREFRAME_LABEL_FR "Mode fil de fer (débuggage)"
-#define BEETLE_OPT_WIREFRAME_INFO_0_FR "Rendre les modèles 3D sous forme de contours sans textures ni ombres. Uniquement pris en charge par le moteur de rendu matériel OpenGL. Remarque : Cette option est utile à des fins de débuggage, et devrait normalement être désactivée."
+#define BEETLE_OPT_WIREFRAME_LABEL_FR "Mode fil de fer (diagnostic)"
+#define BEETLE_OPT_WIREFRAME_INFO_0_FR "Rendre les modèles 3D sous forme de contours sans textures ni ombres. Uniquement pris en charge par le moteur de rendu matériel OpenGL. Remarque : Cette option est utile à des fins de diagnostic, et devrait normalement être désactivée."
 #define BEETLE_OPT_FRAME_DUPING_LABEL_FR "Duplication d'images (accélération)"
 #define BEETLE_OPT_FRAME_DUPING_INFO_0_FR "Lorsque cette option est activée et prise en charge par l'interface de libretro, cela fournit une petite augmentation des performances en appelant l'interface à répéter l'image précédente si le cœur n'a rien de nouveau à afficher."
 #define BEETLE_OPT_DISPLAY_INTERNAL_FPS_LABEL_FR "Afficher les i/s internes"
 #define BEETLE_OPT_DISPLAY_INTERNAL_FPS_INFO_0_FR "Affiche la fréquence d'images interne à laquelle le système PlayStation émulé rend du contenu. Remarque : Nécessite que les notifications à l'écran soient activées dans l'interface de libretro."
 #define BEETLE_OPT_DISPLAY_OSD_LABEL_FR "Afficher les messages à l'écran"
 #define BEETLE_OPT_DISPLAY_OSD_INFO_0_FR "Affiche les messages texte à l'écran générés par le cœur."
-#define BEETLE_OPT_DISPLAY_VRAM_LABEL_FR "Afficher la VRAM complète (débuggage)"
-#define BEETLE_OPT_DISPLAY_VRAM_INFO_0_FR "Visualiser entièrement la VRAM de la console émulée. Uniquement pris en charge par les moteurs de rendu matériels OpenGL et Vulkan. Remarque : Ceci est à des fins de débuggage, et devrait normalement être désactivé."
+#define BEETLE_OPT_DISPLAY_VRAM_LABEL_FR "Afficher la VRAM complète (diagnostic)"
+#define BEETLE_OPT_DISPLAY_VRAM_INFO_0_FR "Visualiser entièrement la VRAM de la console émulée. Uniquement pris en charge par les moteurs de rendu matériels OpenGL et Vulkan. Remarque : Ceci est à des fins de diagnostic, et devrait normalement être désactivé."
 #define BEETLE_OPT_ANALOG_CALIBRATION_LABEL_FR "Auto-étalonnage analogique"
 #define BEETLE_OPT_ANALOG_CALIBRATION_INFO_0_FR "Lorsque le périphérique d'entrée est réglé sur DualShock, Manette analogique, Joystick analogique ou neGcon, cette option active l'étalonnage dynamique des entrées analogiques. Les valeurs maximales enregistrées sont surveillées en temps réel et utilisées pour mettre à l'échelle les coordonnées analogiques passées à l'émulateur. Cela devrait être utilisé pour des jeux tels que Mega Man Legends 2 qui s'attendent à des valeurs plus grandes que ce que les manettes modernes fournissent. Pour de meilleurs résultats, les sticks analogiques devraient être tournés dans toute la mesure du possible pour régler l'algorithme de calibration chaque fois que du contenu est chargé."
 #define BEETLE_OPT_ANALOG_TOGGLE_LABEL_FR "Activer/désactiver le mode analogique DualShock"
@@ -35100,9 +35406,9 @@ struct retro_core_options_v2 options_fi = {
 #define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_FR "Nombre maximum d'échantillons SPU à exécuter avant qu'une mise à jour SPU ne soit vérifiée, un nombre plus élevé sera plus rapide, mais causera des problèmes de son dans certains jeux avec une valeur autre que 1."
 #define BEETLE_OPT_CORE_TIMING_FPS_LABEL_FR "Cadence des i/s communiquée par le cœur"
 #define BEETLE_OPT_CORE_TIMING_FPS_INFO_0_FR "Sélectionner la cadence des images par seconde que le coeur va communiquer à l'interface. Le basculement automatique permettra au cœur de basculer entre communiquer les débits progressifs et entrelacés, mais peut causer des réinitialisations de pilotes vidéo/audio pour l'interface."
+#define OPTION_VAL_AUTO_TOGGLE_FR "Autoriser le basculement automatique"
 #define OPTION_VAL_FORCE_PROGRESSIVE_FR "Débit progressif"
 #define OPTION_VAL_FORCE_INTERLACED_FR "Forcer le débit entrelacé"
-#define OPTION_VAL_AUTO_TOGGLE_FR "Autoriser le basculement automatique"
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_LABEL_FR "Substitution de la cadence vidéo PAL (européenne)"
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_FR "En raison de normes différentes, les jeux PAL semblent souvent ralentis par rapport aux versions américaines ou japonaises à la norme NTSC. Cette option peut être utilisée pour remplacer les timings PAL afin d'essayer d'exécuter ces jeux avec le débit d'image NTSC. Cette option n'a aucun effet lors de l'exécution de contenu NTSC."
 #define BEETLE_OPT_ASPECT_RATIO_LABEL_FR "Rapport d'aspect du cœur"
@@ -35169,6 +35475,10 @@ struct retro_core_options_v2 options_fi = {
 #define BEETLE_OPT_LAST_SCANLINE_PAL_LABEL_FR "Dernière ligne de balayage - PAL"
 #define BEETLE_OPT_LAST_SCANLINE_PAL_INFO_0_FR "Sélectionner la dernière ligne de balayage affichée lors de l'exécution de contenu PAL. Les valeurs inférieures à 287 réduiront la hauteur des images en sortie en recadrant les pixels à partir du bord le plus bas. Peut être utilisé pour contrecarrer l'effet de letterboxing."
 #define OPTION_VAL_287_FR "287 (par défaut)"
+#define BEETLE_OPT_DEINTERLACER_LABEL_FR "Méthode de désentrelacement"
+#define BEETLE_OPT_DEINTERLACER_INFO_0_FR "'Weave' montre les deux champs sur la même image pour une image fixe haute résolution, 'Bob' sacrifie la clarté de la résolution pour la clarté de mouvement."
+#define OPTION_VAL_WEAVE_FR NULL
+#define OPTION_VAL_BOB_FR NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_LABEL_FR "Méthode d'accès au CD (Redémarrage requis)"
 #define BEETLE_OPT_CD_ACCESS_METHOD_INFO_0_FR "Sélectionner la méthode utilisée pour lire les données à partir des images disque de contenu. 'Synchrone' imite le matériel original. 'Asynchrone' peut réduire les saccades sur les appareils avec un stockage lent. 'Pré-cachée' charge la totalité de l'image disque en mémoire lors du lancement de contenu, ce qui peut améliorer les temps de chargement en jeu au prix d'un délai initial au démarrage. 'Pré-cachée' peut causer des problèmes sur les systèmes avec peu de mémoire vive (RAM), et se repliera sur 'Synchrone' pour les médias physiques."
 #define OPTION_VAL_SYNC_FR "Synchrone"
@@ -36355,11 +36665,11 @@ struct retro_core_option_v2_definition option_defs_fr[] = {
       NULL,
       NULL,
       {
+         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_FR },
          { "force_progressive", OPTION_VAL_FORCE_PROGRESSIVE_FR },
          { "force_interlaced",  OPTION_VAL_FORCE_INTERLACED_FR },
-         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_FR },
       },
-      "force_progressive"
+      "auto_toggle"
    },
    {
       BEETLE_OPT(pal_video_timing_override),
@@ -36787,6 +37097,20 @@ struct retro_core_option_v2_definition option_defs_fr[] = {
       },
       "287"
    },
+   {
+      BEETLE_OPT(deinterlacer),
+      BEETLE_OPT_DEINTERLACER_LABEL_FR,
+      NULL,
+      BEETLE_OPT_DEINTERLACER_INFO_0_FR,
+      NULL,
+      "video",
+      {
+         { "weave",  OPTION_VAL_WEAVE_FR },
+         { "bob",  OPTION_VAL_BOB_FR },
+         { NULL, NULL },
+      },
+      "weave"
+   },
 #ifndef EMSCRIPTEN
    {
       BEETLE_OPT(cd_access_method),
@@ -36828,6 +37152,2068 @@ struct retro_core_option_v2_definition option_defs_fr[] = {
 struct retro_core_options_v2 options_fr = {
    option_cats_fr,
    option_defs_fr
+};
+
+/* RETRO_LANGUAGE_GA */
+
+#define CATEGORY_VIDEO_LABEL_GA "Físeán"
+#define CATEGORY_VIDEO_INFO_0_GA "Athraigh cóimheas gné, bearradh taispeána, scagaire físe agus socruithe scipeála frámaí."
+#define CATEGORY_OSD_LABEL_GA "Taispeántas ar an Scáileán"
+#define CATEGORY_OSD_INFO_0_GA "Athraigh na fógraí atá á thaispeáint ar an scáileán."
+#define CATEGORY_INPUT_LABEL_GA "Ionchur"
+#define CATEGORY_INPUT_INFO_0_GA "Athraigh socruithe an ghunna solais, na luiche agus an neGcon."
+#define CATEGORY_MEMCARDS_LABEL_GA "Cárta Cuimhne"
+#define CATEGORY_MEMCARDS_INFO_0_GA "Athraigh socruithe a bhaineann leis an gCárta(í) Cuimhne fíorúil a úsáideann an córas."
+#define CATEGORY_PGXP_LABEL_GA "PGXP (Píblíne Claochlaithe Geoiméadrachta Beacht)"
+#define CATEGORY_PGXP_INFO_0_GA "Rialaíonn na roghanna seo feabhsuithe ar féidir leo grafaicí a fheabhsú i gcomparáid leis an gconsól bunaidh. Is féidir le PGXP fáil réidh le huigeachtaí casta agus fadhbanna troid-Z."
+#define CATEGORY_HACKS_LABEL_GA "Cleasanna Aithrise"
+#define CATEGORY_HACKS_INFO_0_GA "Athraigh socruithe róchlogála agus cruinneas aithrise próiseálaí a mbíonn tionchar acu ar fheidhmíocht agus comhoiriúnacht íseal-leibhéil."
+#define BEETLE_OPT_INTERNAL_RESOLUTION_LABEL_GA "Rún GPU Inmheánach"
+#define BEETLE_OPT_INTERNAL_RESOLUTION_INFO_0_GA "Roghnaigh iolraitheoir réitigh inmheánach. Feabhsaíonn réitigh níos airde ná '1x (Dúchasach)' dílseacht na samhlacha 3T ar chostas riachtanais feidhmíochta méadaithe. De ghnáth ní dhéanann an socrú seo difear d'eilimintí 2T."
+#define OPTION_VAL_1X_NATIVE_GA "1x (Dúchasach)"
+#define OPTION_VAL_2X_GA NULL
+#define OPTION_VAL_4X_GA NULL
+#define OPTION_VAL_8X_GA NULL
+#define OPTION_VAL_16X_GA NULL
+#define BEETLE_OPT_DEPTH_LABEL_GA "Doimhneacht Dath Inmheánach"
+#define BEETLE_OPT_DEPTH_INFO_0_GA "Roghnaigh doimhneacht datha inmheánach. Is féidir le doimhneacht datha níos airde éifeachtaí bandaí datha a laghdú gan úsáid a bhaint as díodán. Déanann 16 bpp aithris ar chrua-earraí bunaidh ach d'fhéadfadh bandaí a bheith le feiceáil mura bhfuil díodán cumasaithe. Moltar 'Patrún Díodán' a dhíchumasú nuair a shocraítear an rogha seo go 32 bpp."
+#define OPTION_VAL_16BPP_NATIVE_GA "16 bpp (Dúchasach)"
+#define OPTION_VAL_32BPP_GA NULL
+#define BEETLE_OPT_DITHER_MODE_LABEL_GA "Patrún Díthrithe"
+#define BEETLE_OPT_DITHER_MODE_INFO_0_GA "Roghnaigh cumraíocht patrún díodán. Aithrisíonn '1x (Dúchasach)' díodán ísealtaifigh dúchasach a úsáideann crua-earraí bunaidh chun déantáin bandála datha atá le feiceáil ag doimhneacht datha dúchasach a mhaolú. Scálann 'Taifeach Inmheánach' gráinneacht díodán go dtí an taifeach inmheánach cumraithe le haghaidh torthaí níos glaine. Moltar é a dhíchumasú nuair a bhíonn sé á rith ag doimhneacht datha 32 bpp. Tabhair faoi deara: Ar Vulkan, cuirfidh cumasú seo iallach ar shampláil síos go doimhneacht datha dúchasach, agus cuirfidh díchumasú aschur ar chumas go huathoibríoch ag doimhneacht datha níos airde."
+#define OPTION_VAL_INTERNAL_RESOLUTION_GA "Rún Inmheánach"
+#define BEETLE_OPT_SCALED_UV_OFFSET_LABEL_GA "Fritháireamh UV Uigeachta"
+#define BEETLE_OPT_SCALED_UV_OFFSET_INFO_0_GA "Uigeachtaí samplacha do pholagáin 3T ag fritháireamh le haghaidh taifeach inmheánach níos airde ná 1x. Laghdaíonn sé seo fuaiseanna uigeachta ach d’fhéadfadh sé go mbeadh teipeanna grafacha neamhbheartaithe mar thoradh air."
+#define BEETLE_OPT_FILTER_LABEL_GA "Scagadh Uigeachta"
+#define BEETLE_OPT_FILTER_INFO_0_GA "Roghnaigh modh scagtha uigeachta. Aithrisíonn 'Nearest' crua-earraí bunaidh. Is scagairí réidhithe iad 'Bilinear' agus '3-Point', a laghdaíonn picteilíniú trí doiléiriú. Is scagairí uasghrádaithe iad 'SABR', 'xBR', agus 'JINC2' a d'fhéadfadh feabhas a chur ar dhílseacht/géire uigeachta ar chostas riachtanais feidhmíochta méadaithe. Ní thacaítear leis seo ach ag na rindreálaithe crua-earraí."
+#define OPTION_VAL_NEAREST_GA "Is cóngaraí"
+#define OPTION_VAL_SABR_GA NULL
+#define OPTION_VAL_XBR_GA NULL
+#define OPTION_VAL_BILINEAR_GA "Délíneach"
+#define OPTION_VAL_3_POINT_GA "3-Phointe"
+#define OPTION_VAL_JINC2_GA NULL
+#define BEETLE_OPT_FILTER_EXCLUDE_SPRITE_LABEL_GA "Eisiamh Sprideanna ó Scagadh"
+#define BEETLE_OPT_FILTER_EXCLUDE_SPRITE_INFO_0_GA "Ná cuir scagadh uigeachta i bhfeidhm ar sprideanna. Cuireann sé cosc ​​ar shíomaí i gcluichí éagsúla le cúlraí rindreáilte le sprideanna 2T. Úsáid i dteannta le Smúdáil Oiriúnaitheach nó scagaire iarphróiseála eile chun an éifeacht is fearr a fháil."
+#define OPTION_VAL_OPAQUE_GA "Teimhneach Amháin"
+#define OPTION_VAL_ALL_GA "Teimhneach agus Leath-Trédhearcach"
+#define BEETLE_OPT_FILTER_EXCLUDE_2D_POLYGON_LABEL_GA "Eisiamh Polagáin 2T ó Scagadh"
+#define BEETLE_OPT_FILTER_EXCLUDE_2D_POLYGON_INFO_0_GA "Ná cuir scagadh uigeachta i bhfeidhm ar pholagáin 2T. Braitear polagáin 2T le heorastach agus d'fhéadfadh go mbeadh teipeanna ann. Bain úsáid as i dteannta le Smúdáil Oiriúnaitheach nó scagaire iarphróiseála eile chun an éifeacht is fearr a bhaint amach."
+#define BEETLE_OPT_ADAPTIVE_SMOOTHING_LABEL_GA "Smúdáil Oiriúnaitheach"
+#define BEETLE_OPT_ADAPTIVE_SMOOTHING_INFO_0_GA "Réidh amach saothar ealaíne 2T agus eilimintí UI gan réada rindreáilte 3T a dhéanamh doiléir. Ní thacaítear leis seo ach leis an rindreálaí Vulkan."
+#define BEETLE_OPT_SUPER_SAMPLING_LABEL_GA "Super-sampláil (Síossamplú go dtí an Taifeach Dúchasach)"
+#define BEETLE_OPT_SUPER_SAMPLING_INFO_0_GA "Laghdaigh samplaíocht an ábhair rindreáilte ó réiteach inmheánach uasghrádaithe síos go réiteach dúchasach. Trí é seo a chomhcheangal le hiolraitheoirí réitigh inmheánacha níos airde, is féidir cluichí a thaispeáint le rudaí 3T frith-ailíse ag réiteach íseal dúchasach. Tugann sé na torthaí is fearr nuair a chuirtear i bhfeidhm é ar theidil a mheascann eilimintí 2T agus 3T (e.g. carachtair 3T ar chúlraí réamh-rindreáilte), agus oibríonn sé go maith i gcomhar le scáthaitheoirí CRT. Ní thacaítear leis ach amháin ag an rindreálaí Vulkan. Tabhair faoi deara: Moltar 'Patrún Díthrithe' a dhíchumasú agus an rogha seo á cumasú."
+#define BEETLE_OPT_MSAA_LABEL_GA "Frith-Ailiasú Il-Shampláilte"
+#define BEETLE_OPT_MSAA_INFO_0_GA "Roghnaigh leibhéal MSAA le haghaidh ábhar rindreáilte. Feabhsaíonn sé cuma réad 3T. Ní thacaítear leis ach amháin leis an rindreálaí Vulkan."
+#define OPTION_VAL_1X_GA NULL
+#define BEETLE_OPT_MDEC_YUV_LABEL_GA "Scagaire Chroma MDEC YUV"
+#define BEETLE_OPT_MDEC_YUV_INFO_0_GA "Feabhas a chur ar cháilíocht athsheinm FMV trí airteafóin 'macrabhlocáil' (cearnóga/imill gharbha) a laghdú. Ní thacaítear leis seo ach leis an rindreálaí Vulkan."
+#define BEETLE_OPT_TRACK_TEXTURES_LABEL_GA "Uigeachtaí Rian"
+#define BEETLE_OPT_TRACK_TEXTURES_INFO_0_GA "Réamhriachtanas le haghaidh dumpáil agus athsholáthar uigeachta. Is dócha go dtitfidh sé i bhformhór na gcluichí."
+#define BEETLE_OPT_DUMP_TEXTURES_LABEL_GA "Uigeachtaí Dumpála"
+#define BEETLE_OPT_DUMP_TEXTURES_INFO_0_GA "Dumpáil uigeachtaí úsáidte chuig <cd>-texture-dump/"
+#define BEETLE_OPT_REPLACE_TEXTURES_LABEL_GA "Cuir Uigeachtaí in Ionad"
+#define BEETLE_OPT_REPLACE_TEXTURES_INFO_0_GA "Cuir uigeachtaí in ionad a chéile ag baint úsáide as leaganacha HD ó <cd>-texture-replacements/"
+#define BEETLE_OPT_WIREFRAME_LABEL_GA "Mód Sreangfhráma (Dífhabhtú)"
+#define BEETLE_OPT_WIREFRAME_INFO_0_GA "Rindreáil samhlacha 3T i bhfoirm imlíne gan uigeachtaí ná scáthú. Ní thacaítear leis seo ach amháin ag rindreálaí crua-earraí OpenGL. Tabhair faoi deara: Chun críocha dífhabhtaithe atá sé seo, agus ba chóir é a dhíchumasú de ghnáth."
+#define BEETLE_OPT_FRAME_DUPING_LABEL_GA "Múchadh Frámaí (Luasghéarú)"
+#define BEETLE_OPT_FRAME_DUPING_INFO_0_GA "Nuair a bhíonn sé cumasaithe agus tacaithe ag an gcomhéadan libretro, soláthraíonn sé seo méadú beag ar fheidhmíocht tríd an gcomhéadan a threorú chun an fráma roimhe sin a athdhéanamh mura bhfuil aon rud nua le taispeáint ag an gcroílár."
+#define BEETLE_OPT_DISPLAY_INTERNAL_FPS_LABEL_GA "Taispeáin FPS Inmheánach"
+#define BEETLE_OPT_DISPLAY_INTERNAL_FPS_INFO_0_GA "Taispeáin an ráta fráma inmheánach ag a bhfuil an córas PlayStation aithrisithe ag rindreáil ábhair. Nóta: Éilíonn sé seo go mbeidh fógraí ar an scáileán cumasaithe i dtosach libretro."
+#define BEETLE_OPT_DISPLAY_OSD_LABEL_GA "Taispeáin Teachtaireachtaí OSD"
+#define BEETLE_OPT_DISPLAY_OSD_INFO_0_GA "Taispeáin teachtaireachtaí OSD a ghineann an croí."
+#define BEETLE_OPT_DISPLAY_VRAM_LABEL_GA "Taispeáin VRAM Iomlán (Dífhabhtú)"
+#define BEETLE_OPT_DISPLAY_VRAM_INFO_0_GA "Amharcléirigh VRAM an chonsóil aithrisithe ar fad. Ní thacaítear leis seo ach ag rindreálaithe crua-earraí OpenGL agus Vulkan. Tabhair faoi deara: Chun críocha dífhabhtaithe atá sé seo, agus ba chóir é a dhíchumasú de ghnáth."
+#define BEETLE_OPT_ANALOG_CALIBRATION_LABEL_GA "Féin-Chalabrú Analógach"
+#define BEETLE_OPT_ANALOG_CALIBRATION_INFO_0_GA "Nuair a bhíonn an gléas ionchuir socraithe go DualShock, Rialaitheoir Analógach, Luamhán Luamhán Analógach, nó neGcon, cuireann an rogha seo calabrú dinimiciúil ionchuir analógacha ar fáil. Déantar monatóireacht ar uasluachanna ionchuir cláraithe i bhfíor-am agus úsáidtear iad chun comhordanáidí analógacha a chuirtear chuig an aithriseoir a scála. Ba chóir é seo a úsáid le haghaidh cluichí ar nós Mega Man Legends 2 a bhfuil luachanna níos mó ag súil leo ná mar a sholáthraíonn rialtóirí nua-aimseartha. Chun na torthaí is fearr a fháil, ba chóir na bataí analógacha a rothlú go hiomlán chun an algartam calabrúcháin a choigeartú gach uair a luchtaítear ábhar."
+#define BEETLE_OPT_ANALOG_TOGGLE_LABEL_GA "Mód Analógach DualShock a Athrú"
+#define BEETLE_OPT_ANALOG_TOGGLE_INFO_0_GA "Nuair is é DualShock an cineál feiste ionchuir, ceadaíonn an rogha seo don DualShock aithriste a bheith idir mód DIGITEACH agus mód ANALÓGACH cosúil leis an gcrua-earraí bunaidh. Is féidir an mód a athrú freisin trí úsáid a bhaint as an teaglaim cnaipe roghnaithe."
+#define OPTION_VAL_ENABLED_ANALOG_GA "Réamhshocrú-Analógach"
+#define BEETLE_OPT_ANALOG_TOGGLE_COMBO_LABEL_GA "Comhcheangal Mód Analógach DualShock"
+#define BEETLE_OPT_ANALOG_TOGGLE_COMBO_INFO_0_GA "Roghnaigh an teaglaim cnaipí a úsáidfear chun aistriú idir mód DIGITEACH agus mód ANALÓGACH don DualShock aithrisithe."
+#define OPTION_VAL_L1_L2_R1_R2_START_SELECT_GA NULL
+#define OPTION_VAL_L1_R1_SELECT_GA NULL
+#define OPTION_VAL_L1_R1_START_GA NULL
+#define OPTION_VAL_L1_R1_L3_GA NULL
+#define OPTION_VAL_L1_R1_R3_GA NULL
+#define OPTION_VAL_L2_R2_SELECT_GA NULL
+#define OPTION_VAL_L2_R2_START_GA NULL
+#define OPTION_VAL_L2_R2_L3_GA NULL
+#define OPTION_VAL_L2_R2_R3_GA NULL
+#define OPTION_VAL_L3_R3_GA NULL
+#define BEETLE_OPT_ANALOG_TOGGLE_HOLD_LABEL_GA "Moill Shealbhaíochta i Mód Analógach DualShock Combo"
+#define BEETLE_OPT_ANALOG_TOGGLE_HOLD_INFO_0_GA "Socraigh an t-am coinneála do na cnaipí teaglama mód analógach."
+#define OPTION_VAL_0_GA "Moill 0 Soicind"
+#define OPTION_VAL_1_GA "Moill 1 Soicind"
+#define OPTION_VAL_2_GA "Moill 2 Shoicind"
+#define OPTION_VAL_3_GA "Moill 3 Shoicind"
+#define OPTION_VAL_4_GA "Moill 4 Soicind"
+#define OPTION_VAL_5_GA "Moill 5 Soicind"
+#define BEETLE_OPT_ENABLE_MULTITAP_PORT1_LABEL_GA "Port 1: Cumasaigh Il-thapála"
+#define BEETLE_OPT_ENABLE_MULTITAP_PORT1_INFO_0_GA "Cumasaigh feidhmiúlacht il-thapála ar phort 1."
+#define BEETLE_OPT_ENABLE_MULTITAP_PORT2_LABEL_GA "Port 2: Cumasaigh Il-thapála"
+#define BEETLE_OPT_ENABLE_MULTITAP_PORT2_INFO_0_GA "Cumasaigh feidhmiúlacht il-thapála ar phort 2."
+#define BEETLE_OPT_GUN_INPUT_MODE_LABEL_GA "Mód Ionchuir Gunna"
+#define BEETLE_OPT_GUN_INPUT_MODE_INFO_0_GA "Roghnaigh cibé acu ionchur 'Gunna Solais' atá rialaithe ag an luch nó ionchur 'Scáileán Tadhaill' atá uait nuair atá an cineál gléis socraithe go 'Guncon/G-Con 45' nó 'Justifier'."
+#define OPTION_VAL_LIGHTGUN_GA "Gunna Solais"
+#define OPTION_VAL_TOUCHSCREEN_GA "Scáileán tadhaill"
+#define BEETLE_OPT_GUN_CURSOR_LABEL_GA "Cúrsóir Gunna"
+#define BEETLE_OPT_GUN_CURSOR_INFO_0_GA "Roghnaigh cúrsóir an ghunna le taispeáint ar an scáileán agus na cineálacha gléasanna ionchuir 'Guncon/G-Con 45' agus 'Justifier' in úsáid agat. Nuair a bhíonn sé díchumasaithe, bíonn na crosairí i bhfolach i gcónaí."
+#define OPTION_VAL_CROSS_GA "Cros"
+#define OPTION_VAL_DOT_GA "Ponc"
+#define OPTION_VAL_OFF_GA "Gan Cúrsóir"
+#define BEETLE_OPT_CROSSHAIR_COLOR_P1_LABEL_GA "Port 1: Dath Crosaire Gunna"
+#define BEETLE_OPT_CROSSHAIR_COLOR_P1_INFO_0_GA "Roghnaigh dath crosaire an ghunna solais do phort 1."
+#define OPTION_VAL_RED_GA "Dearg"
+#define OPTION_VAL_BLUE_GA "Gorm"
+#define OPTION_VAL_GREEN_GA "Glas"
+#define OPTION_VAL_ORANGE_GA "Oráiste"
+#define OPTION_VAL_YELLOW_GA "Buí"
+#define OPTION_VAL_CYAN_GA "Cian"
+#define OPTION_VAL_PINK_GA "Bándearg"
+#define OPTION_VAL_PURPLE_GA "Corcra"
+#define OPTION_VAL_BLACK_GA "Dubh"
+#define OPTION_VAL_WHITE_GA "Bán"
+#define BEETLE_OPT_CROSSHAIR_COLOR_P2_LABEL_GA "Port 2: Dath Crosaire Gunna"
+#define BEETLE_OPT_CROSSHAIR_COLOR_P2_INFO_0_GA "Roghnaigh dath crosaire an ghunna solais do phort 2."
+#define BEETLE_OPT_MOUSE_SENSITIVITY_LABEL_GA "Íogaireacht Luiche"
+#define BEETLE_OPT_MOUSE_SENSITIVITY_INFO_0_GA "Roghnaigh freagrúlacht chineál gléis ionchuir 'Luch'."
+#define OPTION_VAL_5_O29_GA NULL
+#define OPTION_VAL_10_GA NULL
+#define OPTION_VAL_15_GA NULL
+#define OPTION_VAL_20_GA NULL
+#define OPTION_VAL_25_GA NULL
+#define OPTION_VAL_30_GA NULL
+#define OPTION_VAL_35_GA NULL
+#define OPTION_VAL_40_GA NULL
+#define OPTION_VAL_45_GA NULL
+#define OPTION_VAL_50_GA NULL
+#define OPTION_VAL_55_GA NULL
+#define OPTION_VAL_60_GA NULL
+#define OPTION_VAL_65_GA NULL
+#define OPTION_VAL_70_GA NULL
+#define OPTION_VAL_75_GA NULL
+#define OPTION_VAL_80_GA NULL
+#define OPTION_VAL_85_GA NULL
+#define OPTION_VAL_90_GA NULL
+#define OPTION_VAL_95_GA NULL
+#define OPTION_VAL_100_GA "100% (Réamhshocrú)"
+#define OPTION_VAL_105_GA NULL
+#define OPTION_VAL_110_GA NULL
+#define OPTION_VAL_115_GA NULL
+#define OPTION_VAL_120_GA NULL
+#define OPTION_VAL_125_GA NULL
+#define OPTION_VAL_130_GA NULL
+#define OPTION_VAL_135_GA NULL
+#define OPTION_VAL_140_GA NULL
+#define OPTION_VAL_145_GA NULL
+#define OPTION_VAL_150_GA NULL
+#define OPTION_VAL_155_GA NULL
+#define OPTION_VAL_160_GA NULL
+#define OPTION_VAL_165_GA NULL
+#define OPTION_VAL_170_GA NULL
+#define OPTION_VAL_175_GA NULL
+#define OPTION_VAL_180_GA NULL
+#define OPTION_VAL_185_GA NULL
+#define OPTION_VAL_190_GA NULL
+#define OPTION_VAL_195_GA NULL
+#define OPTION_VAL_200_GA NULL
+#define BEETLE_OPT_NEGCON_RESPONSE_LABEL_GA "Freagra Casadh neGcon"
+#define BEETLE_OPT_NEGCON_RESPONSE_INFO_0_GA "Roghnaigh cineál freagartha an mhaide analógaigh chlé ar an CeapRetro agus gníomh 'casadh' gléasanna ionchuir 'neGcon' aithriste á insamhladh. Is féidir díláithriú an mhaide analógaigh a mhapáil chuig uillinn rothlaithe neGcon go líneach, go cearnachach nó go ciúbach. Ligeann 'Cuadrach' cruinneas níos mó ná 'Líneach' agus gluaiseachtaí beaga á ndéanamh. Méadaíonn 'Ciúbach' cruinneas gluaiseachtaí beaga a thuilleadh, ach 'áibhéilíonn' sé gluaiseachtaí níos mó. Tabhair faoi deara: Ní mholtar 'Líneach' ach amháin agus forimeallaigh roth rásaíochta in úsáid. Cuireann rialtóirí traidisiúnta ionchur analógach i bhfeidhm ar bhealach atá go bunúsach difriúil ó mheicníocht 'casadh' an neGcon, sa chaoi is go ndéanann mapáil líneach ró-aimpliú ar ghluaiseachtaí beaga, rud a chuireann isteach ar rialú mín. I bhformhór na gcásanna, soláthraíonn 'Cuadrach' an garmheastachán is gaire do chrua-earraí fíor."
+#define OPTION_VAL_LINEAR_GA "Líneach"
+#define OPTION_VAL_QUADRATIC_GA "Cearnógach"
+#define OPTION_VAL_CUBIC_GA "Ciúbach"
+#define BEETLE_OPT_NEGCON_DEADZONE_LABEL_GA "crios Marbh Twist neGcon"
+#define BEETLE_OPT_NEGCON_DEADZONE_INFO_0_GA "Roghnaigh crios marbh an mhaide analógach chlé ar an CeapRetro agus gníomh 'casadh' gléasanna ionchuir 'neGcon' aithriste á insamhladh. Úsáidtear é chun drift rialtóra a dhíchur. Tabhair faoi deara: Soláthraíonn formhór na dteideal atá comhoiriúnach le neGcon roghanna sa chluiche chun luach crios marbh 'casadh' a shocrú. Chun cailliúint cruinnis a sheachaint, ba chóir an crios marbh sa chluiche a shocrú go náid *i gcónaí*. Níor chóir aon choigeartuithe riachtanacha a chur i bhfeidhm *ach* tríd an rogha lárnach seo. Tá sé seo thar a bheith tábhachtach nuair a bhíonn 'Freagra Casadh neGcon' socraithe go 'Cearnáiteach' nó 'Ciúbach'."
+#define OPTION_VAL_0_O31_GA NULL
+#define BEETLE_OPT_USE_MEDNAFEN_MEMCARD0_METHOD_LABEL_GA "Modh Cárta Cuimhne 0 (Atosú Riachtanach)"
+#define BEETLE_OPT_USE_MEDNAFEN_MEMCARD0_METHOD_INFO_0_GA "Roghnaigh an fhormáid sonraí sábhála a úsáidtear do chárta cuimhne 0. Féadfar 'Mednafen' a úsáid le haghaidh comhoiriúnachta leis an leagan neamhspleách de Mednafen. Nuair a úsáidtear iad le Beetle PSX, bíonn formáidí comhionanna inmheánacha ag sábhálacha Libretro (.srm) agus Mednafen (.mcr) agus is féidir iad a thiontú eatarthu trí athainmniú."
+#define OPTION_VAL_LIBRETRO_GA NULL
+#define OPTION_VAL_MEDNAFEN_GA NULL
+#define BEETLE_OPT_ENABLE_MEMCARD1_LABEL_GA "Cumasaigh Cárta Cuimhne 1 (Atosú Riachtanach)"
+#define BEETLE_OPT_ENABLE_MEMCARD1_INFO_0_GA "Déan aithris ar an dara cárta cuimhne i sliotán 1. Nuair a bhíonn sé díchumasaithe, ní féidir le cluichí rochtain a fháil ach ar an gcárta cuimhne i sliotán 0. Tabhair faoi deara: Éilíonn roinnt cluichí go ndíchumasófar an rogha seo chun oibriú i gceart (e.g. Códainm Tenka). Tabhair faoi deara: Úsáideann Cárta Cuimhne 1 an fhormáid sábhála Mednafen (.mcr)."
+#define BEETLE_OPT_SHARED_MEMORY_CARDS_LABEL_GA "Cártaí Cuimhne Comhroinnte (Atosú Riachtanach)"
+#define BEETLE_OPT_SHARED_MEMORY_CARDS_INFO_0_GA "Nuair a bheidh sé cumasaithe, sábhálfar agus lódálfar gach cluiche ó na comhaid cárta cuimhne céanna. Nuair a bheidh sé díchumasaithe, ginfear comhaid cárta cuimhne ar leithligh do gach mír d'ábhar lódáilte. Tabhair faoi deara: má shocraítear 'Memory Card 0 Method' go 'Libretro', ní bheidh tionchar ach ar an gcárta cuimhne ceart."
+#define BEETLE_OPT_MEMCARD_LEFT_INDEX_LABEL_GA "Innéacs Clé Cárta Cuimhne"
+#define BEETLE_OPT_MEMCARD_LEFT_INDEX_INFO_0_GA "Athraigh an cárta cuimhne atá luchtaithe sa sliotán clé faoi láthair. Ní oibreoidh an rogha seo ach amháin má tá modh Cárta Cuimhne 0 socraithe go Mednafen. Is é innéacs 0 an cárta réamhshocraithe."
+#define BEETLE_OPT_MEMCARD_RIGHT_INDEX_LABEL_GA "Innéacs Deas Cárta Cuimhne"
+#define BEETLE_OPT_MEMCARD_RIGHT_INDEX_INFO_0_GA "Athraigh an cárta cuimhne atá luchtaithe sa sliotán ceart faoi láthair. Ní oibreoidh an rogha seo ach amháin má tá Cárta Cuimhne 1 cumasaithe. Is é innéacs 1 an cárta réamhshocraithe."
+#define OPTION_VAL_1_O36_GA "1 (Réamhshocrú)"
+#define BEETLE_OPT_PGXP_MODE_LABEL_GA "Mód Oibríochta PGXP"
+#define BEETLE_OPT_PGXP_MODE_INFO_0_GA "Ligeann sé seo duit réada 3T a rindreáil le cruinneas fo-phicteilíní, rud a laghdaíonn saobhadh agus crith réada 3T a fheictear ar chrua-earraí bunaidh mar gheall ar úsáid chomhordanáidí buaicphointí seasta. Tá saincheisteanna comhoiriúnachta íosta ag baint leis an mód 'Cuimhne Amháin' agus moltar é le haghaidh úsáide ginearálta. Is féidir leis an mód 'Cuimhne + LAP (Buggy)' crith a laghdú níos mó fós ach tá ceanglais ardfheidhmíochta aige agus d'fhéadfadh sé earráidí geoiméadrachta éagsúla a chur faoi deara."
+#define OPTION_VAL_MEMORY_ONLY_GA "Cuimhne Amháin"
+#define OPTION_VAL_MEMORY_CPU_GA "Cuimhne + LAP (Buggy)"
+#define BEETLE_OPT_PGXP_2D_TOL_LABEL_GA "Caoinfhulaingt Geoiméadrachta 2T PGXP"
+#define BEETLE_OPT_PGXP_2D_TOL_INFO_0_GA "Folaigh earráidí níos soiléire in oibríochtaí PGXP: sonraíonn an luach an lamháltas ina gcoimeádfar luachanna PGXP i gcás geoiméadrachtaí gan faisnéis cheart faoi dhoimhneacht."
+#define OPTION_VAL_0PX_GA NULL
+#define OPTION_VAL_1PX_GA NULL
+#define OPTION_VAL_2PX_GA NULL
+#define OPTION_VAL_3PX_GA NULL
+#define OPTION_VAL_4PX_GA NULL
+#define OPTION_VAL_5PX_GA NULL
+#define OPTION_VAL_6PX_GA NULL
+#define OPTION_VAL_7PX_GA NULL
+#define OPTION_VAL_8PX_GA NULL
+#define BEETLE_OPT_PGXP_NCLIP_LABEL_GA "Marú Prímitiúil PGXP"
+#define BEETLE_OPT_PGXP_NCLIP_INFO_0_GA "Bain úsáid as cur i bhfeidhm NCLIP PGXP. Feabhsaíonn sé an chuma trí phoill i ngeoiméadrachtaí a laghdú le comhordanáidí PGXP. Is eol go mbíonn roinnt cluichí faoi ghlas i gcúinsí éagsúla dá bharr."
+#define BEETLE_OPT_PGXP_VERTEX_LABEL_GA "Taisce Buaicphointe PGXP"
+#define BEETLE_OPT_PGXP_VERTEX_INFO_0_GA "Cuir suíomhanna buaicphointí feabhsaithe PGXP i dtaisce lena n-athúsáid ar fud líníochtaí polagán. Is féidir ailíniú réad a fheabhsú agus fuálacha infheicthe a laghdú agus uigeachtaí á rindreáil, ach d'fhéadfadh dearfacha bréagacha agus fiosrúcháin á ndéanamh ar an taisce fabhtanna grafacha a chruthú. Moltar faoi láthair an rogha seo a fhágáil díchumasaithe. Ní chuirtear an rogha seo i bhfeidhm ach amháin nuair a bhíonn Mód Oibríochta PGXP cumasaithe. Ní thacaítear leis ach ag na rindreálaithe crua-earraí."
+#define BEETLE_OPT_PGXP_TEXTURE_LABEL_GA "Uigeacht Cheart Peirspictíochta PGXP"
+#define BEETLE_OPT_PGXP_TEXTURE_INFO_0_GA "Cuir mapáil uigeachta atá ceart ó thaobh peirspictíochta in ionad mapáil uigeachta afíne dúchais PSX. Cuireann sé deireadh le saobhadh agus le lúbadh uigeachtaí atá ag brath ar shuíomh, rud a fhágann go mbíonn uigeachtaí ailínithe i gceart. Ní chuirtear an rogha seo i bhfeidhm ach amháin nuair a bhíonn Mód Oibríochta PGXP cumasaithe. Ní thacaítear leis ach ag na rindreálaithe crua-earraí."
+#define BEETLE_OPT_LINE_RENDER_LABEL_GA "Haic Líne-go-Ceathair"
+#define BEETLE_OPT_LINE_RENDER_INFO_0_GA "Roghnaigh an modh haca líne-go-ceathrú-líne. Tarraingíonn roinnt cluichí (e.g. Doom, Hexen, Soul Blade, srl.) línte cothrománacha trí thriantáin aon-phicteilín ar airde a shíneadh trasna an scáileáin, atá rastraithe mar shraith picteilín ar an gcrua-earraí bunaidh. Braitheann an haca seo na triantáin bheaga seo agus athraíonn sé iad go ceathrú-líne de réir mar is gá, rud a ligeann dóibh a bheith taispeánta i gceart ar na rindreálaithe crua-earraí agus ag taifeach inmheánach uasghrádaithe. Tá 'Ionsaitheach' ag teastáil do roinnt teidil (m.sh. Dark Forces, Duke Nukem) ach d'fhéadfadh sé fabhtanna grafacha a thabhairt isteach murach sin. Fág ag 'Réamhshocrú' mura bhfuil tú cinnte."
+#define OPTION_VAL_DEFAULT_GA "Réamhshocrú"
+#define OPTION_VAL_AGGRESSIVE_GA "Ionsaitheach"
+#define BEETLE_OPT_WIDESCREEN_HACK_LABEL_GA "Haic Mód Leathan-Scáileáin"
+#define BEETLE_OPT_WIDESCREEN_HACK_INFO_0_GA "Déan ábhar 3T a rindreáil go hanamorfach agus aschur an maolán fráma aithrisithe ag cóimheas gné scáileáin leathan. Tugann sé na torthaí is fearr le cluichí lán-3T. Beidh eilimintí 2T sínte go cothrománach agus d'fhéadfadh siad a bheith mí-ailínithe."
+#define BEETLE_OPT_WIDESCREEN_HACK_ASPECT_RATIO_LABEL_GA "Cóimheas Gné Haic Mód Leathan-Scáileáin"
+#define BEETLE_OPT_WIDESCREEN_HACK_ASPECT_RATIO_INFO_0_GA "Roghnaigh an cóimheas gné atá le húsáid ag an Haic Mód Scáileáin Leathan."
+#define OPTION_VAL_16_9_GA NULL
+#define OPTION_VAL_16_10_GA NULL
+#define OPTION_VAL_18_9_GA NULL
+#define OPTION_VAL_19_9_GA NULL
+#define OPTION_VAL_20_9_GA NULL
+#define OPTION_VAL_21_9_GA NULL
+#define OPTION_VAL_32_9_GA NULL
+#define BEETLE_OPT_CPU_FREQ_SCALE_LABEL_GA "Scálú Minicíochta LAP (Róchlogáil)"
+#define BEETLE_OPT_CPU_FREQ_SCALE_INFO_0_GA "Róchlogáil (nó fochlogáil) an LAP PSX aithrisithe. Is féidir le róchlogáil moilliú a dhíchur agus rátaí fráma a fheabhsú i gcluichí áirithe ar chostas riachtanais feidhmíochta méadaithe. Tabhair faoi deara go bhfuil teorannóir ráta fráma inmheánach ag roinnt cluichí agus nach bhféadfadh róchlogáil leas a bhaint astu. D’fhéadfadh sé go mbeadh éifeachtaí áirithe beochan níos tapúla ná mar a bhí beartaithe i roinnt teidil nuair a bhíonn siad róchlogáilte."
+#define OPTION_VAL_100_NATIVE_GA "100% (Dúchasach)"
+#define OPTION_VAL_210_GA NULL
+#define OPTION_VAL_220_GA NULL
+#define OPTION_VAL_230_GA NULL
+#define OPTION_VAL_240_GA NULL
+#define OPTION_VAL_250_GA NULL
+#define OPTION_VAL_260_GA NULL
+#define OPTION_VAL_270_GA NULL
+#define OPTION_VAL_280_GA NULL
+#define OPTION_VAL_290_GA NULL
+#define OPTION_VAL_300_GA NULL
+#define OPTION_VAL_310_GA NULL
+#define OPTION_VAL_320_GA NULL
+#define OPTION_VAL_330_GA NULL
+#define OPTION_VAL_340_GA NULL
+#define OPTION_VAL_350_GA NULL
+#define OPTION_VAL_360_GA NULL
+#define OPTION_VAL_370_GA NULL
+#define OPTION_VAL_380_GA NULL
+#define OPTION_VAL_390_GA NULL
+#define OPTION_VAL_400_GA NULL
+#define OPTION_VAL_410_GA NULL
+#define OPTION_VAL_420_GA NULL
+#define OPTION_VAL_430_GA NULL
+#define OPTION_VAL_440_GA NULL
+#define OPTION_VAL_450_GA NULL
+#define OPTION_VAL_460_GA NULL
+#define OPTION_VAL_470_GA NULL
+#define OPTION_VAL_480_GA NULL
+#define OPTION_VAL_490_GA NULL
+#define OPTION_VAL_500_GA NULL
+#define OPTION_VAL_510_GA NULL
+#define OPTION_VAL_520_GA NULL
+#define OPTION_VAL_530_GA NULL
+#define OPTION_VAL_540_GA NULL
+#define OPTION_VAL_550_GA NULL
+#define OPTION_VAL_560_GA NULL
+#define OPTION_VAL_570_GA NULL
+#define OPTION_VAL_580_GA NULL
+#define OPTION_VAL_590_GA NULL
+#define OPTION_VAL_600_GA NULL
+#define OPTION_VAL_610_GA NULL
+#define OPTION_VAL_620_GA NULL
+#define OPTION_VAL_630_GA NULL
+#define OPTION_VAL_640_GA NULL
+#define OPTION_VAL_650_GA NULL
+#define OPTION_VAL_660_GA NULL
+#define OPTION_VAL_670_GA NULL
+#define OPTION_VAL_680_GA NULL
+#define OPTION_VAL_690_GA NULL
+#define OPTION_VAL_700_GA NULL
+#define OPTION_VAL_710_GA NULL
+#define OPTION_VAL_720_GA NULL
+#define OPTION_VAL_730_GA NULL
+#define OPTION_VAL_740_GA NULL
+#define OPTION_VAL_750_GA NULL
+#define BEETLE_OPT_GPU_OVERCLOCK_LABEL_GA "Róchlogáil Rasterizer GPU"
+#define BEETLE_OPT_GPU_OVERCLOCK_INFO_0_GA "Cumasaigh róchlogáil an rastairitheora 2T atá laistigh de GPU an PSX aithrisithe. Ní fheabhsaíonn sé rindreáil 3T, agus i gcoitinne níl mórán éifeacht aige."
+#define OPTION_VAL_32X_GA NULL
+#define BEETLE_OPT_GTE_OVERCLOCK_LABEL_GA "Róchlogáil GTE"
+#define BEETLE_OPT_GTE_OVERCLOCK_INFO_0_GA "Ísligh gach oibríocht GTE aithriste (comhphróiseálaí LAP le haghaidh grafaicí 3T) go dtí latency tairiseach aon-timthriall. I gcás cluichí a úsáideann an GTE go mór, is féidir leis seo feabhas mór a chur ar an ráta fráma agus ar chobhsaíocht ama fráma."
+#define BEETLE_OPT_SKIP_BIOS_LABEL_GA "Léim thar an BIOS"
+#define BEETLE_OPT_SKIP_BIOS_INFO_0_GA "Seachain beochan tosaithe BIOS PlayStation a thaispeántar de ghnáth agus ábhar á luchtú. Tabhair faoi deara: Má chumasaítear é seo, bíonn fadhbanna comhoiriúnachta ann le roinnt cluichí (cluichí atá cosanta ag cóip PAL, Saga Frontier, srl.)."
+#define BEETLE_OPT_OVERRIDE_BIOS_LABEL_GA "Sáraigh BIOS (Atosú Riachtanach)"
+#define BEETLE_OPT_OVERRIDE_BIOS_INFO_0_GA "Sáraigh an BIOS caighdeánach atá sainiúil don réigiún le ceann saor ó réigiún má aimsítear é."
+#define OPTION_VAL_PSXONPSP_GA NULL
+#define OPTION_VAL_PS1_ROM_GA NULL
+#define BEETLE_OPT_RENDERER_LABEL_GA "Rindreálaí (Atosú Riachtanach)"
+#define BEETLE_OPT_RENDERER_INFO_0_GA "Is é an rindreálaí bogearraí an ceann is cruinne ach tá riachtanais feidhmíochta géara aige nuair a bhíonn sé ag rith ag taifeach inmheánach GPU méadaithe. Cé nach bhfuil na rindreálaithe crua-earraí chomh cruinn céanna, feabhsaíonn siad feidhmíocht thar an rindreálaí bogearraí ag taifeach inmheánach méadaithe agus cuireann siad feabhsuithe grafacha éagsúla ar chumas. Roghnaíonn 'Crua-earraí (Uathoibríoch)' an rindreálaí Vulkan nó OpenGL go huathoibríoch, ag brath ar thiománaí físe tosaigh libretro reatha. Mura bhfuil an tiománaí físe a chuirtear ar fáil comhoiriúnach le Vulkan nó OpenGL 3.3, ansin titeann an croí ar ais chuig an rindreálaí bogearraí."
+#define OPTION_VAL_HARDWARE_GA "Crua-earraí (Uathoibríoch)"
+#define OPTION_VAL_HARDWARE_GL_GA "Crua-earraí (OpenGL)"
+#define OPTION_VAL_HARDWARE_VK_GA "Crua-earraí (Vulkan)"
+#define OPTION_VAL_SOFTWARE_GA "Bogearraí"
+#define BEETLE_OPT_RENDERER_SOFTWARE_FB_LABEL_GA "Maolán Fráma Bogearraí"
+#define BEETLE_OPT_RENDERER_SOFTWARE_FB_INFO_0_GA "Cumasaigh aithris chruinn ar éifeachtaí maolán fráma (m.sh. doiléire gluaisne, corraíl chatha FF7) agus rindreálaithe crua-earraí in úsáid trí chóip den rindreálaí bogearraí a rith ag réiteach dúchasach sa chúlra. Má tá sé díchumasaithe, fágtar na hoibríochtaí seo ar lár (OpenGL) nó rindreáiltear iad ar an GPU (Vulkan). Is féidir le díchumasú feidhmíocht a fheabhsú ach d'fhéadfadh earráidí grafacha tromchúiseacha a bheith mar thoradh air. Fág cumasaithe mura bhfuil tú cinnte."
+#define BEETLE_OPT_CPU_DYNAREC_LABEL_GA "LAP Dynarec"
+#define BEETLE_OPT_CPU_DYNAREC_INFO_0_GA "Athchóimeáil treoracha LAP go dinimiciúil chuig treoracha dúchasacha. I bhfad níos tapúla ná an léirmhínitheoir, ach níl an t-amchlár LAP chomh cruinn céanna, agus d'fhéadfadh fabhtanna a bheith ann."
+#define OPTION_VAL_DISABLED_GA "Míchumasaithe (Ateangaire Ciaróg)"
+#define OPTION_VAL_EXECUTE_GA "Uasfheidhmíocht"
+#define OPTION_VAL_EXECUTE_ONE_GA "Seiceáil Ama Timthrialla"
+#define OPTION_VAL_RUN_INTERPRETER_GA "Ateangaire Lightrec"
+#define BEETLE_OPT_DYNAREC_INVALIDATE_LABEL_GA "Neamhbhailíochtú Cód Dynarec"
+#define BEETLE_OPT_DYNAREC_INVALIDATE_INFO_0_GA "Éilíonn roinnt cluichí neamhbhailíochtú 'Iomlán', agus teastaíonn 'DMA Amháin' ó chuid eile."
+#define OPTION_VAL_FULL_GA "Lán"
+#define OPTION_VAL_DMA_GA "DMA Amháin (Beagán níos Tapúla)"
+#define BEETLE_OPT_DYNAREC_EVENTCYCLES_LABEL_GA "Timthriallta Imeachta Dynarec DMA/GPU/MDEC/Amadóir"
+#define BEETLE_OPT_DYNAREC_EVENTCYCLES_INFO_0_GA "Uasmhéid timthriallta a ritheann an LAP sula ndéantar Nuashonrú GPU/DMA/MDEC/Amaire a sheiceáil, beidh uimhir níos airde níos tapúla, agus bíonn tionchar i bhfad níos lú aige ar léirmhínitheoir beetle ná ar dynarec."
+#define OPTION_VAL_128_GA "128 (Réamhshocrú)"
+#define BEETLE_OPT_DYNAREC_SPU_SAMPLES_LABEL_GA "Samplaí SPU Dynarec"
+#define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_GA "Uasmhéid samplaí SPU le rith sula ndéantar Nuashonrú SPU a sheiceáil, beidh uimhir níos airde níos tapúla, ach beidh teipeanna fuaime i roinnt cluichí le rud ar bith seachas 1."
+#define BEETLE_OPT_CORE_TIMING_FPS_LABEL_GA "Amchlár FPS Tuairiscithe ag an gCroí"
+#define BEETLE_OPT_CORE_TIMING_FPS_INFO_0_GA "Roghnaigh an t-am FPS a thuairisceoidh an croí don tosaigh. Le hUath-Mholadh, beidh an croí in ann aistriú idir rátaí forásacha agus idirnasctha a thuairisciú, ach d'fhéadfadh sé go ndéanfaí aththosú ar thiománaí físe/fuaime an tosaigh."
+#define OPTION_VAL_AUTO_TOGGLE_GA "Ceadaigh Athrú Uathoibríoch"
+#define OPTION_VAL_FORCE_PROGRESSIVE_GA "Ráta Forásach"
+#define OPTION_VAL_FORCE_INTERLACED_GA "Ráta Idirfhite Fórsa"
+#define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_LABEL_GA "Sárú Ama Físe PAL (Eorpach)"
+#define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_GA "Mar gheall ar chaighdeáin éagsúla, is minic a bhíonn cuma mhoillithe ar chluichí PAL i gcomparáid leis na heisiúintí NTSC Meiriceánacha nó Seapánacha. Is féidir an rogha seo a úsáid chun amanna PAL a shárú d’fhonn iarracht a dhéanamh na cluichí seo a rith le ráta fráma NTSC. Níl aon éifeacht ag an rogha seo agus ábhar NTSC á rith."
+#define BEETLE_OPT_ASPECT_RATIO_LABEL_GA "Cóimheas Gné Croí"
+#define BEETLE_OPT_ASPECT_RATIO_INFO_0_GA "Roghnaigh an cóimheas gné lárnach a chuirtear ar fáil. Déantar neamhaird den socrú seo nuair a bhíonn na roghanna Mód Leathan-Scáileáin Haic nó Taispeáin VRAM Iomlán cumasaithe."
+#define OPTION_VAL_CORRECTED_GA "Ceartaithe"
+#define OPTION_VAL_UNCORRECTED_GA "Gan cheartú"
+#define OPTION_VAL_4_3_GA "Fórsa 4:3"
+#define OPTION_VAL_NTSC_GA "Fórsa NTSC"
+#define BEETLE_OPT_CROP_OVERSCAN_LABEL_GA "Overscan Barraí"
+#define BEETLE_OPT_CROP_OVERSCAN_INFO_0_GA "Coinníonn 'Gan aon cheann' an líonadh (boscaí piléir ar gach taobh den íomhá le haghaidh NTSC, ar gach taobh le haghaidh PAL) chun na barraí dubha céanna a ghintear in aschur físe analógach ag fíor-chrua-earraí PSX a aithris. Baintear líonadh cothrománach amháin le 'Statach', baintear an líonadh go léir le 'Dinimiciúil'."
+#define OPTION_VAL_DISABLED_O59_GA "Dada"
+#define OPTION_VAL_STATIC_GA "Statach"
+#define OPTION_VAL_SMART_GA "Dinimiciúil (Réamhshocraithe)"
+#define BEETLE_OPT_IMAGE_CROP_LABEL_GA "Bearradh Breise"
+#define BEETLE_OPT_IMAGE_CROP_INFO_0_GA "Nuair a bhíonn 'Bearr Ró-scan Cothrománach' cumasaithe, laghdaíonn an rogha seo leithead na híomhá bearrtha tuilleadh faoin líon picteilíní sonraithe."
+#define OPTION_VAL_9PX_GA NULL
+#define OPTION_VAL_10PX_GA NULL
+#define OPTION_VAL_11PX_GA NULL
+#define OPTION_VAL_12PX_GA NULL
+#define OPTION_VAL_13PX_GA NULL
+#define OPTION_VAL_14PX_GA NULL
+#define OPTION_VAL_15PX_GA NULL
+#define OPTION_VAL_16PX_GA NULL
+#define OPTION_VAL_17PX_GA NULL
+#define OPTION_VAL_18PX_GA NULL
+#define OPTION_VAL_19PX_GA NULL
+#define OPTION_VAL_20PX_GA NULL
+#define BEETLE_OPT_IMAGE_OFFSET_LABEL_GA "Íomhá Bearrtha Fritháireamh"
+#define BEETLE_OPT_IMAGE_OFFSET_INFO_0_GA "Nuair a bhíonn 'Bearr Ró-scan Cothrománach' cumasaithe, ceadaíonn sé seo an íomhá ghearrtha mar thoradh air sin a fhritháireamh go cothrománach ar dheis (dearfach) nó ar chlé (diúltach) faoin líon sonraithe picteilíní. Féadfar é seo a úsáid chun fadhbanna ailínithe a cheartú. Ní thacaítear leis seo ach amháin ag an rindreálaí bogearraí."
+#define OPTION_VAL_12PX_O61_GA NULL
+#define OPTION_VAL_11PX_O61_GA NULL
+#define OPTION_VAL_10PX_O61_GA NULL
+#define OPTION_VAL_9PX_O61_GA NULL
+#define OPTION_VAL_8PX_O61_GA NULL
+#define OPTION_VAL_7PX_O61_GA NULL
+#define OPTION_VAL_6PX_O61_GA NULL
+#define OPTION_VAL_5PX_O61_GA NULL
+#define OPTION_VAL_4PX_O61_GA NULL
+#define OPTION_VAL_3PX_O61_GA NULL
+#define OPTION_VAL_2PX_O61_GA NULL
+#define OPTION_VAL_1PX_O61_GA NULL
+#define OPTION_VAL_1PX_O61_0_GA NULL
+#define OPTION_VAL_2PX_O61_0_GA NULL
+#define OPTION_VAL_3PX_O61_0_GA NULL
+#define OPTION_VAL_4PX_O61_0_GA NULL
+#define OPTION_VAL_5PX_O61_0_GA NULL
+#define OPTION_VAL_6PX_O61_0_GA NULL
+#define OPTION_VAL_7PX_O61_0_GA NULL
+#define OPTION_VAL_8PX_O61_0_GA NULL
+#define OPTION_VAL_9PX_O61_0_GA NULL
+#define OPTION_VAL_10PX_O61_0_GA NULL
+#define OPTION_VAL_11PX_O61_0_GA NULL
+#define OPTION_VAL_12PX_O61_0_GA NULL
+#define BEETLE_OPT_IMAGE_OFFSET_CYCLES_LABEL_GA "Fritháireamh Íomhá Cothrománach (Timthriallta GPU)"
+#define BEETLE_OPT_IMAGE_OFFSET_CYCLES_INFO_0_GA "Roghnaigh líon na dtimthriallta GPU le haghaidh fritháireamh na híomhá. Bogann luachanna dearfacha an íomhá ar dheis, bogann luachanna diúltacha an íomhá ar chlé. Ní thacaítear leis seo ach leis na rindreálaithe crua-earraí."
+#define BEETLE_OPT_INITIAL_SCANLINE_LABEL_GA "Líne Scanadh Tosaigh - NTSC"
+#define BEETLE_OPT_INITIAL_SCANLINE_INFO_0_GA "Roghnaigh an chéad líne scanadh a thaispeántar agus ábhar NTSC á rith. Laghdóidh luachanna níos mó ná náid airde na n-íomhánna aschuir trí phicteilíní a bhearradh ón imeall is airde. Is féidir é a úsáid chun dul i ngleic le boscaí litreacha."
+#define OPTION_VAL_0_O63_GA "0 (Réamhshocrú)"
+#define BEETLE_OPT_LAST_SCANLINE_LABEL_GA "Líne Scanadh Deiridh - NTSC"
+#define BEETLE_OPT_LAST_SCANLINE_INFO_0_GA "Roghnaigh an líne scanadh dheireanach a thaispeántar agus ábhar NTSC á rith. Laghdóidh luachanna níos lú ná 239 airde na n-íomhánna aschuir trí phicteilíní a bhearradh ón imeall is ísle. Féadfar é a úsáid chun dul i ngleic le boscaí litreacha."
+#define OPTION_VAL_239_GA "239 (Réamhshocrú)"
+#define BEETLE_OPT_INITIAL_SCANLINE_PAL_LABEL_GA "Líne Scanadh Tosaigh - PAL"
+#define BEETLE_OPT_INITIAL_SCANLINE_PAL_INFO_0_GA "Roghnaigh an chéad líne scanadh a thaispeántar agus ábhar PAL á rith. Laghdóidh luachanna níos mó ná náid airde na n-íomhánna aschuir trí phicteilíní a bhearradh ón imeall is airde. Féadfar é a úsáid chun dul i ngleic le boscaí litreacha."
+#define BEETLE_OPT_LAST_SCANLINE_PAL_LABEL_GA "Líne Scanadh Deiridh - PAL"
+#define BEETLE_OPT_LAST_SCANLINE_PAL_INFO_0_GA "Roghnaigh an líne scanadh dheireanach a thaispeántar agus ábhar PAL á rith. Laghdóidh luachanna faoi bhun 287 airde na n-íomhánna aschuir trí na picteilíní a bhearradh ón imeall is ísle. Féadfar é a úsáid chun dul i ngleic le boscaí litreacha."
+#define OPTION_VAL_287_GA "287 (Réamhshocrú)"
+#define BEETLE_OPT_DEINTERLACER_LABEL_GA "Modh Dí-idirfhite"
+#define BEETLE_OPT_DEINTERLACER_INFO_0_GA "Taispeánann 'Fí' an dá réimse ar an bhfráma céanna le haghaidh íomhá neamhghluaiste ardtaifigh, déanann 'Bob' íobairt ar shoiléireacht réitigh ar mhaithe le soiléireacht gluaisne."
+#define OPTION_VAL_WEAVE_GA "Fí"
+#define OPTION_VAL_BOB_GA NULL
+#define BEETLE_OPT_CD_ACCESS_METHOD_LABEL_GA "Modh Rochtana CD (Atosú Riachtanach)"
+#define BEETLE_OPT_CD_ACCESS_METHOD_INFO_0_GA "Roghnaigh an modh a úsáidtear chun sonraí a léamh ó íomhánna diosca ábhair. Déanann 'Sioncrónach' aithris ar chrua-earraí bunaidh. Is féidir le 'Aisioncrónach' stad a laghdú ar ghléasanna le stóráil mhall. Lódálann 'Réamh-Thaisce' an íomhá diosca iomlán isteach sa chuimhne agus ábhar á sheoladh, rud a d'fhéadfadh amanna lódála sa chluiche a fheabhsú ar chostas moille tosaigh ag an am tosaithe. D'fhéadfadh 'Réamh-Thaisce' fadhbanna a chruthú ar chórais le RAM íseal, agus tiocfaidh sé ar ais go 'Sioncrónach' le haghaidh meán fisiciúil."
+#define OPTION_VAL_SYNC_GA "Sioncrónach"
+#define OPTION_VAL_ASYNC_GA "Asincrónach"
+#define OPTION_VAL_PRECACHE_GA "Réamh-Thaisce"
+#define BEETLE_OPT_CD_FASTLOAD_LABEL_GA "Luas Luchtaithe CD"
+#define BEETLE_OPT_CD_FASTLOAD_INFO_0_GA "Roghnaigh iolraitheoir luas rochtana diosca. Is féidir le luachanna níos airde ná '2x (Dúchasach)' amanna lódála sa chluiche a laghdú go mór, ach d'fhéadfadh earráidí uainiúcháin a bheith mar thoradh orthu. B'fhéidir nach bhfeidhmeoidh roinnt cluichí i gceart os cionn luach áirithe."
+#define OPTION_VAL_2X_NATIVE_GA "2x (Dúchasach)"
+#define OPTION_VAL_6X_GA NULL
+#define OPTION_VAL_10X_GA NULL
+#define OPTION_VAL_12X_GA NULL
+#define OPTION_VAL_14X_GA NULL
+
+struct retro_core_option_v2_category option_cats_ga[] = {
+   {
+      "video",
+      CATEGORY_VIDEO_LABEL_GA,
+      CATEGORY_VIDEO_INFO_0_GA
+   },
+   {
+      "osd",
+      CATEGORY_OSD_LABEL_GA,
+      CATEGORY_OSD_INFO_0_GA
+   },
+   {
+      "input",
+      CATEGORY_INPUT_LABEL_GA,
+      CATEGORY_INPUT_INFO_0_GA
+   },
+   {
+      "memcards",
+      CATEGORY_MEMCARDS_LABEL_GA,
+      CATEGORY_MEMCARDS_INFO_0_GA
+   },
+   {
+      "pgxp",
+      CATEGORY_PGXP_LABEL_GA,
+      CATEGORY_PGXP_INFO_0_GA
+   },
+   {
+      "hacks",
+      CATEGORY_HACKS_LABEL_GA,
+      CATEGORY_HACKS_INFO_0_GA
+   },
+   { NULL, NULL, NULL },
+};
+struct retro_core_option_v2_definition option_defs_ga[] = {
+   {
+      BEETLE_OPT(internal_resolution),
+      BEETLE_OPT_INTERNAL_RESOLUTION_LABEL_GA,
+      NULL,
+      BEETLE_OPT_INTERNAL_RESOLUTION_INFO_0_GA,
+      NULL,
+      "video",
+      {
+         { "1x(native)", OPTION_VAL_1X_NATIVE_GA },
+         { "2x",         OPTION_VAL_2X_GA },
+         { "4x",         OPTION_VAL_4X_GA },
+         { "8x",         OPTION_VAL_8X_GA },
+         { "16x",        OPTION_VAL_16X_GA },
+         { NULL, NULL },
+      },
+      "1x(native)"
+   },
+#if defined(HAVE_OPENGL) || defined(HAVE_OPENGLES)
+   {
+      BEETLE_OPT(depth),
+      BEETLE_OPT_DEPTH_LABEL_GA,
+      NULL,
+      BEETLE_OPT_DEPTH_INFO_0_GA,
+      NULL,
+      "video",
+      {
+         { "16bpp(native)", OPTION_VAL_16BPP_NATIVE_GA },
+         { "32bpp",         OPTION_VAL_32BPP_GA },
+         { NULL, NULL },
+      },
+      "16bpp(native)"
+   },
+   // Sort of, it's more like 15-bit high color and 24-bit true color for visible output. The alpha channel is used for mask bit. Vulkan renderer uses ABGR1555_555 for 31 bits internal? FMVs are always 24-bit on all renderers like original hardware (BGR888, no alpha)
+#endif
+   {
+      BEETLE_OPT(dither_mode),
+      BEETLE_OPT_DITHER_MODE_LABEL_GA,
+      NULL,
+      BEETLE_OPT_DITHER_MODE_INFO_0_GA,
+      NULL,
+      "video",
+      {
+         { "1x(native)",          OPTION_VAL_1X_NATIVE_GA },
+         { "internal resolution", OPTION_VAL_INTERNAL_RESOLUTION_GA },
+         { "disabled",            NULL },
+         { NULL, NULL },
+      },
+      "1x(native)"
+   },
+#ifdef HAVE_VULKAN
+   {
+      BEETLE_OPT(scaled_uv_offset),
+      BEETLE_OPT_SCALED_UV_OFFSET_LABEL_GA,
+      NULL,
+      BEETLE_OPT_SCALED_UV_OFFSET_INFO_0_GA,
+      NULL,
+      "video",
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL },
+      },
+      "enabled"
+   },
+#endif
+#if defined(HAVE_OPENGL) || defined(HAVE_OPENGLES) || defined(HAVE_VULKAN)
+   {
+      BEETLE_OPT(filter),
+      BEETLE_OPT_FILTER_LABEL_GA,
+      NULL,
+      BEETLE_OPT_FILTER_INFO_0_GA,
+      NULL,
+      "video",
+      {
+         { "nearest",  OPTION_VAL_NEAREST_GA },
+         { "SABR",     OPTION_VAL_SABR_GA },
+         { "xBR",      OPTION_VAL_XBR_GA },
+         { "bilinear", OPTION_VAL_BILINEAR_GA },
+         { "3-point",  OPTION_VAL_3_POINT_GA },
+         { "JINC2",    OPTION_VAL_JINC2_GA },
+         { NULL, NULL },
+      },
+      "nearest"
+   },
+#ifdef HAVE_VULKAN
+   {
+      BEETLE_OPT(filter_exclude_sprite),
+      BEETLE_OPT_FILTER_EXCLUDE_SPRITE_LABEL_GA,
+      NULL,
+      BEETLE_OPT_FILTER_EXCLUDE_SPRITE_INFO_0_GA,
+      NULL,
+      "video",
+      {
+         { "disabled", NULL },
+         { "opaque", OPTION_VAL_OPAQUE_GA },
+         { "all", OPTION_VAL_ALL_GA },
+         { NULL, NULL },
+      },
+      "disabled"
+   },
+   {
+      BEETLE_OPT(filter_exclude_2d_polygon),
+      BEETLE_OPT_FILTER_EXCLUDE_2D_POLYGON_LABEL_GA,
+      NULL,
+      BEETLE_OPT_FILTER_EXCLUDE_2D_POLYGON_INFO_0_GA,
+      NULL,
+      "video",
+      {
+         { "disabled", NULL },
+         { "opaque", OPTION_VAL_OPAQUE_GA },
+         { "all", OPTION_VAL_ALL_GA },
+         { NULL, NULL },
+      },
+      "disabled"
+   },
+#endif
+#endif
+#ifdef HAVE_VULKAN
+   {
+      BEETLE_OPT(adaptive_smoothing),
+      BEETLE_OPT_ADAPTIVE_SMOOTHING_LABEL_GA,
+      NULL,
+      BEETLE_OPT_ADAPTIVE_SMOOTHING_INFO_0_GA,
+      NULL,
+      "video",
+      {
+         { "disabled", NULL },
+         { "enabled",  NULL },
+         { NULL, NULL },
+      },
+      "disabled"
+   },
+   {
+      BEETLE_OPT(super_sampling),
+      BEETLE_OPT_SUPER_SAMPLING_LABEL_GA,
+      NULL,
+      BEETLE_OPT_SUPER_SAMPLING_INFO_0_GA,
+      NULL,
+      "video",
+      {
+         { "disabled", NULL },
+         { "enabled",  NULL },
+         { NULL, NULL },
+      },
+      "disabled"
+   },
+   {
+      BEETLE_OPT(msaa),
+      BEETLE_OPT_MSAA_LABEL_GA,
+      NULL,
+      BEETLE_OPT_MSAA_INFO_0_GA,
+      NULL,
+      "video",
+      {
+         { "1x",  OPTION_VAL_1X_GA },
+         { "2x",  OPTION_VAL_2X_GA },
+         { "4x",  OPTION_VAL_4X_GA },
+         { "8x",  OPTION_VAL_8X_GA },
+         { "16x", OPTION_VAL_16X_GA },
+         { NULL, NULL },
+      },
+      "1x"
+   },
+   {
+      BEETLE_OPT(mdec_yuv),
+      BEETLE_OPT_MDEC_YUV_LABEL_GA,
+      NULL,
+      BEETLE_OPT_MDEC_YUV_INFO_0_GA,
+      NULL,
+      "video",
+      {
+         { "disabled", NULL },
+         { "enabled",  NULL },
+         { NULL, NULL },
+      },
+      "disabled"
+   },
+   {
+      BEETLE_OPT(track_textures),
+      BEETLE_OPT_TRACK_TEXTURES_LABEL_GA,
+      NULL,
+      BEETLE_OPT_TRACK_TEXTURES_INFO_0_GA,
+      NULL,
+      "video",
+      {
+         { "disabled", NULL },
+         { "enabled",  NULL },
+         { NULL, NULL },
+      },
+      "disabled"
+   },
+#ifdef TEXTURE_DUMPING_ENABLED
+   {
+      BEETLE_OPT(dump_textures),
+      BEETLE_OPT_DUMP_TEXTURES_LABEL_GA,
+      NULL,
+      BEETLE_OPT_DUMP_TEXTURES_INFO_0_GA,
+      NULL,
+      "video",
+      {
+         { "disabled", NULL },
+         { "enabled",  NULL },
+         { NULL, NULL },
+      },
+      "disabled"
+   },
+#endif
+   {
+      BEETLE_OPT(replace_textures),
+      BEETLE_OPT_REPLACE_TEXTURES_LABEL_GA,
+      NULL,
+      BEETLE_OPT_REPLACE_TEXTURES_INFO_0_GA,
+      NULL,
+      "video",
+      {
+         { "disabled", NULL },
+         { "enabled",  NULL },
+         { NULL, NULL },
+      },
+      "disabled"
+   },
+#endif
+#if defined(HAVE_OPENGL) || defined(HAVE_OPENGLES)
+   {
+      BEETLE_OPT(wireframe),
+      BEETLE_OPT_WIREFRAME_LABEL_GA,
+      NULL,
+      BEETLE_OPT_WIREFRAME_INFO_0_GA,
+      NULL,
+      "video",
+      {
+         { "disabled", NULL },
+         { "enabled",  NULL },
+         { NULL, NULL },
+      },
+      "disabled"
+   },
+#endif
+   {
+      BEETLE_OPT(frame_duping),
+      BEETLE_OPT_FRAME_DUPING_LABEL_GA,
+      NULL,
+      BEETLE_OPT_FRAME_DUPING_INFO_0_GA,
+      NULL,
+      "video",
+      {
+         { "disabled", NULL },
+         { "enabled",  NULL },
+         { NULL, NULL },
+      },
+      "disabled"
+   },
+   {
+      BEETLE_OPT(display_internal_fps),
+      BEETLE_OPT_DISPLAY_INTERNAL_FPS_LABEL_GA,
+      NULL,
+      BEETLE_OPT_DISPLAY_INTERNAL_FPS_INFO_0_GA,
+      NULL,
+      "osd",
+      {
+         { "disabled", NULL },
+         { "enabled",  NULL },
+         { NULL, NULL },
+      },
+      "disabled"
+   },
+   {
+      BEETLE_OPT(display_osd),
+      BEETLE_OPT_DISPLAY_OSD_LABEL_GA,
+      NULL,
+      BEETLE_OPT_DISPLAY_OSD_INFO_0_GA,
+      NULL,
+      "osd",
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL },
+      },
+      "enabled"
+   },
+#if defined(HAVE_OPENGL) || defined(HAVE_OPENGLES) || defined(HAVE_VULKAN)
+   {
+      BEETLE_OPT(display_vram),
+      BEETLE_OPT_DISPLAY_VRAM_LABEL_GA,
+      NULL,
+      BEETLE_OPT_DISPLAY_VRAM_INFO_0_GA,
+      NULL,
+      "osd",
+      {
+         { "disabled", NULL },
+         { "enabled",  NULL },
+         { NULL, NULL },
+      },
+      "disabled"
+   },
+#endif
+   {
+      BEETLE_OPT(analog_calibration),
+      BEETLE_OPT_ANALOG_CALIBRATION_LABEL_GA,
+      NULL,
+      BEETLE_OPT_ANALOG_CALIBRATION_INFO_0_GA,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled",  NULL },
+         { NULL, NULL },
+      },
+      "disabled"
+   },
+   {
+      BEETLE_OPT(analog_toggle),
+      BEETLE_OPT_ANALOG_TOGGLE_LABEL_GA,
+      NULL,
+      BEETLE_OPT_ANALOG_TOGGLE_INFO_0_GA,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled",  NULL },
+         { "enabled-analog", OPTION_VAL_ENABLED_ANALOG_GA },
+         { NULL, NULL },
+      },
+      "disabled"
+   },
+   {
+      BEETLE_OPT(analog_toggle_combo),
+      BEETLE_OPT_ANALOG_TOGGLE_COMBO_LABEL_GA,
+      NULL,
+      BEETLE_OPT_ANALOG_TOGGLE_COMBO_INFO_0_GA,
+      NULL,
+      "input",
+      {
+         { "l1+l2+r1+r2+start+select", OPTION_VAL_L1_L2_R1_R2_START_SELECT_GA },
+         { "l1+r1+select",             OPTION_VAL_L1_R1_SELECT_GA },
+         { "l1+r1+start",              OPTION_VAL_L1_R1_START_GA },
+         { "l1+r1+l3",                 OPTION_VAL_L1_R1_L3_GA },
+         { "l1+r1+r3",                 OPTION_VAL_L1_R1_R3_GA },
+         { "l2+r2+select",             OPTION_VAL_L2_R2_SELECT_GA },
+         { "l2+r2+start",              OPTION_VAL_L2_R2_START_GA },
+         { "l2+r2+l3",                 OPTION_VAL_L2_R2_L3_GA },
+         { "l2+r2+r3",                 OPTION_VAL_L2_R2_R3_GA },
+         { "l3+r3",                    OPTION_VAL_L3_R3_GA },
+         { NULL, NULL },
+      },
+      "l1+r1+select"
+   },
+   {
+      BEETLE_OPT(analog_toggle_hold),
+      BEETLE_OPT_ANALOG_TOGGLE_HOLD_LABEL_GA,
+      NULL,
+      BEETLE_OPT_ANALOG_TOGGLE_HOLD_INFO_0_GA,
+      NULL,
+      "input",
+      {
+         { "0", OPTION_VAL_0_GA },
+         { "1", OPTION_VAL_1_GA },
+         { "2", OPTION_VAL_2_GA },
+         { "3", OPTION_VAL_3_GA },
+         { "4", OPTION_VAL_4_GA },
+         { "5", OPTION_VAL_5_GA },
+         { NULL, NULL },
+      },
+      "1"
+   },
+   {
+      BEETLE_OPT(enable_multitap_port1),
+      BEETLE_OPT_ENABLE_MULTITAP_PORT1_LABEL_GA,
+      NULL,
+      BEETLE_OPT_ENABLE_MULTITAP_PORT1_INFO_0_GA,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled",  NULL },
+         { NULL, NULL },
+      },
+      "disabled"
+   },
+   {
+      BEETLE_OPT(enable_multitap_port2),
+      BEETLE_OPT_ENABLE_MULTITAP_PORT2_LABEL_GA,
+      NULL,
+      BEETLE_OPT_ENABLE_MULTITAP_PORT2_INFO_0_GA,
+      NULL,
+      "input",
+      {
+         { "disabled", NULL },
+         { "enabled",  NULL },
+         { NULL, NULL },
+      },
+      "disabled"
+   },
+   {
+      BEETLE_OPT(gun_input_mode),
+      BEETLE_OPT_GUN_INPUT_MODE_LABEL_GA,
+      NULL,
+      BEETLE_OPT_GUN_INPUT_MODE_INFO_0_GA,
+      NULL,
+      "input",
+      {
+         { "lightgun",    OPTION_VAL_LIGHTGUN_GA },
+         { "touchscreen", OPTION_VAL_TOUCHSCREEN_GA },
+         { NULL, NULL },
+      },
+      "lightgun"
+   },
+   // Shouldn't the gun_input_mode just be Mouse vs. Touchscreen?
+   {
+      BEETLE_OPT(gun_cursor),
+      BEETLE_OPT_GUN_CURSOR_LABEL_GA,
+      NULL,
+      BEETLE_OPT_GUN_CURSOR_INFO_0_GA,
+      NULL,
+      "input",
+      {
+         { "cross", OPTION_VAL_CROSS_GA },
+         { "dot",   OPTION_VAL_DOT_GA },
+         { "off",   OPTION_VAL_OFF_GA },
+         { NULL, NULL },
+      },
+      "cross"
+   },
+   {
+      BEETLE_OPT(crosshair_color_p1),
+      BEETLE_OPT_CROSSHAIR_COLOR_P1_LABEL_GA,
+      NULL,
+      BEETLE_OPT_CROSSHAIR_COLOR_P1_INFO_0_GA,
+      NULL,
+      "input",
+      {
+         { "red", OPTION_VAL_RED_GA },
+         { "blue", OPTION_VAL_BLUE_GA },
+         { "green", OPTION_VAL_GREEN_GA },
+         { "orange", OPTION_VAL_ORANGE_GA },
+         { "yellow", OPTION_VAL_YELLOW_GA },
+         { "cyan", OPTION_VAL_CYAN_GA },
+         { "pink", OPTION_VAL_PINK_GA },
+         { "purple", OPTION_VAL_PURPLE_GA },
+         { "black", OPTION_VAL_BLACK_GA },
+         { "white", OPTION_VAL_WHITE_GA },
+         { NULL, NULL },
+      },
+      "red"
+   },
+   {
+      BEETLE_OPT(crosshair_color_p2),
+      BEETLE_OPT_CROSSHAIR_COLOR_P2_LABEL_GA,
+      NULL,
+      BEETLE_OPT_CROSSHAIR_COLOR_P2_INFO_0_GA,
+      NULL,
+      "input",
+      {
+         { "blue", OPTION_VAL_BLUE_GA },
+         { "red", OPTION_VAL_RED_GA },
+         { "green", OPTION_VAL_GREEN_GA },
+         { "orange", OPTION_VAL_ORANGE_GA },
+         { "yellow", OPTION_VAL_YELLOW_GA },
+         { "cyan", OPTION_VAL_CYAN_GA },
+         { "pink", OPTION_VAL_PINK_GA },
+         { "purple", OPTION_VAL_PURPLE_GA },
+         { "black", OPTION_VAL_BLACK_GA },
+         { "white", OPTION_VAL_WHITE_GA },
+         { NULL, NULL },
+      },
+      "blue"
+   },
+   {
+      BEETLE_OPT(mouse_sensitivity),
+      BEETLE_OPT_MOUSE_SENSITIVITY_LABEL_GA,
+      NULL,
+      BEETLE_OPT_MOUSE_SENSITIVITY_INFO_0_GA,
+      NULL,
+      "input",
+      {
+         { "5%",   OPTION_VAL_5_O29_GA },
+         { "10%",  OPTION_VAL_10_GA },
+         { "15%",  OPTION_VAL_15_GA },
+         { "20%",  OPTION_VAL_20_GA },
+         { "25%",  OPTION_VAL_25_GA },
+         { "30%",  OPTION_VAL_30_GA },
+         { "35%",  OPTION_VAL_35_GA },
+         { "40%",  OPTION_VAL_40_GA },
+         { "45%",  OPTION_VAL_45_GA },
+         { "50%",  OPTION_VAL_50_GA },
+         { "55%",  OPTION_VAL_55_GA },
+         { "60%",  OPTION_VAL_60_GA },
+         { "65%",  OPTION_VAL_65_GA },
+         { "70%",  OPTION_VAL_70_GA },
+         { "75%",  OPTION_VAL_75_GA },
+         { "80%",  OPTION_VAL_80_GA },
+         { "85%",  OPTION_VAL_85_GA },
+         { "90%",  OPTION_VAL_90_GA },
+         { "95%",  OPTION_VAL_95_GA },
+         { "100%", OPTION_VAL_100_GA },
+         { "105%", OPTION_VAL_105_GA },
+         { "110%", OPTION_VAL_110_GA },
+         { "115%", OPTION_VAL_115_GA },
+         { "120%", OPTION_VAL_120_GA },
+         { "125%", OPTION_VAL_125_GA },
+         { "130%", OPTION_VAL_130_GA },
+         { "135%", OPTION_VAL_135_GA },
+         { "140%", OPTION_VAL_140_GA },
+         { "145%", OPTION_VAL_145_GA },
+         { "150%", OPTION_VAL_150_GA },
+         { "155%", OPTION_VAL_155_GA },
+         { "160%", OPTION_VAL_160_GA },
+         { "165%", OPTION_VAL_165_GA },
+         { "170%", OPTION_VAL_170_GA },
+         { "175%", OPTION_VAL_175_GA },
+         { "180%", OPTION_VAL_180_GA },
+         { "185%", OPTION_VAL_185_GA },
+         { "190%", OPTION_VAL_190_GA },
+         { "195%", OPTION_VAL_195_GA },
+         { "200%", OPTION_VAL_200_GA },
+         { NULL, NULL },
+      },
+      "100%"
+   },
+   {
+      BEETLE_OPT(negcon_response),
+      BEETLE_OPT_NEGCON_RESPONSE_LABEL_GA,
+      NULL,
+      BEETLE_OPT_NEGCON_RESPONSE_INFO_0_GA,
+      NULL,
+      "input",
+      {
+         { "linear",    OPTION_VAL_LINEAR_GA },
+         { "quadratic", OPTION_VAL_QUADRATIC_GA },
+         { "cubic",     OPTION_VAL_CUBIC_GA },
+         { NULL, NULL },
+      },
+      "linear"
+   },
+   {
+      BEETLE_OPT(negcon_deadzone),
+      BEETLE_OPT_NEGCON_DEADZONE_LABEL_GA,
+      NULL,
+      BEETLE_OPT_NEGCON_DEADZONE_INFO_0_GA,
+      NULL,
+      "input",
+      {
+         { "0%",  OPTION_VAL_0_O31_GA },
+         { "5%",  OPTION_VAL_5_O29_GA },
+         { "10%", OPTION_VAL_10_GA },
+         { "15%", OPTION_VAL_15_GA },
+         { "20%", OPTION_VAL_20_GA },
+         { "25%", OPTION_VAL_25_GA },
+         { "30%", OPTION_VAL_30_GA },
+         { NULL, NULL },
+      },
+      "0%"
+   },
+   {
+      BEETLE_OPT(use_mednafen_memcard0_method),
+      BEETLE_OPT_USE_MEDNAFEN_MEMCARD0_METHOD_LABEL_GA,
+      NULL,
+      BEETLE_OPT_USE_MEDNAFEN_MEMCARD0_METHOD_INFO_0_GA,
+      NULL,
+      "memcards",
+      {
+         { "libretro", OPTION_VAL_LIBRETRO_GA },
+         { "mednafen", OPTION_VAL_MEDNAFEN_GA },
+         { NULL, NULL },
+      },
+      "libretro"
+   },
+   {
+      BEETLE_OPT(enable_memcard1),
+      BEETLE_OPT_ENABLE_MEMCARD1_LABEL_GA,
+      NULL,
+      BEETLE_OPT_ENABLE_MEMCARD1_INFO_0_GA,
+      NULL,
+      "memcards",
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL },
+      },
+      "enabled"
+   },
+   {
+      BEETLE_OPT(shared_memory_cards),
+      BEETLE_OPT_SHARED_MEMORY_CARDS_LABEL_GA,
+      NULL,
+      BEETLE_OPT_SHARED_MEMORY_CARDS_INFO_0_GA,
+      NULL,
+      "memcards",
+      {
+         { "disabled", NULL },
+         { "enabled",  NULL },
+         { NULL, NULL },
+      },
+      "disabled"
+   },
+   {
+      BEETLE_OPT(memcard_left_index),
+      BEETLE_OPT_MEMCARD_LEFT_INDEX_LABEL_GA,
+      NULL,
+      BEETLE_OPT_MEMCARD_LEFT_INDEX_INFO_0_GA,
+      NULL,
+      "memcards",
+      {
+         { "0",  NULL },
+         { "1",  NULL },
+         { "2",  NULL },
+         { "3",  NULL },
+         { "4",  NULL },
+         { "5",  NULL },
+         { "6",  NULL },
+         { "7",  NULL },
+         { "8",  NULL },
+         { "9",  NULL },
+         { "10",  NULL },
+         { "11",  NULL },
+         { "12",  NULL },
+         { "13",  NULL },
+         { "14",  NULL },
+         { "15",  NULL },
+         { "16",  NULL },
+         { "17",  NULL },
+         { "18",  NULL },
+         { "19",  NULL },
+         { "20",  NULL },
+         { "21",  NULL },
+         { "22",  NULL },
+         { "23",  NULL },
+         { "24",  NULL },
+         { "25",  NULL },
+         { "26",  NULL },
+         { "27",  NULL },
+         { "28",  NULL },
+         { "29",  NULL },
+         { "30",  NULL },
+         { "31",  NULL },
+         { "32",  NULL },
+         { "33",  NULL },
+         { "34",  NULL },
+         { "35",  NULL },
+         { "36",  NULL },
+         { "37",  NULL },
+         { "38",  NULL },
+         { "39",  NULL },
+         { "40",  NULL },
+         { "41",  NULL },
+         { "42",  NULL },
+         { "43",  NULL },
+         { "44",  NULL },
+         { "45",  NULL },
+         { "46",  NULL },
+         { "47",  NULL },
+         { "48",  NULL },
+         { "49",  NULL },
+         { "50",  NULL },
+         { "51",  NULL },
+         { "52",  NULL },
+         { "53",  NULL },
+         { "54",  NULL },
+         { "55",  NULL },
+         { "56",  NULL },
+         { "57",  NULL },
+         { "58",  NULL },
+         { "59",  NULL },
+         { "60",  NULL },
+         { "61",  NULL },
+         { "62",  NULL },
+         { "63",  NULL },
+         { NULL, NULL },
+      },
+      "0"
+   },
+   {
+      BEETLE_OPT(memcard_right_index),
+      BEETLE_OPT_MEMCARD_RIGHT_INDEX_LABEL_GA,
+      NULL,
+      BEETLE_OPT_MEMCARD_RIGHT_INDEX_INFO_0_GA,
+      NULL,
+      "memcards",
+      {
+         { "0",  NULL },
+         { "1",  OPTION_VAL_1_O36_GA },
+         { "2",  NULL },
+         { "3",  NULL },
+         { "4",  NULL },
+         { "5",  NULL },
+         { "6",  NULL },
+         { "7",  NULL },
+         { "8",  NULL },
+         { "9",  NULL },
+         { "10",  NULL },
+         { "11",  NULL },
+         { "12",  NULL },
+         { "13",  NULL },
+         { "14",  NULL },
+         { "15",  NULL },
+         { "16",  NULL },
+         { "17",  NULL },
+         { "18",  NULL },
+         { "19",  NULL },
+         { "20",  NULL },
+         { "21",  NULL },
+         { "22",  NULL },
+         { "23",  NULL },
+         { "24",  NULL },
+         { "25",  NULL },
+         { "26",  NULL },
+         { "27",  NULL },
+         { "28",  NULL },
+         { "29",  NULL },
+         { "30",  NULL },
+         { "31",  NULL },
+         { "32",  NULL },
+         { "33",  NULL },
+         { "34",  NULL },
+         { "35",  NULL },
+         { "36",  NULL },
+         { "37",  NULL },
+         { "38",  NULL },
+         { "39",  NULL },
+         { "40",  NULL },
+         { "41",  NULL },
+         { "42",  NULL },
+         { "43",  NULL },
+         { "44",  NULL },
+         { "45",  NULL },
+         { "46",  NULL },
+         { "47",  NULL },
+         { "48",  NULL },
+         { "49",  NULL },
+         { "50",  NULL },
+         { "51",  NULL },
+         { "52",  NULL },
+         { "53",  NULL },
+         { "54",  NULL },
+         { "55",  NULL },
+         { "56",  NULL },
+         { "57",  NULL },
+         { "58",  NULL },
+         { "59",  NULL },
+         { "60",  NULL },
+         { "61",  NULL },
+         { "62",  NULL },
+         { "63",  NULL },
+         { NULL, NULL },
+      },
+      "1"
+   },
+   {
+      BEETLE_OPT(pgxp_mode),
+      BEETLE_OPT_PGXP_MODE_LABEL_GA,
+      NULL,
+      BEETLE_OPT_PGXP_MODE_INFO_0_GA,
+      NULL,
+      "pgxp",
+      {
+         { "disabled",     NULL },
+         { "memory only",  OPTION_VAL_MEMORY_ONLY_GA },
+         { "memory + CPU", OPTION_VAL_MEMORY_CPU_GA },
+         { NULL, NULL },
+      },
+      "disabled"
+   },
+   {
+      BEETLE_OPT(pgxp_2d_tol),
+      BEETLE_OPT_PGXP_2D_TOL_LABEL_GA,
+      NULL,
+      BEETLE_OPT_PGXP_2D_TOL_INFO_0_GA,
+      NULL,
+      "pgxp",
+      {
+         { "disabled", NULL },
+         { "0px", OPTION_VAL_0PX_GA },
+         { "1px", OPTION_VAL_1PX_GA },
+         { "2px", OPTION_VAL_2PX_GA },
+         { "3px", OPTION_VAL_3PX_GA },
+         { "4px", OPTION_VAL_4PX_GA },
+         { "5px", OPTION_VAL_5PX_GA },
+         { "6px", OPTION_VAL_6PX_GA },
+         { "7px", OPTION_VAL_7PX_GA },
+         { "8px", OPTION_VAL_8PX_GA },
+         { NULL, NULL },
+      },
+      "disabled"
+   },
+   {
+      BEETLE_OPT(pgxp_nclip),
+      BEETLE_OPT_PGXP_NCLIP_LABEL_GA,
+      NULL,
+      BEETLE_OPT_PGXP_NCLIP_INFO_0_GA,
+      NULL,
+      "pgxp",
+      {
+         { "disabled", NULL },
+         { "enabled", NULL },
+         { NULL, NULL },
+      },
+      "disabled"
+   },
+#if defined(HAVE_OPENGL) || defined(HAVE_OPENGLES) || defined(HAVE_VULKAN)
+   {
+      BEETLE_OPT(pgxp_vertex),
+      BEETLE_OPT_PGXP_VERTEX_LABEL_GA,
+      NULL,
+      BEETLE_OPT_PGXP_VERTEX_INFO_0_GA,
+      NULL,
+      "pgxp",
+      {
+         { "disabled", NULL },
+         { "enabled",  NULL },
+         { NULL, NULL },
+      },
+      "disabled"
+   },
+   {
+      BEETLE_OPT(pgxp_texture),
+      BEETLE_OPT_PGXP_TEXTURE_LABEL_GA,
+      NULL,
+      BEETLE_OPT_PGXP_TEXTURE_INFO_0_GA,
+      NULL,
+      "pgxp",
+      {
+         { "disabled", NULL },
+         { "enabled",  NULL },
+         { NULL, NULL },
+      },
+      "disabled"
+   },
+#endif
+   {
+      BEETLE_OPT(line_render),
+      BEETLE_OPT_LINE_RENDER_LABEL_GA,
+      NULL,
+      BEETLE_OPT_LINE_RENDER_INFO_0_GA,
+      NULL,
+      "hacks",
+      {
+         { "default",    OPTION_VAL_DEFAULT_GA },
+         { "aggressive", OPTION_VAL_AGGRESSIVE_GA },
+         { "disabled",   NULL },
+         { NULL, NULL },
+      },
+      "default"
+   },
+   {
+      BEETLE_OPT(widescreen_hack),
+      BEETLE_OPT_WIDESCREEN_HACK_LABEL_GA,
+      NULL,
+      BEETLE_OPT_WIDESCREEN_HACK_INFO_0_GA,
+      NULL,
+      "hacks",
+      {
+         { "disabled", NULL },
+         { "enabled",  NULL },
+         { NULL, NULL },
+      },
+      "disabled"
+   },
+   {
+      BEETLE_OPT(widescreen_hack_aspect_ratio),
+      BEETLE_OPT_WIDESCREEN_HACK_ASPECT_RATIO_LABEL_GA,
+      NULL,
+      BEETLE_OPT_WIDESCREEN_HACK_ASPECT_RATIO_INFO_0_GA,
+      NULL,
+      "hacks",
+      {
+         { "16:9",  OPTION_VAL_16_9_GA },
+         { "16:10", OPTION_VAL_16_10_GA },
+         { "18:9",  OPTION_VAL_18_9_GA },
+         { "19:9",  OPTION_VAL_19_9_GA },
+         { "20:9",  OPTION_VAL_20_9_GA },
+         { "21:9",  OPTION_VAL_21_9_GA }, // 64:27
+         { "32:9",  OPTION_VAL_32_9_GA },
+         { NULL,    NULL },
+      },
+      "16:9"
+   },
+   {
+      BEETLE_OPT(cpu_freq_scale),
+      BEETLE_OPT_CPU_FREQ_SCALE_LABEL_GA,
+      NULL,
+      BEETLE_OPT_CPU_FREQ_SCALE_INFO_0_GA,
+      NULL,
+      "hacks",
+      {
+         { "50%",           OPTION_VAL_50_GA },
+         { "60%",           OPTION_VAL_60_GA },
+         { "70%",           OPTION_VAL_70_GA },
+         { "80%",           OPTION_VAL_80_GA },
+         { "90%",           OPTION_VAL_90_GA },
+         { "100%(native)", OPTION_VAL_100_NATIVE_GA },
+         { "110%",          OPTION_VAL_110_GA },
+         { "120%",          OPTION_VAL_120_GA },
+         { "130%",          OPTION_VAL_130_GA },
+         { "140%",          OPTION_VAL_140_GA },
+         { "150%",          OPTION_VAL_150_GA },
+         { "160%",          OPTION_VAL_160_GA },
+         { "170%",          OPTION_VAL_170_GA },
+         { "180%",          OPTION_VAL_180_GA },
+         { "190%",          OPTION_VAL_190_GA },
+         { "200%",          OPTION_VAL_200_GA },
+         { "210%",          OPTION_VAL_210_GA },
+         { "220%",          OPTION_VAL_220_GA },
+         { "230%",          OPTION_VAL_230_GA },
+         { "240%",          OPTION_VAL_240_GA },
+         { "250%",          OPTION_VAL_250_GA },
+         { "260%",          OPTION_VAL_260_GA },
+         { "270%",          OPTION_VAL_270_GA },
+         { "280%",          OPTION_VAL_280_GA },
+         { "290%",          OPTION_VAL_290_GA },
+         { "300%",          OPTION_VAL_300_GA },
+         { "310%",          OPTION_VAL_310_GA },
+         { "320%",          OPTION_VAL_320_GA },
+         { "330%",          OPTION_VAL_330_GA },
+         { "340%",          OPTION_VAL_340_GA },
+         { "350%",          OPTION_VAL_350_GA },
+         { "360%",          OPTION_VAL_360_GA },
+         { "370%",          OPTION_VAL_370_GA },
+         { "380%",          OPTION_VAL_380_GA },
+         { "390%",          OPTION_VAL_390_GA },
+         { "400%",          OPTION_VAL_400_GA },
+         { "410%",          OPTION_VAL_410_GA },
+         { "420%",          OPTION_VAL_420_GA },
+         { "430%",          OPTION_VAL_430_GA },
+         { "440%",          OPTION_VAL_440_GA },
+         { "450%",          OPTION_VAL_450_GA },
+         { "460%",          OPTION_VAL_460_GA },
+         { "470%",          OPTION_VAL_470_GA },
+         { "480%",          OPTION_VAL_480_GA },
+         { "490%",          OPTION_VAL_490_GA },
+         { "500%",          OPTION_VAL_500_GA },
+         { "510%",          OPTION_VAL_510_GA },
+         { "520%",          OPTION_VAL_520_GA },
+         { "530%",          OPTION_VAL_530_GA },
+         { "540%",          OPTION_VAL_540_GA },
+         { "550%",          OPTION_VAL_550_GA },
+         { "560%",          OPTION_VAL_560_GA },
+         { "570%",          OPTION_VAL_570_GA },
+         { "580%",          OPTION_VAL_580_GA },
+         { "590%",          OPTION_VAL_590_GA },
+         { "600%",          OPTION_VAL_600_GA },
+         { "610%",          OPTION_VAL_610_GA },
+         { "620%",          OPTION_VAL_620_GA },
+         { "630%",          OPTION_VAL_630_GA },
+         { "640%",          OPTION_VAL_640_GA },
+         { "650%",          OPTION_VAL_650_GA },
+         { "660%",          OPTION_VAL_660_GA },
+         { "670%",          OPTION_VAL_670_GA },
+         { "680%",          OPTION_VAL_680_GA },
+         { "690%",          OPTION_VAL_690_GA },
+         { "700%",          OPTION_VAL_700_GA },
+         { "710%",          OPTION_VAL_710_GA },
+         { "720%",          OPTION_VAL_720_GA },
+         { "730%",          OPTION_VAL_730_GA },
+         { "740%",          OPTION_VAL_740_GA },
+         { "750%",          OPTION_VAL_750_GA },
+         { NULL, NULL },
+      },
+      "100%(native)"
+   },
+   {
+      BEETLE_OPT(gpu_overclock),
+      BEETLE_OPT_GPU_OVERCLOCK_LABEL_GA,
+      NULL,
+      BEETLE_OPT_GPU_OVERCLOCK_INFO_0_GA,
+      NULL,
+      "hacks",
+      {
+         { "1x(native)", OPTION_VAL_1X_NATIVE_GA },
+         { "2x",         OPTION_VAL_2X_GA },
+         { "4x",         OPTION_VAL_4X_GA },
+         { "8x",         OPTION_VAL_8X_GA },
+         { "16x",        OPTION_VAL_16X_GA },
+         { "32x",        OPTION_VAL_32X_GA },
+         { NULL, NULL },
+      },
+      "1x(native)"
+   },
+   {
+      BEETLE_OPT(gte_overclock),
+      BEETLE_OPT_GTE_OVERCLOCK_LABEL_GA,
+      NULL,
+      BEETLE_OPT_GTE_OVERCLOCK_INFO_0_GA,
+      NULL,
+      "hacks",
+      {
+         { "disabled", NULL },
+         { "enabled",  NULL },
+         { NULL, NULL },
+      },
+      "disabled"
+   },
+   {
+      BEETLE_OPT(skip_bios),
+      BEETLE_OPT_SKIP_BIOS_LABEL_GA,
+      NULL,
+      BEETLE_OPT_SKIP_BIOS_INFO_0_GA,
+      NULL,
+      "hacks",
+      {
+         { "disabled", NULL },
+         { "enabled",  NULL },
+         { NULL, NULL },
+      },
+      "disabled"
+   },
+   {
+      BEETLE_OPT(override_bios),
+      BEETLE_OPT_OVERRIDE_BIOS_LABEL_GA,
+      NULL,
+      BEETLE_OPT_OVERRIDE_BIOS_INFO_0_GA,
+      NULL,
+      "hacks",
+      {
+         { "disabled", NULL },
+         { "psxonpsp",  OPTION_VAL_PSXONPSP_GA },
+         { "ps1_rom",  OPTION_VAL_PS1_ROM_GA },
+         { NULL, NULL },
+      },
+      "disabled"
+   },
+#if defined(HAVE_OPENGL) || defined(HAVE_OPENGLES) || defined(HAVE_VULKAN)
+   {
+      BEETLE_OPT(renderer),
+      BEETLE_OPT_RENDERER_LABEL_GA,
+      NULL,
+      BEETLE_OPT_RENDERER_INFO_0_GA,
+      NULL,
+      NULL,
+      {
+         { "hardware",    OPTION_VAL_HARDWARE_GA },
+#if defined(HAVE_OPENGL) || defined(HAVE_OPENGLES)
+         { "hardware_gl", OPTION_VAL_HARDWARE_GL_GA },
+#endif
+#if defined(HAVE_VULKAN)
+         { "hardware_vk", OPTION_VAL_HARDWARE_VK_GA },
+#endif
+         { "software",    OPTION_VAL_SOFTWARE_GA },
+         { NULL, NULL },
+      },
+      "hardware"
+   },
+   {
+      BEETLE_OPT(renderer_software_fb),
+      BEETLE_OPT_RENDERER_SOFTWARE_FB_LABEL_GA,
+      NULL,
+      BEETLE_OPT_RENDERER_SOFTWARE_FB_INFO_0_GA,
+      NULL,
+      "video",
+      {
+         { "enabled",  NULL },
+         { "disabled", NULL },
+         { NULL, NULL },
+      },
+      "enabled"
+   },
+#endif
+#if defined(HAVE_LIGHTREC)
+   {
+      BEETLE_OPT(cpu_dynarec),
+      BEETLE_OPT_CPU_DYNAREC_LABEL_GA,
+      NULL,
+      BEETLE_OPT_CPU_DYNAREC_INFO_0_GA,
+      NULL,
+      NULL,
+      {
+         { "disabled", OPTION_VAL_DISABLED_GA },
+         { "execute",  OPTION_VAL_EXECUTE_GA },
+         { "execute_one",  OPTION_VAL_EXECUTE_ONE_GA },
+         { "run_interpreter", OPTION_VAL_RUN_INTERPRETER_GA },
+         { NULL, NULL },
+      },
+      "disabled"
+   },
+   {
+      BEETLE_OPT(dynarec_invalidate),
+      BEETLE_OPT_DYNAREC_INVALIDATE_LABEL_GA,
+      NULL,
+      BEETLE_OPT_DYNAREC_INVALIDATE_INFO_0_GA,
+      NULL,
+      NULL,
+      {
+         { "full", OPTION_VAL_FULL_GA },
+         { "dma",  OPTION_VAL_DMA_GA },
+         { NULL, NULL },
+      },
+      "full"
+   },
+   {
+      BEETLE_OPT(dynarec_eventcycles),
+      BEETLE_OPT_DYNAREC_EVENTCYCLES_LABEL_GA,
+      NULL,
+      BEETLE_OPT_DYNAREC_EVENTCYCLES_INFO_0_GA,
+      NULL,
+      "hacks",
+      {
+         { "128",  OPTION_VAL_128_GA },
+         { "256",  NULL },
+         { "384",  NULL },
+         { "512",  NULL },
+         { "640",  NULL },
+         { "768",  NULL },
+         { "896",  NULL },
+         { "1024",  NULL },
+         { "1152",  NULL },
+         { "1280",  NULL },
+         { "1408",  NULL },
+         { "1536",  NULL },
+         { "1664",  NULL },
+         { "1792",  NULL },
+         { "1920",  NULL },
+         { "2048",  NULL },
+         { NULL, NULL },
+      },
+      "128"
+   },
+   {
+      BEETLE_OPT(dynarec_spu_samples),
+      BEETLE_OPT_DYNAREC_SPU_SAMPLES_LABEL_GA,
+      NULL,
+      BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_GA,
+      NULL,
+      "hacks",
+      {
+         { "1",  OPTION_VAL_1_O36_GA },
+         { "4",  NULL },
+         { "16",  NULL },
+         { NULL, NULL },
+      },
+      "1"
+   },
+#endif
+   {
+      BEETLE_OPT(core_timing_fps),
+      BEETLE_OPT_CORE_TIMING_FPS_LABEL_GA,
+      NULL,
+      BEETLE_OPT_CORE_TIMING_FPS_INFO_0_GA,
+      NULL,
+      NULL,
+      {
+         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_GA },
+         { "force_progressive", OPTION_VAL_FORCE_PROGRESSIVE_GA },
+         { "force_interlaced",  OPTION_VAL_FORCE_INTERLACED_GA },
+      },
+      "auto_toggle"
+   },
+   {
+      BEETLE_OPT(pal_video_timing_override),
+      BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_LABEL_GA,
+      NULL,
+      BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_GA,
+      NULL,
+      "video",
+      {
+         { "disabled", NULL },
+         { "enabled",  NULL },
+      },
+      "disabled"
+   },
+   {
+      BEETLE_OPT(aspect_ratio),
+      BEETLE_OPT_ASPECT_RATIO_LABEL_GA,
+      NULL,
+      BEETLE_OPT_ASPECT_RATIO_INFO_0_GA,
+      NULL,
+      "video",
+      {
+         { "corrected", OPTION_VAL_CORRECTED_GA },
+         { "uncorrected", OPTION_VAL_UNCORRECTED_GA },
+         { "4:3",  OPTION_VAL_4_3_GA },
+         { "ntsc", OPTION_VAL_NTSC_GA },
+      },
+      "corrected"
+   },
+   {
+      BEETLE_OPT(crop_overscan),
+      BEETLE_OPT_CROP_OVERSCAN_LABEL_GA,
+      NULL,
+      BEETLE_OPT_CROP_OVERSCAN_INFO_0_GA,
+      NULL,
+      "video",
+      {
+         { "disabled",  OPTION_VAL_DISABLED_O59_GA },
+         { "static",  OPTION_VAL_STATIC_GA },
+         { "smart", OPTION_VAL_SMART_GA },
+         { NULL, NULL },
+      },
+      "smart"
+   },
+   {
+      BEETLE_OPT(image_crop),
+      BEETLE_OPT_IMAGE_CROP_LABEL_GA,
+      NULL,
+      BEETLE_OPT_IMAGE_CROP_INFO_0_GA,
+      NULL,
+      "video",
+      {
+         { "disabled", "0" },
+         { "1px",      OPTION_VAL_1PX_GA },
+         { "2px",      OPTION_VAL_2PX_GA },
+         { "3px",      OPTION_VAL_3PX_GA },
+         { "4px",      OPTION_VAL_4PX_GA },
+         { "5px",      OPTION_VAL_5PX_GA },
+         { "6px",      OPTION_VAL_6PX_GA },
+         { "7px",      OPTION_VAL_7PX_GA },
+         { "8px",      OPTION_VAL_8PX_GA },
+         { "9px",      OPTION_VAL_9PX_GA },
+         { "10px",     OPTION_VAL_10PX_GA },
+         { "11px",     OPTION_VAL_11PX_GA },
+         { "12px",     OPTION_VAL_12PX_GA },
+         { "13px",     OPTION_VAL_13PX_GA },
+         { "14px",     OPTION_VAL_14PX_GA },
+         { "15px",     OPTION_VAL_15PX_GA },
+         { "16px",     OPTION_VAL_16PX_GA },
+         { "17px",     OPTION_VAL_17PX_GA },
+         { "18px",     OPTION_VAL_18PX_GA },
+         { "19px",     OPTION_VAL_19PX_GA },
+         { "20px",     OPTION_VAL_20PX_GA },
+         { NULL, NULL },
+      },
+      "disabled"
+   },
+   {
+      BEETLE_OPT(image_offset),
+      BEETLE_OPT_IMAGE_OFFSET_LABEL_GA,
+      NULL,
+      BEETLE_OPT_IMAGE_OFFSET_INFO_0_GA,
+      NULL,
+      "video",
+      {
+         { "-12px",    OPTION_VAL_12PX_O61_GA },
+         { "-11px",    OPTION_VAL_11PX_O61_GA },
+         { "-10px",    OPTION_VAL_10PX_O61_GA },
+         { "-9px",     OPTION_VAL_9PX_O61_GA },
+         { "-8px",     OPTION_VAL_8PX_O61_GA },
+         { "-7px",     OPTION_VAL_7PX_O61_GA },
+         { "-6px",     OPTION_VAL_6PX_O61_GA },
+         { "-5px",     OPTION_VAL_5PX_O61_GA },
+         { "-4px",     OPTION_VAL_4PX_O61_GA },
+         { "-3px",     OPTION_VAL_3PX_O61_GA },
+         { "-2px",     OPTION_VAL_2PX_O61_GA },
+         { "-1px",     OPTION_VAL_1PX_O61_GA },
+         { "disabled", "0" },
+         { "+1px",     OPTION_VAL_1PX_O61_0_GA },
+         { "+2px",     OPTION_VAL_2PX_O61_0_GA },
+         { "+3px",     OPTION_VAL_3PX_O61_0_GA },
+         { "+4px",     OPTION_VAL_4PX_O61_0_GA },
+         { "+5px",     OPTION_VAL_5PX_O61_0_GA },
+         { "+6px",     OPTION_VAL_6PX_O61_0_GA },
+         { "+7px",     OPTION_VAL_7PX_O61_0_GA },
+         { "+8px",     OPTION_VAL_8PX_O61_0_GA },
+         { "+9px",     OPTION_VAL_9PX_O61_0_GA },
+         { "+10px",    OPTION_VAL_10PX_O61_0_GA },
+         { "+11px",    OPTION_VAL_11PX_O61_0_GA },
+         { "+12px",    OPTION_VAL_12PX_O61_0_GA },
+         { NULL, NULL },
+      },
+      "disabled"
+   },
+#if defined(HAVE_OPENGL) || defined(HAVE_OPENGLES) || defined(HAVE_VULKAN)
+   {
+      BEETLE_OPT(image_offset_cycles),
+      BEETLE_OPT_IMAGE_OFFSET_CYCLES_LABEL_GA,
+      NULL,
+      BEETLE_OPT_IMAGE_OFFSET_CYCLES_INFO_0_GA,
+      NULL,
+      "video",
+      {
+         { "-40",      NULL },
+         { "-39",      NULL },
+         { "-38",      NULL },
+         { "-37",      NULL },
+         { "-36",      NULL },
+         { "-35",      NULL },
+         { "-34",      NULL },
+         { "-33",      NULL },
+         { "-32",      NULL },
+         { "-31",      NULL },
+         { "-30",      NULL },
+         { "-29",      NULL },
+         { "-28",      NULL },
+         { "-27",      NULL },
+         { "-26",      NULL },
+         { "-25",      NULL },
+         { "-24",      NULL },
+         { "-23",      NULL },
+         { "-22",      NULL },
+         { "-21",      NULL },
+         { "-20",      NULL },
+         { "-19",      NULL },
+         { "-18",      NULL },
+         { "-17",      NULL },
+         { "-16",      NULL },
+         { "-15",      NULL },
+         { "-14",      NULL },
+         { "-13",      NULL },
+         { "-12",      NULL },
+         { "-11",      NULL },
+         { "-10",      NULL },
+         { "-9",       NULL },
+         { "-8",       NULL },
+         { "-7",       NULL },
+         { "-6",       NULL },
+         { "-5",       NULL },
+         { "-4",       NULL },
+         { "-3",       NULL },
+         { "-2",       NULL },
+         { "-1",       NULL },
+         { "0",        "0" },
+         { "+1",       NULL },
+         { "+2",       NULL },
+         { "+3",       NULL },
+         { "+4",       NULL },
+         { "+5",       NULL },
+         { "+6",       NULL },
+         { "+7",       NULL },
+         { "+8",       NULL },
+         { "+9",       NULL },
+         { "+10",      NULL },
+         { "+11",      NULL },
+         { "+12",      NULL },
+         { "+13",      NULL },
+         { "+14",      NULL },
+         { "+15",      NULL },
+         { "+16",      NULL },
+         { "+17",      NULL },
+         { "+18",      NULL },
+         { "+19",      NULL },
+         { "+20",      NULL },
+         { "+21",      NULL },
+         { "+22",      NULL },
+         { "+23",      NULL },
+         { "+24",      NULL },
+         { "+25",      NULL },
+         { "+26",      NULL },
+         { "+27",      NULL },
+         { "+28",      NULL },
+         { "+29",      NULL },
+         { "+30",      NULL },
+         { "+31",      NULL },
+         { "+32",      NULL },
+         { "+33",      NULL },
+         { "+34",      NULL },
+         { "+35",      NULL },
+         { "+36",      NULL },
+         { "+37",      NULL },
+         { "+38",      NULL },
+         { "+39",      NULL },
+         { "+40",      NULL },
+         { NULL, NULL},
+      },
+      "0"
+   },
+#endif
+   {
+      BEETLE_OPT(initial_scanline),
+      BEETLE_OPT_INITIAL_SCANLINE_LABEL_GA,
+      NULL,
+      BEETLE_OPT_INITIAL_SCANLINE_INFO_0_GA,
+      NULL,
+      "video",
+      {
+         { "0",  OPTION_VAL_0_O63_GA },
+         { "1",  NULL },
+         { "2",  NULL },
+         { "3",  NULL },
+         { "4",  NULL },
+         { "5",  NULL },
+         { "6",  NULL },
+         { "7",  NULL },
+         { "8",  NULL },
+         { "9",  NULL },
+         { "10", NULL },
+         { "11", NULL },
+         { "12", NULL },
+         { "13", NULL },
+         { "14", NULL },
+         { "15", NULL },
+         { "16", NULL },
+         { "17", NULL },
+         { "18", NULL },
+         { "19", NULL },
+         { "20", NULL },
+         { "21", NULL },
+         { "22", NULL },
+         { "23", NULL },
+         { "24", NULL },
+         { "25", NULL },
+         { "26", NULL },
+         { "27", NULL },
+         { "28", NULL },
+         { "29", NULL },
+         { "30", NULL },
+         { "31", NULL },
+         { "32", NULL },
+         { "33", NULL },
+         { "34", NULL },
+         { "35", NULL },
+         { "36", NULL },
+         { "37", NULL },
+         { "38", NULL },
+         { "39", NULL },
+         { "40", NULL },
+         { NULL, NULL },
+      },
+      "0"
+   },
+   {
+      BEETLE_OPT(last_scanline),
+      BEETLE_OPT_LAST_SCANLINE_LABEL_GA,
+      NULL,
+      BEETLE_OPT_LAST_SCANLINE_INFO_0_GA,
+      NULL,
+      "video",
+      {
+         { "210", NULL },
+         { "211", NULL },
+         { "212", NULL },
+         { "213", NULL },
+         { "214", NULL },
+         { "215", NULL },
+         { "216", NULL },
+         { "217", NULL },
+         { "218", NULL },
+         { "219", NULL },
+         { "220", NULL },
+         { "221", NULL },
+         { "222", NULL },
+         { "223", NULL },
+         { "224", NULL },
+         { "225", NULL },
+         { "226", NULL },
+         { "227", NULL },
+         { "228", NULL },
+         { "229", NULL },
+         { "230", NULL },
+         { "231", NULL },
+         { "232", NULL },
+         { "233", NULL },
+         { "234", NULL },
+         { "235", NULL },
+         { "236", NULL },
+         { "237", NULL },
+         { "238", NULL },
+         { "239", OPTION_VAL_239_GA },
+         { NULL, NULL },
+      },
+      "239"
+   },
+   {
+      BEETLE_OPT(initial_scanline_pal),
+      BEETLE_OPT_INITIAL_SCANLINE_PAL_LABEL_GA,
+      NULL,
+      BEETLE_OPT_INITIAL_SCANLINE_PAL_INFO_0_GA,
+      NULL,
+      "video",
+      {
+         { "0",  OPTION_VAL_0_O63_GA },
+         { "1",  NULL },
+         { "2",  NULL },
+         { "3",  NULL },
+         { "4",  NULL },
+         { "5",  NULL },
+         { "6",  NULL },
+         { "7",  NULL },
+         { "8",  NULL },
+         { "9",  NULL },
+         { "10", NULL },
+         { "11", NULL },
+         { "12", NULL },
+         { "13", NULL },
+         { "14", NULL },
+         { "15", NULL },
+         { "16", NULL },
+         { "17", NULL },
+         { "18", NULL },
+         { "19", NULL },
+         { "20", NULL },
+         { "21", NULL },
+         { "22", NULL },
+         { "23", NULL },
+         { "24", NULL },
+         { "25", NULL },
+         { "26", NULL },
+         { "27", NULL },
+         { "28", NULL },
+         { "29", NULL },
+         { "30", NULL },
+         { "31", NULL },
+         { "32", NULL },
+         { "33", NULL },
+         { "34", NULL },
+         { "35", NULL },
+         { "36", NULL },
+         { "37", NULL },
+         { "38", NULL },
+         { "39", NULL },
+         { "40", NULL },
+         { NULL, NULL },
+      },
+      "0"
+   },
+   {
+      BEETLE_OPT(last_scanline_pal),
+      BEETLE_OPT_LAST_SCANLINE_PAL_LABEL_GA,
+      NULL,
+      BEETLE_OPT_LAST_SCANLINE_PAL_INFO_0_GA,
+      NULL,
+      "video",
+      {
+         { "230", NULL },
+         { "231", NULL },
+         { "232", NULL },
+         { "233", NULL },
+         { "234", NULL },
+         { "235", NULL },
+         { "236", NULL },
+         { "237", NULL },
+         { "238", NULL },
+         { "239", NULL },
+         { "240", NULL },
+         { "241", NULL },
+         { "242", NULL },
+         { "243", NULL },
+         { "244", NULL },
+         { "245", NULL },
+         { "246", NULL },
+         { "247", NULL },
+         { "248", NULL },
+         { "249", NULL },
+         { "250", NULL },
+         { "251", NULL },
+         { "252", NULL },
+         { "253", NULL },
+         { "254", NULL },
+         { "255", NULL },
+         { "256", NULL },
+         { "257", NULL },
+         { "258", NULL },
+         { "259", NULL },
+         { "260", NULL },
+         { "261", NULL },
+         { "262", NULL },
+         { "263", NULL },
+         { "264", NULL },
+         { "265", NULL },
+         { "266", NULL },
+         { "267", NULL },
+         { "268", NULL },
+         { "269", NULL },
+         { "270", NULL },
+         { "271", NULL },
+         { "272", NULL },
+         { "273", NULL },
+         { "274", NULL },
+         { "275", NULL },
+         { "276", NULL },
+         { "277", NULL },
+         { "278", NULL },
+         { "279", NULL },
+         { "280", NULL },
+         { "281", NULL },
+         { "282", NULL },
+         { "283", NULL },
+         { "284", NULL },
+         { "285", NULL },
+         { "286", NULL },
+         { "287", OPTION_VAL_287_GA },
+         { NULL, NULL },
+      },
+      "287"
+   },
+   {
+      BEETLE_OPT(deinterlacer),
+      BEETLE_OPT_DEINTERLACER_LABEL_GA,
+      NULL,
+      BEETLE_OPT_DEINTERLACER_INFO_0_GA,
+      NULL,
+      "video",
+      {
+         { "weave",  OPTION_VAL_WEAVE_GA },
+         { "bob",  OPTION_VAL_BOB_GA },
+         { NULL, NULL },
+      },
+      "weave"
+   },
+#ifndef EMSCRIPTEN
+   {
+      BEETLE_OPT(cd_access_method),
+      BEETLE_OPT_CD_ACCESS_METHOD_LABEL_GA,
+      NULL,
+      BEETLE_OPT_CD_ACCESS_METHOD_INFO_0_GA,
+      NULL,
+      NULL,
+      {
+         { "sync",     OPTION_VAL_SYNC_GA },
+         { "async",    OPTION_VAL_ASYNC_GA },
+         { "precache", OPTION_VAL_PRECACHE_GA },
+         { NULL, NULL },
+      },
+      "sync"
+   },
+#endif
+   {
+      BEETLE_OPT(cd_fastload),
+      BEETLE_OPT_CD_FASTLOAD_LABEL_GA,
+      NULL,
+      BEETLE_OPT_CD_FASTLOAD_INFO_0_GA,
+      NULL,
+      NULL,
+      {
+         { "2x(native)", OPTION_VAL_2X_NATIVE_GA },
+         { "4x",          OPTION_VAL_4X_GA },
+         { "6x",          OPTION_VAL_6X_GA },
+         { "8x",          OPTION_VAL_8X_GA },
+         { "10x",         OPTION_VAL_10X_GA },
+         { "12x",         OPTION_VAL_12X_GA },
+         { "14x",         OPTION_VAL_14X_GA },
+         { NULL, NULL },
+      },
+      "2x(native)"
+   },
+   { NULL, NULL, NULL, NULL, NULL, NULL, {{0}}, NULL },
+};
+struct retro_core_options_v2 options_ga = {
+   option_cats_ga,
+   option_defs_ga
 };
 
 /* RETRO_LANGUAGE_GL */
@@ -36900,7 +39286,7 @@ struct retro_core_options_v2 options_fr = {
 #define BEETLE_OPT_DISPLAY_VRAM_LABEL_GL "Mostrar VRAM completa (depuración)"
 #define BEETLE_OPT_DISPLAY_VRAM_INFO_0_GL "Visualiza a VRAM de toda a consola emulada. Só admitido polos renderizadores de hardware OpenGL e Vulkan. Nota: Isto é para fins de depuración e normalmente debería estar desactivado."
 #define BEETLE_OPT_ANALOG_CALIBRATION_LABEL_GL "Autocalibración analóxica"
-#define BEETLE_OPT_ANALOG_CALIBRATION_INFO_0_GL "Cando o dispositivo de entrada está configurado en DualShock, Controlador analóxico, Joystick analóxico ou neGcon, esta opción permite a calibración dinámica das entradas analóxicas. Os valores de entrada máximos rexistrados son monitorizados en tempo real e utilízanse para escalar as coordenadas analóxicas pasadas ao emulador. Isto debería usarse para xogos como Mega Man Legends 2 que esperan valores maiores que os que proporcionan os controladores modernos. Para obter mellores resultados, os sticks analóxicos deben xirar ao máximo para axustar o algoritmo de calibración cada vez que se carga o contido."
+#define BEETLE_OPT_ANALOG_CALIBRATION_INFO_0_GL "Cando o dispositivo de entrada está configurado en DualShock, Controlador analóxico, Panca de mando analóxica ou neGcon, esta opción permite a calibración dinámica das entradas analóxicas. Os valores de entrada máximos rexistrados son monitorizados en tempo real e utilízanse para escalar as coordenadas analóxicas pasadas ao emulador. Isto debería usarse para xogos como Mega Man Legends 2 que esperan valores maiores que os que proporcionan os controladores modernos. Para obter mellores resultados, os sticks analóxicos deben xirar ao máximo para axustar o algoritmo de calibración cada vez que se carga o contido."
 #define BEETLE_OPT_ANALOG_TOGGLE_LABEL_GL "Alternador de modo analóxico de DualShock"
 #define BEETLE_OPT_ANALOG_TOGGLE_INFO_0_GL "Cando o tipo de dispositivo de entrada é DualShock, esta opción permite que o DualShock emulado se altere entre os modos DIXITAL e ANALÓXICO como o hardware orixinal. O modo tamén se pode cambiar usando a combinación de botóns seleccionada."
 #define OPTION_VAL_ENABLED_ANALOG_GL "Predeterminado: analóxico"
@@ -36994,12 +39380,12 @@ struct retro_core_options_v2 options_fr = {
 #define OPTION_VAL_195_GL NULL
 #define OPTION_VAL_200_GL NULL
 #define BEETLE_OPT_NEGCON_RESPONSE_LABEL_GL NULL
-#define BEETLE_OPT_NEGCON_RESPONSE_INFO_0_GL "Escolla o tipo de resposta do stick analóxico esquerdo do RetroPad ao simular a acción de \"torsión\" dos dispositivos de entrada \"neGcon\" emulados. O desprazamento da vara analóxica pódese asignar ao ángulo de rotación neGcon de forma lineal, cuadrática ou cúbica. 'Cuadrático' permite unha maior precisión que 'Lineal' ao facer pequenos movementos. \"Cúbico\" aumenta aínda máis a precisión dos pequenos movementos, pero \"esaxera\" os movementos máis grandes. Nota: \"Lineal\" só se recomenda cando se usan periféricos para volantes de carreiras. Os controladores convencionais implementan a entrada analóxica dun xeito fundamentalmente diferente do mecanismo de \"torsión\" de neGcon, de forma que o mapeo lineal sobreamplifica os pequenos movementos, prexudicando o control fino. Na maioría dos casos, 'Quadratic' ofrece a aproximación máis próxima ao hardware real."
+#define BEETLE_OPT_NEGCON_RESPONSE_INFO_0_GL "Escolla o tipo de resposta da panca analóxica esquerda do RetroPad ao simular a acción de \"torsión\" dos dispositivos de entrada \"neGcon\" emulados. O desprazamento da vara analóxica pódese asignar ao ángulo de rotación neGcon de forma lineal, cuadrática ou cúbica. 'Cuadrático' permite unha maior precisión que 'Lineal' ao facer pequenos movementos. \"Cúbico\" aumenta aínda máis a precisión dos pequenos movementos, pero \"esaxera\" os movementos máis grandes. Nota: \"Lineal\" só se recomenda cando se usan periféricos para volantes de carreiras. Os controladores convencionais implementan a entrada analóxica dun xeito fundamentalmente diferente do mecanismo de \"torsión\" de neGcon, de forma que o mapeo lineal sobreamplifica os pequenos movementos, prexudicando o control fino. Na maioría dos casos, 'Quadratic' ofrece a aproximación máis próxima ao hardware real."
 #define OPTION_VAL_LINEAR_GL "Lineal"
 #define OPTION_VAL_QUADRATIC_GL "Cuadrático"
 #define OPTION_VAL_CUBIC_GL "Cuadrático"
 #define BEETLE_OPT_NEGCON_DEADZONE_LABEL_GL NULL
-#define BEETLE_OPT_NEGCON_DEADZONE_INFO_0_GL "Escolla a zona morta do stick analóxico esquerdo do RetroPad ao simular a acción de \"torsión\" dos dispositivos de entrada \"neGcon\" emulados. Usado para eliminar a deriva do controlador. Nota: a maioría dos títulos compatibles con neGcon ofrecen opcións no xogo para establecer un valor de zona morta de \"torsión\". Para evitar a perda de precisión, a zona morta do xogo debe *sempre* poñerse en cero. Calquera axuste necesario debe *só* aplicar a través desta opción básica. Isto é especialmente importante cando a \"Resposta de torsión neGcon\" está configurada como \"Cuadrático\" ou \"Cúbico\"."
+#define BEETLE_OPT_NEGCON_DEADZONE_INFO_0_GL "Escolla a zona morta da panca analóxica esquerda do RetroPad ao simular a acción de \"torsión\" dos dispositivos de entrada \"neGcon\" emulados. Usado para eliminar a deriva do controlador. Nota: a maioría dos títulos compatibles con neGcon ofrecen opcións no xogo para establecer un valor de zona morta de \"torsión\". Para evitar a perda de precisión, a zona morta do xogo debe *sempre* poñerse en cero. Calquera axuste necesario debe *só* aplicar a través desta opción básica. Isto é especialmente importante cando a \"Resposta de torsión neGcon\" está configurada como \"Cuadrático\" ou \"Cúbico\"."
 #define OPTION_VAL_0_O31_GL NULL
 #define BEETLE_OPT_USE_MEDNAFEN_MEMCARD0_METHOD_LABEL_GL "Método da tarxeta de memoria 0 (reinicio necesario)"
 #define BEETLE_OPT_USE_MEDNAFEN_MEMCARD0_METHOD_INFO_0_GL "Escolla o formato de datos de gardar usado para a tarxeta de memoria 0. 'Mednafen' pódese usar para compatibilidade coa versión autónoma de Mednafen. Cando se usan con Beetle PSX, os gardados de Libretro (.srm) e Mednafen (.mcr) teñen formatos internamente idénticos e pódense converter entre si mediante o cambio de nome."
@@ -37144,9 +39530,9 @@ struct retro_core_options_v2 options_fr = {
 #define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_GL "Máximo de mostras de SPU para executar antes de que se comprobe unha actualización de SPU, o número máis alto será máis rápido, pero provocará fallos de son nalgúns xogos con calquera cousa que non sexa 1."
 #define BEETLE_OPT_CORE_TIMING_FPS_LABEL_GL "Cronometraxe FPS informada polo núcleo"
 #define BEETLE_OPT_CORE_TIMING_FPS_INFO_0_GL "Escolla o tempo FPS que o núcleo informará ao frontend. A alternancia automática permitirá que o núcleo cambie entre os informes de taxas progresivas e entrelazadas, pero pode provocar que se reinicien o controlador de audio ou vídeo de frontend."
+#define OPTION_VAL_AUTO_TOGGLE_GL "Permitir a alternancia automática"
 #define OPTION_VAL_FORCE_PROGRESSIVE_GL "Taxa progresiva"
 #define OPTION_VAL_FORCE_INTERLACED_GL "Forzar taxa entrelazada"
-#define OPTION_VAL_AUTO_TOGGLE_GL "Permitir a alternancia automática"
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_LABEL_GL "Anulación de temporización de vídeo PAL (europeo)"
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_GL "Debido a diferentes estándares, os xogos PAL adoitan aparecer máis lentos en comparación cos lanzamentos NTSC estadounidenses ou xaponeses. Esta opción pódese usar para anular os tempos PAL para intentar executar estes xogos coa taxa de fotogramas NTSC. Esta opción non ten efecto cando se executa contido NTSC."
 #define BEETLE_OPT_ASPECT_RATIO_LABEL_GL "Relación de aspecto do núcleo"
@@ -37213,6 +39599,10 @@ struct retro_core_options_v2 options_fr = {
 #define BEETLE_OPT_LAST_SCANLINE_PAL_LABEL_GL "Última liña de exploración - PAL"
 #define BEETLE_OPT_LAST_SCANLINE_PAL_INFO_0_GL "Escolla a última liña de dixitalización mostrada ao executar contido PAL. Os valores inferiores a 287 reducirán a altura das imaxes de saída recortando os píxeles desde o bordo inferior. Pódese usar para contrarrestar o letterboxing."
 #define OPTION_VAL_287_GL "287 (predeterminado)"
+#define BEETLE_OPT_DEINTERLACER_LABEL_GL "Método de desentrelazado"
+#define BEETLE_OPT_DEINTERLACER_INFO_0_GL "\"Entretecido\" amosa ambos campos na mesma imaxe para obter unha imaxe fixa de alta resolución completa; \"Bob\" sacrifica claridade de resolución a cambio de maior claridade en movemento."
+#define OPTION_VAL_WEAVE_GL "Entretecido"
+#define OPTION_VAL_BOB_GL NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_LABEL_GL "Método de acceso ao CD (reinicio necesario)"
 #define BEETLE_OPT_CD_ACCESS_METHOD_INFO_0_GL "Escolla o método utilizado para ler os datos das imaxes do disco de contido. 'Synchronous' imita o hardware orixinal. \"Asíncrona\" pode reducir o tartamudeo nos dispositivos con almacenamento lento. \"Pre-caché\" carga toda a imaxe do disco na memoria ao lanzar contido, o que pode mellorar os tempos de carga do xogo a costa dun atraso inicial no inicio. A \"pre-caché\" pode causar problemas en sistemas con pouca memoria RAM e volverá a utilizar \"Síncronos\" para os medios físicos."
 #define OPTION_VAL_SYNC_GL "Sincrónico"
@@ -38399,11 +40789,11 @@ struct retro_core_option_v2_definition option_defs_gl[] = {
       NULL,
       NULL,
       {
+         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_GL },
          { "force_progressive", OPTION_VAL_FORCE_PROGRESSIVE_GL },
          { "force_interlaced",  OPTION_VAL_FORCE_INTERLACED_GL },
-         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_GL },
       },
-      "force_progressive"
+      "auto_toggle"
    },
    {
       BEETLE_OPT(pal_video_timing_override),
@@ -38831,6 +41221,20 @@ struct retro_core_option_v2_definition option_defs_gl[] = {
       },
       "287"
    },
+   {
+      BEETLE_OPT(deinterlacer),
+      BEETLE_OPT_DEINTERLACER_LABEL_GL,
+      NULL,
+      BEETLE_OPT_DEINTERLACER_INFO_0_GL,
+      NULL,
+      "video",
+      {
+         { "weave",  OPTION_VAL_WEAVE_GL },
+         { "bob",  OPTION_VAL_BOB_GL },
+         { NULL, NULL },
+      },
+      "weave"
+   },
 #ifndef EMSCRIPTEN
    {
       BEETLE_OPT(cd_access_method),
@@ -39188,9 +41592,9 @@ struct retro_core_options_v2 options_gl = {
 #define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_HE NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_LABEL_HE NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_INFO_0_HE NULL
+#define OPTION_VAL_AUTO_TOGGLE_HE NULL
 #define OPTION_VAL_FORCE_PROGRESSIVE_HE NULL
 #define OPTION_VAL_FORCE_INTERLACED_HE NULL
-#define OPTION_VAL_AUTO_TOGGLE_HE NULL
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_LABEL_HE NULL
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_HE NULL
 #define BEETLE_OPT_ASPECT_RATIO_LABEL_HE NULL
@@ -39257,6 +41661,10 @@ struct retro_core_options_v2 options_gl = {
 #define BEETLE_OPT_LAST_SCANLINE_PAL_LABEL_HE NULL
 #define BEETLE_OPT_LAST_SCANLINE_PAL_INFO_0_HE NULL
 #define OPTION_VAL_287_HE NULL
+#define BEETLE_OPT_DEINTERLACER_LABEL_HE NULL
+#define BEETLE_OPT_DEINTERLACER_INFO_0_HE NULL
+#define OPTION_VAL_WEAVE_HE NULL
+#define OPTION_VAL_BOB_HE NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_LABEL_HE NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_INFO_0_HE NULL
 #define OPTION_VAL_SYNC_HE NULL
@@ -40443,11 +42851,11 @@ struct retro_core_option_v2_definition option_defs_he[] = {
       NULL,
       NULL,
       {
+         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_HE },
          { "force_progressive", OPTION_VAL_FORCE_PROGRESSIVE_HE },
          { "force_interlaced",  OPTION_VAL_FORCE_INTERLACED_HE },
-         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_HE },
       },
-      "force_progressive"
+      "auto_toggle"
    },
    {
       BEETLE_OPT(pal_video_timing_override),
@@ -40875,6 +43283,20 @@ struct retro_core_option_v2_definition option_defs_he[] = {
       },
       "287"
    },
+   {
+      BEETLE_OPT(deinterlacer),
+      BEETLE_OPT_DEINTERLACER_LABEL_HE,
+      NULL,
+      BEETLE_OPT_DEINTERLACER_INFO_0_HE,
+      NULL,
+      "video",
+      {
+         { "weave",  OPTION_VAL_WEAVE_HE },
+         { "bob",  OPTION_VAL_BOB_HE },
+         { NULL, NULL },
+      },
+      "weave"
+   },
 #ifndef EMSCRIPTEN
    {
       BEETLE_OPT(cd_access_method),
@@ -41232,9 +43654,9 @@ struct retro_core_options_v2 options_he = {
 #define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_HR NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_LABEL_HR NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_INFO_0_HR NULL
+#define OPTION_VAL_AUTO_TOGGLE_HR NULL
 #define OPTION_VAL_FORCE_PROGRESSIVE_HR NULL
 #define OPTION_VAL_FORCE_INTERLACED_HR NULL
-#define OPTION_VAL_AUTO_TOGGLE_HR NULL
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_LABEL_HR NULL
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_HR NULL
 #define BEETLE_OPT_ASPECT_RATIO_LABEL_HR NULL
@@ -41301,6 +43723,10 @@ struct retro_core_options_v2 options_he = {
 #define BEETLE_OPT_LAST_SCANLINE_PAL_LABEL_HR NULL
 #define BEETLE_OPT_LAST_SCANLINE_PAL_INFO_0_HR NULL
 #define OPTION_VAL_287_HR NULL
+#define BEETLE_OPT_DEINTERLACER_LABEL_HR NULL
+#define BEETLE_OPT_DEINTERLACER_INFO_0_HR NULL
+#define OPTION_VAL_WEAVE_HR NULL
+#define OPTION_VAL_BOB_HR NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_LABEL_HR NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_INFO_0_HR NULL
 #define OPTION_VAL_SYNC_HR NULL
@@ -42487,11 +44913,11 @@ struct retro_core_option_v2_definition option_defs_hr[] = {
       NULL,
       NULL,
       {
+         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_HR },
          { "force_progressive", OPTION_VAL_FORCE_PROGRESSIVE_HR },
          { "force_interlaced",  OPTION_VAL_FORCE_INTERLACED_HR },
-         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_HR },
       },
-      "force_progressive"
+      "auto_toggle"
    },
    {
       BEETLE_OPT(pal_video_timing_override),
@@ -42919,6 +45345,20 @@ struct retro_core_option_v2_definition option_defs_hr[] = {
       },
       "287"
    },
+   {
+      BEETLE_OPT(deinterlacer),
+      BEETLE_OPT_DEINTERLACER_LABEL_HR,
+      NULL,
+      BEETLE_OPT_DEINTERLACER_INFO_0_HR,
+      NULL,
+      "video",
+      {
+         { "weave",  OPTION_VAL_WEAVE_HR },
+         { "bob",  OPTION_VAL_BOB_HR },
+         { NULL, NULL },
+      },
+      "weave"
+   },
 #ifndef EMSCRIPTEN
    {
       BEETLE_OPT(cd_access_method),
@@ -43276,9 +45716,9 @@ struct retro_core_options_v2 options_hr = {
 #define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_HU "Az SPU mintáinak maximális száma az SPU frissítés ellenőrzése előtt. Nagyobb értékek gyorsabbak, de néhány játéknál hanghibát okozhatnak 1-től eltérő beállításon."
 #define BEETLE_OPT_CORE_TIMING_FPS_LABEL_HU "Mag által jelentett FPS időzítése"
 #define BEETLE_OPT_CORE_TIMING_FPS_INFO_0_HU "Az FPS időzítés, amit a mag a frontend felé jelent. Az automata átkapcsolással a mag váltani tud a progresszív és az interlaced időzítés közt, de ez újraindítást okozhat a frontend audio/video illesztőiben."
+#define OPTION_VAL_AUTO_TOGGLE_HU "Automatikus átkapcsolás engedélyezése"
 #define OPTION_VAL_FORCE_PROGRESSIVE_HU "Progresszív"
 #define OPTION_VAL_FORCE_INTERLACED_HU "Mindenképpen interlaced"
-#define OPTION_VAL_AUTO_TOGGLE_HU "Automatikus átkapcsolás engedélyezése"
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_LABEL_HU "PAL (európai) videoidőzítés felülbírálata"
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_HU "Az eltérő szabványok miatt a PAL játékok gyakran lassabbnak tűnnek az amerikai/japán NTSC kiadásoknál. Ezzel a beállítással a PAL időzítés felülbírálható, és megkísérelhető a játék futtatása NTSC képsebességgel. Nincs hatása az NTSC tartalomra."
 #define BEETLE_OPT_ASPECT_RATIO_LABEL_HU "A mag képaránya"
@@ -43345,6 +45785,10 @@ struct retro_core_options_v2 options_hr = {
 #define BEETLE_OPT_LAST_SCANLINE_PAL_LABEL_HU "Utolsó scanline - PAL"
 #define BEETLE_OPT_LAST_SCANLINE_PAL_INFO_0_HU "Az utolsó megjelenített scanline PAL tartalom futtatásakor. A 287-nél kisebb értékek csökkentik a kimenő kép magasságát, levágva az alsó sorokat. A letterbox hatást lehet vele ellensúlyozni."
 #define OPTION_VAL_287_HU "287 (alapértelmezett)"
+#define BEETLE_OPT_DEINTERLACER_LABEL_HU "Deinterlace módszer"
+#define BEETLE_OPT_DEINTERLACER_INFO_0_HU "A „Szövés” mindkét mezőt ugyanazon a képkockán mutatja a teljes, nagy felbontású állókép érdekében, a „Bob” a felbontás tisztaságát áldozza fel a mozgás tisztaságáért."
+#define OPTION_VAL_WEAVE_HU "Szövés"
+#define OPTION_VAL_BOB_HU NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_LABEL_HU "CD hozzáférés módszere (újraindítás szükséges)"
 #define BEETLE_OPT_CD_ACCESS_METHOD_INFO_0_HU "A CD képfájlok adatainak beolvasásához használt módszer. A szinkron mód az eredeti hardvert utánozza. Az aszinkron mód csökkentheti a döcögést lassú tárhellyel rendelkező eszközökön. Az előre betöltött módszer a teljes képfájlt memóriába olvassa a tartalom elindításakor, ami a játék közbeni töltési időkön javít, a kezdeti hosszabb várakozásért cserébe. Az előre betöltött módszer gondot okozhat kevés RAM-mal rendelkező rendszereken, és visszaáll a szinkron módra fizikai lemez esetén."
 #define OPTION_VAL_SYNC_HU "Szinkron"
@@ -44531,11 +46975,11 @@ struct retro_core_option_v2_definition option_defs_hu[] = {
       NULL,
       NULL,
       {
+         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_HU },
          { "force_progressive", OPTION_VAL_FORCE_PROGRESSIVE_HU },
          { "force_interlaced",  OPTION_VAL_FORCE_INTERLACED_HU },
-         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_HU },
       },
-      "force_progressive"
+      "auto_toggle"
    },
    {
       BEETLE_OPT(pal_video_timing_override),
@@ -44963,6 +47407,20 @@ struct retro_core_option_v2_definition option_defs_hu[] = {
       },
       "287"
    },
+   {
+      BEETLE_OPT(deinterlacer),
+      BEETLE_OPT_DEINTERLACER_LABEL_HU,
+      NULL,
+      BEETLE_OPT_DEINTERLACER_INFO_0_HU,
+      NULL,
+      "video",
+      {
+         { "weave",  OPTION_VAL_WEAVE_HU },
+         { "bob",  OPTION_VAL_BOB_HU },
+         { NULL, NULL },
+      },
+      "weave"
+   },
 #ifndef EMSCRIPTEN
    {
       BEETLE_OPT(cd_access_method),
@@ -45320,9 +47778,9 @@ struct retro_core_options_v2 options_hu = {
 #define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_ID NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_LABEL_ID NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_INFO_0_ID NULL
+#define OPTION_VAL_AUTO_TOGGLE_ID NULL
 #define OPTION_VAL_FORCE_PROGRESSIVE_ID "Laju Progresif"
 #define OPTION_VAL_FORCE_INTERLACED_ID NULL
-#define OPTION_VAL_AUTO_TOGGLE_ID NULL
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_LABEL_ID NULL
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_ID NULL
 #define BEETLE_OPT_ASPECT_RATIO_LABEL_ID NULL
@@ -45389,6 +47847,10 @@ struct retro_core_options_v2 options_hu = {
 #define BEETLE_OPT_LAST_SCANLINE_PAL_LABEL_ID NULL
 #define BEETLE_OPT_LAST_SCANLINE_PAL_INFO_0_ID NULL
 #define OPTION_VAL_287_ID NULL
+#define BEETLE_OPT_DEINTERLACER_LABEL_ID NULL
+#define BEETLE_OPT_DEINTERLACER_INFO_0_ID NULL
+#define OPTION_VAL_WEAVE_ID NULL
+#define OPTION_VAL_BOB_ID NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_LABEL_ID "Cara Akses CD (Perlu Mulai Ulang)"
 #define BEETLE_OPT_CD_ACCESS_METHOD_INFO_0_ID NULL
 #define OPTION_VAL_SYNC_ID NULL
@@ -46575,11 +49037,11 @@ struct retro_core_option_v2_definition option_defs_id[] = {
       NULL,
       NULL,
       {
+         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_ID },
          { "force_progressive", OPTION_VAL_FORCE_PROGRESSIVE_ID },
          { "force_interlaced",  OPTION_VAL_FORCE_INTERLACED_ID },
-         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_ID },
       },
-      "force_progressive"
+      "auto_toggle"
    },
    {
       BEETLE_OPT(pal_video_timing_override),
@@ -47007,6 +49469,20 @@ struct retro_core_option_v2_definition option_defs_id[] = {
       },
       "287"
    },
+   {
+      BEETLE_OPT(deinterlacer),
+      BEETLE_OPT_DEINTERLACER_LABEL_ID,
+      NULL,
+      BEETLE_OPT_DEINTERLACER_INFO_0_ID,
+      NULL,
+      "video",
+      {
+         { "weave",  OPTION_VAL_WEAVE_ID },
+         { "bob",  OPTION_VAL_BOB_ID },
+         { NULL, NULL },
+      },
+      "weave"
+   },
 #ifndef EMSCRIPTEN
    {
       BEETLE_OPT(cd_access_method),
@@ -47364,9 +49840,9 @@ struct retro_core_options_v2 options_id = {
 #define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_IT "Max campioni SPU da eseguire prima che venga controllato un aggiornamento SPU, il numero più alto sarà più veloce, ma causerà problemi sonori in alcuni giochi con qualcosa di diverso da 1."
 #define BEETLE_OPT_CORE_TIMING_FPS_LABEL_IT "Tempistica FPS segnalata dal core"
 #define BEETLE_OPT_CORE_TIMING_FPS_INFO_0_IT "Scegliere la tempistica FPS che il core riferirà al frontend. Attivazione automatica Permetterà al core di passare da tassi di segnalazione progressivi a tassi interlacciati, ma potrebbe causare la reinizione del driver video o audio."
+#define OPTION_VAL_AUTO_TOGGLE_IT "Consenti Attivazione Automatica"
 #define OPTION_VAL_FORCE_PROGRESSIVE_IT "Tasso Progressivo"
 #define OPTION_VAL_FORCE_INTERLACED_IT "Forza Tasso Interlacciato"
-#define OPTION_VAL_AUTO_TOGGLE_IT "Consenti Attivazione Automatica"
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_LABEL_IT "Sovrascrivi Video Pal (Europeo)"
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_IT "A causa di standard diversi, i giochi PAL appaiono spesso rallentati rispetto alle versioni NTSC americane o giapponesi. Questa opzione può essere utilizzata per sovrascrivere i timings PAL per tentare di eseguire questi giochi con il framerate NTSC. Questa opzione non ha effetto quando si esegue il contenuto NTSC."
 #define BEETLE_OPT_ASPECT_RATIO_LABEL_IT "Rapporto d'aspetto Core"
@@ -47433,6 +49909,10 @@ struct retro_core_options_v2 options_id = {
 #define BEETLE_OPT_LAST_SCANLINE_PAL_LABEL_IT "Ultima Linea Di Scansione - Pal"
 #define BEETLE_OPT_LAST_SCANLINE_PAL_INFO_0_IT "Scegli l'ultima linea di scansione visualizzata quando si esegue il contenuto PAL. I valori inferiori a 287 ridurranno l'altezza delle immagini in uscita ritagliando i pixel dal bordo più basso. Può essere usato per contrastare la casella di lettere."
 #define OPTION_VAL_287_IT "287 (Predefinito)"
+#define BEETLE_OPT_DEINTERLACER_LABEL_IT "Metodo Deinterlacciamento"
+#define BEETLE_OPT_DEINTERLACER_INFO_0_IT "'Intreccio' mostra entrambi i campi sullo stesso fotogramma per l'immagine ferma ad alta risoluzione, 'Bob' sacrifici la chiarezza della risoluzione per la chiarezza del movimento."
+#define OPTION_VAL_WEAVE_IT "Intreccio"
+#define OPTION_VAL_BOB_IT NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_LABEL_IT "Metodo Accesso CD (necessita riavvio)"
 #define BEETLE_OPT_CD_ACCESS_METHOD_INFO_0_IT "Scegli il metodo utilizzato per leggere i dati dalle immagini del disco del contenuto. 'Sincrono' imita l'hardware originale. 'Asynchronous' può ridurre la balbuzie su dispositivi con archiviazione lenta. 'Pre-Cache' carica l'intera immagine del disco in memoria quando si avvia il contenuto, che può migliorare i tempi di caricamento in gioco al costo di un ritardo iniziale all'avvio. 'Pre-Cache' può causare problemi sui sistemi con RAM bassa, e ricadrà su 'Sincrono' per i supporti fisici."
 #define OPTION_VAL_SYNC_IT "Sincrono"
@@ -48619,11 +51099,11 @@ struct retro_core_option_v2_definition option_defs_it[] = {
       NULL,
       NULL,
       {
+         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_IT },
          { "force_progressive", OPTION_VAL_FORCE_PROGRESSIVE_IT },
          { "force_interlaced",  OPTION_VAL_FORCE_INTERLACED_IT },
-         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_IT },
       },
-      "force_progressive"
+      "auto_toggle"
    },
    {
       BEETLE_OPT(pal_video_timing_override),
@@ -49051,6 +51531,20 @@ struct retro_core_option_v2_definition option_defs_it[] = {
       },
       "287"
    },
+   {
+      BEETLE_OPT(deinterlacer),
+      BEETLE_OPT_DEINTERLACER_LABEL_IT,
+      NULL,
+      BEETLE_OPT_DEINTERLACER_INFO_0_IT,
+      NULL,
+      "video",
+      {
+         { "weave",  OPTION_VAL_WEAVE_IT },
+         { "bob",  OPTION_VAL_BOB_IT },
+         { NULL, NULL },
+      },
+      "weave"
+   },
 #ifndef EMSCRIPTEN
    {
       BEETLE_OPT(cd_access_method),
@@ -49408,9 +51902,9 @@ struct retro_core_options_v2 options_it = {
 #define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_JA "SPU 更新がチェックされる前に実行される最大 SPU サンプル数です。値を高くするほど高速になりますが、1 以外に設定すると一部のゲームで音声バグが発生する可能性があります。"
 #define BEETLE_OPT_CORE_TIMING_FPS_LABEL_JA "コア報告 FPS タイミング"
 #define BEETLE_OPT_CORE_TIMING_FPS_INFO_0_JA "コアがフロントエンドに報告する FPS タイミングを選択します。自動切り替えを選択すると、コアはプログレッシブレートとインターレースレートを切り替えることができますが、フロントエンドのビデオ/オーディオドライバの再初期化を引き起こす可能性があります。"
+#define OPTION_VAL_AUTO_TOGGLE_JA "自動切り替えを許可"
 #define OPTION_VAL_FORCE_PROGRESSIVE_JA "プログレッシブレート"
 #define OPTION_VAL_FORCE_INTERLACED_JA "強制インターレースレート"
-#define OPTION_VAL_AUTO_TOGGLE_JA "自動切り替えを許可"
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_LABEL_JA "PAL (ヨーロッパ) ビデオタイミングの上書き"
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_JA "基準が異なるため、PAL ゲームはアメリカや日本で販売された NTSC ゲームと比較して減速して表示されます。このオプションは、NTSC フレームレートで PAL ゲームを実行するために、PAL タイミングを上書きするために使用できます。NTSC コンテンツを実行する場合は効果はありません。"
 #define BEETLE_OPT_ASPECT_RATIO_LABEL_JA "コアアスペクト比"
@@ -49477,6 +51971,10 @@ struct retro_core_options_v2 options_it = {
 #define BEETLE_OPT_LAST_SCANLINE_PAL_LABEL_JA "終了スキャンライン - PAL"
 #define BEETLE_OPT_LAST_SCANLINE_PAL_INFO_0_JA "PAL コンテンツを実行する際に最後に表示されるスキャンラインを選択します。 287 より小さい値を指定すると、下端からピクセルをトリミングすることで出力イメージの高さが減少します。レターボックスの対処に使用されることがあります。"
 #define OPTION_VAL_287_JA "287 (デフォルト)"
+#define BEETLE_OPT_DEINTERLACER_LABEL_JA "インターレース解除方式"
+#define BEETLE_OPT_DEINTERLACER_INFO_0_JA NULL
+#define OPTION_VAL_WEAVE_JA NULL
+#define OPTION_VAL_BOB_JA NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_LABEL_JA "CD アクセス方式 (再起動が必要)"
 #define BEETLE_OPT_CD_ACCESS_METHOD_INFO_0_JA "コンテンツディスクのイメージからデータを読み取る方式を選択します。[同期] は実機を模倣します。[非同期] はストレージが遅いデバイスでカクつきを減らすことができます。[プリキャッシュ] はコンテンツの起動時にディスクイメージ全体をメモリにロードし、起動時間が増加する代わりにゲーム中のロード時間を改善します。"
 #define OPTION_VAL_SYNC_JA "同期"
@@ -50663,11 +53161,11 @@ struct retro_core_option_v2_definition option_defs_ja[] = {
       NULL,
       NULL,
       {
+         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_JA },
          { "force_progressive", OPTION_VAL_FORCE_PROGRESSIVE_JA },
          { "force_interlaced",  OPTION_VAL_FORCE_INTERLACED_JA },
-         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_JA },
       },
-      "force_progressive"
+      "auto_toggle"
    },
    {
       BEETLE_OPT(pal_video_timing_override),
@@ -51095,6 +53593,20 @@ struct retro_core_option_v2_definition option_defs_ja[] = {
       },
       "287"
    },
+   {
+      BEETLE_OPT(deinterlacer),
+      BEETLE_OPT_DEINTERLACER_LABEL_JA,
+      NULL,
+      BEETLE_OPT_DEINTERLACER_INFO_0_JA,
+      NULL,
+      "video",
+      {
+         { "weave",  OPTION_VAL_WEAVE_JA },
+         { "bob",  OPTION_VAL_BOB_JA },
+         { NULL, NULL },
+      },
+      "weave"
+   },
 #ifndef EMSCRIPTEN
    {
       BEETLE_OPT(cd_access_method),
@@ -51452,9 +53964,9 @@ struct retro_core_options_v2 options_ja = {
 #define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_KO "SPU 업데이트 확인 전 실행할 최대 SPU 샘플 수. 숫자가 높을수록 더 빨라지지만 값이 1이 아닌 경우 일부 게임에서 사운드 결함이 발생합니다."
 #define BEETLE_OPT_CORE_TIMING_FPS_LABEL_KO "코어 보고 FPS 타이밍"
 #define BEETLE_OPT_CORE_TIMING_FPS_INFO_0_KO "코어가 프론트엔드에 보고할 FPS 타이밍을 선택합니다. 자동 전환을 선택하면 코어가 프로그레시브 및 인터레이스 주사율을 전환할 수 있게 하며, 프론트엔드의 비디오/오디오 드라이버의 초기화를 일으킬 수 있습니다."
+#define OPTION_VAL_AUTO_TOGGLE_KO "자동 전환 허용"
 #define OPTION_VAL_FORCE_PROGRESSIVE_KO "프로그레시브 주사율"
 #define OPTION_VAL_FORCE_INTERLACED_KO "인터레이스 주사율 강제"
-#define OPTION_VAL_AUTO_TOGGLE_KO "자동 전환 허용"
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_LABEL_KO "PAL(유럽) 비디오 타이밍 오버라이드"
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_KO "서로 다른 표준으로 인해 PAL 게임은 미국 또는 일본 NTSC 게임에 비해 다소 느리게 구동되기도 합니다. 이 옵션은 PAL 타이밍을 오버라이드하여 NTSC 게임과 동일한 프레임레이트로 구동되게 합니다. 이 옵션은 NTSC 컨텐츠를 실행할 땐 아무런 효과가 없습니다."
 #define BEETLE_OPT_ASPECT_RATIO_LABEL_KO "코어 화면비"
@@ -51521,6 +54033,10 @@ struct retro_core_options_v2 options_ja = {
 #define BEETLE_OPT_LAST_SCANLINE_PAL_LABEL_KO "마지막 스캔라인 - PAL"
 #define BEETLE_OPT_LAST_SCANLINE_PAL_INFO_0_KO "PAL 컨텐츠를 실행할 때 표시할 마지막 스캔라인을 선택합니다. 287보다 작은 값으로 설정할 경우 출력되는 이미지를 아래에서부터 잘라내 높이를 줄입니다. 레터박스를 없애는 데 사용될 수 있습니다."
 #define OPTION_VAL_287_KO "287 (기본)"
+#define BEETLE_OPT_DEINTERLACER_LABEL_KO "디인터레이스 방식"
+#define BEETLE_OPT_DEINTERLACER_INFO_0_KO "'Weave'는 두 필드를 한 프레임 안에 모두 표시하는 방식으로 정지 화면에서 전체 해상도의 깔끔한 영상을 얻을 수 있고, 'Bob'은 해상도가 낮아지는 대신 움직이는 화면에서의 시인성이 높은 방식입니다."
+#define OPTION_VAL_WEAVE_KO NULL
+#define OPTION_VAL_BOB_KO NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_LABEL_KO "CD 액세스 방식 (재시작 필요)"
 #define BEETLE_OPT_CD_ACCESS_METHOD_INFO_0_KO "컨텐츠의 디스크 이미지에서 데이터를 읽어올 방식을 선택합니다. '동기'는 원본 하드웨어의 동작을 흉내냅니다. '비동기'는 저장소가 느린 장치에서 버벅임을 줄일 수 있습니다. '미리 캐싱'은 컨텐츠를 실행할 때 전체 디스크 이미지를 메모리에 불러옵니다. 첫 시작 시 딜레이가 생기지만 인게임 로딩 시간이 줄어듭니다. '미리 캐싱'은 RAM이 적은 장치에서 문제를 일으킬 수 있으며, 물리적 미디어를 사용할 경우 '동기'가 사용됩니다."
 #define OPTION_VAL_SYNC_KO "동기"
@@ -52707,11 +55223,11 @@ struct retro_core_option_v2_definition option_defs_ko[] = {
       NULL,
       NULL,
       {
+         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_KO },
          { "force_progressive", OPTION_VAL_FORCE_PROGRESSIVE_KO },
          { "force_interlaced",  OPTION_VAL_FORCE_INTERLACED_KO },
-         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_KO },
       },
-      "force_progressive"
+      "auto_toggle"
    },
    {
       BEETLE_OPT(pal_video_timing_override),
@@ -53139,6 +55655,20 @@ struct retro_core_option_v2_definition option_defs_ko[] = {
       },
       "287"
    },
+   {
+      BEETLE_OPT(deinterlacer),
+      BEETLE_OPT_DEINTERLACER_LABEL_KO,
+      NULL,
+      BEETLE_OPT_DEINTERLACER_INFO_0_KO,
+      NULL,
+      "video",
+      {
+         { "weave",  OPTION_VAL_WEAVE_KO },
+         { "bob",  OPTION_VAL_BOB_KO },
+         { NULL, NULL },
+      },
+      "weave"
+   },
 #ifndef EMSCRIPTEN
    {
       BEETLE_OPT(cd_access_method),
@@ -53496,9 +56026,9 @@ struct retro_core_options_v2 options_ko = {
 #define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_NL NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_LABEL_NL NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_INFO_0_NL NULL
+#define OPTION_VAL_AUTO_TOGGLE_NL NULL
 #define OPTION_VAL_FORCE_PROGRESSIVE_NL NULL
 #define OPTION_VAL_FORCE_INTERLACED_NL NULL
-#define OPTION_VAL_AUTO_TOGGLE_NL NULL
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_LABEL_NL NULL
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_NL NULL
 #define BEETLE_OPT_ASPECT_RATIO_LABEL_NL NULL
@@ -53565,6 +56095,10 @@ struct retro_core_options_v2 options_ko = {
 #define BEETLE_OPT_LAST_SCANLINE_PAL_LABEL_NL NULL
 #define BEETLE_OPT_LAST_SCANLINE_PAL_INFO_0_NL NULL
 #define OPTION_VAL_287_NL NULL
+#define BEETLE_OPT_DEINTERLACER_LABEL_NL NULL
+#define BEETLE_OPT_DEINTERLACER_INFO_0_NL NULL
+#define OPTION_VAL_WEAVE_NL NULL
+#define OPTION_VAL_BOB_NL NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_LABEL_NL NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_INFO_0_NL NULL
 #define OPTION_VAL_SYNC_NL NULL
@@ -54751,11 +57285,11 @@ struct retro_core_option_v2_definition option_defs_nl[] = {
       NULL,
       NULL,
       {
+         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_NL },
          { "force_progressive", OPTION_VAL_FORCE_PROGRESSIVE_NL },
          { "force_interlaced",  OPTION_VAL_FORCE_INTERLACED_NL },
-         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_NL },
       },
-      "force_progressive"
+      "auto_toggle"
    },
    {
       BEETLE_OPT(pal_video_timing_override),
@@ -55183,6 +57717,20 @@ struct retro_core_option_v2_definition option_defs_nl[] = {
       },
       "287"
    },
+   {
+      BEETLE_OPT(deinterlacer),
+      BEETLE_OPT_DEINTERLACER_LABEL_NL,
+      NULL,
+      BEETLE_OPT_DEINTERLACER_INFO_0_NL,
+      NULL,
+      "video",
+      {
+         { "weave",  OPTION_VAL_WEAVE_NL },
+         { "bob",  OPTION_VAL_BOB_NL },
+         { NULL, NULL },
+      },
+      "weave"
+   },
 #ifndef EMSCRIPTEN
    {
       BEETLE_OPT(cd_access_method),
@@ -55540,9 +58088,9 @@ struct retro_core_options_v2 options_nl = {
 #define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_NO NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_LABEL_NO NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_INFO_0_NO NULL
+#define OPTION_VAL_AUTO_TOGGLE_NO NULL
 #define OPTION_VAL_FORCE_PROGRESSIVE_NO NULL
 #define OPTION_VAL_FORCE_INTERLACED_NO NULL
-#define OPTION_VAL_AUTO_TOGGLE_NO NULL
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_LABEL_NO NULL
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_NO NULL
 #define BEETLE_OPT_ASPECT_RATIO_LABEL_NO NULL
@@ -55609,6 +58157,10 @@ struct retro_core_options_v2 options_nl = {
 #define BEETLE_OPT_LAST_SCANLINE_PAL_LABEL_NO NULL
 #define BEETLE_OPT_LAST_SCANLINE_PAL_INFO_0_NO NULL
 #define OPTION_VAL_287_NO NULL
+#define BEETLE_OPT_DEINTERLACER_LABEL_NO NULL
+#define BEETLE_OPT_DEINTERLACER_INFO_0_NO NULL
+#define OPTION_VAL_WEAVE_NO NULL
+#define OPTION_VAL_BOB_NO NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_LABEL_NO NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_INFO_0_NO NULL
 #define OPTION_VAL_SYNC_NO NULL
@@ -56795,11 +59347,11 @@ struct retro_core_option_v2_definition option_defs_no[] = {
       NULL,
       NULL,
       {
+         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_NO },
          { "force_progressive", OPTION_VAL_FORCE_PROGRESSIVE_NO },
          { "force_interlaced",  OPTION_VAL_FORCE_INTERLACED_NO },
-         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_NO },
       },
-      "force_progressive"
+      "auto_toggle"
    },
    {
       BEETLE_OPT(pal_video_timing_override),
@@ -57227,6 +59779,20 @@ struct retro_core_option_v2_definition option_defs_no[] = {
       },
       "287"
    },
+   {
+      BEETLE_OPT(deinterlacer),
+      BEETLE_OPT_DEINTERLACER_LABEL_NO,
+      NULL,
+      BEETLE_OPT_DEINTERLACER_INFO_0_NO,
+      NULL,
+      "video",
+      {
+         { "weave",  OPTION_VAL_WEAVE_NO },
+         { "bob",  OPTION_VAL_BOB_NO },
+         { NULL, NULL },
+      },
+      "weave"
+   },
 #ifndef EMSCRIPTEN
    {
       BEETLE_OPT(cd_access_method),
@@ -57584,9 +60150,9 @@ struct retro_core_options_v2 options_no = {
 #define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_OR NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_LABEL_OR NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_INFO_0_OR NULL
+#define OPTION_VAL_AUTO_TOGGLE_OR NULL
 #define OPTION_VAL_FORCE_PROGRESSIVE_OR NULL
 #define OPTION_VAL_FORCE_INTERLACED_OR NULL
-#define OPTION_VAL_AUTO_TOGGLE_OR NULL
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_LABEL_OR NULL
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_OR NULL
 #define BEETLE_OPT_ASPECT_RATIO_LABEL_OR NULL
@@ -57653,6 +60219,10 @@ struct retro_core_options_v2 options_no = {
 #define BEETLE_OPT_LAST_SCANLINE_PAL_LABEL_OR NULL
 #define BEETLE_OPT_LAST_SCANLINE_PAL_INFO_0_OR NULL
 #define OPTION_VAL_287_OR NULL
+#define BEETLE_OPT_DEINTERLACER_LABEL_OR NULL
+#define BEETLE_OPT_DEINTERLACER_INFO_0_OR NULL
+#define OPTION_VAL_WEAVE_OR NULL
+#define OPTION_VAL_BOB_OR NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_LABEL_OR NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_INFO_0_OR NULL
 #define OPTION_VAL_SYNC_OR NULL
@@ -58839,11 +61409,11 @@ struct retro_core_option_v2_definition option_defs_or[] = {
       NULL,
       NULL,
       {
+         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_OR },
          { "force_progressive", OPTION_VAL_FORCE_PROGRESSIVE_OR },
          { "force_interlaced",  OPTION_VAL_FORCE_INTERLACED_OR },
-         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_OR },
       },
-      "force_progressive"
+      "auto_toggle"
    },
    {
       BEETLE_OPT(pal_video_timing_override),
@@ -59271,6 +61841,20 @@ struct retro_core_option_v2_definition option_defs_or[] = {
       },
       "287"
    },
+   {
+      BEETLE_OPT(deinterlacer),
+      BEETLE_OPT_DEINTERLACER_LABEL_OR,
+      NULL,
+      BEETLE_OPT_DEINTERLACER_INFO_0_OR,
+      NULL,
+      "video",
+      {
+         { "weave",  OPTION_VAL_WEAVE_OR },
+         { "bob",  OPTION_VAL_BOB_OR },
+         { NULL, NULL },
+      },
+      "weave"
+   },
 #ifndef EMSCRIPTEN
    {
       BEETLE_OPT(cd_access_method),
@@ -59628,9 +62212,9 @@ struct retro_core_options_v2 options_or = {
 #define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_PL NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_LABEL_PL NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_INFO_0_PL NULL
+#define OPTION_VAL_AUTO_TOGGLE_PL NULL
 #define OPTION_VAL_FORCE_PROGRESSIVE_PL NULL
 #define OPTION_VAL_FORCE_INTERLACED_PL NULL
-#define OPTION_VAL_AUTO_TOGGLE_PL NULL
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_LABEL_PL NULL
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_PL NULL
 #define BEETLE_OPT_ASPECT_RATIO_LABEL_PL NULL
@@ -59697,6 +62281,10 @@ struct retro_core_options_v2 options_or = {
 #define BEETLE_OPT_LAST_SCANLINE_PAL_LABEL_PL NULL
 #define BEETLE_OPT_LAST_SCANLINE_PAL_INFO_0_PL NULL
 #define OPTION_VAL_287_PL "287 (domyślnie)"
+#define BEETLE_OPT_DEINTERLACER_LABEL_PL NULL
+#define BEETLE_OPT_DEINTERLACER_INFO_0_PL NULL
+#define OPTION_VAL_WEAVE_PL NULL
+#define OPTION_VAL_BOB_PL NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_LABEL_PL NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_INFO_0_PL NULL
 #define OPTION_VAL_SYNC_PL NULL
@@ -60883,11 +63471,11 @@ struct retro_core_option_v2_definition option_defs_pl[] = {
       NULL,
       NULL,
       {
+         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_PL },
          { "force_progressive", OPTION_VAL_FORCE_PROGRESSIVE_PL },
          { "force_interlaced",  OPTION_VAL_FORCE_INTERLACED_PL },
-         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_PL },
       },
-      "force_progressive"
+      "auto_toggle"
    },
    {
       BEETLE_OPT(pal_video_timing_override),
@@ -61315,6 +63903,20 @@ struct retro_core_option_v2_definition option_defs_pl[] = {
       },
       "287"
    },
+   {
+      BEETLE_OPT(deinterlacer),
+      BEETLE_OPT_DEINTERLACER_LABEL_PL,
+      NULL,
+      BEETLE_OPT_DEINTERLACER_INFO_0_PL,
+      NULL,
+      "video",
+      {
+         { "weave",  OPTION_VAL_WEAVE_PL },
+         { "bob",  OPTION_VAL_BOB_PL },
+         { NULL, NULL },
+      },
+      "weave"
+   },
 #ifndef EMSCRIPTEN
    {
       BEETLE_OPT(cd_access_method),
@@ -61362,8 +63964,8 @@ struct retro_core_options_v2 options_pl = {
 
 #define CATEGORY_VIDEO_LABEL_PT_BR "Vídeo"
 #define CATEGORY_VIDEO_INFO_0_PT_BR "Altera as configurações de proporção de tela, corte de tela, filtro de vídeo e pulo de quadro."
-#define CATEGORY_OSD_LABEL_PT_BR "Exibição na tela"
-#define CATEGORY_OSD_INFO_0_PT_BR NULL
+#define CATEGORY_OSD_LABEL_PT_BR "Informações na tela (OSD)"
+#define CATEGORY_OSD_INFO_0_PT_BR "Altera a visibilidade de notificações e informações na tela."
 #define CATEGORY_INPUT_LABEL_PT_BR "Entrada"
 #define CATEGORY_INPUT_INFO_0_PT_BR "Altera as configurações das pistolas de luz, do mouse e o neGcon."
 #define CATEGORY_MEMCARDS_LABEL_PT_BR "Cartão de memória"
@@ -61423,17 +64025,17 @@ struct retro_core_options_v2 options_pl = {
 #define BEETLE_OPT_FRAME_DUPING_INFO_0_PT_BR "Quando ativado e suportado pela interface libretro, proporciona um pequeno aumento de desempenho ao direcionar a interface para repetir o quadro anterior se o núcleo não tiver nada de novo para exibir."
 #define BEETLE_OPT_DISPLAY_INTERNAL_FPS_LABEL_PT_BR "Mostrar QPS interno"
 #define BEETLE_OPT_DISPLAY_INTERNAL_FPS_INFO_0_PT_BR "Exibir a taxa de quadros internos na qual o sistema PlayStation emulado está renderizando o conteúdo. Nota: Requer que as notificações na tela sejam habilitadas na interface libretro."
-#define BEETLE_OPT_DISPLAY_OSD_LABEL_PT_BR NULL
-#define BEETLE_OPT_DISPLAY_OSD_INFO_0_PT_BR NULL
+#define BEETLE_OPT_DISPLAY_OSD_LABEL_PT_BR "Mostrar mensagens na tela"
+#define BEETLE_OPT_DISPLAY_OSD_INFO_0_PT_BR "Mostrar mensagens na tela geradas pelo núcleo."
 #define BEETLE_OPT_DISPLAY_VRAM_LABEL_PT_BR "Exibir a VRAM completa (depuração)"
 #define BEETLE_OPT_DISPLAY_VRAM_INFO_0_PT_BR "Visualiza toda a VRAM do console emulado. Somente suportada pelos renderizadores de hardware OpenGL e Vulkan. Nota: Isto é para fins de depuração, e normalmente deve estar desativado."
 #define BEETLE_OPT_ANALOG_CALIBRATION_LABEL_PT_BR "Auto-calibração do analógico"
 #define BEETLE_OPT_ANALOG_CALIBRATION_INFO_0_PT_BR "Quando o dispositivo de entrada é ajustado para DualShock, Controle analógico, Joystick analógico ou neGcon, esta opção permite a calibração dinâmica das entradas analógicas. Os valores máximos de entrada registrados são monitorados em tempo real e usados para escalar as coordenadas analógicas passadas para o emulador. Isto deve ser usado para jogos como o Mega Man Legends 2 que esperam valores maiores do que o que os controladores modernos fornecem. Para melhores resultados, os direcionais analógicos devem ser girados em toda a extensão para calibrar o algoritmo cada vez que o conteúdo é carregado."
-#define BEETLE_OPT_ANALOG_TOGGLE_LABEL_PT_BR NULL
-#define BEETLE_OPT_ANALOG_TOGGLE_INFO_0_PT_BR NULL
-#define OPTION_VAL_ENABLED_ANALOG_PT_BR NULL
-#define BEETLE_OPT_ANALOG_TOGGLE_COMBO_LABEL_PT_BR NULL
-#define BEETLE_OPT_ANALOG_TOGGLE_COMBO_INFO_0_PT_BR NULL
+#define BEETLE_OPT_ANALOG_TOGGLE_LABEL_PT_BR "Alternar o modo analógico do DualShock"
+#define BEETLE_OPT_ANALOG_TOGGLE_INFO_0_PT_BR "Quando o tipo de dispositivo de entrada é o DualShock, esta opção permite que o DualShock emulado seja alternado entre os modos DIGITAL e ANALÓGICO, assim como no hardware original. O modo também pode ser alternado usando a combinação de botões selecionada."
+#define OPTION_VAL_ENABLED_ANALOG_PT_BR "Analógico por padrão"
+#define BEETLE_OPT_ANALOG_TOGGLE_COMBO_LABEL_PT_BR "Combinação de botões do modo analógico do DualShock"
+#define BEETLE_OPT_ANALOG_TOGGLE_COMBO_INFO_0_PT_BR "Escolha a combinação de botões que será usada para alternar entre o modo DIGITAL e ANALÓGICO para o DualShock emulado."
 #define OPTION_VAL_L1_L2_R1_R2_START_SELECT_PT_BR NULL
 #define OPTION_VAL_L1_R1_SELECT_PT_BR NULL
 #define OPTION_VAL_L1_R1_START_PT_BR NULL
@@ -61444,8 +64046,8 @@ struct retro_core_options_v2 options_pl = {
 #define OPTION_VAL_L2_R2_L3_PT_BR NULL
 #define OPTION_VAL_L2_R2_R3_PT_BR NULL
 #define OPTION_VAL_L3_R3_PT_BR NULL
-#define BEETLE_OPT_ANALOG_TOGGLE_HOLD_LABEL_PT_BR NULL
-#define BEETLE_OPT_ANALOG_TOGGLE_HOLD_INFO_0_PT_BR NULL
+#define BEETLE_OPT_ANALOG_TOGGLE_HOLD_LABEL_PT_BR "Tempo de espera para a combinação de botões do modo analógico do DualShock"
+#define BEETLE_OPT_ANALOG_TOGGLE_HOLD_INFO_0_PT_BR "Define o tempo de espera para a combinação de botões para o modo analógico."
 #define OPTION_VAL_0_PT_BR "0 segundos"
 #define OPTION_VAL_1_PT_BR "1 segundo"
 #define OPTION_VAL_2_PT_BR "2 segundos"
@@ -61657,7 +64259,7 @@ struct retro_core_options_v2 options_pl = {
 #define BEETLE_OPT_RENDERER_SOFTWARE_FB_INFO_0_PT_BR "Permite emular com precisão os efeitos de quadro de buffer (por exemplo, desfoque de movimento, espiral de batalha FF7) ao usar renderizadores de hardware, executando uma cópia do renderizador de software com resolução nativa em segundo plano. A desativação desta opção irá omitir estas operações (OpenGL) ou serão renderizadas na GPU (Vulkan). A desativação desta opção pode melhorar o desempenho ao custo de erros gráficos graves. Em caso de dúvida, deixe esta opção ativada."
 #define BEETLE_OPT_CPU_DYNAREC_LABEL_PT_BR "Dynarec de CPU"
 #define BEETLE_OPT_CPU_DYNAREC_INFO_0_PT_BR "Recompilar dinamicamente as instruções da CPU para instruções nativas. Muito mais rápido do que o intérprete, mas o tempo da CPU é menos preciso e pode ter erros."
-#define OPTION_VAL_DISABLED_PT_BR "Desativada (interpretor de Beetle)"
+#define OPTION_VAL_DISABLED_PT_BR "Desativada (interpretador do Beetle)"
 #define OPTION_VAL_EXECUTE_PT_BR "Máximo desempenho"
 #define OPTION_VAL_EXECUTE_ONE_PT_BR "Verificação de intervalo entre ciclos"
 #define OPTION_VAL_RUN_INTERPRETER_PT_BR "Interpretador Lightrec"
@@ -61665,16 +64267,16 @@ struct retro_core_options_v2 options_pl = {
 #define BEETLE_OPT_DYNAREC_INVALIDATE_INFO_0_PT_BR "Alguns jogos requerem invalidação 'Completa', alguns requerem 'Apenas DMA'."
 #define OPTION_VAL_FULL_PT_BR "Completa"
 #define OPTION_VAL_DMA_PT_BR "Apenas DMA (um pouco mais rápido)"
-#define BEETLE_OPT_DYNAREC_EVENTCYCLES_LABEL_PT_BR NULL
-#define BEETLE_OPT_DYNAREC_EVENTCYCLES_INFO_0_PT_BR NULL
+#define BEETLE_OPT_DYNAREC_EVENTCYCLES_LABEL_PT_BR "Ciclos de eventos de DMA, GPU, MDEC e Temporizador do dynarec"
+#define BEETLE_OPT_DYNAREC_EVENTCYCLES_INFO_0_PT_BR "Indica o número máximo de ciclos executados pela CPU antes de verificar atualizações na GPU, DMA, MDEC e no Temporizador, um número maior será mais rápido, tendo muito menos impacto no interpretador do Beetle do que o dynarec."
 #define OPTION_VAL_128_PT_BR "128 (padrão)"
-#define BEETLE_OPT_DYNAREC_SPU_SAMPLES_LABEL_PT_BR NULL
-#define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_PT_BR NULL
+#define BEETLE_OPT_DYNAREC_SPU_SAMPLES_LABEL_PT_BR "Amostras de SPU do Dynarec"
+#define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_PT_BR "Indica o número máximo de amostras de SPU para executar antes que uma atualização do SPU esteja selecionada, um número maior será mais rápido, mas um valor que não seja 1 causará defeitos sonoros em alguns jogos."
 #define BEETLE_OPT_CORE_TIMING_FPS_LABEL_PT_BR "Tempos dos quadros reportado pelo núcleo"
 #define BEETLE_OPT_CORE_TIMING_FPS_INFO_0_PT_BR "Seleciona os tempos de quadros por segundos que o núcleo indicará para a interface. 'Permitir alternância automática' permite que o núcleo mude entre taxas progressivas e entrelaçadas, mas pode causar reinícios nos drivers de vídeo e no áudio da interface."
+#define OPTION_VAL_AUTO_TOGGLE_PT_BR "Permitir alternância automática"
 #define OPTION_VAL_FORCE_PROGRESSIVE_PT_BR "Taxa progressiva"
 #define OPTION_VAL_FORCE_INTERLACED_PT_BR "Forçar taxa entrelaçada"
-#define OPTION_VAL_AUTO_TOGGLE_PT_BR "Permitir alternância automática"
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_LABEL_PT_BR "Substituir sincronia de vídeo PAL (europeu)"
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_PT_BR "Devido a diferentes padrões, os jogos PAL costumam parecer lentos em comparação com os lançamentos Americanos ou Japoneses NTSC. Esta opção pode ser usada para substituir a sincronia de vídeo PAL para tentar executar esses jogos com a taxa de quadros NTSC. Esta opção não tem efeito ao executar o conteúdo NTSC."
 #define BEETLE_OPT_ASPECT_RATIO_LABEL_PT_BR "Proporção de tela do núcleo"
@@ -61741,6 +64343,10 @@ struct retro_core_options_v2 options_pl = {
 #define BEETLE_OPT_LAST_SCANLINE_PAL_LABEL_PT_BR "Linha de varredura final (PAL)"
 #define BEETLE_OPT_LAST_SCANLINE_PAL_INFO_0_PT_BR "Seleciona a última linha de varredura a ser exibida ao executar conteúdos PAL. Um valor inferior a 287 reduzirá a altura das imagens geradas, cortando os pixels da parte inferior. Isto pode ser usado para evitar o efeito 'letterboxing'."
 #define OPTION_VAL_287_PT_BR "287 (padrão)"
+#define BEETLE_OPT_DEINTERLACER_LABEL_PT_BR "Método de desentrelaçamento"
+#define BEETLE_OPT_DEINTERLACER_INFO_0_PT_BR "'Weave' mostra ambos os campos no mesmo quadro para obter a resolução alta máxima da imagem estática, 'Bob' sacrifica a claridade da resolução por claridade de movimento."
+#define OPTION_VAL_WEAVE_PT_BR NULL
+#define OPTION_VAL_BOB_PT_BR NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_LABEL_PT_BR "Método de acesso ao CD (requer reinício)"
 #define BEETLE_OPT_CD_ACCESS_METHOD_INFO_0_PT_BR "Seleciona o método usado para ler os dados das imagens do disco de conteúdo. 'Síncrono' simula o hardware original, 'Assíncrono' pode reduzir os travamentos em dispositivos com armazenamento lento, e 'Pré-cache' carrega toda a imagem do disco para a memória ao executar o conteúdo, o que pode melhorar os tempos de carga do jogo ao custo de atrasar o boot inicial. 'Pré-cache' pode causar problemas em sistemas com pouca RAM."
 #define OPTION_VAL_SYNC_PT_BR "Síncrono"
@@ -62927,11 +65533,11 @@ struct retro_core_option_v2_definition option_defs_pt_br[] = {
       NULL,
       NULL,
       {
+         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_PT_BR },
          { "force_progressive", OPTION_VAL_FORCE_PROGRESSIVE_PT_BR },
          { "force_interlaced",  OPTION_VAL_FORCE_INTERLACED_PT_BR },
-         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_PT_BR },
       },
-      "force_progressive"
+      "auto_toggle"
    },
    {
       BEETLE_OPT(pal_video_timing_override),
@@ -63359,6 +65965,20 @@ struct retro_core_option_v2_definition option_defs_pt_br[] = {
       },
       "287"
    },
+   {
+      BEETLE_OPT(deinterlacer),
+      BEETLE_OPT_DEINTERLACER_LABEL_PT_BR,
+      NULL,
+      BEETLE_OPT_DEINTERLACER_INFO_0_PT_BR,
+      NULL,
+      "video",
+      {
+         { "weave",  OPTION_VAL_WEAVE_PT_BR },
+         { "bob",  OPTION_VAL_BOB_PT_BR },
+         { NULL, NULL },
+      },
+      "weave"
+   },
 #ifndef EMSCRIPTEN
    {
       BEETLE_OPT(cd_access_method),
@@ -63716,9 +66336,9 @@ struct retro_core_options_v2 options_pt_br = {
 #define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_PT_PT NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_LABEL_PT_PT NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_INFO_0_PT_PT NULL
+#define OPTION_VAL_AUTO_TOGGLE_PT_PT NULL
 #define OPTION_VAL_FORCE_PROGRESSIVE_PT_PT NULL
 #define OPTION_VAL_FORCE_INTERLACED_PT_PT NULL
-#define OPTION_VAL_AUTO_TOGGLE_PT_PT NULL
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_LABEL_PT_PT NULL
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_PT_PT NULL
 #define BEETLE_OPT_ASPECT_RATIO_LABEL_PT_PT NULL
@@ -63785,6 +66405,10 @@ struct retro_core_options_v2 options_pt_br = {
 #define BEETLE_OPT_LAST_SCANLINE_PAL_LABEL_PT_PT NULL
 #define BEETLE_OPT_LAST_SCANLINE_PAL_INFO_0_PT_PT NULL
 #define OPTION_VAL_287_PT_PT "287 (Padrão)"
+#define BEETLE_OPT_DEINTERLACER_LABEL_PT_PT NULL
+#define BEETLE_OPT_DEINTERLACER_INFO_0_PT_PT NULL
+#define OPTION_VAL_WEAVE_PT_PT NULL
+#define OPTION_VAL_BOB_PT_PT NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_LABEL_PT_PT NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_INFO_0_PT_PT NULL
 #define OPTION_VAL_SYNC_PT_PT NULL
@@ -64971,11 +67595,11 @@ struct retro_core_option_v2_definition option_defs_pt_pt[] = {
       NULL,
       NULL,
       {
+         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_PT_PT },
          { "force_progressive", OPTION_VAL_FORCE_PROGRESSIVE_PT_PT },
          { "force_interlaced",  OPTION_VAL_FORCE_INTERLACED_PT_PT },
-         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_PT_PT },
       },
-      "force_progressive"
+      "auto_toggle"
    },
    {
       BEETLE_OPT(pal_video_timing_override),
@@ -65403,6 +68027,20 @@ struct retro_core_option_v2_definition option_defs_pt_pt[] = {
       },
       "287"
    },
+   {
+      BEETLE_OPT(deinterlacer),
+      BEETLE_OPT_DEINTERLACER_LABEL_PT_PT,
+      NULL,
+      BEETLE_OPT_DEINTERLACER_INFO_0_PT_PT,
+      NULL,
+      "video",
+      {
+         { "weave",  OPTION_VAL_WEAVE_PT_PT },
+         { "bob",  OPTION_VAL_BOB_PT_PT },
+         { NULL, NULL },
+      },
+      "weave"
+   },
 #ifndef EMSCRIPTEN
    {
       BEETLE_OPT(cd_access_method),
@@ -65760,9 +68398,9 @@ struct retro_core_options_v2 options_pt_pt = {
 #define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_RU "Макс. сэмплов, обрабатываемых до проверки обновления SPU. Более высокие значения повышают скорость, но в некоторых играх отклонение от 1 приводит к искажению звука."
 #define BEETLE_OPT_CORE_TIMING_FPS_LABEL_RU "Тайминг частоты кадров ядра"
 #define BEETLE_OPT_CORE_TIMING_FPS_INFO_0_RU "Выбор тайминга частоты кадров, которое ядро будет сообщать фронтенду. В режиме 'Автопереключение' ядра могут переключаться между передачей прогрессивных и чересстрочных частот, но это может приводить к реинициализациям видео/аудио драйверов."
+#define OPTION_VAL_AUTO_TOGGLE_RU "Разрешить автопереключение"
 #define OPTION_VAL_FORCE_PROGRESSIVE_RU "Прогрессивная"
 #define OPTION_VAL_FORCE_INTERLACED_RU "Принуд. чересстрочная"
-#define OPTION_VAL_AUTO_TOGGLE_RU "Разрешить автопереключение"
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_LABEL_RU "Переопределение тайминга PAL"
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_RU "Из-за разницы в стандартах зачастую игры PAL работали медленнее NTSC-релизов для Америки или Японии. Данная настройка замещает тайминги PAL, позволяя запускать игры данного региона с частотой кадров NTSC. Не работает при запуске NTSC-контента."
 #define BEETLE_OPT_ASPECT_RATIO_LABEL_RU "Соотношение сторон ядра"
@@ -65829,6 +68467,10 @@ struct retro_core_options_v2 options_pt_pt = {
 #define BEETLE_OPT_LAST_SCANLINE_PAL_LABEL_RU "Последняя строка развёртки - PAL"
 #define BEETLE_OPT_LAST_SCANLINE_PAL_INFO_0_RU "Линия развёртки, отображаемая последней при запуске PAL-контента. Значения ниже 287 уменьшают высоту выходного изображения, срезая часть пикселей по нижнему краю. Может применяться для компенсации чёрных полос."
 #define OPTION_VAL_287_RU "287 (по умолчанию)"
+#define BEETLE_OPT_DEINTERLACER_LABEL_RU "Метод деинтерлейсинга"
+#define BEETLE_OPT_DEINTERLACER_INFO_0_RU "'Weave' показывает оба поля на одном кадре для полного неподвижного изображения в высоком разрешении. 'Bob' жертвует чёткостью разрешения ради чёткости движения."
+#define OPTION_VAL_WEAVE_RU NULL
+#define OPTION_VAL_BOB_RU NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_LABEL_RU "Режим доступа к CD (требуется перезапуск)"
 #define BEETLE_OPT_CD_ACCESS_METHOD_INFO_0_RU "Метод чтения данных с образов дисков. 'Синхронный' имитирует ориг. консоль. 'Асинхронный' может снижать подвисания на устройствах с медленной памятью. Режим 'Предзагрузка' целиком загружает образ в ОЗУ, ускоряя внутриигровые загрузки ценой задержки при запуске. Режим 'Предзагрузка' может вызывать ошибки при низком объёме ОЗУ, а при запуске физ. дисков перейдёт на 'Синхронный'."
 #define OPTION_VAL_SYNC_RU "Синхронный"
@@ -67015,11 +69657,11 @@ struct retro_core_option_v2_definition option_defs_ru[] = {
       NULL,
       NULL,
       {
+         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_RU },
          { "force_progressive", OPTION_VAL_FORCE_PROGRESSIVE_RU },
          { "force_interlaced",  OPTION_VAL_FORCE_INTERLACED_RU },
-         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_RU },
       },
-      "force_progressive"
+      "auto_toggle"
    },
    {
       BEETLE_OPT(pal_video_timing_override),
@@ -67447,6 +70089,20 @@ struct retro_core_option_v2_definition option_defs_ru[] = {
       },
       "287"
    },
+   {
+      BEETLE_OPT(deinterlacer),
+      BEETLE_OPT_DEINTERLACER_LABEL_RU,
+      NULL,
+      BEETLE_OPT_DEINTERLACER_INFO_0_RU,
+      NULL,
+      "video",
+      {
+         { "weave",  OPTION_VAL_WEAVE_RU },
+         { "bob",  OPTION_VAL_BOB_RU },
+         { NULL, NULL },
+      },
+      "weave"
+   },
 #ifndef EMSCRIPTEN
    {
       BEETLE_OPT(cd_access_method),
@@ -67804,9 +70460,9 @@ struct retro_core_options_v2 options_ru = {
 #define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_SK NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_LABEL_SK NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_INFO_0_SK NULL
+#define OPTION_VAL_AUTO_TOGGLE_SK NULL
 #define OPTION_VAL_FORCE_PROGRESSIVE_SK NULL
 #define OPTION_VAL_FORCE_INTERLACED_SK NULL
-#define OPTION_VAL_AUTO_TOGGLE_SK NULL
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_LABEL_SK NULL
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_SK NULL
 #define BEETLE_OPT_ASPECT_RATIO_LABEL_SK "Pomer strán jadra"
@@ -67873,6 +70529,10 @@ struct retro_core_options_v2 options_ru = {
 #define BEETLE_OPT_LAST_SCANLINE_PAL_LABEL_SK NULL
 #define BEETLE_OPT_LAST_SCANLINE_PAL_INFO_0_SK NULL
 #define OPTION_VAL_287_SK "287 (predvolené)"
+#define BEETLE_OPT_DEINTERLACER_LABEL_SK NULL
+#define BEETLE_OPT_DEINTERLACER_INFO_0_SK NULL
+#define OPTION_VAL_WEAVE_SK NULL
+#define OPTION_VAL_BOB_SK NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_LABEL_SK NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_INFO_0_SK NULL
 #define OPTION_VAL_SYNC_SK "Synchrónne"
@@ -69059,11 +71719,11 @@ struct retro_core_option_v2_definition option_defs_sk[] = {
       NULL,
       NULL,
       {
+         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_SK },
          { "force_progressive", OPTION_VAL_FORCE_PROGRESSIVE_SK },
          { "force_interlaced",  OPTION_VAL_FORCE_INTERLACED_SK },
-         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_SK },
       },
-      "force_progressive"
+      "auto_toggle"
    },
    {
       BEETLE_OPT(pal_video_timing_override),
@@ -69491,6 +72151,20 @@ struct retro_core_option_v2_definition option_defs_sk[] = {
       },
       "287"
    },
+   {
+      BEETLE_OPT(deinterlacer),
+      BEETLE_OPT_DEINTERLACER_LABEL_SK,
+      NULL,
+      BEETLE_OPT_DEINTERLACER_INFO_0_SK,
+      NULL,
+      "video",
+      {
+         { "weave",  OPTION_VAL_WEAVE_SK },
+         { "bob",  OPTION_VAL_BOB_SK },
+         { NULL, NULL },
+      },
+      "weave"
+   },
 #ifndef EMSCRIPTEN
    {
       BEETLE_OPT(cd_access_method),
@@ -69848,9 +72522,9 @@ struct retro_core_options_v2 options_sk = {
 #define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_SR NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_LABEL_SR NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_INFO_0_SR NULL
+#define OPTION_VAL_AUTO_TOGGLE_SR NULL
 #define OPTION_VAL_FORCE_PROGRESSIVE_SR NULL
 #define OPTION_VAL_FORCE_INTERLACED_SR NULL
-#define OPTION_VAL_AUTO_TOGGLE_SR NULL
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_LABEL_SR NULL
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_SR NULL
 #define BEETLE_OPT_ASPECT_RATIO_LABEL_SR NULL
@@ -69917,6 +72591,10 @@ struct retro_core_options_v2 options_sk = {
 #define BEETLE_OPT_LAST_SCANLINE_PAL_LABEL_SR NULL
 #define BEETLE_OPT_LAST_SCANLINE_PAL_INFO_0_SR NULL
 #define OPTION_VAL_287_SR NULL
+#define BEETLE_OPT_DEINTERLACER_LABEL_SR NULL
+#define BEETLE_OPT_DEINTERLACER_INFO_0_SR NULL
+#define OPTION_VAL_WEAVE_SR NULL
+#define OPTION_VAL_BOB_SR NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_LABEL_SR NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_INFO_0_SR NULL
 #define OPTION_VAL_SYNC_SR NULL
@@ -71103,11 +73781,11 @@ struct retro_core_option_v2_definition option_defs_sr[] = {
       NULL,
       NULL,
       {
+         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_SR },
          { "force_progressive", OPTION_VAL_FORCE_PROGRESSIVE_SR },
          { "force_interlaced",  OPTION_VAL_FORCE_INTERLACED_SR },
-         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_SR },
       },
-      "force_progressive"
+      "auto_toggle"
    },
    {
       BEETLE_OPT(pal_video_timing_override),
@@ -71535,6 +74213,20 @@ struct retro_core_option_v2_definition option_defs_sr[] = {
       },
       "287"
    },
+   {
+      BEETLE_OPT(deinterlacer),
+      BEETLE_OPT_DEINTERLACER_LABEL_SR,
+      NULL,
+      BEETLE_OPT_DEINTERLACER_INFO_0_SR,
+      NULL,
+      "video",
+      {
+         { "weave",  OPTION_VAL_WEAVE_SR },
+         { "bob",  OPTION_VAL_BOB_SR },
+         { NULL, NULL },
+      },
+      "weave"
+   },
 #ifndef EMSCRIPTEN
    {
       BEETLE_OPT(cd_access_method),
@@ -71590,7 +74282,7 @@ struct retro_core_options_v2 options_sr = {
 #define CATEGORY_MEMCARDS_INFO_0_SV "Ändra inställningar relaterade till virtuella minneskort(en) som används av systemet."
 #define CATEGORY_PGXP_LABEL_SV "PGXP (Precision Geometrisk Transformering Pipeline)"
 #define CATEGORY_PGXP_INFO_0_SV "Dessa alternativ styr förbättringar som kan förbättra grafiken jämfört med den ursprungliga spelkonsolen. PGXP kan eliminera förvrängda texturer och Z-fighting problem."
-#define CATEGORY_HACKS_LABEL_SV "Emulator Hacks"
+#define CATEGORY_HACKS_LABEL_SV "Emulatorhack"
 #define CATEGORY_HACKS_INFO_0_SV "Ändra inställningar för processor-överklockning och emuleringsnoggrannhet som påverkar lågnivåprestanda och kompatibilitet."
 #define BEETLE_OPT_INTERNAL_RESOLUTION_LABEL_SV "Intern GPU-upplösning"
 #define BEETLE_OPT_INTERNAL_RESOLUTION_INFO_0_SV "Välj intern upplösningsmultiplikator. Upplösningar högre än \"1x (Nativ)\" förbättrar noggrannheten hos 3D-modeller på bekostnad av ökade prestandakrav. 2D-element påverkas normalt inte av den här inställningen."
@@ -71649,11 +74341,11 @@ struct retro_core_options_v2 options_sr = {
 #define BEETLE_OPT_DISPLAY_VRAM_INFO_0_SV "Visualisera hela den emulerade konsolens VRAM. Stöds endast av OpenGL- och Vulkan-hårdvarurenderare. Obs!: Detta är för felsökningsändamål och bör normalt sett vara inaktiverat."
 #define BEETLE_OPT_ANALOG_CALIBRATION_LABEL_SV "Självkalibrera analoga spakar"
 #define BEETLE_OPT_ANALOG_CALIBRATION_INFO_0_SV "När ingångsenheten är inställd på DualShock, Analog Controller, Analog Joystick eller neGcon möjliggör den här inställningen dynamisk kalibrering av analoga ingångar. Hösta registrerade ingångsvärden övervakas i realtid och används för att justera analoga koordinater som skickas till emulatorn. Detta bör användas för spel som Mega Man Legends 2 som förväntar sig större värden än vad moderna kontroller tillhandahåller. För bästa resultat bör analoga spakar roteras i full utsträckning för att finjustera kalibreringsalgoritmen varje gång innehåll laddas."
-#define BEETLE_OPT_ANALOG_TOGGLE_LABEL_SV NULL
-#define BEETLE_OPT_ANALOG_TOGGLE_INFO_0_SV NULL
-#define OPTION_VAL_ENABLED_ANALOG_SV NULL
+#define BEETLE_OPT_ANALOG_TOGGLE_LABEL_SV "Växla analogt läge för DualShock"
+#define BEETLE_OPT_ANALOG_TOGGLE_INFO_0_SV "När typen av inmatningsenhet är DualShock gör det här alternativet att den emulerade DualShock kan växlas mellan DIGITAL- och ANALOG-läge som den ursprungliga hårdvaran. Läget kan också växlas genom att använda den valda knappkombinationen."
+#define OPTION_VAL_ENABLED_ANALOG_SV "Standard-analog"
 #define BEETLE_OPT_ANALOG_TOGGLE_COMBO_LABEL_SV "DualShock-analogt läge för kombinationer"
-#define BEETLE_OPT_ANALOG_TOGGLE_COMBO_INFO_0_SV NULL
+#define BEETLE_OPT_ANALOG_TOGGLE_COMBO_INFO_0_SV "Välj den knappkombination som ska användas för att växla mellan DIGITAL- och ANALOG-läge för den emulerade DualShock."
 #define OPTION_VAL_L1_L2_R1_R2_START_SELECT_SV NULL
 #define OPTION_VAL_L1_R1_SELECT_SV NULL
 #define OPTION_VAL_L1_R1_START_SV NULL
@@ -71665,28 +74357,28 @@ struct retro_core_options_v2 options_sr = {
 #define OPTION_VAL_L2_R2_R3_SV NULL
 #define OPTION_VAL_L3_R3_SV NULL
 #define BEETLE_OPT_ANALOG_TOGGLE_HOLD_LABEL_SV "Hållningsfördröjning för DualShock analogt läges-kombo"
-#define BEETLE_OPT_ANALOG_TOGGLE_HOLD_INFO_0_SV NULL
+#define BEETLE_OPT_ANALOG_TOGGLE_HOLD_INFO_0_SV "Ställ in hålltiden för kombinationsknapparna för analogt läge."
 #define OPTION_VAL_0_SV "0 sekunds fördröjning"
 #define OPTION_VAL_1_SV "1 sekunds fördröjning"
 #define OPTION_VAL_2_SV "2 sekunders fördröjning"
 #define OPTION_VAL_3_SV "3 sekunders fördröjning"
 #define OPTION_VAL_4_SV "4 sekunders fördröjning"
 #define OPTION_VAL_5_SV "5 sekunders fördröjning"
-#define BEETLE_OPT_ENABLE_MULTITAP_PORT1_LABEL_SV NULL
-#define BEETLE_OPT_ENABLE_MULTITAP_PORT1_INFO_0_SV NULL
-#define BEETLE_OPT_ENABLE_MULTITAP_PORT2_LABEL_SV NULL
-#define BEETLE_OPT_ENABLE_MULTITAP_PORT2_INFO_0_SV NULL
-#define BEETLE_OPT_GUN_INPUT_MODE_LABEL_SV NULL
-#define BEETLE_OPT_GUN_INPUT_MODE_INFO_0_SV NULL
+#define BEETLE_OPT_ENABLE_MULTITAP_PORT1_LABEL_SV "Port 1: Aktivera Multitap"
+#define BEETLE_OPT_ENABLE_MULTITAP_PORT1_INFO_0_SV "Aktivera multitap-funktionalitet på port 1."
+#define BEETLE_OPT_ENABLE_MULTITAP_PORT2_LABEL_SV "Port 2: Aktivera Multitap"
+#define BEETLE_OPT_ENABLE_MULTITAP_PORT2_INFO_0_SV "Aktivera multitap-funktionalitet på port 2."
+#define BEETLE_OPT_GUN_INPUT_MODE_LABEL_SV "Inmatningsläge för pistol"
+#define BEETLE_OPT_GUN_INPUT_MODE_INFO_0_SV "Välj om du vill använda en musstyrd ”Ljuspistol” eller en ”Pekskärm”-ingång när enhetstypen är inställd på ”Guncon/G-Con 45” eller ”Justifier”."
 #define OPTION_VAL_LIGHTGUN_SV "Ljuspistol"
 #define OPTION_VAL_TOUCHSCREEN_SV "Pekskärm"
-#define BEETLE_OPT_GUN_CURSOR_LABEL_SV NULL
-#define BEETLE_OPT_GUN_CURSOR_INFO_0_SV NULL
+#define BEETLE_OPT_GUN_CURSOR_LABEL_SV "Pistolmarkör"
+#define BEETLE_OPT_GUN_CURSOR_INFO_0_SV "Välj vilken markör som ska visas på skärmen när du använder inmatningsenheterna ”Guncon/G-Con 45” och ”Justifier”. När funktionen är inaktiverad är hårkorset alltid dolt."
 #define OPTION_VAL_CROSS_SV "Kors"
 #define OPTION_VAL_DOT_SV "Punkt"
 #define OPTION_VAL_OFF_SV "Inget hårkors"
-#define BEETLE_OPT_CROSSHAIR_COLOR_P1_LABEL_SV NULL
-#define BEETLE_OPT_CROSSHAIR_COLOR_P1_INFO_0_SV NULL
+#define BEETLE_OPT_CROSSHAIR_COLOR_P1_LABEL_SV "Port 1: Färg för vapnets hårkors"
+#define BEETLE_OPT_CROSSHAIR_COLOR_P1_INFO_0_SV "Välj färg på ljuspistolens hårkors för port 1."
 #define OPTION_VAL_RED_SV "Röd"
 #define OPTION_VAL_BLUE_SV "Blå"
 #define OPTION_VAL_GREEN_SV "Grön"
@@ -71697,10 +74389,10 @@ struct retro_core_options_v2 options_sr = {
 #define OPTION_VAL_PURPLE_SV "Lila"
 #define OPTION_VAL_BLACK_SV "Svart"
 #define OPTION_VAL_WHITE_SV "Vit"
-#define BEETLE_OPT_CROSSHAIR_COLOR_P2_LABEL_SV NULL
-#define BEETLE_OPT_CROSSHAIR_COLOR_P2_INFO_0_SV NULL
+#define BEETLE_OPT_CROSSHAIR_COLOR_P2_LABEL_SV "Port 2: Färg för vapnets hårkors"
+#define BEETLE_OPT_CROSSHAIR_COLOR_P2_INFO_0_SV "Välj färg på ljuspistolens hårkors för port 2."
 #define BEETLE_OPT_MOUSE_SENSITIVITY_LABEL_SV "Muskänslighet"
-#define BEETLE_OPT_MOUSE_SENSITIVITY_INFO_0_SV NULL
+#define BEETLE_OPT_MOUSE_SENSITIVITY_INFO_0_SV "Välj responsivitet för inmatningsenhetstypen ”Mouse”."
 #define OPTION_VAL_5_O29_SV NULL
 #define OPTION_VAL_10_SV NULL
 #define OPTION_VAL_15_SV NULL
@@ -71742,32 +74434,32 @@ struct retro_core_options_v2 options_sr = {
 #define OPTION_VAL_195_SV NULL
 #define OPTION_VAL_200_SV NULL
 #define BEETLE_OPT_NEGCON_RESPONSE_LABEL_SV NULL
-#define BEETLE_OPT_NEGCON_RESPONSE_INFO_0_SV NULL
+#define BEETLE_OPT_NEGCON_RESPONSE_INFO_0_SV "Välj svarstyp för RetroPads vänstra analoga spak när du simulerar ”twist”-funktionen hos emulerade ”neGcon”-inmatningsenheter. Den analoga spakens förskjutning kan mappas till neGcons rotationsvinkel antingen linjärt, kvadratiskt eller kubiskt. 'Quadratic' ger större precision än 'Linear' vid små rörelser. ”Cubic” ökar precisionen ytterligare för små rörelser, men ’överdriver’ större rörelser. Obs: 'Linjär' rekommenderas endast när du använder kringutrustning för racerhjul. Konventionella styrenheter implementerar analog input på ett sätt som skiljer sig fundamentalt från neGcons ”twist”-mekanism, så att linjär mappning överförstärker små rörelser och försämrar finkontrollen. I de flesta fall ger ”Quadratic” den närmaste approximationen av verklig hårdvara."
 #define OPTION_VAL_LINEAR_SV "Linjär"
 #define OPTION_VAL_QUADRATIC_SV "Kvadratisk"
 #define OPTION_VAL_CUBIC_SV "Kubisk"
 #define BEETLE_OPT_NEGCON_DEADZONE_LABEL_SV NULL
-#define BEETLE_OPT_NEGCON_DEADZONE_INFO_0_SV NULL
+#define BEETLE_OPT_NEGCON_DEADZONE_INFO_0_SV "Välj dödzon för RetroPads vänstra analoga spak när du simulerar ”twist”-rörelsen hos emulerade ”neGcon”-inmatningsenheter. Används för att eliminera styrenhetens drift. Obs: De flesta neGcon-kompatibla titlar ger alternativ i spelet för att ställa in ett ”twist”-dödzonsvärde. För att undvika förlust av precision bör spelets deadzone *alltid* sättas till noll. Eventuella nödvändiga justeringar ska *endast* göras via detta kärnalternativ. Detta är särskilt viktigt när ”neGcon Twist Response” är inställt på ”Quadratic” eller ”Cubic”."
 #define OPTION_VAL_0_O31_SV NULL
-#define BEETLE_OPT_USE_MEDNAFEN_MEMCARD0_METHOD_LABEL_SV NULL
-#define BEETLE_OPT_USE_MEDNAFEN_MEMCARD0_METHOD_INFO_0_SV NULL
+#define BEETLE_OPT_USE_MEDNAFEN_MEMCARD0_METHOD_LABEL_SV "Metod för minneskort 0 (kräver omstart)"
+#define BEETLE_OPT_USE_MEDNAFEN_MEMCARD0_METHOD_INFO_0_SV "Välj det sparformat som ska användas för minneskort 0. ”Mednafen” kan användas för kompatibilitet med den fristående versionen av Mednafen. Vid användning med Beetle PSX har Libretro (.srm) och Mednafen (.mcr) sparningar internt identiska format och kan konverteras mellan varandra genom att byta namn."
 #define OPTION_VAL_LIBRETRO_SV NULL
 #define OPTION_VAL_MEDNAFEN_SV NULL
-#define BEETLE_OPT_ENABLE_MEMCARD1_LABEL_SV NULL
-#define BEETLE_OPT_ENABLE_MEMCARD1_INFO_0_SV NULL
-#define BEETLE_OPT_SHARED_MEMORY_CARDS_LABEL_SV NULL
-#define BEETLE_OPT_SHARED_MEMORY_CARDS_INFO_0_SV NULL
-#define BEETLE_OPT_MEMCARD_LEFT_INDEX_LABEL_SV NULL
-#define BEETLE_OPT_MEMCARD_LEFT_INDEX_INFO_0_SV NULL
-#define BEETLE_OPT_MEMCARD_RIGHT_INDEX_LABEL_SV NULL
-#define BEETLE_OPT_MEMCARD_RIGHT_INDEX_INFO_0_SV NULL
+#define BEETLE_OPT_ENABLE_MEMCARD1_LABEL_SV "Aktivera minneskort 1 (kräver omstart)"
+#define BEETLE_OPT_ENABLE_MEMCARD1_INFO_0_SV "Emulerar ett andra minneskort i kortplats 1. När alternativet är avaktiverat kan spelen bara komma åt minneskortet i kortplats 0. Obs: Vissa spel kräver att detta alternativ är avaktiverat för att fungera korrekt (t.ex. Codename Tenka). Obs: Minneskort 1 använder sparformatet Mednafen (.mcr)."
+#define BEETLE_OPT_SHARED_MEMORY_CARDS_LABEL_SV "Delade minneskort (kräver omstart)"
+#define BEETLE_OPT_SHARED_MEMORY_CARDS_INFO_0_SV "När funktionen är aktiverad sparas alla spel till och laddas från samma minneskortsfiler. När den är inaktiverad genereras separata minneskortsfiler för varje laddat innehåll. Obs: om ”Memory Card 0 Method” är inställt på ”Libretro” kommer endast det högra minneskortet att påverkas."
+#define BEETLE_OPT_MEMCARD_LEFT_INDEX_LABEL_SV "Vänsterindex för minneskort"
+#define BEETLE_OPT_MEMCARD_LEFT_INDEX_INFO_0_SV "Byt ut det minneskort som för närvarande är inmatat i den vänstra kortplatsen. Detta alternativ fungerar endast om Metod för minneskort 0 är inställd på Mednafen. Standardkortet är index 0."
+#define BEETLE_OPT_MEMCARD_RIGHT_INDEX_LABEL_SV "Högerindex för minneskort"
+#define BEETLE_OPT_MEMCARD_RIGHT_INDEX_INFO_0_SV "Byt ut det minneskort som för närvarande är inmatat i den högra kortplatsen. Detta alternativ fungerar endast om Minneskort 1 är aktiverat. Standardkortet är index 1."
 #define OPTION_VAL_1_O36_SV "1 (standard)"
 #define BEETLE_OPT_PGXP_MODE_LABEL_SV "PGXP Driftläge"
-#define BEETLE_OPT_PGXP_MODE_INFO_0_SV NULL
+#define BEETLE_OPT_PGXP_MODE_INFO_0_SV "Gör det möjligt att rendera 3D-objekt med subpixelprecision, vilket minimerar förvrängning och jitter av 3D-objekt som ses på originalhårdvara på grund av användningen av vertexkoordinater med fast punkt. Läget ”Endast minne” har minimala kompatibilitetsproblem och rekommenderas för allmän användning. Läget ”Minne + CPU (Buggig)” kan minska jitter ytterligare, men har höga prestandakrav och kan orsaka olika geometriska fel."
 #define OPTION_VAL_MEMORY_ONLY_SV "Endast minne"
 #define OPTION_VAL_MEMORY_CPU_SV "Minne + CPU (Buggig)"
 #define BEETLE_OPT_PGXP_2D_TOL_LABEL_SV NULL
-#define BEETLE_OPT_PGXP_2D_TOL_INFO_0_SV NULL
+#define BEETLE_OPT_PGXP_2D_TOL_INFO_0_SV "Dölj fler uppenbara fel i PGXP-operationer: värdet anger toleransen inom vilken PGXP-värden kommer att behållas i fall av geometrier utan korrekt djupinformation."
 #define OPTION_VAL_0PX_SV NULL
 #define OPTION_VAL_1PX_SV NULL
 #define OPTION_VAL_2PX_SV NULL
@@ -71778,19 +74470,19 @@ struct retro_core_options_v2 options_sr = {
 #define OPTION_VAL_7PX_SV NULL
 #define OPTION_VAL_8PX_SV NULL
 #define BEETLE_OPT_PGXP_NCLIP_LABEL_SV NULL
-#define BEETLE_OPT_PGXP_NCLIP_INFO_0_SV NULL
+#define BEETLE_OPT_PGXP_NCLIP_INFO_0_SV "Använd PGXP: s NCLIP-implementering. Förbättrar utseendet genom att minska hål i geometrier med PGXP-koordinater. Känd för att orsaka att vissa spel låser sig under olika omständigheter."
 #define BEETLE_OPT_PGXP_VERTEX_LABEL_SV NULL
-#define BEETLE_OPT_PGXP_VERTEX_INFO_0_SV NULL
+#define BEETLE_OPT_PGXP_VERTEX_INFO_0_SV "Cachar PGXP-förbättrade vertexpositioner för återanvändning vid polygonritningar. Kan potentiellt förbättra objektinriktningen och minska synliga sömmar vid rendering av texturer, men falska positiva resultat vid förfrågan till cacheminnet kan ge grafiska störningar. För närvarande rekommenderas att detta alternativ är avaktiverat. Detta alternativ tillämpas endast när PGXP Operation Mode är aktiverat. Stöds endast av hårdvarurenderingarna."
 #define BEETLE_OPT_PGXP_TEXTURE_LABEL_SV NULL
-#define BEETLE_OPT_PGXP_TEXTURE_INFO_0_SV NULL
+#define BEETLE_OPT_PGXP_TEXTURE_INFO_0_SV "Ersätt den ursprungliga affina texturmappningen i PSX med perspektivkorrekt texturmappning. Eliminerar positionsberoende förvrängning och skevhet av texturer, vilket resulterar i korrekt inriktade texturer. Detta alternativ tillämpas endast när PGXP Operation Mode är aktiverat. Stöds endast av hårdvarurenderingarna."
 #define BEETLE_OPT_LINE_RENDER_LABEL_SV NULL
-#define BEETLE_OPT_LINE_RENDER_INFO_0_SV NULL
+#define BEETLE_OPT_LINE_RENDER_INFO_0_SV "Välj hackmetod för linje till fyrkant. Vissa spel (t.ex. Doom, Hexen, Soul Blade, etc.) ritar horisontella linjer genom att sträcka ut enpixelhöga trianglar över skärmen, som rastreras som en rad med pixlar på originalhårdvaran. Detta hack upptäcker dessa små trianglar och konverterar dem till kvadrater efter behov, vilket gör att de kan visas korrekt på hårdvarurenderaren och i uppskalade interna upplösningar. ”Aggressive” krävs för vissa titlar (t.ex. Dark Forces, Duke Nukem) men kan annars medföra grafiska problem. Lämna ”Standard” om du är osäker."
 #define OPTION_VAL_DEFAULT_SV "Standard"
 #define OPTION_VAL_AGGRESSIVE_SV "Aggressiv"
-#define BEETLE_OPT_WIDESCREEN_HACK_LABEL_SV NULL
-#define BEETLE_OPT_WIDESCREEN_HACK_INFO_0_SV NULL
-#define BEETLE_OPT_WIDESCREEN_HACK_ASPECT_RATIO_LABEL_SV NULL
-#define BEETLE_OPT_WIDESCREEN_HACK_ASPECT_RATIO_INFO_0_SV NULL
+#define BEETLE_OPT_WIDESCREEN_HACK_LABEL_SV "Hack för bredbildsläge"
+#define BEETLE_OPT_WIDESCREEN_HACK_INFO_0_SV "Rendera 3D-innehåll anamorfiskt och mata ut den emulerade framebufferten i ett bredbildsformat. Ger bäst resultat med spel som är helt i 3D. 2D-element kommer att sträckas ut horisontellt och kan vara feljusterade."
+#define BEETLE_OPT_WIDESCREEN_HACK_ASPECT_RATIO_LABEL_SV "Bildförhållande för bredbildshack"
+#define BEETLE_OPT_WIDESCREEN_HACK_ASPECT_RATIO_INFO_0_SV "Välj det bildförhållande som ska användas av hacket för bredbildsläge."
 #define OPTION_VAL_16_9_SV NULL
 #define OPTION_VAL_16_10_SV NULL
 #define OPTION_VAL_18_9_SV NULL
@@ -71799,7 +74491,7 @@ struct retro_core_options_v2 options_sr = {
 #define OPTION_VAL_21_9_SV NULL
 #define OPTION_VAL_32_9_SV NULL
 #define BEETLE_OPT_CPU_FREQ_SCALE_LABEL_SV "CPU-frekvens Skalning (Överklockning)"
-#define BEETLE_OPT_CPU_FREQ_SCALE_INFO_0_SV NULL
+#define BEETLE_OPT_CPU_FREQ_SCALE_INFO_0_SV "Överklocka (eller underklocka) den emulerade PSX-processorn. Överklockning kan eliminera inbromsningar och förbättra bildfrekvensen i vissa spel på bekostnad av ökade prestandakrav. Observera att vissa spel har en intern bildfrekvensbegränsare och kanske inte gynnas av överklockning. Kan leda till att vissa effekter animeras snabbare än avsett i vissa titlar vid överklockning."
 #define OPTION_VAL_100_NATIVE_SV "100% (Standard)"
 #define OPTION_VAL_210_SV NULL
 #define OPTION_VAL_220_SV NULL
@@ -71856,60 +74548,60 @@ struct retro_core_options_v2 options_sr = {
 #define OPTION_VAL_730_SV NULL
 #define OPTION_VAL_740_SV NULL
 #define OPTION_VAL_750_SV NULL
-#define BEETLE_OPT_GPU_OVERCLOCK_LABEL_SV NULL
-#define BEETLE_OPT_GPU_OVERCLOCK_INFO_0_SV NULL
+#define BEETLE_OPT_GPU_OVERCLOCK_LABEL_SV "Överklockning för GPU-rasterisering"
+#define BEETLE_OPT_GPU_OVERCLOCK_INFO_0_SV "Möjliggör överklockning av den 2D-rasterizer som finns i den emulerade PSX: ens GPU. Förbättrar inte 3D-rendering och har i allmänhet liten effekt."
 #define OPTION_VAL_32X_SV NULL
 #define BEETLE_OPT_GTE_OVERCLOCK_LABEL_SV "GTE Överklockning"
-#define BEETLE_OPT_GTE_OVERCLOCK_INFO_0_SV NULL
+#define BEETLE_OPT_GTE_OVERCLOCK_INFO_0_SV "Sänk alla emulerade GTE-operationer (CPU-koprocessor för 3D-grafik) till en konstant latens på en cykel. För spel som använder GTE i stor utsträckning kan detta förbättra bildfrekvensen och stabiliteten i bildtid avsevärt."
 #define BEETLE_OPT_SKIP_BIOS_LABEL_SV "Hoppa över BIOS"
-#define BEETLE_OPT_SKIP_BIOS_INFO_0_SV NULL
-#define BEETLE_OPT_OVERRIDE_BIOS_LABEL_SV NULL
-#define BEETLE_OPT_OVERRIDE_BIOS_INFO_0_SV NULL
+#define BEETLE_OPT_SKIP_BIOS_INFO_0_SV "Hoppa över PlayStation BIOS-startanimationen som normalt visas när innehåll laddas. Obs: Om du aktiverar detta uppstår kompatibilitetsproblem med ett antal spel (PAL-kopieringsskyddade spel, Saga Frontier etc.)."
+#define BEETLE_OPT_OVERRIDE_BIOS_LABEL_SV "Åsidosätt BIOS (omstart krävs)"
+#define BEETLE_OPT_OVERRIDE_BIOS_INFO_0_SV "Åsidosätt regionsspecifikt standard-BIOS med en regionsfri om hittats."
 #define OPTION_VAL_PSXONPSP_SV NULL
 #define OPTION_VAL_PS1_ROM_SV NULL
 #define BEETLE_OPT_RENDERER_LABEL_SV "Rendera (omstart krävs)"
-#define BEETLE_OPT_RENDERER_INFO_0_SV NULL
+#define BEETLE_OPT_RENDERER_INFO_0_SV "Mjukvarurenderingen är den mest exakta men har höga prestandakrav när den körs med högre interna GPU-upplösningar. Hårdvarurenderingen är visserligen mindre exakt, men ger bättre prestanda än mjukvarurenderingen vid högre interna upplösningar och möjliggör olika grafiska förbättringar. 'Hårdvara (Auto)' väljer automatiskt Vulkan- eller OpenGL-renderaren, beroende på den aktuella libretro frontend-videodrivrutinen. Om den medföljande videodrivrutinen inte är Vulkan- eller OpenGL 3.3-kompatibel kommer kärnan att falla tillbaka till mjukvarurenderingen."
 #define OPTION_VAL_HARDWARE_SV "Hårdvara (Auto)"
 #define OPTION_VAL_HARDWARE_GL_SV "Hårdvara (OpenGL)"
 #define OPTION_VAL_HARDWARE_VK_SV NULL
 #define OPTION_VAL_SOFTWARE_SV "Mjukvara"
 #define BEETLE_OPT_RENDERER_SOFTWARE_FB_LABEL_SV "Bildbuffer mjukvara"
-#define BEETLE_OPT_RENDERER_SOFTWARE_FB_INFO_0_SV NULL
+#define BEETLE_OPT_RENDERER_SOFTWARE_FB_INFO_0_SV "Möjliggör korrekt emulering av framebuffereffekter (t.ex. rörelseoskärpa, FF7-stridsvirvel) när du använder hårdvarurendering genom att köra en kopia av programvarurenderingen med inbyggd upplösning i bakgrunden. Om funktionen inaktiveras utelämnas dessa operationer (OpenGL) eller renderas på GPU:n (Vulkan). Inaktivering kan förbättra prestandan men kan orsaka allvarliga grafiska fel. Lämna aktiverat om du är osäker."
 #define BEETLE_OPT_CPU_DYNAREC_LABEL_SV NULL
-#define BEETLE_OPT_CPU_DYNAREC_INFO_0_SV NULL
+#define BEETLE_OPT_CPU_DYNAREC_INFO_0_SV "Dynamisk omkompilering av CPU-instruktioner till inbyggda instruktioner. Mycket snabbare än tolken, men CPU-timingen är inte lika exakt och kan innehålla buggar."
 #define OPTION_VAL_DISABLED_SV "Inaktiverad (Beetle Interpreter)"
 #define OPTION_VAL_EXECUTE_SV "Max prestanda"
 #define OPTION_VAL_EXECUTE_ONE_SV NULL
-#define OPTION_VAL_RUN_INTERPRETER_SV NULL
+#define OPTION_VAL_RUN_INTERPRETER_SV "Lightrec-tolk"
 #define BEETLE_OPT_DYNAREC_INVALIDATE_LABEL_SV NULL
-#define BEETLE_OPT_DYNAREC_INVALIDATE_INFO_0_SV NULL
+#define BEETLE_OPT_DYNAREC_INVALIDATE_INFO_0_SV "Vissa spel kräver \"Fullständig\" invalidering, vissa kräver \"Endast DMA\"."
 #define OPTION_VAL_FULL_SV NULL
-#define OPTION_VAL_DMA_SV NULL
+#define OPTION_VAL_DMA_SV "Endast DMA (lite snabbare)"
 #define BEETLE_OPT_DYNAREC_EVENTCYCLES_LABEL_SV NULL
-#define BEETLE_OPT_DYNAREC_EVENTCYCLES_INFO_0_SV NULL
+#define BEETLE_OPT_DYNAREC_EVENTCYCLES_INFO_0_SV "Max cykler som körs av CPU innan en GPU/DMA/MDEC/Timer-uppdatering kontrolleras, högre tal blir snabbare, har mycket mindre inverkan på Beetle-tolken än dynarec."
 #define OPTION_VAL_128_SV "128 (Standard)"
-#define BEETLE_OPT_DYNAREC_SPU_SAMPLES_LABEL_SV NULL
-#define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_SV NULL
-#define BEETLE_OPT_CORE_TIMING_FPS_LABEL_SV NULL
-#define BEETLE_OPT_CORE_TIMING_FPS_INFO_0_SV NULL
+#define BEETLE_OPT_DYNAREC_SPU_SAMPLES_LABEL_SV "Dynarec SPU-samplingar"
+#define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_SV "Max SPU-samplingar som ska köras innan en SPU-uppdatering kontrolleras, högre tal blir snabbare, men orsakar ljudstörningar i vissa spel med något annat än 1."
+#define BEETLE_OPT_CORE_TIMING_FPS_LABEL_SV "Kärnrapporterad bildfrekvenstiming"
+#define BEETLE_OPT_CORE_TIMING_FPS_INFO_0_SV "Välj den FPS-timing som kärnan ska rapportera till frontend. Automatisk växling gör det möjligt för kärnan att växla mellan att rapportera progressiva och sammanflätade hastigheter, men kan orsaka ominitieringar av frontend-drivrutiner för video/ljud."
+#define OPTION_VAL_AUTO_TOGGLE_SV "Tillåt automatisk växling"
 #define OPTION_VAL_FORCE_PROGRESSIVE_SV "Progressiv frekvens"
-#define OPTION_VAL_FORCE_INTERLACED_SV NULL
-#define OPTION_VAL_AUTO_TOGGLE_SV NULL
-#define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_LABEL_SV NULL
-#define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_SV NULL
+#define OPTION_VAL_FORCE_INTERLACED_SV "Tvinga frekvens med interlace"
+#define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_LABEL_SV "Åsidosätt PAL (Europeisk) videotiming"
+#define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_SV "På grund av olika standarder ser PAL-spel ofta långsammare ut jämfört med de amerikanska eller japanska NTSC-utgåvorna. Det här alternativet kan användas för att åsidosätta PAL-timings för att försöka köra dessa spel med NTSC-framerate. Det här alternativet har ingen effekt när du kör NTSC-innehåll."
 #define BEETLE_OPT_ASPECT_RATIO_LABEL_SV "Kärnspecifikt bildformat"
-#define BEETLE_OPT_ASPECT_RATIO_INFO_0_SV NULL
+#define BEETLE_OPT_ASPECT_RATIO_INFO_0_SV "Välj bildförhållande som anges i kärnan. Denna inställning ignoreras när alternativen Hack för bredbildsläge eller Visa fullständig VRAM är aktiverade."
 #define OPTION_VAL_CORRECTED_SV "Korrigerad"
 #define OPTION_VAL_UNCORRECTED_SV "Okorrigerad"
 #define OPTION_VAL_4_3_SV "Tvinga 4:3"
 #define OPTION_VAL_NTSC_SV "Tvinga NTSC"
 #define BEETLE_OPT_CROP_OVERSCAN_LABEL_SV "Beskär Overscan"
-#define BEETLE_OPT_CROP_OVERSCAN_INFO_0_SV NULL
+#define BEETLE_OPT_CROP_OVERSCAN_INFO_0_SV "”Ingen” behåller utfyllnaden (pilarboxar på båda sidor av bilden för NTSC, på alla sidor för PAL) för att emulera samma svarta fält som genereras i analog videoutgång av äkta PSX-hårdvara. ’Statisk’ tar bara bort horisontell utfyllnad, ”Dynamisk” tar bort all utfyllnad."
 #define OPTION_VAL_DISABLED_O59_SV "Ingen"
 #define OPTION_VAL_STATIC_SV "Statisk"
 #define OPTION_VAL_SMART_SV "Dynamisk (Standard)"
 #define BEETLE_OPT_IMAGE_CROP_LABEL_SV "Ytterligare beskärning"
-#define BEETLE_OPT_IMAGE_CROP_INFO_0_SV NULL
+#define BEETLE_OPT_IMAGE_CROP_INFO_0_SV "När ”Beskär horisontell överskanning” är aktiverat minskar detta alternativ bredden på den beskärda bilden med det angivna antalet bildpunkter."
 #define OPTION_VAL_9PX_SV NULL
 #define OPTION_VAL_10PX_SV NULL
 #define OPTION_VAL_11PX_SV NULL
@@ -71923,7 +74615,7 @@ struct retro_core_options_v2 options_sr = {
 #define OPTION_VAL_19PX_SV NULL
 #define OPTION_VAL_20PX_SV NULL
 #define BEETLE_OPT_IMAGE_OFFSET_LABEL_SV "Förskjutning beskuren bild"
-#define BEETLE_OPT_IMAGE_OFFSET_INFO_0_SV NULL
+#define BEETLE_OPT_IMAGE_OFFSET_INFO_0_SV "När ”Beskär horisontell överskanning” är aktiverat kan den beskärda bilden förskjutas horisontellt åt höger (positivt) eller vänster (negativt) med det angivna antalet bildpunkter. Kan användas för att korrigera justeringsproblem. Stöds endast av programvarurenderaren."
 #define OPTION_VAL_12PX_O61_SV NULL
 #define OPTION_VAL_11PX_O61_SV NULL
 #define OPTION_VAL_10PX_O61_SV NULL
@@ -71948,19 +74640,23 @@ struct retro_core_options_v2 options_sr = {
 #define OPTION_VAL_10PX_O61_0_SV NULL
 #define OPTION_VAL_11PX_O61_0_SV NULL
 #define OPTION_VAL_12PX_O61_0_SV NULL
-#define BEETLE_OPT_IMAGE_OFFSET_CYCLES_LABEL_SV NULL
-#define BEETLE_OPT_IMAGE_OFFSET_CYCLES_INFO_0_SV NULL
-#define BEETLE_OPT_INITIAL_SCANLINE_LABEL_SV NULL
-#define BEETLE_OPT_INITIAL_SCANLINE_INFO_0_SV NULL
+#define BEETLE_OPT_IMAGE_OFFSET_CYCLES_LABEL_SV "Horisontell bildförskjutning (GPU-cykler)"
+#define BEETLE_OPT_IMAGE_OFFSET_CYCLES_INFO_0_SV "Välj antal GPU-cykler som bilden ska förskjutas med. Positiva värden förflyttar bilden åt höger, negativa värden förflyttar bilden åt vänster. Stöds endast av hårdvarurenderare."
+#define BEETLE_OPT_INITIAL_SCANLINE_LABEL_SV "Initial skanlinje - NTSC"
+#define BEETLE_OPT_INITIAL_SCANLINE_INFO_0_SV "Välj den första skanlinjen som visas när du kör NTSC-innehåll. Värden större än noll minskar höjden på utmatade bilder genom att bildpunkter beskärs från den översta kanten. Kan användas för att motverka letterboxing."
 #define OPTION_VAL_0_O63_SV "0 (standard)"
-#define BEETLE_OPT_LAST_SCANLINE_LABEL_SV NULL
-#define BEETLE_OPT_LAST_SCANLINE_INFO_0_SV NULL
+#define BEETLE_OPT_LAST_SCANLINE_LABEL_SV "Sista skanlinje - NTSC"
+#define BEETLE_OPT_LAST_SCANLINE_INFO_0_SV "Välj den senast visade skanlinjen när du kör NTSC-innehåll. Värden mindre än 239 minskar höjden på utmatade bilder genom att bildpunkter beskärs från den nedersta kanten. Kan användas för att motverka letterboxing."
 #define OPTION_VAL_239_SV "239 (Standard)"
-#define BEETLE_OPT_INITIAL_SCANLINE_PAL_LABEL_SV NULL
-#define BEETLE_OPT_INITIAL_SCANLINE_PAL_INFO_0_SV NULL
+#define BEETLE_OPT_INITIAL_SCANLINE_PAL_LABEL_SV "Initial skanlinje - PAL"
+#define BEETLE_OPT_INITIAL_SCANLINE_PAL_INFO_0_SV "Välj den första skanlinjen som visas när PAL-innehåll körs. Värden större än noll minskar höjden på utmatade bilder genom att bildpunkter beskärs från den översta kanten. Kan användas för att motverka letterboxing."
 #define BEETLE_OPT_LAST_SCANLINE_PAL_LABEL_SV "Senast visade skanningslinje - PAL"
 #define BEETLE_OPT_LAST_SCANLINE_PAL_INFO_0_SV "Välj den senast visade skanningslinjen när du kör PAL-innehåll. Värden under 287 kommer att minska höjden på utdata bilder genom att beskära pixlar från den nedersta kanten. Kan användas för att motverka letterboxing."
 #define OPTION_VAL_287_SV "287 (Standard)"
+#define BEETLE_OPT_DEINTERLACER_LABEL_SV "Deinterlace-metod"
+#define BEETLE_OPT_DEINTERLACER_INFO_0_SV "”Weave” visar båda fälten på samma bildruta för en högupplöst stillbild, ’Bob’ offrar upplösningens tydlighet för rörelsens tydlighet."
+#define OPTION_VAL_WEAVE_SV NULL
+#define OPTION_VAL_BOB_SV NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_LABEL_SV "CD-åtkomstmetod (Omstart krävs)"
 #define BEETLE_OPT_CD_ACCESS_METHOD_INFO_0_SV "Välj metod för att läsa data från innehållsskivavbilder. \"Synkron\" efterliknar originalhårdvaran. \"Asynkron\" kan minska hackningar på enheter med långsam lagring. \"Förhandsinläsning\" laddar hela skivavbildningen i minnet vid start av innehållet, vilket kan förbättra inladdningstider i spelet på bekostnad av en initial fördröjning vid uppstart. \"Förhandsinläsning\" kan orsaka problem på system med lågt RAM och kommer att falla tillbaka till \"Synkron\" för fysiska medier."
 #define OPTION_VAL_SYNC_SV "Synkron"
@@ -73147,11 +75843,11 @@ struct retro_core_option_v2_definition option_defs_sv[] = {
       NULL,
       NULL,
       {
+         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_SV },
          { "force_progressive", OPTION_VAL_FORCE_PROGRESSIVE_SV },
          { "force_interlaced",  OPTION_VAL_FORCE_INTERLACED_SV },
-         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_SV },
       },
-      "force_progressive"
+      "auto_toggle"
    },
    {
       BEETLE_OPT(pal_video_timing_override),
@@ -73579,6 +76275,20 @@ struct retro_core_option_v2_definition option_defs_sv[] = {
       },
       "287"
    },
+   {
+      BEETLE_OPT(deinterlacer),
+      BEETLE_OPT_DEINTERLACER_LABEL_SV,
+      NULL,
+      BEETLE_OPT_DEINTERLACER_INFO_0_SV,
+      NULL,
+      "video",
+      {
+         { "weave",  OPTION_VAL_WEAVE_SV },
+         { "bob",  OPTION_VAL_BOB_SV },
+         { NULL, NULL },
+      },
+      "weave"
+   },
 #ifndef EMSCRIPTEN
    {
       BEETLE_OPT(cd_access_method),
@@ -73936,9 +76646,9 @@ struct retro_core_options_v2 options_sv = {
 #define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_TR "Bir SPU Güncellemesi kontrol edilmeden önce çalıştırılacak en fazla SPU örnekleri, daha yüksek sayı daha hızlı olacaktır, ancak bazı oyunlarda 1'den farklı herhangi bir değerde ses aksaklıklarına neden olacaktır."
 #define BEETLE_OPT_CORE_TIMING_FPS_LABEL_TR "Çekirdek Raporlu FPS Zamanlaması"
 #define BEETLE_OPT_CORE_TIMING_FPS_INFO_0_TR "Çekirdeğin ön uca raporlayacağı FPS zamanlamasını seçin. Otomatik Geçiş, çekirdeğin aşamalı ve geçmeli oranları raporlama arasında geçiş yapmasına izin verir, ancak ön uç video/ses sürücüsünün yeniden başlatılmasına neden olabilir."
+#define OPTION_VAL_AUTO_TOGGLE_TR "Otomatik Geçişe İzin Ver"
 #define OPTION_VAL_FORCE_PROGRESSIVE_TR "Aşamalı Oran"
 #define OPTION_VAL_FORCE_INTERLACED_TR "Geçişli Oran Zorla"
-#define OPTION_VAL_AUTO_TOGGLE_TR "Otomatik Geçişe İzin Ver"
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_LABEL_TR "PAL (Avrupa) Video Zamanlamasını Geçersiz Kıl"
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_TR "Farklı standartlar nedeni ile, PAL oyunları genellikle Amerikan veya Japon NTSC sürümlerine kıyasla yavaşlamış görünür. Bu seçenek, bu oyunları NTSC kare hızıyla çalıştırmayı denemek için PAL zamanlamalarını geçersiz kılmak için kullanılabilir. NTSC içeriğini çalıştırırken bu seçeneğin hiçbir etkisi yoktur."
 #define BEETLE_OPT_ASPECT_RATIO_LABEL_TR "Çekirdek En Boy Oranı"
@@ -74005,6 +76715,10 @@ struct retro_core_options_v2 options_sv = {
 #define BEETLE_OPT_LAST_SCANLINE_PAL_LABEL_TR "Son Tarama Hattı - PAL"
 #define BEETLE_OPT_LAST_SCANLINE_PAL_INFO_0_TR "PAL içeriğini çalıştırırken son görüntülenen tarama satırını seçin. 287'nin altındaki değerler, pikselleri en alt kenardan kırparak çıktı görüntülerinin yüksekliğini azaltır. Aksaklığa karşı koymak için kullanılabilir."
 #define OPTION_VAL_287_TR "287 (Varsayılan)"
+#define BEETLE_OPT_DEINTERLACER_LABEL_TR "Taramasızlaştırma Yöntemi"
+#define BEETLE_OPT_DEINTERLACER_INFO_0_TR "'Weave' yüksek çözünürlüklü sabit görüntü için aynı karede her iki alanı da gösterirken, 'Bob' hareket netliği uğruna çözünürlük netliğinden ödün verir."
+#define OPTION_VAL_WEAVE_TR NULL
+#define OPTION_VAL_BOB_TR NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_LABEL_TR "CD Erişim Yöntemi (Yeniden Başlatılmalı)"
 #define BEETLE_OPT_CD_ACCESS_METHOD_INFO_0_TR "İçerik disk kalıplarından veri okumak için kullanılan yöntemi seçin. 'Eşzamanlı' orijinal donanımı taklit eder. 'Eşzamansız', yavaş depolamaya sahip cihazlarda yavaşlığı azaltabilir. 'Önbellek', içeriği başlatırken tüm disk kalıbını belleğe yükler; bu, başlangıçtaki ilk gecikme pahasına oyun içi yükleme sürelerini iyileştirebilir. 'Önbellek', düşük RAM'e sahip sistemlerde sorunlara neden olabilir ve fiziksel ortam için 'Eşzamanlı' durumuna geri döner."
 #define OPTION_VAL_SYNC_TR "Eşzamanlı"
@@ -75191,11 +77905,11 @@ struct retro_core_option_v2_definition option_defs_tr[] = {
       NULL,
       NULL,
       {
+         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_TR },
          { "force_progressive", OPTION_VAL_FORCE_PROGRESSIVE_TR },
          { "force_interlaced",  OPTION_VAL_FORCE_INTERLACED_TR },
-         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_TR },
       },
-      "force_progressive"
+      "auto_toggle"
    },
    {
       BEETLE_OPT(pal_video_timing_override),
@@ -75623,6 +78337,20 @@ struct retro_core_option_v2_definition option_defs_tr[] = {
       },
       "287"
    },
+   {
+      BEETLE_OPT(deinterlacer),
+      BEETLE_OPT_DEINTERLACER_LABEL_TR,
+      NULL,
+      BEETLE_OPT_DEINTERLACER_INFO_0_TR,
+      NULL,
+      "video",
+      {
+         { "weave",  OPTION_VAL_WEAVE_TR },
+         { "bob",  OPTION_VAL_BOB_TR },
+         { NULL, NULL },
+      },
+      "weave"
+   },
 #ifndef EMSCRIPTEN
    {
       BEETLE_OPT(cd_access_method),
@@ -75980,9 +78708,9 @@ struct retro_core_options_v2 options_tr = {
 #define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_TT NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_LABEL_TT NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_INFO_0_TT NULL
+#define OPTION_VAL_AUTO_TOGGLE_TT NULL
 #define OPTION_VAL_FORCE_PROGRESSIVE_TT NULL
 #define OPTION_VAL_FORCE_INTERLACED_TT NULL
-#define OPTION_VAL_AUTO_TOGGLE_TT NULL
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_LABEL_TT NULL
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_TT NULL
 #define BEETLE_OPT_ASPECT_RATIO_LABEL_TT NULL
@@ -76049,6 +78777,10 @@ struct retro_core_options_v2 options_tr = {
 #define BEETLE_OPT_LAST_SCANLINE_PAL_LABEL_TT NULL
 #define BEETLE_OPT_LAST_SCANLINE_PAL_INFO_0_TT NULL
 #define OPTION_VAL_287_TT NULL
+#define BEETLE_OPT_DEINTERLACER_LABEL_TT NULL
+#define BEETLE_OPT_DEINTERLACER_INFO_0_TT NULL
+#define OPTION_VAL_WEAVE_TT NULL
+#define OPTION_VAL_BOB_TT NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_LABEL_TT NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_INFO_0_TT NULL
 #define OPTION_VAL_SYNC_TT NULL
@@ -77235,11 +79967,11 @@ struct retro_core_option_v2_definition option_defs_tt[] = {
       NULL,
       NULL,
       {
+         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_TT },
          { "force_progressive", OPTION_VAL_FORCE_PROGRESSIVE_TT },
          { "force_interlaced",  OPTION_VAL_FORCE_INTERLACED_TT },
-         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_TT },
       },
-      "force_progressive"
+      "auto_toggle"
    },
    {
       BEETLE_OPT(pal_video_timing_override),
@@ -77667,6 +80399,20 @@ struct retro_core_option_v2_definition option_defs_tt[] = {
       },
       "287"
    },
+   {
+      BEETLE_OPT(deinterlacer),
+      BEETLE_OPT_DEINTERLACER_LABEL_TT,
+      NULL,
+      BEETLE_OPT_DEINTERLACER_INFO_0_TT,
+      NULL,
+      "video",
+      {
+         { "weave",  OPTION_VAL_WEAVE_TT },
+         { "bob",  OPTION_VAL_BOB_TT },
+         { NULL, NULL },
+      },
+      "weave"
+   },
 #ifndef EMSCRIPTEN
    {
       BEETLE_OPT(cd_access_method),
@@ -78024,9 +80770,9 @@ struct retro_core_options_v2 options_tt = {
 #define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_UK "Максимум зразків SPU для запуску перед тим, як буде встановлено оновлення SPU, вище число буде швидшим, але призведе до падіння звуку в деяких іграх із іншими, окрім 1."
 #define BEETLE_OPT_CORE_TIMING_FPS_LABEL_UK "Таймінг з ядром та повідомлення на FPS"
 #define BEETLE_OPT_CORE_TIMING_FPS_INFO_0_UK "Виберіть FPS timing, які буде повідомляти ядро на фронтенд. Автоматичне перемикання дозволяє перемикатися ядра між прогресивними та перехресними ставками, але може призвести до повторних змін інтерфейсу відео/аудіосупроводу."
+#define OPTION_VAL_AUTO_TOGGLE_UK "Дозволити автоматичний перемикач"
 #define OPTION_VAL_FORCE_PROGRESSIVE_UK "Прогресивна швидкість"
 #define OPTION_VAL_FORCE_INTERLACED_UK "Примусова швидкість перетину"
-#define OPTION_VAL_AUTO_TOGGLE_UK "Дозволити автоматичний перемикач"
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_LABEL_UK "Перевизначити відеотаймінг PAL (European)"
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_UK "Через різні стандарти PAL ігри часто виявляються уповільненими порівняно з звільненнями Американського або Японського NTSC релізів. Ця опція може бути використана для перевизначення PAL таймінгів, щоб спробувати запустити ці ігри з частотою кадрів NTSC. Ця опція не діє під час запуску NTSC контенту."
 #define BEETLE_OPT_ASPECT_RATIO_LABEL_UK "Співвідношення сторін ядра"
@@ -78093,6 +80839,10 @@ struct retro_core_options_v2 options_tt = {
 #define BEETLE_OPT_LAST_SCANLINE_PAL_LABEL_UK "Останнє сканування рядка - PAL"
 #define BEETLE_OPT_LAST_SCANLINE_PAL_INFO_0_UK "Виберіть останній показаний рядок сканування при запуску PAL-вмісту. Значення нижче 287 зменшить висоту зображень, обрізані пікселі з нижньої частини кута. Може бути використано для протидії буквації."
 #define OPTION_VAL_287_UK "287 (Типово)"
+#define BEETLE_OPT_DEINTERLACER_LABEL_UK "Метод Деінтерлейса"
+#define BEETLE_OPT_DEINTERLACER_INFO_0_UK "'Weave' показує обидві поля в одному і тому ж рамі для повної версії зображення з високою роздільною здатністю, 'Bob' жертвує чіткість для точності руху."
+#define OPTION_VAL_WEAVE_UK "Візерунок"
+#define OPTION_VAL_BOB_UK "Боб"
 #define BEETLE_OPT_CD_ACCESS_METHOD_LABEL_UK "CD метод доступу (потрібен перезапуск)"
 #define BEETLE_OPT_CD_ACCESS_METHOD_INFO_0_UK "Виберіть метод, який використовується для читання даних із вмісту дискових зображень. 'Синхронізувати' оригінальне обладнання. 'Асинхронне' може зменшити таймер на пристроях з повільним сховищем. 'Попередній кеш' завантажує весь диск в пам'ять під час запуску вмісту, які можуть покращити час завантаження в грі ціною початкової затримки під час запуску. 'Pre-Cache' може спричинити проблеми для систем з малим обсягом оперативної пам'яті і повернутися до 'Синхронізувати' для фізичних медіа."
 #define OPTION_VAL_SYNC_UK "Синхронний"
@@ -79279,11 +82029,11 @@ struct retro_core_option_v2_definition option_defs_uk[] = {
       NULL,
       NULL,
       {
+         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_UK },
          { "force_progressive", OPTION_VAL_FORCE_PROGRESSIVE_UK },
          { "force_interlaced",  OPTION_VAL_FORCE_INTERLACED_UK },
-         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_UK },
       },
-      "force_progressive"
+      "auto_toggle"
    },
    {
       BEETLE_OPT(pal_video_timing_override),
@@ -79711,6 +82461,20 @@ struct retro_core_option_v2_definition option_defs_uk[] = {
       },
       "287"
    },
+   {
+      BEETLE_OPT(deinterlacer),
+      BEETLE_OPT_DEINTERLACER_LABEL_UK,
+      NULL,
+      BEETLE_OPT_DEINTERLACER_INFO_0_UK,
+      NULL,
+      "video",
+      {
+         { "weave",  OPTION_VAL_WEAVE_UK },
+         { "bob",  OPTION_VAL_BOB_UK },
+         { NULL, NULL },
+      },
+      "weave"
+   },
 #ifndef EMSCRIPTEN
    {
       BEETLE_OPT(cd_access_method),
@@ -80068,9 +82832,9 @@ struct retro_core_options_v2 options_uk = {
 #define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_VAL NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_LABEL_VAL NULL
 #define BEETLE_OPT_CORE_TIMING_FPS_INFO_0_VAL NULL
+#define OPTION_VAL_AUTO_TOGGLE_VAL NULL
 #define OPTION_VAL_FORCE_PROGRESSIVE_VAL NULL
 #define OPTION_VAL_FORCE_INTERLACED_VAL NULL
-#define OPTION_VAL_AUTO_TOGGLE_VAL NULL
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_LABEL_VAL NULL
 #define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_VAL NULL
 #define BEETLE_OPT_ASPECT_RATIO_LABEL_VAL NULL
@@ -80137,6 +82901,10 @@ struct retro_core_options_v2 options_uk = {
 #define BEETLE_OPT_LAST_SCANLINE_PAL_LABEL_VAL NULL
 #define BEETLE_OPT_LAST_SCANLINE_PAL_INFO_0_VAL NULL
 #define OPTION_VAL_287_VAL NULL
+#define BEETLE_OPT_DEINTERLACER_LABEL_VAL NULL
+#define BEETLE_OPT_DEINTERLACER_INFO_0_VAL NULL
+#define OPTION_VAL_WEAVE_VAL NULL
+#define OPTION_VAL_BOB_VAL NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_LABEL_VAL NULL
 #define BEETLE_OPT_CD_ACCESS_METHOD_INFO_0_VAL NULL
 #define OPTION_VAL_SYNC_VAL NULL
@@ -81323,11 +84091,11 @@ struct retro_core_option_v2_definition option_defs_val[] = {
       NULL,
       NULL,
       {
+         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_VAL },
          { "force_progressive", OPTION_VAL_FORCE_PROGRESSIVE_VAL },
          { "force_interlaced",  OPTION_VAL_FORCE_INTERLACED_VAL },
-         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_VAL },
       },
-      "force_progressive"
+      "auto_toggle"
    },
    {
       BEETLE_OPT(pal_video_timing_override),
@@ -81755,6 +84523,20 @@ struct retro_core_option_v2_definition option_defs_val[] = {
       },
       "287"
    },
+   {
+      BEETLE_OPT(deinterlacer),
+      BEETLE_OPT_DEINTERLACER_LABEL_VAL,
+      NULL,
+      BEETLE_OPT_DEINTERLACER_INFO_0_VAL,
+      NULL,
+      "video",
+      {
+         { "weave",  OPTION_VAL_WEAVE_VAL },
+         { "bob",  OPTION_VAL_BOB_VAL },
+         { NULL, NULL },
+      },
+      "weave"
+   },
 #ifndef EMSCRIPTEN
    {
       BEETLE_OPT(cd_access_method),
@@ -81800,80 +84582,80 @@ struct retro_core_options_v2 options_val = {
 
 /* RETRO_LANGUAGE_VN */
 
-#define CATEGORY_VIDEO_LABEL_VN "Hình ảnh"
-#define CATEGORY_VIDEO_INFO_0_VN NULL
+#define CATEGORY_VIDEO_LABEL_VN NULL
+#define CATEGORY_VIDEO_INFO_0_VN "Thay đổi tỷ lệ khung hình, cắt xén màn hình, bộ lọc video và cài đặt bỏ qua khung hình."
 #define CATEGORY_OSD_LABEL_VN "Hiển thị trên màn hình"
-#define CATEGORY_OSD_INFO_0_VN NULL
-#define CATEGORY_INPUT_LABEL_VN "Input Driver"
-#define CATEGORY_INPUT_INFO_0_VN NULL
+#define CATEGORY_OSD_INFO_0_VN "Thay đổi thông báo hiển thị trên màn hình."
+#define CATEGORY_INPUT_LABEL_VN "Đều khiển"
+#define CATEGORY_INPUT_INFO_0_VN "Thay đổi cài đặt súng ánh sáng, chuột và neGcon."
 #define CATEGORY_MEMCARDS_LABEL_VN "Thẻ nhớ"
-#define CATEGORY_MEMCARDS_INFO_0_VN NULL
-#define CATEGORY_PGXP_LABEL_VN NULL
-#define CATEGORY_PGXP_INFO_0_VN NULL
-#define CATEGORY_HACKS_LABEL_VN "Hacks giả lập"
-#define CATEGORY_HACKS_INFO_0_VN NULL
-#define BEETLE_OPT_INTERNAL_RESOLUTION_LABEL_VN NULL
-#define BEETLE_OPT_INTERNAL_RESOLUTION_INFO_0_VN NULL
-#define OPTION_VAL_1X_NATIVE_VN NULL
+#define CATEGORY_MEMCARDS_INFO_0_VN "Thay đổi cài đặt liên quan đến Thẻ nhớ ảo được hệ thống sử dụng."
+#define CATEGORY_PGXP_LABEL_VN "PGXP (Đường ống biến đổi hình học chính xác)"
+#define CATEGORY_PGXP_INFO_0_VN "Các tùy chọn này kiểm soát các cải tiến có thể cải thiện đồ họa so với máy chơi game gốc. PGXP có thể loại bỏ hiện tượng cong vênh kết cấu và lỗi Z-fighting."
+#define CATEGORY_HACKS_LABEL_VN "Thủ thuật giả lập"
+#define CATEGORY_HACKS_INFO_0_VN "Thay đổi cài đặt ép xung bộ xử lý và độ chính xác mô phỏng ảnh hưởng đến hiệu suất và khả năng tương thích cấp thấp."
+#define BEETLE_OPT_INTERNAL_RESOLUTION_LABEL_VN "Độ phân giải GPU nội bộ"
+#define BEETLE_OPT_INTERNAL_RESOLUTION_INFO_0_VN "Chọn hệ số nhân độ phân giải nội bộ. Độ phân giải cao hơn “1x (gốc)” sẽ cải thiện độ chi tiết của mô hình 3D nhưng đòi hỏi hiệu năng cao hơn. Các phần tử 2D nhìn chung không bị ảnh hưởng bởi thiết lập này."
+#define OPTION_VAL_1X_NATIVE_VN "1x (gốc)"
 #define OPTION_VAL_2X_VN NULL
 #define OPTION_VAL_4X_VN NULL
 #define OPTION_VAL_8X_VN NULL
 #define OPTION_VAL_16X_VN NULL
-#define BEETLE_OPT_DEPTH_LABEL_VN NULL
-#define BEETLE_OPT_DEPTH_INFO_0_VN NULL
-#define OPTION_VAL_16BPP_NATIVE_VN NULL
+#define BEETLE_OPT_DEPTH_LABEL_VN "Độ sâu màu nội bộ"
+#define BEETLE_OPT_DEPTH_INFO_0_VN "Chọn độ sâu màu nội bộ. Độ sâu màu cao hơn có thể giảm hiện tượng sọc màu mà không cần dùng kỹ thuật dither. 16 bpp mô phỏng phần cứng gốc nhưng có thể xuất hiện sọc màu nếu dither không được bật. Khuyến nghị tắt “Mẫu dither” khi tùy chọn này đặt ở 32 bpp."
+#define OPTION_VAL_16BPP_NATIVE_VN "16 bpp (Gốc)"
 #define OPTION_VAL_32BPP_VN NULL
-#define BEETLE_OPT_DITHER_MODE_LABEL_VN NULL
-#define BEETLE_OPT_DITHER_MODE_INFO_0_VN NULL
-#define OPTION_VAL_INTERNAL_RESOLUTION_VN NULL
-#define BEETLE_OPT_SCALED_UV_OFFSET_LABEL_VN NULL
-#define BEETLE_OPT_SCALED_UV_OFFSET_INFO_0_VN NULL
-#define BEETLE_OPT_FILTER_LABEL_VN NULL
-#define BEETLE_OPT_FILTER_INFO_0_VN NULL
-#define OPTION_VAL_NEAREST_VN NULL
+#define BEETLE_OPT_DITHER_MODE_LABEL_VN "Mẫu dither"
+#define BEETLE_OPT_DITHER_MODE_INFO_0_VN "Chọn cấu hình mẫu dither. “1x (Gốc)” mô phỏng dither độ phân giải thấp gốc do phần cứng ban đầu sử dụng để làm mượt các sọc màu nhìn thấy ở độ sâu màu gốc. “Độ phân giải nội bộ” sẽ chia tỷ lệ chi tiết dither theo độ phân giải nội bộ đã thiết lập để cho kết quả sạch hơn. Khuyến nghị tắt khi chạy ở độ sâu màu 32 bpp.Lưu ý: Trên Vulkan, bật tùy chọn này sẽ buộc giảm mẫu xuống độ sâu màu gốc, trong khi tắt sẽ tự động bật xuất ở độ sâu màu cao hơn."
+#define OPTION_VAL_INTERNAL_RESOLUTION_VN "Độ phân giải nội bộ"
+#define BEETLE_OPT_SCALED_UV_OFFSET_LABEL_VN "Độ lệch UV kết cấu"
+#define BEETLE_OPT_SCALED_UV_OFFSET_INFO_0_VN "Mẫu kết cấu cho đa giác 3D với độ lệch khi độ phân giải nội bộ cao hơn 1x. Giảm các đường nối kết cấu nhưng có thể gây ra lỗi đồ họa không mong muốn."
+#define BEETLE_OPT_FILTER_LABEL_VN "Lọc kết cấu"
+#define BEETLE_OPT_FILTER_INFO_0_VN "Chọn phương pháp lọc kết cấu. 'Gần nhất' mô phỏng phần cứng gốc. 'Bilinear' và '3-Point' là bộ lọc làm mượt, giảm pixel bằng cách làm mờ. 'SABR', 'xBR' và 'JINC2' là bộ lọc nâng cấp có thể cải thiện độ nét/kết cấu nhưng đòi hỏi hiệu năng cao hơn. Chỉ được hỗ trợ bởi các bộ dựng phần cứng."
+#define OPTION_VAL_NEAREST_VN "Gần nhất"
 #define OPTION_VAL_SABR_VN NULL
 #define OPTION_VAL_XBR_VN NULL
-#define OPTION_VAL_BILINEAR_VN NULL
+#define OPTION_VAL_BILINEAR_VN "Lọc song tuyến"
 #define OPTION_VAL_3_POINT_VN NULL
 #define OPTION_VAL_JINC2_VN NULL
-#define BEETLE_OPT_FILTER_EXCLUDE_SPRITE_LABEL_VN NULL
-#define BEETLE_OPT_FILTER_EXCLUDE_SPRITE_INFO_0_VN NULL
-#define OPTION_VAL_OPAQUE_VN NULL
-#define OPTION_VAL_ALL_VN NULL
-#define BEETLE_OPT_FILTER_EXCLUDE_2D_POLYGON_LABEL_VN NULL
-#define BEETLE_OPT_FILTER_EXCLUDE_2D_POLYGON_INFO_0_VN NULL
-#define BEETLE_OPT_ADAPTIVE_SMOOTHING_LABEL_VN NULL
-#define BEETLE_OPT_ADAPTIVE_SMOOTHING_INFO_0_VN NULL
-#define BEETLE_OPT_SUPER_SAMPLING_LABEL_VN NULL
-#define BEETLE_OPT_SUPER_SAMPLING_INFO_0_VN NULL
-#define BEETLE_OPT_MSAA_LABEL_VN NULL
-#define BEETLE_OPT_MSAA_INFO_0_VN NULL
+#define BEETLE_OPT_FILTER_EXCLUDE_SPRITE_LABEL_VN "Loại trừ Sprites khỏi bộ lọc"
+#define BEETLE_OPT_FILTER_EXCLUDE_SPRITE_INFO_0_VN "Không áp dụng lọc kết cấu cho sprites. Ngăn các đường nối trong nhiều trò chơi với nền được vẽ bằng sprite 2D. Sử dụng cùng với Làm mượt thích ứng hoặc bộ lọc xử lý hậu kỳ khác để đạt hiệu quả tốt nhất."
+#define OPTION_VAL_OPAQUE_VN "Chỉ mờ đục"
+#define OPTION_VAL_ALL_VN "Mờ đục và bán trong suốt"
+#define BEETLE_OPT_FILTER_EXCLUDE_2D_POLYGON_LABEL_VN "Loại trừ đa giác 2D khỏi Lọc"
+#define BEETLE_OPT_FILTER_EXCLUDE_2D_POLYGON_INFO_0_VN "Không áp dụng lọc kết cấu cho đa giác 2D. Các đa giác 2D được phát hiện bằng phương pháp heuristic và có thể xảy ra lỗi. Sử dụng cùng với Làm mượt thích ứng hoặc bộ lọc xử lý hậu kỳ khác để đạt hiệu quả tốt nhất."
+#define BEETLE_OPT_ADAPTIVE_SMOOTHING_LABEL_VN "Làm mượt thích ứng"
+#define BEETLE_OPT_ADAPTIVE_SMOOTHING_INFO_0_VN "Làm mượt đồ họa 2D và các phần tử giao diện mà không làm mờ các đối tượng 3D được dựng hình. Chỉ được hỗ trợ bởi bộ kết xuất Vulkan."
+#define BEETLE_OPT_SUPER_SAMPLING_LABEL_VN "Siêu lấy mẫu (về độ phân giải gốc)"
+#define BEETLE_OPT_SUPER_SAMPLING_INFO_0_VN "Giảm mẫu nội dung đã dựng từ độ phân giải nội bộ được nâng cấp xuống độ phân giải gốc. Kết hợp với hệ số độ phân giải nội bộ cao hơn cho phép trò chơi hiển thị các đối tượng 3D được làm mịn răng cưa ở độ phân giải gốc thấp. Cho kết quả tốt nhất khi áp dụng cho các tựa game kết hợp cả 2D và 3D (ví dụ: nhân vật 3D trên nền dựng sẵn), và hoạt động tốt với shader CRT.Chỉ được hỗ trợ bởi bộ kết xuất Vulkan. Lưu ý: nên tắt “Mẫu tô bóng Dithering” khi bật tùy chọn này."
+#define BEETLE_OPT_MSAA_LABEL_VN "Khử răng cưa đa mẫu (Msaa)"
+#define BEETLE_OPT_MSAA_INFO_0_VN "Chọn mức MSAA cho nội dung được dựng. Cải thiện chất lượng hiển thị của các đối tượng 3D. Chỉ được hỗ trợ bởi bộ kết xuất Vulkan."
 #define OPTION_VAL_1X_VN NULL
-#define BEETLE_OPT_MDEC_YUV_LABEL_VN NULL
-#define BEETLE_OPT_MDEC_YUV_INFO_0_VN NULL
-#define BEETLE_OPT_TRACK_TEXTURES_LABEL_VN NULL
-#define BEETLE_OPT_TRACK_TEXTURES_INFO_0_VN NULL
-#define BEETLE_OPT_DUMP_TEXTURES_LABEL_VN NULL
-#define BEETLE_OPT_DUMP_TEXTURES_INFO_0_VN NULL
-#define BEETLE_OPT_REPLACE_TEXTURES_LABEL_VN NULL
-#define BEETLE_OPT_REPLACE_TEXTURES_INFO_0_VN NULL
-#define BEETLE_OPT_WIREFRAME_LABEL_VN NULL
-#define BEETLE_OPT_WIREFRAME_INFO_0_VN NULL
-#define BEETLE_OPT_FRAME_DUPING_LABEL_VN NULL
-#define BEETLE_OPT_FRAME_DUPING_INFO_0_VN NULL
-#define BEETLE_OPT_DISPLAY_INTERNAL_FPS_LABEL_VN NULL
-#define BEETLE_OPT_DISPLAY_INTERNAL_FPS_INFO_0_VN NULL
-#define BEETLE_OPT_DISPLAY_OSD_LABEL_VN NULL
-#define BEETLE_OPT_DISPLAY_OSD_INFO_0_VN NULL
-#define BEETLE_OPT_DISPLAY_VRAM_LABEL_VN NULL
-#define BEETLE_OPT_DISPLAY_VRAM_INFO_0_VN NULL
-#define BEETLE_OPT_ANALOG_CALIBRATION_LABEL_VN NULL
-#define BEETLE_OPT_ANALOG_CALIBRATION_INFO_0_VN NULL
-#define BEETLE_OPT_ANALOG_TOGGLE_LABEL_VN NULL
-#define BEETLE_OPT_ANALOG_TOGGLE_INFO_0_VN NULL
-#define OPTION_VAL_ENABLED_ANALOG_VN NULL
-#define BEETLE_OPT_ANALOG_TOGGLE_COMBO_LABEL_VN NULL
-#define BEETLE_OPT_ANALOG_TOGGLE_COMBO_INFO_0_VN NULL
+#define BEETLE_OPT_MDEC_YUV_LABEL_VN "Bộ lọc MDEC YUV Chroma"
+#define BEETLE_OPT_MDEC_YUV_INFO_0_VN "Cải thiện chất lượng phát lại FMV bằng cách giảm hiện tượng khối vuông (macroblocking) và răng cưa. Chỉ được hỗ trợ bởi bộ kết xuất Vulkan."
+#define BEETLE_OPT_TRACK_TEXTURES_LABEL_VN "Theo dõi kết cấu"
+#define BEETLE_OPT_TRACK_TEXTURES_INFO_0_VN "Điều kiện cần để trích xuất và thay thế kết cấu. Có thể sẽ làm hầu hết trò chơi bị treo."
+#define BEETLE_OPT_DUMP_TEXTURES_LABEL_VN "Xuất kết cấu"
+#define BEETLE_OPT_DUMP_TEXTURES_INFO_0_VN "Xuất các kết cấu đang dùng vào thư mục <cd>-texture-dump/"
+#define BEETLE_OPT_REPLACE_TEXTURES_LABEL_VN "Thay thế kết cấu"
+#define BEETLE_OPT_REPLACE_TEXTURES_INFO_0_VN "Thay thế kết cấu bằng các phiên bản HD từ thư mục <cd>-texture-replacements/"
+#define BEETLE_OPT_WIREFRAME_LABEL_VN "Chế độ Khung Dây (Gỡ lỗi)"
+#define BEETLE_OPT_WIREFRAME_INFO_0_VN "Hiển thị các mô hình 3D dưới dạng khung dây mà không có texture hoặc shading. Chỉ được hỗ trợ bởi bộ xử lý đồ họa OpenGL. Lưu ý: Chế độ này chỉ dùng để gỡ lỗi và thường nên tắt."
+#define BEETLE_OPT_FRAME_DUPING_LABEL_VN "Nhân khung hình (Tăng tốc)"
+#define BEETLE_OPT_FRAME_DUPING_INFO_0_VN "Khi bật và được frontend libretro hỗ trợ, tính năng này cung cấp một chút cải thiện hiệu năng bằng cách lặp lại khung hình trước nếu core không có gì mới để hiển thị."
+#define BEETLE_OPT_DISPLAY_INTERNAL_FPS_LABEL_VN "Hiển thị FPS nội bộ"
+#define BEETLE_OPT_DISPLAY_INTERNAL_FPS_INFO_0_VN "Hiển thị tốc độ khung hình nội bộ mà hệ thống PlayStation giả lập đang render nội dung. Lưu ý: Cần bật thông báo trên màn hình trong frontend libretro."
+#define BEETLE_OPT_DISPLAY_OSD_LABEL_VN "Hiển thị thông báo OSD"
+#define BEETLE_OPT_DISPLAY_OSD_INFO_0_VN "Hiển thị các thông báo OSD do core tạo ra."
+#define BEETLE_OPT_DISPLAY_VRAM_LABEL_VN "Hiển thị toàn bộ VRAM (Gỡ lỗi)"
+#define BEETLE_OPT_DISPLAY_VRAM_INFO_0_VN "Hiển thị toàn bộ VRAM của console giả lập. Chỉ được hỗ trợ bởi bộ xử lý đồ họa OpenGL và Vulkan. Lưu ý: Chế độ này chỉ dùng để gỡ lỗi và thường nên tắt."
+#define BEETLE_OPT_ANALOG_CALIBRATION_LABEL_VN "Tự hiệu chuẩn Analog"
+#define BEETLE_OPT_ANALOG_CALIBRATION_INFO_0_VN "Khi thiết bị điều khiển được đặt là DualShock, Tay cầm Analog, Joystick Analog, hoặc neGcon, tùy chọn này cho phép hiệu chuẩn động các tín hiệu analog. Giá trị nhập tối đa được theo dõi theo thời gian thực và dùng để tỷ lệ hóa tọa độ analog gửi tới trình giả lập. Nên dùng cho các game như Mega Man Legends 2, vốn yêu cầu giá trị lớn hơn những gì tay cầm hiện đại cung cấp. Để có kết quả tốt nhất, cần xoay cần analog hết mức mỗi lần tải nội dung để hiệu chuẩn thuật toán."
+#define BEETLE_OPT_ANALOG_TOGGLE_LABEL_VN "Chuyển chế độ Analog DualShock"
+#define BEETLE_OPT_ANALOG_TOGGLE_INFO_0_VN "Khi loại thiết bị điều khiển là DualShock, tùy chọn này cho phép DualShock giả lập chuyển đổi giữa chế độ KỸ THUẬT SỐ và CHUẨN ANALOG như phần cứng gốc. Chế độ cũng có thể được chuyển bằng tổ hợp nút đã chọn."
+#define OPTION_VAL_ENABLED_ANALOG_VN "Analog Mặc định"
+#define BEETLE_OPT_ANALOG_TOGGLE_COMBO_LABEL_VN "Tổ hợp chế độ Analog của DualShock"
+#define BEETLE_OPT_ANALOG_TOGGLE_COMBO_INFO_0_VN "Chọn tổ hợp nút sẽ được dùng để chuyển đổi giữa chế độ SỐ (DIGITAL) và TƯƠNG TỰ (ANALOG) cho tay cầm DualShock giả lập."
 #define OPTION_VAL_L1_L2_R1_R2_START_SELECT_VN NULL
 #define OPTION_VAL_L1_R1_SELECT_VN NULL
 #define OPTION_VAL_L1_R1_START_VN NULL
@@ -81884,43 +84666,43 @@ struct retro_core_options_v2 options_val = {
 #define OPTION_VAL_L2_R2_L3_VN NULL
 #define OPTION_VAL_L2_R2_R3_VN NULL
 #define OPTION_VAL_L3_R3_VN NULL
-#define BEETLE_OPT_ANALOG_TOGGLE_HOLD_LABEL_VN NULL
-#define BEETLE_OPT_ANALOG_TOGGLE_HOLD_INFO_0_VN NULL
-#define OPTION_VAL_0_VN NULL
-#define OPTION_VAL_1_VN NULL
-#define OPTION_VAL_2_VN NULL
-#define OPTION_VAL_3_VN NULL
-#define OPTION_VAL_4_VN NULL
-#define OPTION_VAL_5_VN NULL
-#define BEETLE_OPT_ENABLE_MULTITAP_PORT1_LABEL_VN NULL
-#define BEETLE_OPT_ENABLE_MULTITAP_PORT1_INFO_0_VN NULL
-#define BEETLE_OPT_ENABLE_MULTITAP_PORT2_LABEL_VN NULL
-#define BEETLE_OPT_ENABLE_MULTITAP_PORT2_INFO_0_VN NULL
-#define BEETLE_OPT_GUN_INPUT_MODE_LABEL_VN NULL
-#define BEETLE_OPT_GUN_INPUT_MODE_INFO_0_VN NULL
-#define OPTION_VAL_LIGHTGUN_VN NULL
-#define OPTION_VAL_TOUCHSCREEN_VN NULL
-#define BEETLE_OPT_GUN_CURSOR_LABEL_VN NULL
-#define BEETLE_OPT_GUN_CURSOR_INFO_0_VN NULL
-#define OPTION_VAL_CROSS_VN NULL
-#define OPTION_VAL_DOT_VN NULL
-#define OPTION_VAL_OFF_VN NULL
-#define BEETLE_OPT_CROSSHAIR_COLOR_P1_LABEL_VN NULL
-#define BEETLE_OPT_CROSSHAIR_COLOR_P1_INFO_0_VN NULL
-#define OPTION_VAL_RED_VN NULL
-#define OPTION_VAL_BLUE_VN NULL
-#define OPTION_VAL_GREEN_VN NULL
-#define OPTION_VAL_ORANGE_VN NULL
-#define OPTION_VAL_YELLOW_VN NULL
-#define OPTION_VAL_CYAN_VN NULL
-#define OPTION_VAL_PINK_VN NULL
-#define OPTION_VAL_PURPLE_VN NULL
-#define OPTION_VAL_BLACK_VN NULL
-#define OPTION_VAL_WHITE_VN NULL
-#define BEETLE_OPT_CROSSHAIR_COLOR_P2_LABEL_VN NULL
-#define BEETLE_OPT_CROSSHAIR_COLOR_P2_INFO_0_VN NULL
-#define BEETLE_OPT_MOUSE_SENSITIVITY_LABEL_VN NULL
-#define BEETLE_OPT_MOUSE_SENSITIVITY_INFO_0_VN NULL
+#define BEETLE_OPT_ANALOG_TOGGLE_HOLD_LABEL_VN "Độ trễ giữ tổ hợp chế độ Analog của DualShock"
+#define BEETLE_OPT_ANALOG_TOGGLE_HOLD_INFO_0_VN "Đặt thời gian giữ tổ hợp nút để kích hoạt chế độ analog."
+#define OPTION_VAL_0_VN "Độ trễ 0 giây"
+#define OPTION_VAL_1_VN "Trễ 1 giây"
+#define OPTION_VAL_2_VN "Trễ 2 giây"
+#define OPTION_VAL_3_VN "Trễ 3 giây"
+#define OPTION_VAL_4_VN "Trễ 4 giây"
+#define OPTION_VAL_5_VN "Trễ 5 giây"
+#define BEETLE_OPT_ENABLE_MULTITAP_PORT1_LABEL_VN "Cổng 1: Bật đa tay cầm"
+#define BEETLE_OPT_ENABLE_MULTITAP_PORT1_INFO_0_VN "Bật chức năng đa tay cầm trên cổng 1."
+#define BEETLE_OPT_ENABLE_MULTITAP_PORT2_LABEL_VN "Cổng 2: Bật đa tay cầm"
+#define BEETLE_OPT_ENABLE_MULTITAP_PORT2_INFO_0_VN "Bật chức năng đa tay cầm trên cổng 2."
+#define BEETLE_OPT_GUN_INPUT_MODE_LABEL_VN "Chế độ nhập liệu súng"
+#define BEETLE_OPT_GUN_INPUT_MODE_INFO_0_VN "Chọn sử dụng 'Súng ánh sáng' điều khiển bằng chuột hoặc nhập liệu bằng 'Màn hình cảm ứng' khi loại thiết bị được đặt là 'Guncon/G-Con 45' hoặc 'Justifier'."
+#define OPTION_VAL_LIGHTGUN_VN "Súng ánh sáng"
+#define OPTION_VAL_TOUCHSCREEN_VN "Màn hình cảm ứng"
+#define BEETLE_OPT_GUN_CURSOR_LABEL_VN "Con trỏ súng"
+#define BEETLE_OPT_GUN_CURSOR_INFO_0_VN "Chọn con trỏ súng để hiển thị trên màn hình khi sử dụng các loại thiết bị nhập liệu Guncon/G-Con 45 và Justifier. Khi tắt, tâm ngắm sẽ luôn bị ẩn."
+#define OPTION_VAL_CROSS_VN "Dấu cộng"
+#define OPTION_VAL_DOT_VN "Dấu chấm"
+#define OPTION_VAL_OFF_VN "Không có con trỏ"
+#define BEETLE_OPT_CROSSHAIR_COLOR_P1_LABEL_VN "Cổng 1: Màu tâm ngắm súng"
+#define BEETLE_OPT_CROSSHAIR_COLOR_P1_INFO_0_VN "Chọn màu tâm ngắm súng cho cổng 1."
+#define OPTION_VAL_RED_VN "Đỏ"
+#define OPTION_VAL_BLUE_VN "Xanh dương"
+#define OPTION_VAL_GREEN_VN "Xanh lá"
+#define OPTION_VAL_ORANGE_VN "Cam"
+#define OPTION_VAL_YELLOW_VN "Vàng"
+#define OPTION_VAL_CYAN_VN "Lục lam"
+#define OPTION_VAL_PINK_VN "Hồng"
+#define OPTION_VAL_PURPLE_VN "Tím"
+#define OPTION_VAL_BLACK_VN "Đen"
+#define OPTION_VAL_WHITE_VN "Trắng"
+#define BEETLE_OPT_CROSSHAIR_COLOR_P2_LABEL_VN "Cổng 2: Màu Chấm Ngắm Súng"
+#define BEETLE_OPT_CROSSHAIR_COLOR_P2_INFO_0_VN "Chọn màu chấm ngắm cho súng ánh sáng ở cổng 2."
+#define BEETLE_OPT_MOUSE_SENSITIVITY_LABEL_VN "Độ nhạy Chuột"
+#define BEETLE_OPT_MOUSE_SENSITIVITY_INFO_0_VN "Chọn mức phản hồi của thiết bị nhập liệu loại “Chuột”."
 #define OPTION_VAL_5_O29_VN NULL
 #define OPTION_VAL_10_VN NULL
 #define OPTION_VAL_15_VN NULL
@@ -81940,7 +84722,7 @@ struct retro_core_options_v2 options_val = {
 #define OPTION_VAL_85_VN NULL
 #define OPTION_VAL_90_VN NULL
 #define OPTION_VAL_95_VN NULL
-#define OPTION_VAL_100_VN NULL
+#define OPTION_VAL_100_VN "100% (Mặc định)"
 #define OPTION_VAL_105_VN NULL
 #define OPTION_VAL_110_VN NULL
 #define OPTION_VAL_115_VN NULL
@@ -81961,33 +84743,33 @@ struct retro_core_options_v2 options_val = {
 #define OPTION_VAL_190_VN NULL
 #define OPTION_VAL_195_VN NULL
 #define OPTION_VAL_200_VN NULL
-#define BEETLE_OPT_NEGCON_RESPONSE_LABEL_VN NULL
-#define BEETLE_OPT_NEGCON_RESPONSE_INFO_0_VN NULL
-#define OPTION_VAL_LINEAR_VN NULL
-#define OPTION_VAL_QUADRATIC_VN NULL
-#define OPTION_VAL_CUBIC_VN NULL
-#define BEETLE_OPT_NEGCON_DEADZONE_LABEL_VN NULL
-#define BEETLE_OPT_NEGCON_DEADZONE_INFO_0_VN NULL
+#define BEETLE_OPT_NEGCON_RESPONSE_LABEL_VN "phản hồi xoay neGcon"
+#define BEETLE_OPT_NEGCON_RESPONSE_INFO_0_VN "Chọn kiểu phản hồi của cần analog trái RetroPad khi mô phỏng thao tác “xoay” của thiết bị nhập liệu neGcon giả lập. Độ lệch của cần analog có thể được gán nút thành góc xoay neGcon theo dạng tuyến tính, bậc hai hoặc bậc ba. “Bậc hai” cho độ chính xác cao hơn “Tuyến tính” khi thực hiện các chuyển động nhỏ. “Bậc ba” còn tăng độ chính xác chuyển động nhỏ hơn nữa, nhưng sẽ “phóng đại” các chuyển động lớn.Lưu ý: “Tuyến tính” chỉ được khuyến nghị khi sử dụng vô lăng đua. Tay cầm thông thường xử lý điều khiển analog theo cách khác hoàn toàn với cơ chế “xoay” của neGcon, do đó ánh xạ tuyến tính sẽ khuếch đại quá mức chuyển động nhỏ, làm giảm khả năng điều khiển chính xác. Trong hầu hết các trường hợp, “Bậc hai” cho độ gần giống nhất với phần cứng thật."
+#define OPTION_VAL_LINEAR_VN "Tuyến tính"
+#define OPTION_VAL_QUADRATIC_VN "Bậc hai"
+#define OPTION_VAL_CUBIC_VN "Bậc ba"
+#define BEETLE_OPT_NEGCON_DEADZONE_LABEL_VN "vùng chết xoay neGcon"
+#define BEETLE_OPT_NEGCON_DEADZONE_INFO_0_VN "Chọn vùng chết của cần analog trái RetroPad khi mô phỏng thao tác “xoay” của thiết bị nhập liệu neGcon giả lập. Dùng để loại bỏ hiện tượng trôi cần điều khiển.Lưu ý: Phần lớn trò chơi hỗ trợ neGcon có tùy chọn thiết lập vùng chết “xoay” ngay trong game. Để tránh mất độ chính xác, vùng chết trong game nên luôn đặt về 0. Mọi điều chỉnh cần thiết chỉ nên thực hiện qua tùy chọn core này. Điều này đặc biệt quan trọng khi “Phản hồi xoay neGcon” được đặt là “Bậc hai” hoặc “Bậc ba”."
 #define OPTION_VAL_0_O31_VN NULL
-#define BEETLE_OPT_USE_MEDNAFEN_MEMCARD0_METHOD_LABEL_VN NULL
-#define BEETLE_OPT_USE_MEDNAFEN_MEMCARD0_METHOD_INFO_0_VN NULL
+#define BEETLE_OPT_USE_MEDNAFEN_MEMCARD0_METHOD_LABEL_VN "Phương thức Thẻ nhớ 0 (Cần khởi động lại)"
+#define BEETLE_OPT_USE_MEDNAFEN_MEMCARD0_METHOD_INFO_0_VN "Chọn định dạng dữ liệu lưu cho thẻ nhớ 0. Có thể dùng “Mednafen” để tương thích với phiên bản độc lập của Mednafen. Khi sử dụng với Beetle PSX, file lưu Libretro (.srm) và Mednafen (.mcr) có định dạng nội bộ giống hệt nhau và có thể chuyển đổi qua lại chỉ bằng cách đổi tên."
 #define OPTION_VAL_LIBRETRO_VN NULL
 #define OPTION_VAL_MEDNAFEN_VN NULL
-#define BEETLE_OPT_ENABLE_MEMCARD1_LABEL_VN NULL
-#define BEETLE_OPT_ENABLE_MEMCARD1_INFO_0_VN NULL
-#define BEETLE_OPT_SHARED_MEMORY_CARDS_LABEL_VN NULL
-#define BEETLE_OPT_SHARED_MEMORY_CARDS_INFO_0_VN NULL
-#define BEETLE_OPT_MEMCARD_LEFT_INDEX_LABEL_VN NULL
-#define BEETLE_OPT_MEMCARD_LEFT_INDEX_INFO_0_VN NULL
-#define BEETLE_OPT_MEMCARD_RIGHT_INDEX_LABEL_VN NULL
-#define BEETLE_OPT_MEMCARD_RIGHT_INDEX_INFO_0_VN NULL
-#define OPTION_VAL_1_O36_VN NULL
-#define BEETLE_OPT_PGXP_MODE_LABEL_VN NULL
-#define BEETLE_OPT_PGXP_MODE_INFO_0_VN NULL
-#define OPTION_VAL_MEMORY_ONLY_VN NULL
-#define OPTION_VAL_MEMORY_CPU_VN NULL
-#define BEETLE_OPT_PGXP_2D_TOL_LABEL_VN NULL
-#define BEETLE_OPT_PGXP_2D_TOL_INFO_0_VN NULL
+#define BEETLE_OPT_ENABLE_MEMCARD1_LABEL_VN "Bật Thẻ nhớ 1 (Cần khởi động lại)"
+#define BEETLE_OPT_ENABLE_MEMCARD1_INFO_0_VN "Mô phỏng thẻ nhớ thứ hai ở khe 1. Khi tắt, trò chơi chỉ có thể truy cập thẻ nhớ ở khe 0. Lưu ý: Một số trò chơi yêu cầu tùy chọn này bị tắt để hoạt động đúng (ví dụ: Codename Tenka). Lưu ý: Thẻ nhớ 1 sử dụng định dạng lưu Mednafen (.mcr)."
+#define BEETLE_OPT_SHARED_MEMORY_CARDS_LABEL_VN "Thẻ nhớ chia sẻ (Cần khởi động lại)"
+#define BEETLE_OPT_SHARED_MEMORY_CARDS_INFO_0_VN "Khi bật, tất cả trò chơi sẽ lưu và tải từ cùng một file thẻ nhớ. Khi tắt, file thẻ nhớ riêng sẽ được tạo cho mỗi nội dung được tải. Lưu ý: nếu “Phương pháp Thẻ nhớ 0” được đặt là Libretro, chỉ thẻ bên phải bị ảnh hưởng."
+#define BEETLE_OPT_MEMCARD_LEFT_INDEX_LABEL_VN "Chỉ số Thẻ nhớ bên trái"
+#define BEETLE_OPT_MEMCARD_LEFT_INDEX_INFO_0_VN "Thay đổi thẻ nhớ đang được tải ở khe trái. Tùy chọn này chỉ hoạt động nếu phương pháp Thẻ nhớ 0 được đặt là Mednafen. Thẻ mặc định là chỉ số 0."
+#define BEETLE_OPT_MEMCARD_RIGHT_INDEX_LABEL_VN "Chỉ số Thẻ nhớ bên phải"
+#define BEETLE_OPT_MEMCARD_RIGHT_INDEX_INFO_0_VN "Thay đổi thẻ nhớ đang được tải ở khe phải. Tùy chọn này chỉ hoạt động nếu Thẻ nhớ 1 được bật. Thẻ mặc định là chỉ số 1."
+#define OPTION_VAL_1_O36_VN "1 (Mặc định)"
+#define BEETLE_OPT_PGXP_MODE_LABEL_VN "Chế độ hoạt động PGXP"
+#define BEETLE_OPT_PGXP_MODE_INFO_0_VN "Cho phép các đối tượng 3D được hiển thị với độ chính xác từng điểm con, giảm thiểu méo và rung của các đối tượng 3D nhìn thấy trên phần cứng gốc do việc sử dụng tọa độ đỉnh điểm cố định. Chế độ “Chỉ bộ nhớ” có ít vấn đề tương thích và được khuyến nghị sử dụng chung. Chế độ “Bộ nhớ + CPU (Có lỗi)” có thể giảm rung nhiều hơn nhưng yêu cầu hiệu năng cao và có thể gây ra lỗi hình học khác nhau."
+#define OPTION_VAL_MEMORY_ONLY_VN "Chỉ bộ nhớ"
+#define OPTION_VAL_MEMORY_CPU_VN "Bộ nhớ + CPU (Có lỗi)"
+#define BEETLE_OPT_PGXP_2D_TOL_LABEL_VN "Ngưỡng hình học 2D PGXP"
+#define BEETLE_OPT_PGXP_2D_TOL_INFO_0_VN "Ẩn những lỗi hiển nhiên hơn trong hoạt động PGXP: giá trị này xác định độ dung sai mà các giá trị PGXP sẽ được giữ trong trường hợp hình học không có thông tin độ sâu phù hợp."
 #define OPTION_VAL_0PX_VN NULL
 #define OPTION_VAL_1PX_VN NULL
 #define OPTION_VAL_2PX_VN NULL
@@ -81997,20 +84779,20 @@ struct retro_core_options_v2 options_val = {
 #define OPTION_VAL_6PX_VN NULL
 #define OPTION_VAL_7PX_VN NULL
 #define OPTION_VAL_8PX_VN NULL
-#define BEETLE_OPT_PGXP_NCLIP_LABEL_VN NULL
-#define BEETLE_OPT_PGXP_NCLIP_INFO_0_VN NULL
-#define BEETLE_OPT_PGXP_VERTEX_LABEL_VN NULL
-#define BEETLE_OPT_PGXP_VERTEX_INFO_0_VN NULL
-#define BEETLE_OPT_PGXP_TEXTURE_LABEL_VN NULL
-#define BEETLE_OPT_PGXP_TEXTURE_INFO_0_VN NULL
-#define BEETLE_OPT_LINE_RENDER_LABEL_VN NULL
-#define BEETLE_OPT_LINE_RENDER_INFO_0_VN NULL
-#define OPTION_VAL_DEFAULT_VN NULL
-#define OPTION_VAL_AGGRESSIVE_VN NULL
-#define BEETLE_OPT_WIDESCREEN_HACK_LABEL_VN NULL
-#define BEETLE_OPT_WIDESCREEN_HACK_INFO_0_VN NULL
-#define BEETLE_OPT_WIDESCREEN_HACK_ASPECT_RATIO_LABEL_VN NULL
-#define BEETLE_OPT_WIDESCREEN_HACK_ASPECT_RATIO_INFO_0_VN NULL
+#define BEETLE_OPT_PGXP_NCLIP_LABEL_VN "Loại bỏ hình nguyên PGXP"
+#define BEETLE_OPT_PGXP_NCLIP_INFO_0_VN "Sử dụng triển khai NCLIP của PGXP. Cải thiện hình ảnh bằng cách giảm các lỗ trong hình học có tọa độ PGXP. Được biết có thể khiến một số trò chơi bị treo trong một số trường hợp."
+#define BEETLE_OPT_PGXP_VERTEX_LABEL_VN "Bộ nhớ đệm đỉnh PGXP"
+#define BEETLE_OPT_PGXP_VERTEX_INFO_0_VN "Lưu trữ tạm thời các vị trí đỉnh được nâng cấp bởi PGXP để tái sử dụng khi vẽ đa giác. Có thể cải thiện sự căn chỉnh đối tượng và giảm các đường nối hiển thị khi kết xuất kết cấu, nhưng kết quả sai khi truy vấn bộ nhớ đệm có thể gây ra lỗi đồ họa. Hiện tại khuyến nghị giữ tùy chọn này tắt. Tùy chọn này chỉ áp dụng khi chế độ hoạt động PGXP được bật. Chỉ được hỗ trợ bởi các bộ kết xuất phần cứng."
+#define BEETLE_OPT_PGXP_TEXTURE_LABEL_VN "Kết cấu theo phối cảnh PGXP"
+#define BEETLE_OPT_PGXP_TEXTURE_INFO_0_VN "Thay thế việc ánh xạ texture affine gốc của PSX bằng ánh xạ texture đúng phối cảnh. Loại bỏ hiện tượng biến dạng và vênh vị trí của texture, đảm bảo texture được căn chỉnh chính xác. Tùy chọn này chỉ áp dụng khi Chế độ Hoạt động PGXP được bật. Chỉ được hỗ trợ bởi các bộ dựng phần cứng."
+#define BEETLE_OPT_LINE_RENDER_LABEL_VN "Mẹo chuyển dòng thành hình tứ giác"
+#define BEETLE_OPT_LINE_RENDER_INFO_0_VN "Chọn phương pháp chuyển dòng thành hình tứ giác. Một số trò chơi (ví dụ: Doom, Hexen, Soul Blade, v.v.) vẽ các đường ngang bằng cách kéo dài các tam giác cao một pixel trên màn hình, vốn được raster hóa thành một hàng pixel trên phần cứng gốc. Mẹo này phát hiện các tam giác nhỏ này và chuyển đổi chúng thành hình tứ giác theo yêu cầu, cho phép hiển thị đúng trên bộ dựng phần cứng và ở độ phân giải nội bộ được nâng lên. Chế độ ‘Mạnh’ cần thiết cho một số trò chơi (ví dụ: Dark Forces, Duke Nukem) nhưng có thể gây ra lỗi đồ họa ở các tựa khác. Để ở ‘Mặc định’ nếu không chắc chắn."
+#define OPTION_VAL_DEFAULT_VN "Mặc định"
+#define OPTION_VAL_AGGRESSIVE_VN "Mạnh"
+#define BEETLE_OPT_WIDESCREEN_HACK_LABEL_VN "Mẹo Chế độ Màn hình Rộng"
+#define BEETLE_OPT_WIDESCREEN_HACK_INFO_0_VN "Hiển thị nội dung 3D theo dạng anamorphic và xuất framebuffer giả lập ở tỷ lệ màn hình rộng. Cho kết quả tốt nhất với các trò chơi hoàn toàn 3D. Các yếu tố 2D sẽ bị kéo ngang và có thể không căn chỉnh đúng."
+#define BEETLE_OPT_WIDESCREEN_HACK_ASPECT_RATIO_LABEL_VN "Tỷ lệ khung hình của Mẹo Chế độ Màn hình Rộng"
+#define BEETLE_OPT_WIDESCREEN_HACK_ASPECT_RATIO_INFO_0_VN "Chọn tỷ lệ khung hình được sử dụng bởi Mẹo Chế độ Màn hình Rộng."
 #define OPTION_VAL_16_9_VN NULL
 #define OPTION_VAL_16_10_VN NULL
 #define OPTION_VAL_18_9_VN NULL
@@ -82018,9 +84800,9 @@ struct retro_core_options_v2 options_val = {
 #define OPTION_VAL_20_9_VN NULL
 #define OPTION_VAL_21_9_VN NULL
 #define OPTION_VAL_32_9_VN NULL
-#define BEETLE_OPT_CPU_FREQ_SCALE_LABEL_VN NULL
-#define BEETLE_OPT_CPU_FREQ_SCALE_INFO_0_VN NULL
-#define OPTION_VAL_100_NATIVE_VN NULL
+#define BEETLE_OPT_CPU_FREQ_SCALE_LABEL_VN "Điều chỉnh tần số CPU (Ép xung)"
+#define BEETLE_OPT_CPU_FREQ_SCALE_INFO_0_VN "Ép xung (hoặc giảm xung) CPU của PSX giả lập. Ép xung có thể loại bỏ hiện tượng chậm và cải thiện tốc độ khung hình trong một số trò chơi, đổi lại yêu cầu hiệu năng cao hơn. Lưu ý rằng một số trò chơi có bộ giới hạn khung hình nội bộ và có thể không hưởng lợi từ việc ép xung. Có thể khiến một số hiệu ứng trong một số trò chơi chạy nhanh hơn so với dự định khi ép xung."
+#define OPTION_VAL_100_NATIVE_VN "100% (Nguyên bản)"
 #define OPTION_VAL_210_VN NULL
 #define OPTION_VAL_220_VN NULL
 #define OPTION_VAL_230_VN NULL
@@ -82076,60 +84858,60 @@ struct retro_core_options_v2 options_val = {
 #define OPTION_VAL_730_VN NULL
 #define OPTION_VAL_740_VN NULL
 #define OPTION_VAL_750_VN NULL
-#define BEETLE_OPT_GPU_OVERCLOCK_LABEL_VN NULL
-#define BEETLE_OPT_GPU_OVERCLOCK_INFO_0_VN NULL
+#define BEETLE_OPT_GPU_OVERCLOCK_LABEL_VN "Ép xung bộ xử lý đồ họa (GPU Rasterizer)"
+#define BEETLE_OPT_GPU_OVERCLOCK_INFO_0_VN "Bật ép xung bộ raster 2D bên trong GPU giả lập của PSX. Không cải thiện việc hiển thị 3D và nhìn chung tác động rất nhỏ."
 #define OPTION_VAL_32X_VN NULL
-#define BEETLE_OPT_GTE_OVERCLOCK_LABEL_VN NULL
-#define BEETLE_OPT_GTE_OVERCLOCK_INFO_0_VN NULL
-#define BEETLE_OPT_SKIP_BIOS_LABEL_VN NULL
-#define BEETLE_OPT_SKIP_BIOS_INFO_0_VN NULL
-#define BEETLE_OPT_OVERRIDE_BIOS_LABEL_VN NULL
-#define BEETLE_OPT_OVERRIDE_BIOS_INFO_0_VN NULL
-#define OPTION_VAL_PSXONPSP_VN NULL
-#define OPTION_VAL_PS1_ROM_VN NULL
-#define BEETLE_OPT_RENDERER_LABEL_VN NULL
-#define BEETLE_OPT_RENDERER_INFO_0_VN NULL
-#define OPTION_VAL_HARDWARE_VN NULL
-#define OPTION_VAL_HARDWARE_GL_VN NULL
-#define OPTION_VAL_HARDWARE_VK_VN NULL
-#define OPTION_VAL_SOFTWARE_VN NULL
-#define BEETLE_OPT_RENDERER_SOFTWARE_FB_LABEL_VN NULL
-#define BEETLE_OPT_RENDERER_SOFTWARE_FB_INFO_0_VN NULL
-#define BEETLE_OPT_CPU_DYNAREC_LABEL_VN NULL
-#define BEETLE_OPT_CPU_DYNAREC_INFO_0_VN NULL
-#define OPTION_VAL_DISABLED_VN NULL
-#define OPTION_VAL_EXECUTE_VN NULL
-#define OPTION_VAL_EXECUTE_ONE_VN NULL
-#define OPTION_VAL_RUN_INTERPRETER_VN NULL
-#define BEETLE_OPT_DYNAREC_INVALIDATE_LABEL_VN NULL
-#define BEETLE_OPT_DYNAREC_INVALIDATE_INFO_0_VN NULL
-#define OPTION_VAL_FULL_VN NULL
-#define OPTION_VAL_DMA_VN NULL
-#define BEETLE_OPT_DYNAREC_EVENTCYCLES_LABEL_VN NULL
-#define BEETLE_OPT_DYNAREC_EVENTCYCLES_INFO_0_VN NULL
-#define OPTION_VAL_128_VN NULL
-#define BEETLE_OPT_DYNAREC_SPU_SAMPLES_LABEL_VN NULL
-#define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_VN NULL
-#define BEETLE_OPT_CORE_TIMING_FPS_LABEL_VN NULL
-#define BEETLE_OPT_CORE_TIMING_FPS_INFO_0_VN NULL
-#define OPTION_VAL_FORCE_PROGRESSIVE_VN NULL
-#define OPTION_VAL_FORCE_INTERLACED_VN NULL
-#define OPTION_VAL_AUTO_TOGGLE_VN NULL
-#define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_LABEL_VN NULL
-#define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_VN NULL
-#define BEETLE_OPT_ASPECT_RATIO_LABEL_VN NULL
-#define BEETLE_OPT_ASPECT_RATIO_INFO_0_VN NULL
-#define OPTION_VAL_CORRECTED_VN NULL
-#define OPTION_VAL_UNCORRECTED_VN NULL
-#define OPTION_VAL_4_3_VN NULL
-#define OPTION_VAL_NTSC_VN NULL
-#define BEETLE_OPT_CROP_OVERSCAN_LABEL_VN NULL
-#define BEETLE_OPT_CROP_OVERSCAN_INFO_0_VN NULL
+#define BEETLE_OPT_GTE_OVERCLOCK_LABEL_VN "Ép xung GTE"
+#define BEETLE_OPT_GTE_OVERCLOCK_INFO_0_VN "Giảm tất cả các thao tác GTE giả lập (bộ coprocesor CPU cho đồ họa 3D) xuống độ trễ cố định một chu kỳ. Đối với các game sử dụng nhiều GTE, điều này có thể cải thiện đáng kể tốc độ khung hình và độ ổn định thời gian khung hình."
+#define BEETLE_OPT_SKIP_BIOS_LABEL_VN "Bỏ qua BIOS"
+#define BEETLE_OPT_SKIP_BIOS_INFO_0_VN "Bỏ qua hoạt ảnh khởi động BIOS của PlayStation thường hiển thị khi tải nội dung. Lưu ý: Bật tùy chọn này có thể gây vấn đề tương thích với một số game (game PAL có bảo vệ bản quyền, Saga Frontier, v.v.)."
+#define BEETLE_OPT_OVERRIDE_BIOS_LABEL_VN "Ghi đè BIOS (Cần khởi động lại)"
+#define BEETLE_OPT_OVERRIDE_BIOS_INFO_0_VN "Ghi đè BIOS theo vùng tiêu chuẩn bằng một BIOS không phân vùng nếu tìm thấy."
+#define OPTION_VAL_PSXONPSP_VN "BIOS PS1 cho PSP"
+#define OPTION_VAL_PS1_ROM_VN "BIOS PS1 cho PS3"
+#define BEETLE_OPT_RENDERER_LABEL_VN "Bộ dựng hình (Cần khởi động lại)"
+#define BEETLE_OPT_RENDERER_INFO_0_VN "Bộ dựng hình phần mềm chính xác nhất nhưng yêu cầu hiệu năng cao khi chạy ở độ phân giải GPU nội bộ tăng. Bộ dựng hình phần cứng, mặc dù ít chính xác hơn, cải thiện hiệu năng so với phần mềm ở độ phân giải nội bộ cao và cho phép nhiều nâng cấp đồ họa. “Phần cứng (Tự động)” tự động chọn bộ dựng Vulkan hoặc OpenGL, tùy thuộc vào trình điều khiển video của frontend libretro hiện tại. Nếu trình điều khiển video không tương thích Vulkan hoặc OpenGL 3.3, core sẽ quay về bộ dựng hình phần mềm."
+#define OPTION_VAL_HARDWARE_VN "Phần cứng (Tự động)"
+#define OPTION_VAL_HARDWARE_GL_VN "Phần cứng (OpenGL)"
+#define OPTION_VAL_HARDWARE_VK_VN "Phần cứng (Vulkan)"
+#define OPTION_VAL_SOFTWARE_VN "Phần mềm"
+#define BEETLE_OPT_RENDERER_SOFTWARE_FB_LABEL_VN "Bộ nhớ khung phần mềm"
+#define BEETLE_OPT_RENDERER_SOFTWARE_FB_INFO_0_VN "Bật mô phỏng chính xác các hiệu ứng bộ nhớ khung (ví dụ: mờ chuyển động, xoáy chiến đấu FF7) khi sử dụng bộ kết xuất phần cứng bằng cách chạy một bản sao bộ kết xuất phần mềm ở độ phân giải gốc trong nền. Nếu tắt, các thao tác này sẽ bị bỏ qua (OpenGL) hoặc được kết xuất trên GPU (Vulkan). Tắt có thể cải thiện hiệu năng nhưng có thể gây lỗi đồ họa nghiêm trọng. Giữ bật nếu không chắc chắn."
+#define BEETLE_OPT_CPU_DYNAREC_LABEL_VN "Biên dịch động CPU"
+#define BEETLE_OPT_CPU_DYNAREC_INFO_0_VN "Biên dịch động các lệnh CPU thành lệnh gốc. Nhanh hơn nhiều so với thông dịch, nhưng thời gian CPU kém chính xác và có thể có lỗi."
+#define OPTION_VAL_DISABLED_VN "Tắt (Thông dịch Beetle)"
+#define OPTION_VAL_EXECUTE_VN "Hiệu năng tối đa"
+#define OPTION_VAL_EXECUTE_ONE_VN "Kiểm tra thời gian chu kỳ"
+#define OPTION_VAL_RUN_INTERPRETER_VN "Thông dịch Lightrec"
+#define BEETLE_OPT_DYNAREC_INVALIDATE_LABEL_VN "Vô hiệu hóa mã Biên dịch động"
+#define BEETLE_OPT_DYNAREC_INVALIDATE_INFO_0_VN "Một số trò chơi yêu cầu vô hiệu hóa ‘Toàn bộ’, một số yêu cầu ‘Chỉ DMA’."
+#define OPTION_VAL_FULL_VN "Toàn bộ"
+#define OPTION_VAL_DMA_VN "Chỉ DMA (Nhanh hơn một chút)"
+#define BEETLE_OPT_DYNAREC_EVENTCYCLES_LABEL_VN "Chu kỳ sự kiện Dynarec DMA/GPU/MDEC/Bộ hẹn giờ"
+#define BEETLE_OPT_DYNAREC_EVENTCYCLES_INFO_0_VN "Số chu kỳ tối đa CPU chạy trước khi kiểm tra cập nhật GPU/DMA/MDEC/Bộ hẹn giờ."
+#define OPTION_VAL_128_VN "128 (Mặc định)"
+#define BEETLE_OPT_DYNAREC_SPU_SAMPLES_LABEL_VN "Mẫu SPU Dynarec"
+#define BEETLE_OPT_DYNAREC_SPU_SAMPLES_INFO_0_VN "Số mẫu SPU tối đa để chạy trước khi kiểm tra Cập nhật SPU, số cao hơn sẽ nhanh hơn, nhưng có thể gây lỗi âm thanh trong một số game nếu khác 1."
+#define BEETLE_OPT_CORE_TIMING_FPS_LABEL_VN "Thời gian FPS do Core báo cáo"
+#define BEETLE_OPT_CORE_TIMING_FPS_INFO_0_VN "Chọn thời gian FPS mà core sẽ báo cho giao diện chính. Chuyển đổi tự động cho phép core thay đổi giữa báo cáo tốc độ liên tục và xen kẽ, nhưng có thể gây khởi tạo lại trình điều khiển video/âm thanh của giao diện."
+#define OPTION_VAL_AUTO_TOGGLE_VN "Cho phép chuyển đổi tự động"
+#define OPTION_VAL_FORCE_PROGRESSIVE_VN "Tốc độ liên tục"
+#define OPTION_VAL_FORCE_INTERLACED_VN "Ép tốc độ xen kẽ"
+#define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_LABEL_VN "Ghi đè thời gian video PAL (Châu Âu)"
+#define BEETLE_OPT_PAL_VIDEO_TIMING_OVERRIDE_INFO_0_VN "Do tiêu chuẩn khác nhau, game PAL thường chạy chậm hơn so với phiên bản NTSC Mỹ hoặc Nhật. Tùy chọn này có thể được dùng để ghi đè thời gian PAL nhằm cố gắng chạy các game này với tốc độ khung hình NTSC. Tùy chọn này không ảnh hưởng khi chạy nội dung NTSC."
+#define BEETLE_OPT_ASPECT_RATIO_LABEL_VN "Tỷ lệ khung hình của Core"
+#define BEETLE_OPT_ASPECT_RATIO_INFO_0_VN "Chọn tỷ lệ khung hình do core cung cấp. Cài đặt này bị bỏ qua khi bật chế độ Mở rộng màn hình hoặc Hiển thị toàn bộ VRAM."
+#define OPTION_VAL_CORRECTED_VN "Đã hiệu chỉnh"
+#define OPTION_VAL_UNCORRECTED_VN "Chưa hiệu chỉnh"
+#define OPTION_VAL_4_3_VN "Ép 4:3"
+#define OPTION_VAL_NTSC_VN "Ép NTSC"
+#define BEETLE_OPT_CROP_OVERSCAN_LABEL_VN "Cắt vùng dư màn hình"
+#define BEETLE_OPT_CROP_OVERSCAN_INFO_0_VN "'Không' giữ nguyên lề (cột đen hai bên hình ảnh cho NTSC, tất cả các cạnh cho PAL) để mô phỏng các thanh đen tương tự trên tín hiệu video analog của phần cứng PSX thật. 'Cố định' chỉ loại bỏ lề ngang, 'Động' loại bỏ tất cả lề."
 #define OPTION_VAL_DISABLED_O59_VN "Không"
-#define OPTION_VAL_STATIC_VN NULL
-#define OPTION_VAL_SMART_VN NULL
-#define BEETLE_OPT_IMAGE_CROP_LABEL_VN NULL
-#define BEETLE_OPT_IMAGE_CROP_INFO_0_VN NULL
+#define OPTION_VAL_STATIC_VN "Cố định"
+#define OPTION_VAL_SMART_VN "Động (Mặc định)"
+#define BEETLE_OPT_IMAGE_CROP_LABEL_VN "Cắt bổ sung"
+#define BEETLE_OPT_IMAGE_CROP_INFO_0_VN "Khi 'Cắt dư ngang' được bật, tùy chọn này sẽ giảm thêm chiều rộng của hình ảnh đã cắt theo số pixel được chỉ định."
 #define OPTION_VAL_9PX_VN NULL
 #define OPTION_VAL_10PX_VN NULL
 #define OPTION_VAL_11PX_VN NULL
@@ -82142,8 +84924,8 @@ struct retro_core_options_v2 options_val = {
 #define OPTION_VAL_18PX_VN NULL
 #define OPTION_VAL_19PX_VN NULL
 #define OPTION_VAL_20PX_VN NULL
-#define BEETLE_OPT_IMAGE_OFFSET_LABEL_VN NULL
-#define BEETLE_OPT_IMAGE_OFFSET_INFO_0_VN NULL
+#define BEETLE_OPT_IMAGE_OFFSET_LABEL_VN "Dịch ảnh bị cắt"
+#define BEETLE_OPT_IMAGE_OFFSET_INFO_0_VN "Khi “Cắt phần thừa ngang” được bật, tùy chọn này cho phép ảnh sau khi cắt được dịch ngang sang phải (dương) hoặc sang trái (âm) theo số pixel đã chỉ định. Có thể dùng để chỉnh sửa vấn đề căn chỉnh. Chỉ được hỗ trợ bởi bộ kết xuất phần mềm."
 #define OPTION_VAL_12PX_O61_VN NULL
 #define OPTION_VAL_11PX_O61_VN NULL
 #define OPTION_VAL_10PX_O61_VN NULL
@@ -82168,27 +84950,31 @@ struct retro_core_options_v2 options_val = {
 #define OPTION_VAL_10PX_O61_0_VN NULL
 #define OPTION_VAL_11PX_O61_0_VN NULL
 #define OPTION_VAL_12PX_O61_0_VN NULL
-#define BEETLE_OPT_IMAGE_OFFSET_CYCLES_LABEL_VN NULL
-#define BEETLE_OPT_IMAGE_OFFSET_CYCLES_INFO_0_VN NULL
-#define BEETLE_OPT_INITIAL_SCANLINE_LABEL_VN NULL
-#define BEETLE_OPT_INITIAL_SCANLINE_INFO_0_VN NULL
-#define OPTION_VAL_0_O63_VN NULL
-#define BEETLE_OPT_LAST_SCANLINE_LABEL_VN NULL
-#define BEETLE_OPT_LAST_SCANLINE_INFO_0_VN NULL
-#define OPTION_VAL_239_VN NULL
-#define BEETLE_OPT_INITIAL_SCANLINE_PAL_LABEL_VN NULL
-#define BEETLE_OPT_INITIAL_SCANLINE_PAL_INFO_0_VN NULL
-#define BEETLE_OPT_LAST_SCANLINE_PAL_LABEL_VN NULL
-#define BEETLE_OPT_LAST_SCANLINE_PAL_INFO_0_VN NULL
-#define OPTION_VAL_287_VN NULL
-#define BEETLE_OPT_CD_ACCESS_METHOD_LABEL_VN NULL
-#define BEETLE_OPT_CD_ACCESS_METHOD_INFO_0_VN NULL
-#define OPTION_VAL_SYNC_VN NULL
-#define OPTION_VAL_ASYNC_VN NULL
-#define OPTION_VAL_PRECACHE_VN NULL
-#define BEETLE_OPT_CD_FASTLOAD_LABEL_VN NULL
-#define BEETLE_OPT_CD_FASTLOAD_INFO_0_VN NULL
-#define OPTION_VAL_2X_NATIVE_VN NULL
+#define BEETLE_OPT_IMAGE_OFFSET_CYCLES_LABEL_VN "Dịch ngang hình ảnh (Chu kỳ GPU)"
+#define BEETLE_OPT_IMAGE_OFFSET_CYCLES_INFO_0_VN "Chọn số chu kỳ GPU để dịch hình ảnh. Giá trị dương dịch hình sang phải, giá trị âm dịch hình sang trái. Chỉ được hỗ trợ bởi các bộ kết xuất phần cứng."
+#define BEETLE_OPT_INITIAL_SCANLINE_LABEL_VN "Dòng quét đầu tiên - NTSC"
+#define BEETLE_OPT_INITIAL_SCANLINE_INFO_0_VN "Chọn dòng quét đầu tiên hiển thị khi chạy nội dung NTSC. Giá trị lớn hơn 0 sẽ giảm chiều cao của hình ảnh xuất ra bằng cách cắt các pixel từ mép trên. Có thể sử dụng để chống letterboxing."
+#define OPTION_VAL_0_O63_VN "0 (Mặc định)"
+#define BEETLE_OPT_LAST_SCANLINE_LABEL_VN "Dòng quét cuối cùng - NTSC"
+#define BEETLE_OPT_LAST_SCANLINE_INFO_0_VN "Chọn dòng quét cuối cùng hiển thị khi chạy nội dung NTSC. Giá trị nhỏ hơn 239 sẽ giảm chiều cao của hình ảnh xuất ra bằng cách cắt các pixel từ mép dưới. Có thể sử dụng để chống letterboxing."
+#define OPTION_VAL_239_VN "239 (Mặc định)"
+#define BEETLE_OPT_INITIAL_SCANLINE_PAL_LABEL_VN "Dòng quét đầu tiên - PAL"
+#define BEETLE_OPT_INITIAL_SCANLINE_PAL_INFO_0_VN "Chọn dòng quét đầu tiên hiển thị khi chạy nội dung PAL. Giá trị lớn hơn 0 sẽ giảm chiều cao của hình ảnh xuất ra bằng cách cắt các pixel từ mép trên. Có thể sử dụng để chống letterboxing."
+#define BEETLE_OPT_LAST_SCANLINE_PAL_LABEL_VN "Dòng quét cuối cùng - PAL"
+#define BEETLE_OPT_LAST_SCANLINE_PAL_INFO_0_VN "Chọn dòng quét cuối cùng hiển thị khi chạy nội dung PAL. Giá trị nhỏ hơn 287 sẽ giảm chiều cao của hình ảnh xuất ra bằng cách cắt các pixel từ mép dưới. Có thể sử dụng để chống letterboxing."
+#define OPTION_VAL_287_VN "287 (Mặc định)"
+#define BEETLE_OPT_DEINTERLACER_LABEL_VN "Phương pháp khử răng cưa"
+#define BEETLE_OPT_DEINTERLACER_INFO_0_VN "‘Weave’ hiển thị cả hai trường trên cùng một khung hình để có hình ảnh tĩnh độ phân giải cao đầy đủ, ‘Bob’ đánh đổi độ rõ nét của độ phân giải để tăng độ rõ nét khi chuyển động."
+#define OPTION_VAL_WEAVE_VN NULL
+#define OPTION_VAL_BOB_VN NULL
+#define BEETLE_OPT_CD_ACCESS_METHOD_LABEL_VN "Phương thức truy cập CD (Cần khởi động lại)"
+#define BEETLE_OPT_CD_ACCESS_METHOD_INFO_0_VN "Chọn phương thức dùng để đọc dữ liệu từ ảnh đĩa nội dung. “Đồng bộ” mô phỏng phần cứng gốc. “Không đồng bộ” có thể giảm giật hình trên thiết bị có lưu trữ chậm. “Tải trước vào bộ nhớ” sẽ nạp toàn bộ ảnh đĩa vào RAM khi khởi chạy nội dung, có thể cải thiện thời gian tải trong game nhưng đổi lại sẽ chậm khởi động ban đầu. “Tải trước vào bộ nhớ” có thể gây vấn đề trên hệ thống có RAM thấp, và sẽ quay về “Đồng bộ” đối với phương tiện vật lý."
+#define OPTION_VAL_SYNC_VN "Đồng bộ"
+#define OPTION_VAL_ASYNC_VN "Không đồng bộ"
+#define OPTION_VAL_PRECACHE_VN "Tải trước vào bộ nhớ"
+#define BEETLE_OPT_CD_FASTLOAD_LABEL_VN "Tốc độ tải CD"
+#define BEETLE_OPT_CD_FASTLOAD_INFO_0_VN "Chọn hệ số nhân tốc độ truy cập đĩa. Giá trị cao hơn “2x (Nguyên bản)” có thể giảm đáng kể thời gian tải trong game, nhưng có thể gây lỗi về thời gian. Một số trò chơi có thể không hoạt động đúng nếu vượt quá một giá trị nhất định."
+#define OPTION_VAL_2X_NATIVE_VN "2x (Nguyên bản)"
 #define OPTION_VAL_6X_VN NULL
 #define OPTION_VAL_10X_VN NULL
 #define OPTION_VAL_12X_VN NULL
@@ -83367,11 +86153,11 @@ struct retro_core_option_v2_definition option_defs_vn[] = {
       NULL,
       NULL,
       {
+         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_VN },
          { "force_progressive", OPTION_VAL_FORCE_PROGRESSIVE_VN },
          { "force_interlaced",  OPTION_VAL_FORCE_INTERLACED_VN },
-         { "auto_toggle", OPTION_VAL_AUTO_TOGGLE_VN },
       },
-      "force_progressive"
+      "auto_toggle"
    },
    {
       BEETLE_OPT(pal_video_timing_override),
@@ -83798,6 +86584,20 @@ struct retro_core_option_v2_definition option_defs_vn[] = {
          { NULL, NULL },
       },
       "287"
+   },
+   {
+      BEETLE_OPT(deinterlacer),
+      BEETLE_OPT_DEINTERLACER_LABEL_VN,
+      NULL,
+      BEETLE_OPT_DEINTERLACER_INFO_0_VN,
+      NULL,
+      "video",
+      {
+         { "weave",  OPTION_VAL_WEAVE_VN },
+         { "bob",  OPTION_VAL_BOB_VN },
+         { NULL, NULL },
+      },
+      "weave"
    },
 #ifndef EMSCRIPTEN
    {
