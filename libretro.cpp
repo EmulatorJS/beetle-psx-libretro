@@ -1298,6 +1298,7 @@ static void PSX_Power(void)
    IRQ_Power();
 
    ForceEventUpdates(0);
+   startup_frame_count = 0;
 }
 
 template<typename T, bool Access24> static INLINE void MemPoke(pscpu_timestamp_t timestamp, uint32 A, T V)
@@ -2836,7 +2837,7 @@ static void alloc_surface(void)
 {
    MDFN_PixelFormat pix_fmt(MDFN_COLORSPACE_RGB, 16, 8, 0, 24);
    uint32_t width  = MEDNAFEN_CORE_GEOMETRY_MAX_W;
-   uint32_t height = content_is_pal ? MEDNAFEN_CORE_GEOMETRY_MAX_H  : 480;
+   uint32_t height = content_is_pal ? MEDNAFEN_CORE_GEOMETRY_MAX_H : 480;
 
    width  <<= GPU_get_upscale_shift();
    height <<= GPU_get_upscale_shift();
@@ -3128,7 +3129,7 @@ static bool has_new_geometry = false;
 static bool has_new_timing = false;
 
 uint8_t analog_combo[2] = {0};
-uint8_t HOLD = {0};
+uint8_t analog_combo_hold = 0;
 
 extern void PSXDitherApply(bool);
 
@@ -3700,31 +3701,9 @@ static void check_variables(bool startup)
    var.key = BEETLE_OPT(analog_toggle_hold);
    if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value)
    {
-      if (strcmp(var.value, "0") == 0)
-      {
-         HOLD = 0;
-      }
-      else if (strcmp(var.value, "1") == 0)
-      {
-         HOLD = 1;
-      }
-      else if (strcmp(var.value, "2") == 0)
-      {
-         HOLD = 2;
-      }
-      else if (strcmp(var.value, "3") == 0)
-      {
-         HOLD = 3;
-      }
-      else if (strcmp(var.value, "4") == 0)
-      {
-         HOLD = 4;
-      }
-      else if (strcmp(var.value, "5") == 0)
-      {
-         HOLD = 5;
-      }
+      analog_combo_hold = atoi(var.value);
    }
+
    var.key = BEETLE_OPT(crosshair_color_p1);
    if (environ_cb(RETRO_ENVIRONMENT_GET_VARIABLE, &var) && var.value)
    {
@@ -3980,11 +3959,8 @@ static void check_variables(bool startup)
       else if (strcmp(var.value, "smart") == 0)
          crop_overscan = 2;
 
-      if(crop_overscan != old_crop_overscan)
-      {
+      if (crop_overscan != old_crop_overscan)
          has_new_geometry = true;
-         old_crop_overscan = crop_overscan;
-      }
    }
 
    var.key = BEETLE_OPT(image_offset);
@@ -4823,7 +4799,9 @@ void retro_run(void)
       height = spec.DisplayRect.h;
 
 #ifdef NEED_DEINTERLACER
-      if ((currently_interlaced || PrevInterlaced) && deint.GetType() == Deinterlacer::DEINT_BOB)
+      if (     (currently_interlaced || PrevInterlaced)
+            && deint.GetType() == Deinterlacer::DEINT_BOB
+            && height > MEDNAFEN_CORE_GEOMETRY_MAX_H / 2)
          height /= 2;
 #endif
 
@@ -4873,7 +4851,7 @@ void retro_run(void)
                break;
          }
 
-         /* Smart/dynamic height geometry trigger */
+         /* Smart height geometry trigger */
          if (crop_overscan == 2)
          {
             if (image_height != height)
@@ -4888,7 +4866,10 @@ void retro_run(void)
       height <<= upscale_shift;
       pix     += pix_offset << upscale_shift;
 
-      if (GPU_get_display_possibly_dirty() || (GPU_get_display_change_count() != 0) || !allow_frame_duping || currently_interlaced || PrevInterlaced)
+      if (     GPU_get_display_possibly_dirty()
+            || GPU_get_display_change_count()
+            || (currently_interlaced || PrevInterlaced)
+            || !allow_frame_duping)
          fb = pix;
    }
 
@@ -4917,10 +4898,6 @@ void retro_run(void)
             MEDNAFEN_CORE_GEOMETRY_MAX_W << (2 + upscale_shift));
    }
 
-   /* LED interface */
-   if (led_state_cb)
-      retro_led_interface();
-
    audio_batch_cb((int16_t*)&IntermediateBuffer, spec.SoundBufSize);
 
    if (GPU_get_display_possibly_dirty() || (GPU_get_display_change_count() != 0))
@@ -4929,6 +4906,10 @@ void retro_run(void)
       GPU_set_display_change_count(0);
       GPU_set_display_possibly_dirty(false);
    }
+
+   /* LED interface */
+   if (led_state_cb)
+      retro_led_interface();
 }
 
 void retro_get_system_info(struct retro_system_info *info)

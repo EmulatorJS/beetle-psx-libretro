@@ -1,3 +1,4 @@
+SILENT := 0
 DEBUG = 0
 FRONTEND_SUPPORTS_RGB565 = 1
 HAVE_OPENGL = 0
@@ -492,6 +493,14 @@ else
    endif
 endif
 
+# WebOS (32-bit)
+ifneq (,$(findstring webos,$(CROSS_COMPILE)))
+   GLES = 1
+   GLES3 = 1
+   GL_LIB := -lGLESv2
+   HAVE_VULKAN = 0
+endif
+
 include Makefile.common
 
 # https://github.com/libretro-mirrors/mednafen-git/blob/master/README.PORTING
@@ -631,9 +640,15 @@ else
 endif
 
 %.o: %.cpp
+	@if [ $(SILENT) -ne 1 ]; then\
+		$(if $@, $(shell echo echo CXX $<),);\
+	fi
 	$(CXX) -c $(OBJOUT)$@ $< $(CXXFLAGS)
 
 %.o: %.c
+	@if [ $(SILENT) -ne 1 ]; then\
+		$(if $@, $(shell echo echo CC $<),);\
+	fi
 	$(CC) -c $(OBJOUT)$@ $< $(CFLAGS)
 
 clean:
